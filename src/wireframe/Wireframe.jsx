@@ -55,23 +55,21 @@ export default function Wireframe() {
   return (
     <div className="bg-white font-mono min-h-screen" style={{ color: '#323625' }}>
 
-      {/* HERO — сплошной фон #B5BD9A */}
-      <section className="min-h-screen flex flex-col justify-center px-8 md:px-16 py-24 border-b border-gray-300" style={{ background: '#B5BD9A' }}>
-        <div className="max-w-4xl">
-          <p className="text-xs uppercase tracking-widest mb-6" style={{ color: '#6b7057' }}>Home Wood Spa</p>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6" style={{ color: '#1a1c14' }}>
-            Строительство СПА и Wellness-комплексов мирового класса
-          </h1>
-          <p className="text-lg max-w-2xl mb-10 leading-relaxed" style={{ color: '#4a4e3a' }}>
-            От аутентичных турецких хаммамов до скандинавских саун и полноценных wellness-комплексов — мы привносим 17 лет европейского мастерства в luxury-отели, курорты и частные резиденции по всему миру.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <Button href="#contact" shadow={true}>
-              Записаться на бесплатную консультацию
-            </Button>
-          </div>
-          <p className="text-sm" style={{ color: '#6b7057' }}>Нам доверяют 5-звездочные курорты в Европе, Центральной Азии и за их пределами</p>
+      {/* HERO — сплошной фон #B5BD9A, всё по центру */}
+      <section className="min-h-screen flex flex-col items-center justify-center px-8 md:px-16 py-24 border-b border-gray-300 text-center" style={{ background: '#B5BD9A' }}>
+        <p className="text-xs uppercase tracking-widest mb-6" style={{ color: '#6b7057' }}>Home Wood Spa</p>
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 max-w-3xl" style={{ color: '#1a1c14' }}>
+          Строительство СПА и Wellness-комплексов мирового класса
+        </h1>
+        <p className="text-lg max-w-2xl mb-10 leading-relaxed" style={{ color: '#4a4e3a' }}>
+          От аутентичных турецких хаммамов до скандинавских саун и полноценных wellness-комплексов — мы привносим 17 лет европейского мастерства в luxury-отели, курорты и частные резиденции по всему миру.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+          <Button href="#contact" shadow={true}>
+            Записаться на бесплатную консультацию
+          </Button>
         </div>
+        <p className="text-sm" style={{ color: '#6b7057' }}>Нам доверяют 5-звездочные курорты в Европе, Центральной Азии и за их пределами</p>
       </section>
 
       {/* SOCIAL PROOF BAR */}
