@@ -1,61 +1,99 @@
-// WIREFRAME — Home Wood Spa
-// Только структура. Без цвета, теней, типографики.
-
 export default function Wireframe() {
+  const expertise = [
+    { title: 'Коммерческие СПА-комплексы', text: 'Luxury СПА для отелей с множественными термальными зонами, зонами релаксации и пространствами для процедур. От бутик-отелей до 5-звездочных курортов.' },
+    { title: 'Традиционные хаммамы', text: 'Аутентичные турецкие хаммамы с традиционным мастерством, премиальной мраморной отделкой и современными техническими системами — от камерных частных бань до коммерческих объектов.' },
+    { title: 'Термальные впечатления', text: 'Финские сауны, инфракрасные кабины, русские бани, японские офуро, снежные комнаты, соляные терапевтические камеры — мы привносим мировые wellness-традиции в ваше пространство.' },
+  ]
+  const projects = [
+    { title: 'Emily Resort & Spa', loc: 'Львов, Украина | 5-звездочный luxury-курорт', text: '12 уникальных саун и парных, 5 бассейнов включая спортивный 25x16м, профессиональный хаммам, открытые джакузи и подогреваемый инфинити-бассейн — полноценное wellness-направление, построенное вокруг 7-гектарового эко-озера.' },
+    { title: 'Sadu Hotel & SOP Spa', loc: 'Алматы, Казахстан | Radisson Individuals', text: 'Премиальный этно-СПА для бутик-отеля на 108 номеров, сочетающий традиционные дизайнерские элементы с современными термальными впечатлениями и wellness-удобствами.' },
+    { title: 'Taze Bay', loc: 'Баку, Азербайджан | Реконструкция исторических бань', text: 'Полная реконструкция исторического хаммама с турецкой баней в традиционном стиле, русской сауной с гималайской солью, VIP парными, снежной комнатой и современными системами освещения.' },
+  ]
+  const steps = [
+    { num: '1', title: 'Исследование и планирование', items: ['Анализ рынка', 'Исследование конкурентов', 'Оценка спроса', 'Технико-экономическое обоснование'] },
+    { num: '2', title: 'Концепция и дизайн', items: ['Разработка уникальной концепции', 'Архитектурный дизайн', '3D визуализация', 'Подбор материалов'] },
+    { num: '3', title: 'Строительство и установка', items: ['Поставка премиальных материалов', 'Экспертное мастерство', 'Технические системы', 'Контроль качества'] },
+    { num: '4', title: 'Запуск и поддержка', items: ['Подбор и обучение персонала', 'Операционное руководство', 'Поддержка перед открытием', 'Консалтинг по управлению'] },
+  ]
+  const materials = [
+    { title: 'Канадский кедр', text: 'Премиальная скандинавская древесина для аутентичного строительства саун с натуральными ароматерапевтическими свойствами и исключительной долговечностью.', img: '[IMAGE: кедровые доски / вагонка]' },
+    { title: 'Гималайская соль', text: 'Блоки и плитка из натуральной розовой соли для терапевтических соляных комнат, обеспечивающие очистку воздуха и уникальную атмосферу.', img: '[IMAGE: соляные блоки розовые]' },
+    { title: 'Мрамор Calacatta', text: 'Итальянский мрамор для luxury-хаммамов — вневременная элегантность с исключительной теплоотдачей и влагостойкостью.', img: '[IMAGE: мраморные плиты Calacatta]' },
+  ]
+  const segments = [
+    { title: 'Отели и курорты', text: 'Поднимите свою собственность на новый уровень с СПА мирового класса, который сам становится направлением. От бутик-отелей до luxury-курортов.' },
+    { title: 'Wellness-центры', text: 'Создавайте терапевтические пространства с аутентичными термальными впечатлениями — от традиционных лечебных практик до современных wellness-концепций.' },
+    { title: 'Luxury резиденции', text: 'Частные СПА-комплексы, домашние сауны и персональные хаммамы, спроектированные для самых взыскательных домовладельцев.' },
+    { title: 'Корпоративные объекты', text: 'Wellness-удобства для руководителей, которые улучшают корпоративную культуру и предоставляют премиальные льготы для высокоэффективных команд.' },
+  ]
+  const advantages = [
+    '17+ лет международного опыта',
+    '300+ завершенных проектов в 4 странах',
+    'Полная доставка под ключ от концепции до запуска',
+    'Премиальные материалы от проверенных европейских поставщиков',
+    'Внутренняя экспертиза: дизайн, инжиниринг, строительство, управление',
+    'Доказанный послужной список с 5-звездочными отелями и курортами',
+    'Кастомные решения, адаптированные под ваше видение и пространство',
+    'Соответствие международным wellness-стандартам',
+    'Постоянная поддержка и операционное руководство',
+    'Один надежный партнер от планирования до открытия',
+  ]
+  const pins = [
+    { label: 'Украина', sub: 'Одесса, Киев, Днепр, Львов', x: '38%', y: '28%' },
+    { label: 'Азербайджан', sub: 'Баку', x: '56%', y: '38%' },
+    { label: 'Казахстан', sub: 'Астана, Алматы', x: '68%', y: '28%' },
+    { label: 'Португалия', sub: 'Коимбра', x: '17%', y: '34%' },
+  ]
+  const testimonials = [
+    { quote: 'СПА в Emily Resort стал нашей визитной карточкой. Гости специально бронируют у нас ради термальных впечатлений — 12 уникальных саун, аутентичный хаммам и wellness-путешествие, которое выделяет нас на рынке.', author: 'Управление Emily Resort' },
+    { quote: 'От концепции до завершения Home Wood Spa превзошли ожидания. Их внимание к деталям, качество материалов и понимание аутентичного строительства хаммамов не имеют аналогов.', author: 'Taze Bay Historic Baths, Баку' },
+    { quote: 'Они не просто построили СПА — они создали wellness-направление. Термальный контур, премиальная отделка и продуманный дизайн подняли всю нашу собственность на новый уровень.', author: 'Sadu Hotel & Radisson Individuals' },
+  ]
+
   return (
     <div className="bg-white font-mono text-gray-800 min-h-screen">
 
       {/* NAV */}
-      <nav className="border-b border-gray-300 px-8 py-4 flex items-center justify-between">
-        <div className="bg-gray-300 h-6 w-40 rounded" />
-        <div className="hidden md:flex gap-8">
-          {['Услуги','Проекты','Процесс','О нас','Контакты'].map(i => (
-            <div key={i} className="bg-gray-200 h-4 w-16 rounded" />
-          ))}
+      <nav className="border-b border-gray-300 px-8 py-4 flex items-center justify-between sticky top-0 bg-white z-50">
+        <span className="font-bold text-gray-700 text-lg">Home Wood Spa</span>
+        <div className="hidden md:flex gap-8 text-sm text-gray-500">
+          {['Услуги','Проекты','Процесс','О нас','Контакты'].map(i => <span key={i}>{i}</span>)}
         </div>
-        <div className="bg-gray-400 h-9 w-44 rounded" />
+        <div className="bg-gray-800 text-white text-xs px-4 py-2 rounded cursor-pointer">
+          Записаться на консультацию
+        </div>
       </nav>
 
       {/* HERO */}
       <section className="min-h-screen flex flex-col justify-center px-8 md:px-16 py-24 border-b border-gray-300 relative overflow-hidden">
-        <div className="bg-gray-200 absolute inset-0 z-0" />
+        <div className="bg-gray-100 absolute inset-0 z-0" />
         <div className="relative z-10 max-w-4xl">
-          <div className="bg-gray-300 h-3 w-32 rounded mb-6" />
-          <div className="space-y-4 mb-8">
-            <div className="bg-gray-500 h-10 w-full max-w-3xl rounded" />
-            <div className="bg-gray-500 h-10 w-2/3 rounded" />
-          </div>
-          <div className="space-y-2 mb-10">
-            <div className="bg-gray-300 h-4 w-full max-w-2xl rounded" />
-            <div className="bg-gray-300 h-4 w-5/6 rounded" />
-            <div className="bg-gray-300 h-4 w-3/4 rounded" />
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <div className="bg-gray-700 h-12 w-64 rounded flex items-center justify-center">
-              <span className="text-white text-sm">Записаться на консультацию</span>
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-6">Home Wood Spa</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-6">
+            Строительство СПА и Wellness-комплексов мирового класса
+          </h1>
+          <p className="text-gray-500 text-lg max-w-2xl mb-10 leading-relaxed">
+            От аутентичных турецких хаммамов до скандинавских саун и полноценных wellness-комплексов — мы привносим 17 лет европейского мастерства в luxury-отели, курорты и частные резиденции по всему миру.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <div className="bg-gray-800 text-white text-sm px-8 py-3 rounded inline-block cursor-pointer">
+              Записаться на бесплатную консультацию
             </div>
           </div>
-          <div className="bg-gray-300 h-4 w-72 rounded" />
+          <p className="text-gray-400 text-sm">Нам доверяют 5-звездочные курорты в Европе, Центральной Азии и за их пределами</p>
         </div>
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
-          <div className="bg-gray-300 w-full h-full flex items-end justify-start p-4">
-            <span className="text-gray-500 text-xs">[IMAGE: Emily Resort главный СПА-зал]</span>
-          </div>
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:flex items-end p-6 bg-gray-200">
+          <span className="text-gray-400 text-xs">[IMAGE: Emily Resort главный СПА-зал]</span>
         </div>
       </section>
 
       {/* SOCIAL PROOF BAR */}
-      <section className="border-b border-gray-300 px-8 py-8">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { num: '17+', label: 'лет опыта' },
-            { num: '300+', label: 'проектов' },
-            { num: '4', label: 'страны' },
-            { num: 'Под ключ', label: 'доставка' },
-          ].map(({ num, label }) => (
-            <div key={num} className="flex flex-col items-center gap-2 border border-gray-200 p-6">
-              <div className="bg-gray-500 h-8 w-24 rounded" />
-              <div className="bg-gray-200 h-3 w-16 rounded" />
+      <section className="border-b border-gray-300 px-8 py-10">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200">
+          {[{num:'17+',label:'лет опыта'},{num:'300+',label:'проектов'},{num:'4',label:'страны'},{num:'Под ключ',label:'доставка'}].map(({num,label}) => (
+            <div key={num} className="bg-white flex flex-col items-center gap-1 py-8 px-4">
+              <span className="text-2xl font-bold text-gray-800">{num}</span>
+              <span className="text-gray-400 text-sm">{label}</span>
             </div>
           ))}
         </div>
@@ -65,22 +103,14 @@ export default function Wireframe() {
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="bg-gray-200 h-3 w-24 rounded mb-6" />
-            <div className="space-y-3 mb-6">
-              <div className="bg-gray-500 h-8 w-full rounded" />
-              <div className="bg-gray-500 h-8 w-4/5 rounded" />
-            </div>
-            <div className="space-y-2 mb-4">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="bg-gray-200 h-4 w-full rounded" />
-              ))}
-              <div className="bg-gray-200 h-4 w-3/4 rounded" />
-            </div>
-            <div className="mt-4 space-y-2">
-              {[...Array(2)].map((_, i) => (
-                <div key={i} className="bg-gray-200 h-4 w-5/6 rounded" />
-              ))}
-            </div>
+            <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">О компании</p>
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">Создаем wellness-пространства, которые трансформируют</h2>
+            <p className="text-gray-500 leading-relaxed mb-4">
+              Почти два десятилетия Home Wood Spa проектирует и строит премиальные wellness-пространства, которые превосходят самые высокие ожидания. От масштабных курортных СПА-комплексов с дюжиной уникальных термальных зон до камерных частных хаммамов — мы соединяем древние банные традиции с современным дизайном, премиальными материалами и технической точностью.
+            </p>
+            <p className="text-gray-500 leading-relaxed">
+              Каждый проект начинается с вашего видения и заканчивается wellness-пространством, которое запомнят ваши гости.
+            </p>
           </div>
           <div className="bg-gray-200 aspect-[4/3] rounded flex items-end p-4">
             <span className="text-gray-400 text-xs">[IMAGE: Emily Resort главный СПА-зал]</span>
@@ -91,33 +121,20 @@ export default function Wireframe() {
       {/* ЭКСПЕРТИЗА */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gray-200 h-3 w-24 rounded mb-6" />
-          <div className="space-y-3 mb-4">
-            <div className="bg-gray-500 h-8 w-2/3 rounded" />
-          </div>
-          <div className="bg-gray-300 h-4 w-96 rounded mb-12" />
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Экспертиза</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Полноценные wellness-пространства, а не просто комнаты</h2>
+          <p className="text-gray-500 mb-12">Мы не строим отдельные сауны — мы создаем полные термальные путешествия.</p>
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              'Коммерческие СПА-комплексы',
-              'Традиционные хаммамы',
-              'Термальные впечатления',
-            ].map((title) => (
+            {expertise.map(({title,text}) => (
               <div key={title} className="border border-gray-300 p-8 bg-white">
                 <div className="bg-gray-300 h-10 w-10 rounded mb-6" />
-                <div className="bg-gray-500 h-5 w-4/5 rounded mb-4" />
-                <div className="space-y-2">
-                  {[...Array(3)].map((_, i) => (
-                    <div key={i} className="bg-gray-200 h-3 w-full rounded" />
-                  ))}
-                  <div className="bg-gray-200 h-3 w-2/3 rounded" />
-                </div>
+                <h3 className="text-gray-800 font-semibold text-lg mb-3">{title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{text}</p>
               </div>
             ))}
           </div>
           <div className="mt-10 flex justify-center">
-            <div className="border border-gray-400 h-10 w-48 rounded flex items-center justify-center">
-              <span className="text-gray-500 text-sm">Изучить наши услуги →</span>
-            </div>
+            <div className="border border-gray-400 px-8 py-3 text-gray-600 text-sm rounded cursor-pointer">Изучить наши услуги →</div>
           </div>
         </div>
       </section>
@@ -125,80 +142,54 @@ export default function Wireframe() {
       {/* ПРОЕКТЫ */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gray-200 h-3 w-24 rounded mb-6" />
-          <div className="bg-gray-500 h-8 w-2/3 rounded mb-4" />
-          <div className="space-y-2 mb-12">
-            <div className="bg-gray-300 h-4 w-full max-w-xl rounded" />
-          </div>
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Портфолио</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Wellness-пространства, которые задают стандарт</h2>
+          <p className="text-gray-500 mb-12 max-w-xl">Каждый проект отражает нашу приверженность мастерству, вниманию к деталям и созданию пространств, где wellness становится опытом.</p>
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { title: 'Emily Resort & Spa', loc: 'Львов, Украина | 5★' },
-              { title: 'Sadu Hotel & SOP Spa', loc: 'Алматы, Казахстан | Radisson' },
-              { title: 'Taze Bay', loc: 'Баку, Азербайджан' },
-            ].map(({ title, loc }) => (
+            {projects.map(({title,loc,text}) => (
               <div key={title} className="border border-gray-200">
                 <div className="bg-gray-300 aspect-[4/3] w-full flex items-end p-3">
                   <span className="text-gray-400 text-xs">[IMAGE: {title}]</span>
                 </div>
                 <div className="p-6">
-                  <div className="bg-gray-200 h-3 w-32 rounded mb-3" />
-                  <div className="bg-gray-500 h-5 w-4/5 rounded mb-2" />
-                  <div className="space-y-2 mb-4">
-                    {[...Array(3)].map((_, i) => (
-                      <div key={i} className="bg-gray-200 h-3 w-full rounded" />
-                    ))}
-                  </div>
-                  <div className="bg-gray-300 h-4 w-32 rounded" />
+                  <p className="text-gray-400 text-xs uppercase tracking-wide mb-2">{loc}</p>
+                  <h3 className="text-gray-800 font-semibold text-lg mb-3">{title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{text}</p>
+                  <span className="text-gray-600 text-sm underline cursor-pointer">Посмотреть проект →</span>
                 </div>
               </div>
             ))}
           </div>
           <div className="mt-10 flex justify-center">
-            <div className="bg-gray-700 h-10 w-56 rounded flex items-center justify-center">
-              <span className="text-white text-sm">Посмотреть портфолио →</span>
-            </div>
+            <div className="bg-gray-800 text-white px-8 py-3 text-sm rounded cursor-pointer">Посмотреть полное портфолио →</div>
           </div>
         </div>
       </section>
 
-      {/* ПОД КЛЮЧ — 4 ЭТАПА */}
+      {/* ПОД КЛЮЧ */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gray-200 h-3 w-24 rounded mb-6" />
-          <div className="bg-gray-500 h-8 w-2/3 rounded mb-4" />
-          <div className="space-y-2 mb-12">
-            <div className="bg-gray-300 h-4 w-full max-w-2xl rounded" />
-            <div className="bg-gray-300 h-4 w-3/4 rounded" />
-          </div>
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Процесс</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">От видения до дня открытия — мы управляем всем</h2>
+          <p className="text-gray-500 mb-12 max-w-2xl">Строительство СПА мирового класса требует больше, чем просто строительства. Наш подход под ключ означает, что вы работаете с одной командой от маркетингового исследования до дня открытия.</p>
           <div className="grid md:grid-cols-4 gap-6">
-            {[
-              '1. Исследование и планирование',
-              '2. Концепция и дизайн',
-              '3. Строительство и установка',
-              '4. Запуск и поддержка',
-            ].map((step) => (
-              <div key={step} className="bg-white border border-gray-200 p-6">
-                <div className="bg-gray-400 h-8 w-8 rounded-full mb-4" />
-                <div className="bg-gray-500 h-4 w-full rounded mb-4" />
-                <div className="space-y-2">
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <div className="bg-gray-300 h-2 w-2 rounded-full shrink-0" />
-                      <div className="bg-gray-200 h-3 w-full rounded" />
-                    </div>
+            {steps.map(({num,title,items}) => (
+              <div key={num} className="bg-white border border-gray-200 p-6">
+                <div className="bg-gray-800 text-white h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold mb-4">{num}</div>
+                <h3 className="text-gray-800 font-semibold text-sm mb-4">{title}</h3>
+                <ul className="space-y-2">
+                  {items.map(item => (
+                    <li key={item} className="flex items-start gap-2 text-gray-500 text-xs">
+                      <span className="mt-1 shrink-0">—</span><span>{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
-          <div className="mt-10 border border-gray-300 p-6 max-w-2xl mx-auto text-center">
-            <div className="space-y-2 mb-4">
-              <div className="bg-gray-300 h-4 w-full rounded mx-auto" />
-              <div className="bg-gray-300 h-4 w-4/5 rounded mx-auto" />
-            </div>
-            <div className="border border-gray-400 h-10 w-48 rounded mx-auto flex items-center justify-center">
-              <span className="text-gray-500 text-sm">Узнать о нашем процессе</span>
-            </div>
+          <div className="mt-10 border border-gray-300 p-8 max-w-2xl mx-auto text-center">
+            <p className="text-gray-500 text-sm mb-4">Добавляете ли вы СПА в свой отель, создаете wellness-центр или строите частную резиденцию — мы привносим экспертизу, чтобы сделать это исключительным.</p>
+            <div className="border border-gray-400 px-8 py-3 text-gray-600 text-sm rounded inline-block cursor-pointer">Узнать о нашем процессе</div>
           </div>
         </div>
       </section>
@@ -206,58 +197,39 @@ export default function Wireframe() {
       {/* МАТЕРИАЛЫ */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gray-200 h-3 w-24 rounded mb-6" />
-          <div className="bg-gray-500 h-8 w-2/3 rounded mb-12" />
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Материалы</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12">Построено на века, создано для вдохновения</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { mat: 'Канадский кедр', img: '[IMAGE: кедровые доски]' },
-              { mat: 'Гималайская соль', img: '[IMAGE: соляные блоки]' },
-              { mat: 'Мрамор Calacatta', img: '[IMAGE: мраморные плиты]' },
-            ].map(({ mat, img }) => (
-              <div key={mat} className="border border-gray-200">
+            {materials.map(({title,text,img}) => (
+              <div key={title} className="border border-gray-200">
                 <div className="bg-gray-300 aspect-square w-full flex items-end p-3">
                   <span className="text-gray-400 text-xs">{img}</span>
                 </div>
                 <div className="p-6">
-                  <div className="bg-gray-500 h-5 w-3/4 rounded mb-3" />
-                  <div className="space-y-2">
-                    {[...Array(2)].map((_, i) => (
-                      <div key={i} className="bg-gray-200 h-3 w-full rounded" />
-                    ))}
-                  </div>
+                  <h3 className="text-gray-800 font-semibold text-lg mb-3">{title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{text}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-8 space-y-2 max-w-2xl">
-            <div className="bg-gray-200 h-4 w-full rounded" />
-            <div className="bg-gray-200 h-4 w-4/5 rounded" />
-          </div>
+          <p className="mt-8 text-gray-500 text-sm max-w-2xl leading-relaxed">
+            Каждый материал выбирается как за его терапевтические свойства, так и за долговечную красоту. От талькохлоридных плиток до натурального камня — мы поставляем только лучшие элементы для вашего wellness-пространства.
+          </p>
         </div>
       </section>
 
       {/* ДЛЯ КОГО */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gray-200 h-3 w-24 rounded mb-6" />
-          <div className="bg-gray-500 h-8 w-2/3 rounded mb-12" />
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Клиенты</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12">Нам доверяют ведущие wellness-направления</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            {[
-              'Отели и курорты',
-              'Wellness-центры',
-              'Luxury резиденции',
-              'Корпоративные объекты',
-            ].map((segment) => (
-              <div key={segment} className="border border-gray-200 p-8 bg-white flex gap-6 items-start">
+            {segments.map(({title,text}) => (
+              <div key={title} className="border border-gray-200 p-8 bg-white flex gap-6 items-start">
                 <div className="bg-gray-300 h-12 w-12 rounded shrink-0" />
-                <div className="flex-1">
-                  <div className="bg-gray-500 h-5 w-3/5 rounded mb-3" />
-                  <div className="space-y-2">
-                    {[...Array(2)].map((_, i) => (
-                      <div key={i} className="bg-gray-200 h-3 w-full rounded" />
-                    ))}
-                    <div className="bg-gray-200 h-3 w-2/3 rounded" />
-                  </div>
+                <div>
+                  <h3 className="text-gray-800 font-semibold text-lg mb-2">{title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{text}</p>
                 </div>
               </div>
             ))}
@@ -268,46 +240,38 @@ export default function Wireframe() {
       {/* ПОЧЕМУ HWS */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gray-200 h-3 w-24 rounded mb-6" />
-          <div className="bg-gray-500 h-8 w-2/3 rounded mb-12" />
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Преимущества</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12">Европейская экспертиза, мировые стандарты</h2>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-4">
-            {[...Array(10)].map((_, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div className="bg-gray-400 h-5 w-5 rounded shrink-0" />
-                <div className="bg-gray-200 h-4 w-full rounded" />
+            {advantages.map(item => (
+              <div key={item} className="flex items-start gap-3">
+                <span className="text-gray-400 shrink-0">✓</span>
+                <p className="text-gray-600 text-sm">{item}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* КАРТА / МЕЖДУНАРОДНОЕ ПОРТФОЛИО */}
+      {/* КАРТА */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gray-200 h-3 w-24 rounded mb-6" />
-          <div className="bg-gray-500 h-8 w-2/3 rounded mb-4" />
-          <div className="bg-gray-300 h-4 w-96 rounded mb-12" />
-          <div className="bg-gray-200 w-full aspect-[16/7] rounded flex items-center justify-center relative">
-            <span className="text-gray-400 text-sm">[MAP: интерактивная карта с метками — UA / AZ / KZ / PT / расширение: USA]</span>
-            {[
-              { label: 'Украина', x: '38%', y: '30%' },
-              { label: 'Азербайджан', x: '55%', y: '38%' },
-              { label: 'Казахстан', x: '68%', y: '30%' },
-              { label: 'Португалия', x: '18%', y: '35%' },
-            ].map(({ label, x, y }) => (
-              <div
-                key={label}
-                className="absolute"
-                style={{ left: x, top: y }}
-              >
-                <div className="bg-gray-500 h-3 w-3 rounded-full" />
-                <span className="text-gray-500 text-xs whitespace-nowrap">{label}</span>
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">География</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Создаем wellness-превосходство по всему миру</h2>
+          <p className="text-gray-500 mb-12 max-w-lg">От реконструкций исторических бань до современных курортных СПА — наше международное портфолио демонстрирует универсальность, культурную чуткость и непоколебимую приверженность совершенству.</p>
+          <div className="bg-gray-200 w-full aspect-[16/7] rounded relative overflow-hidden flex items-center justify-center">
+            <span className="text-gray-400 text-sm z-0">[MAP: интерактивная карта]</span>
+            {pins.map(({label,sub,x,y}) => (
+              <div key={label} className="absolute flex flex-col items-center" style={{left:x,top:y}}>
+                <div className="bg-gray-600 h-3 w-3 rounded-full" />
+                <span className="text-gray-700 text-xs font-semibold whitespace-nowrap mt-1">{label}</span>
+                <span className="text-gray-500 text-xs whitespace-nowrap">{sub}</span>
               </div>
             ))}
           </div>
-          <div className="mt-8 space-y-2 max-w-xl">
-            <div className="bg-gray-200 h-4 w-full rounded" />
-            <div className="bg-gray-200 h-4 w-4/5 rounded" />
+          <div className="mt-4 flex items-center gap-2">
+            <div className="bg-gray-300 h-2 w-2 rounded-full" />
+            <span className="text-gray-400 text-xs">Расширение: Соединённые Штаты</span>
           </div>
         </div>
       </section>
@@ -315,24 +279,15 @@ export default function Wireframe() {
       {/* ОТЗЫВЫ */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gray-200 h-3 w-24 rounded mb-6" />
-          <div className="bg-gray-500 h-8 w-2/3 rounded mb-12" />
+          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Отзывы</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12">Что говорят наши клиенты</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              'Управление Emily Resort',
-              'Taze Bay Historic Baths, Баку',
-              'Sadu Hotel & Radisson Individuals',
-            ].map((author) => (
+            {testimonials.map(({quote,author}) => (
               <div key={author} className="border border-gray-200 p-8">
-                <div className="bg-gray-300 h-4 w-6 rounded mb-4" />
-                <div className="space-y-2 mb-6">
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="bg-gray-200 h-3 w-full rounded" />
-                  ))}
-                  <div className="bg-gray-200 h-3 w-3/4 rounded" />
-                </div>
+                <span className="text-gray-300 text-4xl font-serif leading-none block mb-4">"</span>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">{quote}</p>
                 <div className="border-t border-gray-200 pt-4">
-                  <div className="bg-gray-400 h-3 w-40 rounded" />
+                  <span className="text-gray-500 text-xs font-semibold">— {author}</span>
                 </div>
               </div>
             ))}
@@ -343,23 +298,14 @@ export default function Wireframe() {
       {/* ФИНАЛЬНЫЙ CTA */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-24 bg-gray-800">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="bg-gray-600 h-3 w-24 rounded mx-auto mb-6" />
-          <div className="space-y-3 mb-6">
-            <div className="bg-gray-400 h-8 w-full rounded mx-auto" />
-            <div className="bg-gray-400 h-8 w-4/5 rounded mx-auto" />
-          </div>
-          <div className="space-y-2 mb-10">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="bg-gray-600 h-4 w-full rounded mx-auto" />
-            ))}
-          </div>
+          <p className="text-gray-500 text-xs uppercase tracking-widest mb-6">Начать проект</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-100 mb-6">Готовы создать своё wellness-направление?</h2>
+          <p className="text-gray-400 mb-10 leading-relaxed">
+            Планируете ли вы luxury СПА для отеля, аутентичный хаммам или полноценный wellness-комплекс — мы привносим экспертизу, чтобы сделать его исключительным. Запишитесь на бесплатную консультацию, чтобы обсудить ваше видение.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <div className="bg-gray-200 h-12 w-64 rounded flex items-center justify-center">
-              <span className="text-gray-800 text-sm">Записаться на консультацию</span>
-            </div>
-            <div className="border border-gray-500 h-12 w-52 rounded flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Скачать портфолио [PDF]</span>
-            </div>
+            <div className="bg-white text-gray-800 text-sm px-8 py-3 rounded font-semibold cursor-pointer">Записаться на бесплатную консультацию</div>
+            <div className="border border-gray-600 text-gray-400 text-sm px-8 py-3 rounded cursor-pointer">Скачать наше портфолио [PDF]</div>
           </div>
         </div>
       </section>
@@ -368,32 +314,37 @@ export default function Wireframe() {
       <footer className="px-8 md:px-16 py-16">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12">
           <div>
-            <div className="bg-gray-400 h-6 w-36 rounded mb-4" />
-            <div className="space-y-2">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="bg-gray-200 h-3 w-full rounded" />
-              ))}
-            </div>
-            <div className="mt-4 space-y-2">
-              {['Homewoodspa@gmail.com', '+1 (678) 520-9556', '+1 (470) 760-9323'].map((c) => (
-                <div key={c} className="bg-gray-200 h-3 w-40 rounded" />
-              ))}
+            <span className="font-bold text-gray-800 text-base block mb-4">Home Wood Spa</span>
+            <p className="text-gray-500 text-sm leading-relaxed mb-6">Более 17 лет специализируемся на проектировании, строительстве и управлении премиальными wellness-комплексами.</p>
+            <div className="space-y-2 text-gray-400 text-xs">
+              <p>Homewoodspa@gmail.com</p>
+              <p>Homewoodspa.com</p>
+              <p>+1 (678) 520-9556 — Igor Kostin</p>
+              <p>+1 (470) 760-9323 — Eugene Voit</p>
             </div>
           </div>
-          {['Услуги', 'Проекты', 'Портфолио'].map((col) => (
-            <div key={col}>
-              <div className="bg-gray-400 h-4 w-24 rounded mb-4" />
-              <div className="space-y-3">
-                {[...Array(5)].map((_, i) => (
-                  <div key={i} className="bg-gray-200 h-3 w-32 rounded" />
-                ))}
-              </div>
-            </div>
-          ))}
+          <div>
+            <span className="text-gray-700 font-semibold text-sm block mb-4">Услуги</span>
+            <ul className="space-y-2 text-gray-500 text-sm">
+              {['Коммерческие СПА-комплексы','Luxury хаммамы','Традиционные сауны','Термальные впечатления','Строительство под ключ','Дизайн и консалтинг'].map(i => <li key={i}>{i}</li>)}
+            </ul>
+          </div>
+          <div>
+            <span className="text-gray-700 font-semibold text-sm block mb-4">Проекты</span>
+            <ul className="space-y-2 text-gray-500 text-sm">
+              {['Отели и курорты','Wellness-центры','Частные резиденции','Корпоративные объекты'].map(i => <li key={i}>{i}</li>)}
+            </ul>
+          </div>
+          <div>
+            <span className="text-gray-700 font-semibold text-sm block mb-4">Портфолио</span>
+            <ul className="space-y-2 text-gray-500 text-sm">
+              {['Европа','Центральная Азия','Северная Америка (скоро)'].map(i => <li key={i}>{i}</li>)}
+            </ul>
+          </div>
         </div>
-        <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-200 flex justify-between">
-          <div className="bg-gray-200 h-3 w-48 rounded" />
-          <div className="bg-gray-200 h-3 w-32 rounded" />
+        <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between gap-4 text-gray-400 text-xs">
+          <span>© 2024 Home Wood Spa. Все права защищены.</span>
+          <span>Политика конфиденциальности · Условия использования</span>
         </div>
       </footer>
 
