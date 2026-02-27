@@ -53,17 +53,6 @@ export default function Wireframe() {
   return (
     <div className="bg-white font-mono text-gray-800 min-h-screen">
 
-      {/* NAV */}
-      <nav className="border-b border-gray-300 px-8 py-4 flex items-center justify-between sticky top-0 bg-white z-50">
-        <span className="font-bold text-gray-700 text-lg">Home Wood Spa</span>
-        <div className="hidden md:flex gap-8 text-sm text-gray-500">
-          {['Услуги','Проекты','Процесс','О нас','Контакты'].map(i => <span key={i}>{i}</span>)}
-        </div>
-        <div className="bg-gray-800 text-white text-xs px-4 py-2 rounded cursor-pointer">
-          Записаться на консультацию
-        </div>
-      </nav>
-
       {/* HERO */}
       <section className="min-h-screen flex flex-col justify-center px-8 md:px-16 py-24 border-b border-gray-300 relative overflow-hidden">
         <div className="bg-gray-100 absolute inset-0 z-0" />
