@@ -7,3 +7,34 @@
   margin: 0;
   padding: 0;
 }
+
+/* Глобальный цвет текста */
+body {
+  color: #323625;
+}
+
+/* ── Ohio button hover states ──
+   Source: ohio CSS
+   .button:hover → transition all cubic-bezier(.645,.045,.355,1)
+   .-with-shadow hover → shadow increases subtly
+*/
+.ohio-btn {
+  transition: all 0.3s cubic-bezier(.645,.045,.355,1) !important;
+}
+
+.ohio-btn-filled:hover {
+  background: #2d2a35 !important;
+  border-color: #2d2a35 !important;
+  box-shadow: 0 5px 10px 0 rgb(0 0 0 / .12) !important;
+}
+
+.ohio-btn-outlined:hover {
+  background: #111013 !important;
+  color: #ffffff !important;
+  border-color: #111013 !important;
+  box-shadow: 0 3px 5px 0 rgb(0 0 0 / .06) !important;
+}
+
+.ohio-btn-ghost:hover {
+  opacity: 0.7;
+}

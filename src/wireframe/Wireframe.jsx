@@ -1,3 +1,5 @@
+import Button from '../components/ui/Button'
+
 export default function Wireframe() {
   const expertise = [
     { title: 'Коммерческие СПА-комплексы', text: 'Luxury СПА для отелей с множественными термальными зонами, зонами релаксации и пространствами для процедур. От бутик-отелей до 5-звездочных курортов.' },
@@ -51,28 +53,24 @@ export default function Wireframe() {
   ]
 
   return (
-    <div className="bg-white font-mono text-gray-800 min-h-screen">
+    <div className="bg-white font-mono min-h-screen" style={{ color: '#323625' }}>
 
-      {/* HERO */}
-      <section className="min-h-screen flex flex-col justify-center px-8 md:px-16 py-24 border-b border-gray-300 relative overflow-hidden">
-        <div className="bg-gray-100 absolute inset-0 z-0" />
-        <div className="relative z-10 max-w-4xl">
-          <p className="text-gray-400 text-xs uppercase tracking-widest mb-6">Home Wood Spa</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-6">
+      {/* HERO — сплошной фон #B5BD9A */}
+      <section className="min-h-screen flex flex-col justify-center px-8 md:px-16 py-24 border-b border-gray-300" style={{ background: '#B5BD9A' }}>
+        <div className="max-w-4xl">
+          <p className="text-xs uppercase tracking-widest mb-6" style={{ color: '#6b7057' }}>Home Wood Spa</p>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6" style={{ color: '#1a1c14' }}>
             Строительство СПА и Wellness-комплексов мирового класса
           </h1>
-          <p className="text-gray-500 text-lg max-w-2xl mb-10 leading-relaxed">
+          <p className="text-lg max-w-2xl mb-10 leading-relaxed" style={{ color: '#4a4e3a' }}>
             От аутентичных турецких хаммамов до скандинавских саун и полноценных wellness-комплексов — мы привносим 17 лет европейского мастерства в luxury-отели, курорты и частные резиденции по всему миру.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <div className="bg-gray-800 text-white text-sm px-8 py-3 rounded inline-block cursor-pointer">
+            <Button href="#contact" shadow={true}>
               Записаться на бесплатную консультацию
-            </div>
+            </Button>
           </div>
-          <p className="text-gray-400 text-sm">Нам доверяют 5-звездочные курорты в Европе, Центральной Азии и за их пределами</p>
-        </div>
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:flex items-end p-6 bg-gray-200">
-          <span className="text-gray-400 text-xs">[IMAGE: Emily Resort главный СПА-зал]</span>
+          <p className="text-sm" style={{ color: '#6b7057' }}>Нам доверяют 5-звездочные курорты в Европе, Центральной Азии и за их пределами</p>
         </div>
       </section>
 
@@ -81,8 +79,8 @@ export default function Wireframe() {
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200">
           {[{num:'17+',label:'лет опыта'},{num:'300+',label:'проектов'},{num:'4',label:'страны'},{num:'Под ключ',label:'доставка'}].map(({num,label}) => (
             <div key={num} className="bg-white flex flex-col items-center gap-1 py-8 px-4">
-              <span className="text-2xl font-bold text-gray-800">{num}</span>
-              <span className="text-gray-400 text-sm">{label}</span>
+              <span className="text-2xl font-bold">{num}</span>
+              <span className="text-sm" style={{ color: '#888' }}>{label}</span>
             </div>
           ))}
         </div>
@@ -92,12 +90,12 @@ export default function Wireframe() {
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">О компании</p>
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">Создаем wellness-пространства, которые трансформируют</h2>
-            <p className="text-gray-500 leading-relaxed mb-4">
+            <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>О компании</p>
+            <h2 className="text-3xl font-bold mb-6">Создаем wellness-пространства, которые трансформируют</h2>
+            <p className="leading-relaxed mb-4" style={{ color: '#555' }}>
               Почти два десятилетия Home Wood Spa проектирует и строит премиальные wellness-пространства, которые превосходят самые высокие ожидания. От масштабных курортных СПА-комплексов с дюжиной уникальных термальных зон до камерных частных хаммамов — мы соединяем древние банные традиции с современным дизайном, премиальными материалами и технической точностью.
             </p>
-            <p className="text-gray-500 leading-relaxed">
+            <p className="leading-relaxed" style={{ color: '#555' }}>
               Каждый проект начинается с вашего видения и заканчивается wellness-пространством, которое запомнят ваши гости.
             </p>
           </div>
@@ -110,20 +108,22 @@ export default function Wireframe() {
       {/* ЭКСПЕРТИЗА */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Экспертиза</p>
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Полноценные wellness-пространства, а не просто комнаты</h2>
-          <p className="text-gray-500 mb-12">Мы не строим отдельные сауны — мы создаем полные термальные путешествия.</p>
+          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Экспертиза</p>
+          <h2 className="text-3xl font-bold mb-4">Полноценные wellness-пространства, а не просто комнаты</h2>
+          <p className="mb-12" style={{ color: '#555' }}>Мы не строим отдельные сауны — мы создаем полные термальные путешествия.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {expertise.map(({title,text}) => (
               <div key={title} className="border border-gray-300 p-8 bg-white">
                 <div className="bg-gray-300 h-10 w-10 rounded mb-6" />
-                <h3 className="text-gray-800 font-semibold text-lg mb-3">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{text}</p>
+                <h3 className="font-semibold text-lg mb-3">{title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#555' }}>{text}</p>
               </div>
             ))}
           </div>
           <div className="mt-10 flex justify-center">
-            <div className="border border-gray-400 px-8 py-3 text-gray-600 text-sm rounded cursor-pointer">Изучить наши услуги →</div>
+            <Button href="#services" variant="outlined" shadow={false}>
+              Изучить наши услуги →
+            </Button>
           </div>
         </div>
       </section>
@@ -131,9 +131,9 @@ export default function Wireframe() {
       {/* ПРОЕКТЫ */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Портфолио</p>
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Wellness-пространства, которые задают стандарт</h2>
-          <p className="text-gray-500 mb-12 max-w-xl">Каждый проект отражает нашу приверженность мастерству, вниманию к деталям и созданию пространств, где wellness становится опытом.</p>
+          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Портфолио</p>
+          <h2 className="text-3xl font-bold mb-4">Wellness-пространства, которые задают стандарт</h2>
+          <p className="mb-12 max-w-xl" style={{ color: '#555' }}>Каждый проект отражает нашу приверженность мастерству, вниманию к деталям и созданию пространств, где wellness становится опытом.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {projects.map(({title,loc,text}) => (
               <div key={title} className="border border-gray-200">
@@ -141,16 +141,16 @@ export default function Wireframe() {
                   <span className="text-gray-400 text-xs">[IMAGE: {title}]</span>
                 </div>
                 <div className="p-6">
-                  <p className="text-gray-400 text-xs uppercase tracking-wide mb-2">{loc}</p>
-                  <h3 className="text-gray-800 font-semibold text-lg mb-3">{title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{text}</p>
-                  <span className="text-gray-600 text-sm underline cursor-pointer">Посмотреть проект →</span>
+                  <p className="text-xs uppercase tracking-wide mb-2" style={{ color: '#888' }}>{loc}</p>
+                  <h3 className="font-semibold text-lg mb-3">{title}</h3>
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: '#555' }}>{text}</p>
+                  <span className="text-sm underline cursor-pointer">Посмотреть проект →</span>
                 </div>
               </div>
             ))}
           </div>
           <div className="mt-10 flex justify-center">
-            <div className="bg-gray-800 text-white px-8 py-3 text-sm rounded cursor-pointer">Посмотреть полное портфолио →</div>
+            <Button href="#portfolio">Посмотреть полное портфолио →</Button>
           </div>
         </div>
       </section>
@@ -158,17 +158,17 @@ export default function Wireframe() {
       {/* ПОД КЛЮЧ */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Процесс</p>
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">От видения до дня открытия — мы управляем всем</h2>
-          <p className="text-gray-500 mb-12 max-w-2xl">Строительство СПА мирового класса требует больше, чем просто строительства. Наш подход под ключ означает, что вы работаете с одной командой от маркетингового исследования до дня открытия.</p>
+          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Процесс</p>
+          <h2 className="text-3xl font-bold mb-4">От видения до дня открытия — мы управляем всем</h2>
+          <p className="mb-12 max-w-2xl" style={{ color: '#555' }}>Строительство СПА мирового класса требует больше, чем просто строительства. Наш подход под ключ означает, что вы работаете с одной командой от маркетингового исследования до дня открытия.</p>
           <div className="grid md:grid-cols-4 gap-6">
             {steps.map(({num,title,items}) => (
               <div key={num} className="bg-white border border-gray-200 p-6">
                 <div className="bg-gray-800 text-white h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold mb-4">{num}</div>
-                <h3 className="text-gray-800 font-semibold text-sm mb-4">{title}</h3>
+                <h3 className="font-semibold text-sm mb-4">{title}</h3>
                 <ul className="space-y-2">
                   {items.map(item => (
-                    <li key={item} className="flex items-start gap-2 text-gray-500 text-xs">
+                    <li key={item} className="flex items-start gap-2 text-xs" style={{ color: '#555' }}>
                       <span className="mt-1 shrink-0">—</span><span>{item}</span>
                     </li>
                   ))}
@@ -177,8 +177,8 @@ export default function Wireframe() {
             ))}
           </div>
           <div className="mt-10 border border-gray-300 p-8 max-w-2xl mx-auto text-center">
-            <p className="text-gray-500 text-sm mb-4">Добавляете ли вы СПА в свой отель, создаете wellness-центр или строите частную резиденцию — мы привносим экспертизу, чтобы сделать это исключительным.</p>
-            <div className="border border-gray-400 px-8 py-3 text-gray-600 text-sm rounded inline-block cursor-pointer">Узнать о нашем процессе</div>
+            <p className="text-sm mb-6" style={{ color: '#555' }}>Добавляете ли вы СПА в свой отель, создаете wellness-центр или строите частную резиденцию — мы привносим экспертизу, чтобы сделать это исключительным.</p>
+            <Button href="#process" variant="outlined" shadow={false}>Узнать о нашем процессе</Button>
           </div>
         </div>
       </section>
@@ -186,8 +186,8 @@ export default function Wireframe() {
       {/* МАТЕРИАЛЫ */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Материалы</p>
-          <h2 className="text-3xl font-bold text-gray-800 mb-12">Построено на века, создано для вдохновения</h2>
+          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Материалы</p>
+          <h2 className="text-3xl font-bold mb-12">Построено на века, создано для вдохновения</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {materials.map(({title,text,img}) => (
               <div key={title} className="border border-gray-200">
@@ -195,13 +195,13 @@ export default function Wireframe() {
                   <span className="text-gray-400 text-xs">{img}</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-gray-800 font-semibold text-lg mb-3">{title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{text}</p>
+                  <h3 className="font-semibold text-lg mb-3">{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#555' }}>{text}</p>
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-gray-500 text-sm max-w-2xl leading-relaxed">
+          <p className="mt-8 text-sm max-w-2xl leading-relaxed" style={{ color: '#555' }}>
             Каждый материал выбирается как за его терапевтические свойства, так и за долговечную красоту. От талькохлоридных плиток до натурального камня — мы поставляем только лучшие элементы для вашего wellness-пространства.
           </p>
         </div>
@@ -210,15 +210,15 @@ export default function Wireframe() {
       {/* ДЛЯ КОГО */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Клиенты</p>
-          <h2 className="text-3xl font-bold text-gray-800 mb-12">Нам доверяют ведущие wellness-направления</h2>
+          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Клиенты</p>
+          <h2 className="text-3xl font-bold mb-12">Нам доверяют ведущие wellness-направления</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {segments.map(({title,text}) => (
               <div key={title} className="border border-gray-200 p-8 bg-white flex gap-6 items-start">
                 <div className="bg-gray-300 h-12 w-12 rounded shrink-0" />
                 <div>
-                  <h3 className="text-gray-800 font-semibold text-lg mb-2">{title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{text}</p>
+                  <h3 className="font-semibold text-lg mb-2">{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#555' }}>{text}</p>
                 </div>
               </div>
             ))}
@@ -229,13 +229,13 @@ export default function Wireframe() {
       {/* ПОЧЕМУ HWS */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Преимущества</p>
-          <h2 className="text-3xl font-bold text-gray-800 mb-12">Европейская экспертиза, мировые стандарты</h2>
+          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Преимущества</p>
+          <h2 className="text-3xl font-bold mb-12">Европейская экспертиза, мировые стандарты</h2>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-4">
             {advantages.map(item => (
               <div key={item} className="flex items-start gap-3">
-                <span className="text-gray-400 shrink-0">✓</span>
-                <p className="text-gray-600 text-sm">{item}</p>
+                <span style={{ color: '#888' }} className="shrink-0">✓</span>
+                <p className="text-sm">{item}</p>
               </div>
             ))}
           </div>
@@ -245,22 +245,22 @@ export default function Wireframe() {
       {/* КАРТА */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">География</p>
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Создаем wellness-превосходство по всему миру</h2>
-          <p className="text-gray-500 mb-12 max-w-lg">От реконструкций исторических бань до современных курортных СПА — наше международное портфолио демонстрирует универсальность, культурную чуткость и непоколебимую приверженность совершенству.</p>
+          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>География</p>
+          <h2 className="text-3xl font-bold mb-4">Создаем wellness-превосходство по всему миру</h2>
+          <p className="mb-12 max-w-lg" style={{ color: '#555' }}>От реконструкций исторических бань до современных курортных СПА — наше международное портфолио демонстрирует универсальность, культурную чуткость и непоколебимую приверженность совершенству.</p>
           <div className="bg-gray-200 w-full aspect-[16/7] rounded relative overflow-hidden flex items-center justify-center">
             <span className="text-gray-400 text-sm z-0">[MAP: интерактивная карта]</span>
             {pins.map(({label,sub,x,y}) => (
               <div key={label} className="absolute flex flex-col items-center" style={{left:x,top:y}}>
                 <div className="bg-gray-600 h-3 w-3 rounded-full" />
-                <span className="text-gray-700 text-xs font-semibold whitespace-nowrap mt-1">{label}</span>
-                <span className="text-gray-500 text-xs whitespace-nowrap">{sub}</span>
+                <span className="text-xs font-semibold whitespace-nowrap mt-1">{label}</span>
+                <span className="text-xs whitespace-nowrap" style={{ color: '#555' }}>{sub}</span>
               </div>
             ))}
           </div>
           <div className="mt-4 flex items-center gap-2">
             <div className="bg-gray-300 h-2 w-2 rounded-full" />
-            <span className="text-gray-400 text-xs">Расширение: Соединённые Штаты</span>
+            <span className="text-xs" style={{ color: '#888' }}>Расширение: Соединённые Штаты</span>
           </div>
         </div>
       </section>
@@ -268,15 +268,15 @@ export default function Wireframe() {
       {/* ОТЗЫВЫ */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-20">
         <div className="max-w-6xl mx-auto">
-          <p className="text-gray-400 text-xs uppercase tracking-widest mb-4">Отзывы</p>
-          <h2 className="text-3xl font-bold text-gray-800 mb-12">Что говорят наши клиенты</h2>
+          <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Отзывы</p>
+          <h2 className="text-3xl font-bold mb-12">Что говорят наши клиенты</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map(({quote,author}) => (
               <div key={author} className="border border-gray-200 p-8">
                 <span className="text-gray-300 text-4xl font-serif leading-none block mb-4">"</span>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">{quote}</p>
+                <p className="text-sm leading-relaxed mb-6" style={{ color: '#555' }}>{quote}</p>
                 <div className="border-t border-gray-200 pt-4">
-                  <span className="text-gray-500 text-xs font-semibold">— {author}</span>
+                  <span className="text-xs font-semibold" style={{ color: '#888' }}>— {author}</span>
                 </div>
               </div>
             ))}
@@ -287,14 +287,18 @@ export default function Wireframe() {
       {/* ФИНАЛЬНЫЙ CTA */}
       <section className="border-b border-gray-300 px-8 md:px-16 py-24 bg-gray-800">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-gray-500 text-xs uppercase tracking-widest mb-6">Начать проект</p>
+          <p className="text-xs uppercase tracking-widest mb-6 text-gray-500">Начать проект</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-100 mb-6">Готовы создать своё wellness-направление?</h2>
           <p className="text-gray-400 mb-10 leading-relaxed">
             Планируете ли вы luxury СПА для отеля, аутентичный хаммам или полноценный wellness-комплекс — мы привносим экспертизу, чтобы сделать его исключительным. Запишитесь на бесплатную консультацию, чтобы обсудить ваше видение.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <div className="bg-white text-gray-800 text-sm px-8 py-3 rounded font-semibold cursor-pointer">Записаться на бесплатную консультацию</div>
-            <div className="border border-gray-600 text-gray-400 text-sm px-8 py-3 rounded cursor-pointer">Скачать наше портфолио [PDF]</div>
+            <Button href="#contact" style={{ background: '#fff', color: '#111013', border: '1px solid #fff' }}>
+              Записаться на бесплатную консультацию
+            </Button>
+            <Button href="#portfolio" variant="outlined" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }} shadow={false}>
+              Скачать портфолио [PDF]
+            </Button>
           </div>
         </div>
       </section>
@@ -303,9 +307,9 @@ export default function Wireframe() {
       <footer className="px-8 md:px-16 py-16">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12">
           <div>
-            <span className="font-bold text-gray-800 text-base block mb-4">Home Wood Spa</span>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">Более 17 лет специализируемся на проектировании, строительстве и управлении премиальными wellness-комплексами.</p>
-            <div className="space-y-2 text-gray-400 text-xs">
+            <span className="font-bold text-base block mb-4">Home Wood Spa</span>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: '#555' }}>Более 17 лет специализируемся на проектировании, строительстве и управлении премиальными wellness-комплексами.</p>
+            <div className="space-y-2 text-xs" style={{ color: '#888' }}>
               <p>Homewoodspa@gmail.com</p>
               <p>Homewoodspa.com</p>
               <p>+1 (678) 520-9556 — Igor Kostin</p>
@@ -313,25 +317,25 @@ export default function Wireframe() {
             </div>
           </div>
           <div>
-            <span className="text-gray-700 font-semibold text-sm block mb-4">Услуги</span>
-            <ul className="space-y-2 text-gray-500 text-sm">
+            <span className="font-semibold text-sm block mb-4">Услуги</span>
+            <ul className="space-y-2 text-sm" style={{ color: '#555' }}>
               {['Коммерческие СПА-комплексы','Luxury хаммамы','Традиционные сауны','Термальные впечатления','Строительство под ключ','Дизайн и консалтинг'].map(i => <li key={i}>{i}</li>)}
             </ul>
           </div>
           <div>
-            <span className="text-gray-700 font-semibold text-sm block mb-4">Проекты</span>
-            <ul className="space-y-2 text-gray-500 text-sm">
+            <span className="font-semibold text-sm block mb-4">Проекты</span>
+            <ul className="space-y-2 text-sm" style={{ color: '#555' }}>
               {['Отели и курорты','Wellness-центры','Частные резиденции','Корпоративные объекты'].map(i => <li key={i}>{i}</li>)}
             </ul>
           </div>
           <div>
-            <span className="text-gray-700 font-semibold text-sm block mb-4">Портфолио</span>
-            <ul className="space-y-2 text-gray-500 text-sm">
+            <span className="font-semibold text-sm block mb-4">Портфолио</span>
+            <ul className="space-y-2 text-sm" style={{ color: '#555' }}>
               {['Европа','Центральная Азия','Северная Америка (скоро)'].map(i => <li key={i}>{i}</li>)}
             </ul>
           </div>
         </div>
-        <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between gap-4 text-gray-400 text-xs">
+        <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between gap-4 text-xs" style={{ color: '#888' }}>
           <span>© 2024 Home Wood Spa. Все права защищены.</span>
           <span>Политика конфиденциальности · Условия использования</span>
         </div>

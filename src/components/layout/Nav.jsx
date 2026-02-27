@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const NAV_LINKS = [
   { label: 'Услуги',   href: '#services' },
@@ -25,13 +25,12 @@ export default function Nav() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const openMenu  = () => { setMenuVisible(true);  setTimeout(() => setMenuOpen(true), 10) }
+  const openMenu  = () => { setMenuVisible(true); setTimeout(() => setMenuOpen(true), 10) }
   const closeMenu = () => { setMenuOpen(false); setTimeout(() => setMenuVisible(false), 500) }
 
   return (
     <>
-      {/* ── FLOATING PILL NAV ── */}
-      {/* Top offset: 1.5vw ≈ 24px on 1440. Side margin matches. */}
+      {/* FLOATING PILL NAV */}
       <div
         className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
         style={{ padding: '1.5vw max(1.5vw, 16px) 0' }}
@@ -41,9 +40,7 @@ export default function Nav() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className={[
-            // pill wrapper — inner padding 0.5rem (8px) all sides
-            'pointer-events-auto w-full flex items-center gap-2',
-            'p-2 rounded-full transition-all duration-500',
+            'pointer-events-auto w-full flex items-center gap-2 p-2 rounded-full transition-all duration-500',
             scrolled
               ? 'bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.08)]'
               : 'bg-white/10 backdrop-blur-sm',
@@ -51,17 +48,15 @@ export default function Nav() {
           style={{ maxWidth: '1344px', transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)' }}
         >
 
-          {/* Hamburger circle — 2.75rem × 2.75rem (44px) */}
+          {/* Hamburger — 2.75rem circle */}
           <button
             onClick={menuOpen ? closeMenu : openMenu}
             aria-label="Меню"
             className={[
               'flex items-center justify-center rounded-full shrink-0 transition-colors duration-300',
-              scrolled
-                ? 'bg-gray-100 hover:bg-gray-200 text-gray-800'
-                : 'bg-white/20 hover:bg-white/30 text-white',
+              scrolled ? 'bg-gray-100 hover:bg-gray-200' : 'bg-white/20 hover:bg-white/30',
             ].join(' ')}
-            style={{ width: '2.75rem', height: '2.75rem' }}
+            style={{ width: '2.75rem', height: '2.75rem', color: scrolled ? '#222222' : '#ffffff' }}
           >
             <div className="flex flex-col gap-[5px]" style={{ width: '16px' }}>
               <motion.span
@@ -88,16 +83,18 @@ export default function Nav() {
           {/* Logo */}
           <a
             href="/"
-            className={[
-              'font-display whitespace-nowrap transition-colors duration-300 shrink-0',
-              scrolled ? 'text-gray-950' : 'text-white',
-            ].join(' ')}
-            style={{ fontSize: '0.8rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}
+            className="font-display whitespace-nowrap transition-colors duration-300 shrink-0"
+            style={{
+              fontSize: '0.8rem',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: scrolled ? '#222222' : '#ffffff',
+            }}
           >
             Home Wood Spa
           </a>
 
-          {/* Desktop nav links — height 2.75rem, padding-x 1.25rem, font-size 1rem */}
+          {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-1 flex-1 justify-center">
             {NAV_LINKS.map(({ label, href }) => (
               <a
@@ -105,35 +102,35 @@ export default function Nav() {
                 href={href}
                 className={[
                   'font-sans font-medium rounded-full flex items-center transition-all duration-300 whitespace-nowrap',
-                  scrolled
-                    ? 'text-gray-600 hover:text-gray-950 hover:bg-gray-100'
-                    : 'text-white/80 hover:text-white hover:bg-white/15',
+                  scrolled ? 'hover:bg-gray-100' : 'hover:bg-white/15',
                 ].join(' ')}
-                style={{ height: '2.75rem', paddingLeft: '1.25rem', paddingRight: '1.25rem', fontSize: '1rem' }}
+                style={{
+                  height: '2.75rem',
+                  paddingLeft: '1.25rem',
+                  paddingRight: '1.25rem',
+                  fontSize: '1rem',
+                  color: scrolled ? '#222222' : 'rgba(255,255,255,0.85)',
+                }}
               >
                 {label}
               </a>
             ))}
           </nav>
 
-          {/* Spacer on mobile so CTA stays right */}
           <div className="flex-1 md:hidden" />
 
-          {/* CTA pill button — height 2.75rem, padding-x 1.25rem, border-radius 24px */}
+          {/* CTA */}
           <a
             href="#contact"
-            className={[
-              'shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap',
-              scrolled
-                ? 'bg-gray-950 text-white hover:bg-gray-700'
-                : 'bg-white text-gray-950 hover:bg-white/90',
-            ].join(' ')}
+            className="shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap"
             style={{
               height: '2.75rem',
               paddingLeft: '1.25rem',
               paddingRight: '1.25rem',
               borderRadius: '24px',
               fontSize: '0.95rem',
+              background: scrolled ? '#222222' : '#ffffff',
+              color:      scrolled ? '#ffffff' : '#222222',
             }}
           >
             Консультация
@@ -142,7 +139,7 @@ export default function Nav() {
         </motion.div>
       </div>
 
-      {/* ── MOBILE SLIDE-IN ── */}
+      {/* MOBILE SLIDE-IN */}
       {menuVisible && (
         <div className="fixed inset-0 z-40 md:hidden">
           <motion.div
@@ -159,10 +156,10 @@ export default function Nav() {
             className="absolute top-0 left-0 bottom-0 w-72 bg-white flex flex-col shadow-2xl"
           >
             <div className="flex items-center justify-between px-6 border-b border-gray-100" style={{ height: '4.5rem' }}>
-              <span className="font-display text-gray-950" style={{ fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+              <span className="font-display" style={{ fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#222222' }}>
                 Home Wood Spa
               </span>
-              <button onClick={closeMenu} className="text-gray-400 hover:text-gray-950 transition-colors p-1">
+              <button onClick={closeMenu} className="transition-colors p-1" style={{ color: '#aaa' }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
@@ -178,8 +175,8 @@ export default function Nav() {
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: menuOpen ? 1 : 0, x: menuOpen ? 0 : -16 }}
                   transition={{ delay: 0.08 + i * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-sans font-medium text-gray-900 py-3 border-b border-gray-100 hover:text-gray-400 transition-colors"
-                  style={{ fontSize: '1.2rem' }}
+                  className="font-sans font-medium py-3 border-b border-gray-100 transition-colors"
+                  style={{ fontSize: '1.2rem', color: '#222222' }}
                 >
                   {label}
                 </motion.a>
@@ -190,8 +187,8 @@ export default function Nav() {
               <a
                 href="#contact"
                 onClick={closeMenu}
-                className="flex items-center justify-center w-full font-sans font-semibold bg-gray-950 text-white hover:bg-gray-700 transition-colors duration-300"
-                style={{ height: '2.75rem', borderRadius: '24px', fontSize: '0.9rem', letterSpacing: '0.08em' }}
+                className="flex items-center justify-center w-full font-sans font-semibold transition-colors duration-300"
+                style={{ height: '2.75rem', borderRadius: '24px', fontSize: '0.9rem', background: '#222222', color: '#ffffff' }}
               >
                 Записаться на консультацию
               </a>
