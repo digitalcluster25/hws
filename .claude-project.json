@@ -1,0 +1,40 @@
+{
+  "project": {
+    "name": "hws",
+    "created": "2026-02-27",
+    "local_path": "/Users/macbookpro/Coding/hws",
+    "repository": "https://github.com/digitalcluster25/hws",
+    "branch": "main",
+    "deploy_platform": "railway"
+  },
+  "stack": {
+    "frontend": "React + Vite + Tailwind CSS",
+    "backend": null,
+    "analytics": "GTM + GA4",
+    "gtm_id": "GTM-XXXXXXX"
+  },
+  "design": {
+    "style": null,
+    "colors": [],
+    "fonts": [],
+    "figma_url": null,
+    "mobile_first": true
+  },
+  "stages": {
+    "init": "done",
+    "brief": "pending",
+    "ux_wireframe": "pending",
+    "ui_design": "pending",
+    "development": "pending",
+    "seo": "pending"
+  },
+  "seo": {
+    "lang": "ru",
+    "canonical": "https://domain.com"
+  },
+  "copywriting": {
+    "source_file": "content.md",
+    "language": "ru"
+  },
+  "git_log": []
+}
