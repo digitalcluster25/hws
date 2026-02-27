@@ -31,46 +31,56 @@ export default function Nav() {
   return (
     <>
       {/* ── FLOATING PILL NAV ── */}
-      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 md:pt-5 pointer-events-none">
+      {/* Top offset: 1.5vw ≈ 24px on 1440. Side margin matches. */}
+      <div
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
+        style={{ padding: '1.5vw max(1.5vw, 16px) 0' }}
+      >
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className={[
-            'pointer-events-auto w-full max-w-5xl flex items-center justify-between gap-4',
-            'px-2 py-2 rounded-full transition-all duration-500 ease-expo',
+            // pill wrapper — inner padding 0.5rem (8px) all sides
+            'pointer-events-auto w-full flex items-center gap-2',
+            'p-2 rounded-full transition-all duration-500',
             scrolled
-              ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_32px_rgba(0,0,0,0.10)]'
-              : 'bg-white/10 backdrop-blur-sm shadow-[0_4px_32px_rgba(0,0,0,0.08)]',
+              ? 'bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.08)]'
+              : 'bg-white/10 backdrop-blur-sm',
           ].join(' ')}
+          style={{ maxWidth: '1344px', transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)' }}
         >
 
-          {/* Left: Hamburger circle */}
+          {/* Hamburger circle — 2.75rem × 2.75rem (44px) */}
           <button
             onClick={menuOpen ? closeMenu : openMenu}
             aria-label="Меню"
             className={[
-              'flex items-center justify-center w-10 h-10 rounded-full shrink-0 transition-all duration-300',
+              'flex items-center justify-center rounded-full shrink-0 transition-colors duration-300',
               scrolled
                 ? 'bg-gray-100 hover:bg-gray-200 text-gray-800'
                 : 'bg-white/20 hover:bg-white/30 text-white',
             ].join(' ')}
+            style={{ width: '2.75rem', height: '2.75rem' }}
           >
-            <div className="flex flex-col gap-[5px] w-4">
+            <div className="flex flex-col gap-[5px]" style={{ width: '16px' }}>
               <motion.span
                 animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="block h-px w-full bg-current origin-center"
+                className="block bg-current origin-center"
+                style={{ height: '1px' }}
               />
               <motion.span
                 animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.2 }}
-                className="block h-px w-full bg-current"
+                className="block bg-current"
+                style={{ height: '1px' }}
               />
               <motion.span
                 animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="block h-px w-full bg-current origin-center"
+                className="block bg-current origin-center"
+                style={{ height: '1px' }}
               />
             </div>
           </button>
@@ -79,40 +89,52 @@ export default function Nav() {
           <a
             href="/"
             className={[
-              'font-display text-xs tracking-[0.2em] uppercase whitespace-nowrap transition-colors duration-400 pl-1',
+              'font-display whitespace-nowrap transition-colors duration-300 shrink-0',
               scrolled ? 'text-gray-950' : 'text-white',
             ].join(' ')}
+            style={{ fontSize: '0.8rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}
           >
             Home Wood Spa
           </a>
 
-          {/* Desktop links — center */}
+          {/* Desktop nav links — height 2.75rem, padding-x 1.25rem, font-size 1rem */}
           <nav className="hidden md:flex items-center gap-1 flex-1 justify-center">
             {NAV_LINKS.map(({ label, href }) => (
               <a
                 key={label}
                 href={href}
                 className={[
-                  'font-sans text-sm font-medium px-4 py-2 rounded-full transition-all duration-300',
+                  'font-sans font-medium rounded-full flex items-center transition-all duration-300 whitespace-nowrap',
                   scrolled
                     ? 'text-gray-600 hover:text-gray-950 hover:bg-gray-100'
                     : 'text-white/80 hover:text-white hover:bg-white/15',
                 ].join(' ')}
+                style={{ height: '2.75rem', paddingLeft: '1.25rem', paddingRight: '1.25rem', fontSize: '1rem' }}
               >
                 {label}
               </a>
             ))}
           </nav>
 
-          {/* CTA pill button */}
+          {/* Spacer on mobile so CTA stays right */}
+          <div className="flex-1 md:hidden" />
+
+          {/* CTA pill button — height 2.75rem, padding-x 1.25rem, border-radius 24px */}
           <a
             href="#contact"
             className={[
-              'shrink-0 font-sans text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-300 whitespace-nowrap',
+              'shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap',
               scrolled
                 ? 'bg-gray-950 text-white hover:bg-gray-700'
                 : 'bg-white text-gray-950 hover:bg-white/90',
             ].join(' ')}
+            style={{
+              height: '2.75rem',
+              paddingLeft: '1.25rem',
+              paddingRight: '1.25rem',
+              borderRadius: '24px',
+              fontSize: '0.95rem',
+            }}
           >
             Консультация
           </a>
@@ -136,8 +158,8 @@ export default function Nav() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="absolute top-0 left-0 bottom-0 w-72 bg-white flex flex-col shadow-2xl"
           >
-            <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100">
-              <span className="font-display text-xs tracking-widest uppercase text-gray-950">
+            <div className="flex items-center justify-between px-6 border-b border-gray-100" style={{ height: '4.5rem' }}>
+              <span className="font-display text-gray-950" style={{ fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
                 Home Wood Spa
               </span>
               <button onClick={closeMenu} className="text-gray-400 hover:text-gray-950 transition-colors p-1">
@@ -156,7 +178,8 @@ export default function Nav() {
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: menuOpen ? 1 : 0, x: menuOpen ? 0 : -16 }}
                   transition={{ delay: 0.08 + i * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-sans text-xl font-medium text-gray-900 py-3 border-b border-gray-100 hover:text-gray-400 transition-colors"
+                  className="font-sans font-medium text-gray-900 py-3 border-b border-gray-100 hover:text-gray-400 transition-colors"
+                  style={{ fontSize: '1.2rem' }}
                 >
                   {label}
                 </motion.a>
@@ -167,7 +190,8 @@ export default function Nav() {
               <a
                 href="#contact"
                 onClick={closeMenu}
-                className="block w-full text-center font-sans text-xs font-semibold tracking-widest uppercase px-6 py-4 rounded-full bg-gray-950 text-white hover:bg-gray-700 transition-colors duration-300"
+                className="flex items-center justify-center w-full font-sans font-semibold bg-gray-950 text-white hover:bg-gray-700 transition-colors duration-300"
+                style={{ height: '2.75rem', borderRadius: '24px', fontSize: '0.9rem', letterSpacing: '0.08em' }}
               >
                 Записаться на консультацию
               </a>
