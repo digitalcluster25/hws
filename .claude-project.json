@@ -14,15 +14,15 @@
     "gtm_id": "GTM-XXXXXXX"
   },
   "design": {
-    "style": null,
-    "colors": [],
-    "fonts": [],
+    "style": "минималистичный, ультрасовременный, ультрастильный",
+    "colors": ["grayscale: white, black, shades of gray"],
+    "fonts": ["TBD — ждём референсы"],
     "figma_url": null,
     "mobile_first": true
   },
   "stages": {
     "init": "done",
-    "brief": "pending",
+    "brief": "done",
     "ux_wireframe": "pending",
     "ui_design": "pending",
     "development": "pending",
@@ -30,11 +30,31 @@
   },
   "seo": {
     "lang": "ru",
-    "canonical": "https://domain.com"
+    "title": "Строительство СПА и Wellness-комплексов мирового класса | Home Wood Spa",
+    "description": "Премиальное строительство СПА, саун и хаммамов для luxury-отелей и курортов. 17+ лет опыта, 300+ проектов, доставка под ключ от Европы до США.",
+    "canonical": "https://homewoodspa.com"
   },
   "copywriting": {
-    "source_file": "content.md",
-    "language": "ru"
+    "source_file": "/Users/macbookpro/Coding/hws/assets/copy.md",
+    "language": "ru",
+    "sections": [
+      "Hero",
+      "Social proof bar",
+      "Кто мы",
+      "Экспертиза (3 колонки)",
+      "Проекты (3 карточки)",
+      "Под ключ (4 этапа)",
+      "Материалы (3 колонки)",
+      "Для кого (2x2)",
+      "Почему HWS (чеклист)",
+      "Карта / международное портфолио",
+      "Отзывы (3)",
+      "Финальный CTA",
+      "Футер"
+    ]
   },
-  "git_log": []
+  "git_log": [
+    "chore: init project",
+    "chore: brief complete"
+  ]
 }
