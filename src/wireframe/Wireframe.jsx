@@ -53,7 +53,7 @@ export default function Wireframe() {
   ]
 
   return (
-    <div className="bg-white font-mono min-h-screen" style={{ color: '#323625' }}>
+    <div className="bg-white font-sans min-h-screen" style={{ color: '#323625' }}>
 
       {/* HERO — сплошной фон #B5BD9A, всё по центру */}
       <section className="min-h-screen flex flex-col items-center justify-center px-8 md:px-16 py-24 border-b border-gray-300 text-center" style={{ background: '#B5BD9A' }}>
