@@ -11,6 +11,8 @@
 /* Глобальный цвет текста */
 body {
   color: #323625;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
 }
 
 /* ── Ohio button hover states ──

@@ -21,7 +21,7 @@ export default {
         },
       },
       fontFamily: {
-        sans:    ['Urbanist', 'sans-serif'],
+        sans:    ['Inter', 'sans-serif'],
         display: ['"Azeret Mono"', 'monospace'],
       },
       fontSize: {
