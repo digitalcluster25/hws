@@ -39,12 +39,13 @@ export default function Nav() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className={[
-            'pointer-events-auto w-full flex items-center gap-2 p-2 rounded-full transition-all duration-500',
-            scrolled
-              ? 'bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.08)]'
-              : 'bg-white/10 backdrop-blur-sm',
-          ].join(' ')}
+          className="pointer-events-auto w-full flex items-center gap-2 p-2 rounded-full transition-all duration-500"
+          style={{
+            background: scrolled ? '#323625' : 'rgba(50,54,37,0.75)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.22)' : '0 2px 12px rgba(0,0,0,0.10)',
+          }}
           style={{ maxWidth: '1344px', transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)' }}
         >
 
@@ -52,11 +53,8 @@ export default function Nav() {
           <button
             onClick={menuOpen ? closeMenu : openMenu}
             aria-label="Меню"
-            className={[
-              'flex items-center justify-center rounded-full shrink-0 transition-colors duration-300',
-              scrolled ? 'bg-gray-100 hover:bg-gray-200' : 'bg-white/20 hover:bg-white/30',
-            ].join(' ')}
-            style={{ width: '2.75rem', height: '2.75rem', color: scrolled ? '#222222' : '#ffffff' }}
+            className="flex items-center justify-center rounded-full shrink-0 transition-colors duration-300 hover:bg-white/15"
+            style={{ width: '2.75rem', height: '2.75rem', color: '#ffffff' }}
           >
             <div className="flex flex-col gap-[5px]" style={{ width: '16px' }}>
               <motion.span
@@ -88,7 +86,7 @@ export default function Nav() {
               fontSize: '0.8rem',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: scrolled ? '#222222' : '#ffffff',
+              color: '#ffffff',
             }}
           >
             Home Wood Spa
@@ -100,17 +98,14 @@ export default function Nav() {
               <a
                 key={label}
                 href={href}
-                className={[
-                  'font-sans font-medium rounded-full flex items-center transition-all duration-300 whitespace-nowrap',
-                  scrolled ? 'hover:bg-gray-100' : 'hover:bg-white/15',
-                ].join(' ')}
+                className="font-sans font-medium rounded-full flex items-center transition-all duration-300 whitespace-nowrap hover:bg-white/15"
                 style={{
                   height: '2.75rem',
                   paddingLeft: '1.25rem',
                   paddingRight: '1.25rem',
                   fontSize: '1rem',
                   fontFamily: '"Inter", sans-serif',
-                  color: scrolled ? '#222222' : 'rgba(255,255,255,0.85)',
+                  color: 'rgba(255,255,255,0.85)',
                 }}
               >
                 {label}
@@ -131,8 +126,8 @@ export default function Nav() {
               borderRadius: '24px',
               fontSize: '0.95rem',
               fontFamily: '"Inter", sans-serif',
-              background: scrolled ? '#222222' : '#ffffff',
-              color:      scrolled ? '#ffffff' : '#222222',
+              background: '#A2AC89',
+              color: '#323625',
             }}
           >
             Консультация
