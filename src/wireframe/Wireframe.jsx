@@ -56,8 +56,7 @@ export default function Wireframe() {
     <div className="bg-white font-sans min-h-screen" style={{ color: '#323625' }}>
 
       {/* HERO — сплошной фон #B5BD9A, всё по центру */}
-      <section className="min-h-screen flex flex-col items-center justify-center py-24 border-b border-gray-300 text-center" style={{ background: '#B5BD9A' }}>
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="min-h-screen flex flex-col items-center justify-center py-24 border-b border-gray-300 text-center" style={{ background: '#B5BD9A', paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
         <p className="text-xs uppercase tracking-widest mb-6" style={{ color: '#6b7057' }}>Home Wood Spa</p>
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 max-w-3xl" style={{ color: '#1a1c14' }}>
           Строительство СПА и Wellness-комплексов мирового класса
@@ -75,8 +74,8 @@ export default function Wireframe() {
       </section>
 
       {/* SOCIAL PROOF BAR */}
-      <section className="border-b border-gray-300 py-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200" style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-10" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-200" style={{ maxWidth: '1344px', margin: '0 auto' }}>
           {[{num:'17+',label:'лет опыта'},{num:'300+',label:'проектов'},{num:'4',label:'страны'},{num:'Под ключ',label:'доставка'}].map(({num,label}) => (
             <div key={num} className="bg-white flex flex-col items-center gap-1 py-8 px-4">
               <span className="text-2xl font-bold">{num}</span>
@@ -87,8 +86,8 @@ export default function Wireframe() {
       </section>
 
       {/* КТО МЫ */}
-      <section className="border-b border-gray-300 py-20">
-        <div className="grid md:grid-cols-2 gap-16 items-center" style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-20" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div className="grid md:grid-cols-2 gap-16 items-center" style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <div>
             <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>О компании</p>
             <h2 className="text-3xl font-bold mb-6">Создаем wellness-пространства, которые трансформируют</h2>
@@ -106,8 +105,8 @@ export default function Wireframe() {
       </section>
 
       {/* ЭКСПЕРТИЗА */}
-      <section className="border-b border-gray-300 py-20 bg-gray-50">
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-20 bg-gray-50" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Экспертиза</p>
           <h2 className="text-3xl font-bold mb-4">Полноценные wellness-пространства, а не просто комнаты</h2>
           <p className="mb-12" style={{ color: '#555' }}>Мы не строим отдельные сауны — мы создаем полные термальные путешествия.</p>
@@ -129,8 +128,8 @@ export default function Wireframe() {
       </section>
 
       {/* ПРОЕКТЫ */}
-      <section className="border-b border-gray-300 py-20">
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-20" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Портфолио</p>
           <h2 className="text-3xl font-bold mb-4">Wellness-пространства, которые задают стандарт</h2>
           <p className="mb-12 max-w-xl" style={{ color: '#555' }}>Каждый проект отражает нашу приверженность мастерству, вниманию к деталям и созданию пространств, где wellness становится опытом.</p>
@@ -156,8 +155,8 @@ export default function Wireframe() {
       </section>
 
       {/* ПОД КЛЮЧ */}
-      <section className="border-b border-gray-300 py-20 bg-gray-50">
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-20 bg-gray-50" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Процесс</p>
           <h2 className="text-3xl font-bold mb-4">От видения до дня открытия — мы управляем всем</h2>
           <p className="mb-12 max-w-2xl" style={{ color: '#555' }}>Строительство СПА мирового класса требует больше, чем просто строительства. Наш подход под ключ означает, что вы работаете с одной командой от маркетингового исследования до дня открытия.</p>
@@ -184,8 +183,8 @@ export default function Wireframe() {
       </section>
 
       {/* МАТЕРИАЛЫ */}
-      <section className="border-b border-gray-300 py-20">
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-20" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Материалы</p>
           <h2 className="text-3xl font-bold mb-12">Построено на века, создано для вдохновения</h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -208,8 +207,8 @@ export default function Wireframe() {
       </section>
 
       {/* ДЛЯ КОГО */}
-      <section className="border-b border-gray-300 py-20 bg-gray-50">
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-20 bg-gray-50" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Клиенты</p>
           <h2 className="text-3xl font-bold mb-12">Нам доверяют ведущие wellness-направления</h2>
           <div className="grid md:grid-cols-2 gap-6">
@@ -227,8 +226,8 @@ export default function Wireframe() {
       </section>
 
       {/* ПОЧЕМУ HWS */}
-      <section className="border-b border-gray-300 py-20">
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-20" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Преимущества</p>
           <h2 className="text-3xl font-bold mb-12">Европейская экспертиза, мировые стандарты</h2>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-4">
@@ -243,8 +242,8 @@ export default function Wireframe() {
       </section>
 
       {/* КАРТА */}
-      <section className="border-b border-gray-300 py-20 bg-gray-50">
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-20 bg-gray-50" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>География</p>
           <h2 className="text-3xl font-bold mb-4">Создаем wellness-превосходство по всему миру</h2>
           <p className="mb-12 max-w-lg" style={{ color: '#555' }}>От реконструкций исторических бань до современных курортных СПА — наше международное портфолио демонстрирует универсальность, культурную чуткость и непоколебимую приверженность совершенству.</p>
@@ -266,8 +265,8 @@ export default function Wireframe() {
       </section>
 
       {/* ОТЗЫВЫ */}
-      <section className="border-b border-gray-300 py-20">
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-20" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#888' }}>Отзывы</p>
           <h2 className="text-3xl font-bold mb-12">Что говорят наши клиенты</h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -285,8 +284,8 @@ export default function Wireframe() {
       </section>
 
       {/* ФИНАЛЬНЫЙ CTA */}
-      <section className="border-b border-gray-300 py-24 bg-gray-800">
-        <div className="text-center" style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <section className="border-b border-gray-300 py-24 bg-gray-800" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div className="text-center" style={{ maxWidth: '1344px', margin: '0 auto' }}>
           <p className="text-xs uppercase tracking-widest mb-6 text-gray-500">Начать проект</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-100 mb-6">Готовы создать своё wellness-направление?</h2>
           <p className="text-gray-400 mb-10 leading-relaxed">
@@ -304,8 +303,8 @@ export default function Wireframe() {
       </section>
 
       {/* ФУТЕР */}
-      <footer className="py-16">
-        <div style={{ maxWidth: '1344px', margin: '0 auto', padding: '0 max(1.5vw, 16px)' }}>
+      <footer className="py-16" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
+        <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
         <div className="grid md:grid-cols-4 gap-12">
           <div>
             <span className="font-bold text-base block mb-4">Home Wood Spa</span>
