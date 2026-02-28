@@ -41,7 +41,7 @@ export default function Nav() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="pointer-events-auto w-full flex items-center gap-2 p-2 rounded-full transition-all duration-500"
           style={{
-            background: scrolled ? '#323625' : 'rgba(50,54,37,0.75)',
+            background: scrolled ? '#323625' : 'rgba(50,54,37,0.92)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
             boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.22)' : '0 2px 12px rgba(0,0,0,0.10)',
@@ -105,7 +105,7 @@ export default function Nav() {
                   paddingRight: '1.25rem',
                   fontSize: '1rem',
                   fontFamily: '"Inter", sans-serif',
-                  color: 'rgba(255,255,255,0.85)',
+                  color: '#FFFFFFBF',
                 }}
               >
                 {label}
