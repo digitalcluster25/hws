@@ -41,9 +41,9 @@ export default function Nav() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="pointer-events-auto w-full flex items-center gap-2 p-2 transition-all duration-500"
           style={{
-            background: scrolled ? '#e0e3dc' : 'transparent',
-            backdropFilter: scrolled ? 'blur(20px) saturate(1.8)' : 'none',
-            WebkitBackdropFilter: scrolled ? 'blur(20px) saturate(1.8)' : 'none',
+            background: '#e0e3dc',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
             boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.10)' : 'none',
           }}
           style={{ maxWidth: '1344px', transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)' }}
