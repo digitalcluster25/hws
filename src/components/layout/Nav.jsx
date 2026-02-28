@@ -41,7 +41,7 @@ export default function Nav() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="pointer-events-auto w-full flex items-center gap-2 p-2 transition-all duration-500"
           style={{
-            background: '#e0e3dc',
+            background: scrolled ? '#e0e3dc' : 'transparent',
             boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.10)' : 'none',
             maxWidth: '1344px',
             transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)',
