@@ -42,11 +42,10 @@ export default function Nav() {
           className="pointer-events-auto w-full flex items-center gap-2 p-2 transition-all duration-500"
           style={{
             background: '#e0e3dc',
-            backdropFilter: 'none',
-            WebkitBackdropFilter: 'none',
             boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.10)' : 'none',
+            maxWidth: '1344px',
+            transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)',
           }}
-          style={{ maxWidth: '1344px', transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)' }}
         >
 
           {/* Hamburger — 2.75rem circle */}
