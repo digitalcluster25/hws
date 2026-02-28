@@ -109,6 +109,7 @@ export default function Nav() {
                   paddingLeft: '1.25rem',
                   paddingRight: '1.25rem',
                   fontSize: '1rem',
+                  fontFamily: '"Inter", sans-serif',
                   color: scrolled ? '#222222' : 'rgba(255,255,255,0.85)',
                 }}
               >
@@ -129,6 +130,7 @@ export default function Nav() {
               paddingRight: '1.25rem',
               borderRadius: '24px',
               fontSize: '0.95rem',
+              fontFamily: '"Inter", sans-serif',
               background: scrolled ? '#222222' : '#ffffff',
               color:      scrolled ? '#ffffff' : '#222222',
             }}
@@ -188,7 +190,7 @@ export default function Nav() {
                 href="#contact"
                 onClick={closeMenu}
                 className="flex items-center justify-center w-full font-sans font-semibold transition-colors duration-300"
-                style={{ height: '2.75rem', borderRadius: '24px', fontSize: '0.9rem', background: '#222222', color: '#ffffff' }}
+                style={{ height: '2.75rem', borderRadius: '24px', fontSize: '0.9rem', fontFamily: '"Inter", sans-serif', background: '#222222', color: '#ffffff' }}
               >
                 Записаться на консультацию
               </a>

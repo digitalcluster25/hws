@@ -30,7 +30,7 @@ export default function Button({
   const baseStyle = {
     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
     gap: '0.5em', minHeight: s.minHeight, padding: s.padding,
-    fontSize: s.fontSize, fontFamily: 'inherit', fontWeight: 600,
+    fontSize: s.fontSize, fontFamily: '"Inter", sans-serif', fontWeight: 600,
     letterSpacing: '0.01em',
     borderRadius: '24px',
     border: v.border, background: v.background, color: v.color,
