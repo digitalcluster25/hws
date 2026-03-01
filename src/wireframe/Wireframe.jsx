@@ -82,7 +82,7 @@ export default function Wireframe() {
     <div className="font-sans min-h-screen" style={{ color: C.dark }}>
 
       {/* ── 1. HERO · фон #B5BD9A ── */}
-      <section className="min-h-screen flex flex-col items-center justify-center py-28 text-center"
+      <section id="home" className="min-h-screen flex flex-col items-center justify-center py-28 text-center"
         style={{ background: C.light, ...section() }}>
         <div style={wrap}>
           <p style={{ ...labelStyle, color: C.muted }} className="mb-6">Home Wood Spa</p>
@@ -128,7 +128,7 @@ export default function Wireframe() {
       </section>
 
       {/* ── 3. КТО МЫ · #323625 тёмный ── */}
-      <section className="py-24" style={{ background: C.dark, color: '#fff', ...section() }}>
+      <section id="about" className="py-24" style={{ background: C.dark, color: '#fff', ...section() }}>
         <div style={wrap}>
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -152,7 +152,7 @@ export default function Wireframe() {
       </section>
 
       {/* ── 4. ЭКСПЕРТИЗА · белый ── */}
-      <section className="py-24" style={{ background: '#fff', ...section() }}>
+      <section id="services" className="py-24" style={{ background: '#fff', ...section() }}>
         <div style={wrap}>
           <p style={labelStyle} className="mb-6">Экспертиза</p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
@@ -181,7 +181,7 @@ export default function Wireframe() {
       </section>
 
       {/* ── 5. ПРОЕКТЫ · #B5BD9A ── */}
-      <section className="py-24" style={{ background: C.light, ...section() }}>
+      <section id="portfolio" className="py-24" style={{ background: C.light, ...section() }}>
         <div style={wrap}>
           <p style={{ ...labelStyle, color: C.muted }} className="mb-6">Портфолио</p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
@@ -209,7 +209,7 @@ export default function Wireframe() {
       </section>
 
       {/* ── 6. ПОД КЛЮЧ · белый ── */}
-      <section className="py-24" style={{ background: '#fff', ...section() }}>
+      <section id="process" className="py-24" style={{ background: '#fff', ...section() }}>
         <div style={wrap}>
           <p style={labelStyle} className="mb-6">Процесс</p>
           <h2 style={{ ...h2Style, maxWidth: '32rem' }} className="mb-6">
@@ -354,7 +354,7 @@ export default function Wireframe() {
       </section>
 
       {/* ── 12. ФИНАЛЬНЫЙ CTA · #323625 ── */}
-      <section className="py-28" style={{ background: C.dark, ...section() }}>
+      <section id="contact" className="py-28" style={{ background: C.dark, ...section() }}>
         <div className="text-center" style={wrap}>
           <p style={{ ...labelStyle, color: C.mid }} className="mb-6">Начать проект</p>
           <h2 style={{ ...h2Style, color: '#fff', fontSize: 'clamp(2rem, 4vw, 3.75rem)' }} className="max-w-2xl mx-auto mb-8">
