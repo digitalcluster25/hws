@@ -5,26 +5,32 @@ import { motion } from 'framer-motion'
 
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A' }
 const NAV_LINKS = [
-  { label: 'Услуги',   href: '#services'  },
-  { label: 'Проекты',  href: '#portfolio' },
-  { label: 'Процесс',  href: '#process'   },
-  { label: 'О нас',    href: '#about'     },
-  { label: 'Контакты', href: '#contact'   },
+  { label: 'Услуги',     href: '#services',  page: false },
+  { label: 'Кейсы',      href: '/portfolio', page: true  },
+  { label: 'Процесс',    href: '#process',   page: false },
+  { label: 'О компании', href: '#about',     page: false },
+  { label: 'Контакты',   href: '#contact',   page: false },
 ]
 
 function useScrollTo() {
   const navigate = useNavigate()
   const location = useLocation()
   return useCallback((href) => {
-    if (href.startsWith('#')) {
+    if (href.startsWith('/')) {
+      navigate(href)
+    } else if (href.startsWith('#')) {
       const id = href.slice(1)
       if (location.pathname === '/') {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
       } else {
         navigate('/')
-        setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150)
+        setTimeout(() => {
+          const el = document.getElementById(id)
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 150)
       }
-    } else { navigate(href) }
+    }
   }, [location, navigate])
 }
 
@@ -39,7 +45,11 @@ function FullMenu({ open, onClose, scrollTo }) {
     window.addEventListener('keydown', fn)
     return () => window.removeEventListener('keydown', fn)
   }, [open, onClose])
-  const go = (href) => { onClose(); setTimeout(() => scrollTo(href), 420) }
+  const go = (href, page) => {
+    onClose()
+    if (page) { setTimeout(() => scrollTo(href), 300) }
+    else { setTimeout(() => scrollTo(href), 420) }
+  }
   const overlay = (
     <div style={{ position:'fixed', inset:0, zIndex:99999, background:C.dark, display:'flex', flexDirection:'column', opacity:open?1:0, pointerEvents:open?'all':'none', transition:'opacity 0.3s ease' }}>
       <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'max(1.5vw,16px)', flexShrink:0 }}>
@@ -49,9 +59,9 @@ function FullMenu({ open, onClose, scrollTo }) {
         </button>
       </div>
       <nav style={{ flex:1, display:'flex', flexDirection:'column', justifyContent:'center', padding:'0 max(4vw,24px)' }}>
-        {NAV_LINKS.map(({ label, href }, i) => (
+        {NAV_LINKS.map(({ label, href, page }, i) => (
           <div key={label} style={{ overflow:'hidden', borderBottom:'1px solid rgba(255,255,255,0.08)' }}>
-            <button onClick={() => go(href)} style={{ width:'100%', textAlign:'left', display:'flex', alignItems:'center', justifyContent:'space-between', padding:'clamp(0.9rem,2.5vw,1.75rem) 0', background:'none', border:'none', cursor:'pointer', color:'#fff', transform:open?'translateY(0)':'translateY(110%)', opacity:open?1:0, transition:`transform 0.6s cubic-bezier(0.16,1,0.3,1) ${0.1+i*0.07}s, opacity 0.4s ease ${0.1+i*0.07}s` }}
+            <button onClick={() => go(href, page)} style={{ width:'100%', textAlign:'left', display:'flex', alignItems:'center', justifyContent:'space-between', padding:'clamp(0.9rem,2.5vw,1.75rem) 0', background:'none', border:'none', cursor:'pointer', color:'#fff', transform:open?'translateY(0)':'translateY(110%)', opacity:open?1:0, transition:`transform 0.6s cubic-bezier(0.16,1,0.3,1) ${0.1+i*0.07}s, opacity 0.4s ease ${0.1+i*0.07}s` }}
               onMouseEnter={e => { e.currentTarget.querySelector('[data-label]').style.color=C.light; e.currentTarget.querySelector('[data-num]').style.opacity='1' }}
               onMouseLeave={e => { e.currentTarget.querySelector('[data-label]').style.color='#fff'; e.currentTarget.querySelector('[data-num]').style.opacity='0' }}>
               <span data-label="" style={{ fontSize:'clamp(2.2rem,6vw,5.5rem)', fontWeight:800, letterSpacing:'-0.03em', lineHeight:1, transition:'color 0.3s ease' }}>{label}</span>
