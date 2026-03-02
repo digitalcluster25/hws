@@ -1,40 +1,139 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { createPortal } from 'react-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
+const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A' }
+
 const NAV_LINKS = [
-  { label: 'Услуги',   href: '#services' },
-  { label: 'Проекты',  href: '#projects' },
-  { label: 'Процесс',  href: '#process'  },
-  { label: 'О нас',    href: '#about'    },
-  { label: 'Контакты', href: '#contact'  },
+  { label: 'Услуги',   href: '#services'  },
+  { label: 'Проекты',  href: '#portfolio' },
+  { label: 'Процесс',  href: '#process'   },
+  { label: 'О нас',    href: '#about'     },
+  { label: 'Контакты', href: '#contact'   },
 ]
 
-export default function Nav() {
-  const [scrolled,    setScrolled]    = useState(false)
-  const [menuOpen,    setMenuOpen]    = useState(false)
-  const [menuVisible, setMenuVisible] = useState(false)
+function useScrollTo() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  return useCallback((href) => {
+    if (href.startsWith('#')) {
+      const id = href.slice(1)
+      if (location.pathname === '/') {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        navigate('/')
+        setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150)
+      }
+    } else {
+      navigate(href)
+    }
+  }, [location, navigate])
+}
 
+function FullMenu({ open, onClose, scrollTo }) {
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
-  }, [menuOpen])
+  }, [open])
 
-  const openMenu  = () => { setMenuVisible(true); setTimeout(() => setMenuOpen(true), 10) }
-  const closeMenu = () => { setMenuOpen(false); setTimeout(() => setMenuVisible(false), 500) }
+  useEffect(() => {
+    if (!open) return
+    const fn = (e) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', fn)
+    return () => window.removeEventListener('keydown', fn)
+  }, [open, onClose])
+
+  const handleLink = (href) => { onClose(); setTimeout(() => scrollTo(href), 420) }
+
+  const overlay = (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 99999,
+      background: C.dark, display: 'flex', flexDirection: 'column',
+      opacity: open ? 1 : 0,
+      pointerEvents: open ? 'all' : 'none',
+      transition: 'opacity 0.3s ease',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: 'max(1.5vw,16px)', flexShrink: 0 }}>
+        <Link to="/" onClick={onClose} style={{ fontSize: '0.8rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>
+          Home Wood Spa
+        </Link>
+        <button onClick={onClose} aria-label="Закрыть" style={{ width: '2.75rem', height: '2.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', background: 'none', border: 'none', cursor: 'pointer' }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 max(4vw,24px)' }}>
+        {NAV_LINKS.map(({ label, href }, i) => (
+          <div key={label} style={{ overflow: 'hidden', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+            <button
+              onClick={() => handleLink(href)}
+              style={{
+                width: '100%', textAlign: 'left', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                padding: 'clamp(0.9rem,2.5vw,1.75rem) 0',
+                background: 'none', border: 'none', cursor: 'pointer', color: '#fff',
+                transform: open ? 'translateY(0)' : 'translateY(110%)',
+                opacity: open ? 1 : 0,
+                transition: `transform 0.6s cubic-bezier(0.16,1,0.3,1) ${0.1 + i * 0.07}s, opacity 0.4s ease ${0.1 + i * 0.07}s`,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.querySelector('[data-label]').style.color = C.light
+                e.currentTarget.querySelector('[data-num]').style.opacity = '1'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.querySelector('[data-label]').style.color = '#fff'
+                e.currentTarget.querySelector('[data-num]').style.opacity = '0'
+              }}
+            >
+              <span data-label="" style={{ fontSize: 'clamp(2.2rem,6vw,5.5rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1, transition: 'color 0.3s ease' }}>
+                {label}
+              </span>
+              <span data-num="" style={{ fontSize: '0.85rem', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: C.mid, opacity: 0, transition: 'opacity 0.3s ease', flexShrink: 0, marginLeft: '1rem' }}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            </button>
+          </div>
+        ))}
+      </nav>
+
+      <div style={{
+        flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem',
+        padding: '0 max(1.5vw,16px) max(2vw,24px)',
+        opacity: open ? 1 : 0,
+        transform: open ? 'translateY(0)' : 'translateY(16px)',
+        transition: 'opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s',
+      }}>
+        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+          <a href="mailto:homewoodspa@gmail.com" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.06em', textDecoration: 'none' }}>homewoodspa@gmail.com</a>
+          <a href="tel:+16785209556" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.06em', textDecoration: 'none' }}>+1 (678) 520-9556</a>
+        </div>
+        <button onClick={() => handleLink('#contact')} style={{ background: C.mid, color: '#fff', border: 'none', cursor: 'pointer', padding: '0.6rem 1.5rem', borderRadius: '24px', fontSize: '0.875rem', fontWeight: 600 }}>
+          Консультация
+        </button>
+      </div>
+    </div>
+  )
+
+  return createPortal(overlay, document.body)
+}
+
+export default function Nav() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const scrollTo = useScrollTo()
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
+  }, [])
 
   return (
     <>
-      {/* FLOATING PILL NAV */}
-      <div
-        className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
-        style={{ padding: '1.5vw max(1.5vw, 16px) 0' }}
-      >
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
+        style={{ padding: '1.5vw max(1.5vw,16px) 0' }}>
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -47,151 +146,42 @@ export default function Nav() {
             transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)',
           }}
         >
-
-          {/* Hamburger — 2.75rem circle */}
-          <button
-            onClick={menuOpen ? closeMenu : openMenu}
-            aria-label="Меню"
-            className="flex items-center justify-center shrink-0 transition-colors duration-300 hover:bg-black/10"
-            style={{ width: '2.75rem', height: '2.75rem', color: '#323625' }}
-          >
-            <div className="flex flex-col gap-[5px]" style={{ width: '16px' }}>
-              <motion.span
-                animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="block bg-current origin-center"
-                style={{ height: '1px' }}
-              />
-              <motion.span
-                animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.2 }}
-                className="block bg-current"
-                style={{ height: '1px' }}
-              />
-              <motion.span
-                animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="block bg-current origin-center"
-                style={{ height: '1px' }}
-              />
+          <button onClick={() => setMenuOpen(true)} aria-label="Меню"
+            className="flex items-center justify-center shrink-0 hover:bg-black/10 transition-colors duration-300"
+            style={{ width: '2.75rem', height: '2.75rem', color: C.dark, background: 'none', border: 'none', cursor: 'pointer' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', width: '16px' }}>
+              <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
+              <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
+              <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
             </div>
           </button>
 
-          {/* Logo */}
-          <a
-            href="/"
-            className="font-display whitespace-nowrap transition-colors duration-300 shrink-0"
-            style={{
-              fontSize: '0.8rem',
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: '#323625',
-            }}
-          >
+          <Link to="/" className="font-display whitespace-nowrap hover:opacity-60 transition-opacity shrink-0"
+            style={{ fontSize: '0.8rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: C.dark, textDecoration: 'none' }}>
             Home Wood Spa
-          </a>
+          </Link>
 
-          {/* Desktop links */}
           <nav className="hidden md:flex items-center gap-1 flex-1 justify-center">
             {NAV_LINKS.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="font-sans font-medium flex items-center transition-all duration-300 whitespace-nowrap hover:bg-black/08"
-                style={{
-                  height: '2.75rem',
-                  paddingLeft: '1.25rem',
-                  paddingRight: '1.25rem',
-                  fontSize: '1rem',
-                  fontFamily: '"Inter", sans-serif',
-                  color: '#323625',
-                }}
-              >
+              <button key={label} onClick={() => scrollTo(href)}
+                className="font-sans font-medium flex items-center transition-all duration-300 whitespace-nowrap cursor-pointer hover:bg-black/10"
+                style={{ height: '2.75rem', padding: '0 1.25rem', fontSize: '1rem', color: C.dark, background: 'none', border: 'none' }}>
                 {label}
-              </a>
+              </button>
             ))}
           </nav>
 
           <div className="flex-1 md:hidden" />
 
-          {/* CTA */}
-          <a
-            href="#contact"
-            className="shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap"
-            style={{
-              height: '2.75rem',
-              paddingLeft: '1.25rem',
-              paddingRight: '1.25rem',
-              borderRadius: '24px',
-              fontSize: '0.95rem',
-              fontFamily: '"Inter", sans-serif',
-              background: '#323625',
-              color: '#ffffff',
-            }}
-          >
+          <button onClick={() => scrollTo('#contact')}
+            className="shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap hover:opacity-80 cursor-pointer"
+            style={{ height: '2.75rem', padding: '0 1.25rem', borderRadius: '24px', fontSize: '0.95rem', background: C.dark, color: '#fff', border: 'none' }}>
             Консультация
-          </a>
-
+          </button>
         </motion.div>
       </div>
 
-      {/* MOBILE SLIDE-IN */}
-      {menuVisible && (
-        <div className="fixed inset-0 z-40 md:hidden">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: menuOpen ? 1 : 0 }}
-            transition={{ duration: 0.4 }}
-            onClick={closeMenu}
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-          />
-          <motion.div
-            initial={{ x: '-100%' }}
-            animate={{ x: menuOpen ? '0%' : '-100%' }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-0 left-0 bottom-0 w-72 bg-white flex flex-col shadow-2xl"
-          >
-            <div className="flex items-center justify-between px-6 border-b border-gray-100" style={{ height: '4.5rem' }}>
-              <span className="font-display" style={{ fontSize: '0.75rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#222222' }}>
-                Home Wood Spa
-              </span>
-              <button onClick={closeMenu} className="transition-colors p-1" style={{ color: '#aaa' }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            <nav className="flex flex-col flex-1 px-6 py-8 gap-1">
-              {NAV_LINKS.map(({ label, href }, i) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  onClick={closeMenu}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: menuOpen ? 1 : 0, x: menuOpen ? 0 : -16 }}
-                  transition={{ delay: 0.08 + i * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-sans font-medium py-3 border-b border-gray-100 transition-colors"
-                  style={{ fontSize: '1.2rem', color: '#222222' }}
-                >
-                  {label}
-                </motion.a>
-              ))}
-            </nav>
-
-            <div className="px-6 pb-8">
-              <a
-                href="#contact"
-                onClick={closeMenu}
-                className="flex items-center justify-center w-full font-sans font-semibold transition-colors duration-300"
-                style={{ height: '2.75rem', borderRadius: '24px', fontSize: '0.9rem', fontFamily: '"Inter", sans-serif', background: '#222222', color: '#ffffff' }}
-              >
-                Записаться на консультацию
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      )}
+      <FullMenu open={menuOpen} onClose={() => setMenuOpen(false)} scrollTo={scrollTo} />
     </>
   )
 }
