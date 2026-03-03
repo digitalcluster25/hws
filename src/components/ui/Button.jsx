@@ -51,7 +51,6 @@ export default function Button({
     opacity: disabled ? 0.65 : 1,
     textDecoration: 'none',
     whiteSpace: 'nowrap',
-    boxShadow: shadow ? '0 3px 5px 0 rgb(0 0 0 / .06)' : 'none',
     ...styleProp,
   }
 

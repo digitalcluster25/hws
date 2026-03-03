@@ -177,7 +177,7 @@ export default function Nav() {
               onClick={() => scrollTo('#contact')}
               data-variant="filled"
               className="ohio-btn shrink-0 font-sans font-semibold flex items-center whitespace-nowrap cursor-pointer ml-auto"
-              style={{ height: '2.75rem', padding: '0 1.25rem', borderRadius: '16px', fontSize: '0.95rem', background: C.dark, color: '#fff', border: '1px solid ' + C.dark, boxShadow: '0 3px 5px 0 rgb(0 0 0 / .06)' }}
+              style={{ height: '2.75rem', padding: '0 1.25rem', borderRadius: '16px', fontSize: '0.95rem', background: C.dark, color: '#fff', border: '1px solid ' + C.dark }}
             >
               Консультация
             </button>
