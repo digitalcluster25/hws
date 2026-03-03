@@ -133,9 +133,9 @@ export default function Nav() {
           style={{
             background: scrolled ? '#e0e3dc' : 'transparent',
             boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.10)' : 'none',
+            borderRadius: '10px',
             maxWidth: '1344px',
             transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)',
-            /* 3-колонный grid: [hamburger+левые ссылки] [лого] [правые ссылки+CTA] */
             display: 'grid',
             gridTemplateColumns: '1fr auto 1fr',
             alignItems: 'center',
