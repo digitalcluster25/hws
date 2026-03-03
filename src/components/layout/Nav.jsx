@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import logoDark from '../../assets/logo-dark.svg'
 
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A' }
 
@@ -50,7 +51,7 @@ function NavBtn({ label, href, onClick }) {
     <button
       onClick={onClick}
       className="font-sans font-medium whitespace-nowrap transition-all duration-300 cursor-pointer bg-transparent hover:bg-black/10"
-      style={{ height: '2.75rem', padding: '0 1.1rem', fontSize: '0.95rem', color: C.dark, border: 'none' }}
+      style={{ height: '2.75rem', padding: '0 1.1rem', fontSize: '0.95rem', color: C.dark, border: 'none', borderRadius: '10px' }}
     >
       {label}
     </button>
@@ -152,7 +153,7 @@ export default function Nav() {
               onClick={() => setMenuOpen(true)}
               aria-label="Меню"
               className="flex items-center justify-center shrink-0 bg-transparent hover:bg-black/10 transition-colors duration-300 order-first"
-              style={{ width: '2.75rem', height: '2.75rem', color: C.dark, border: 'none', cursor: 'pointer', marginRight: 'auto' }}
+              style={{ width: '2.75rem', height: '2.75rem', color: C.dark, border: 'none', cursor: 'pointer', marginRight: 'auto', borderRadius: '10px' }}
             >
               <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', width: '16px' }}>
                 <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
@@ -162,13 +163,13 @@ export default function Nav() {
             </button>
           </div>
 
-          {/* ── ЦЕНТР: лого HWS ── */}
+          {/* ── ЦЕНТР: лого ── */}
           <Link
             to="/"
-            className="font-display whitespace-nowrap hover:opacity-60 transition-opacity"
-            style={{ fontSize: '1rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: C.dark, textDecoration: 'none', fontWeight: 700, padding: '0 1rem' }}
+            className="flex items-center justify-center hover:opacity-70 transition-opacity"
+            style={{ padding: '0 1rem', textDecoration: 'none' }}
           >
-            HWS
+            <img src={logoDark} alt="Home Wood Spa" style={{ height: '28px', width: 'auto', display: 'block' }} />
           </Link>
 
           {/* ── ПРАВАЯ КОЛОНКА: правые ссылки + CTA ── */}
