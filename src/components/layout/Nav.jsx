@@ -4,11 +4,23 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A' }
+
+/**
+ * NAV_LINKS — добавляй пункты сюда.
+ * Они автоматически делятся пополам: левые слева от лого, правые справа.
+ * При нечётном кол-ве: слева ceil(n/2), справа floor(n/2).
+ * page: true  → navigate(href)
+ * page: false → плавный скролл к якорю #id
+ */
 const NAV_LINKS = [
-  { label: 'Компания', href: '/',          page: true },
-  { label: 'Услуги',   href: '/services',  page: true },
-  { label: 'Кейсы',    href: '/portfolio', page: true },
+  { label: 'Компания', href: '/',          page: true  },
+  { label: 'Услуги',   href: '/services',  page: true  },
+  { label: 'Кейсы',    href: '/portfolio', page: true  },
 ]
+
+// Авторасчёт разбивки: ceil слева, floor справа
+const leftLinks  = NAV_LINKS.slice(0, Math.ceil(NAV_LINKS.length / 2))
+const rightLinks = NAV_LINKS.slice(Math.ceil(NAV_LINKS.length / 2))
 
 function useScrollTo() {
   const navigate = useNavigate()
@@ -32,6 +44,18 @@ function useScrollTo() {
   }, [location, navigate])
 }
 
+function NavBtn({ label, href, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className="font-sans font-medium whitespace-nowrap transition-all duration-300 cursor-pointer hover:bg-black/10"
+      style={{ height: '2.75rem', padding: '0 1.1rem', fontSize: '0.95rem', color: C.dark, background: 'none', border: 'none' }}
+    >
+      {label}
+    </button>
+  )
+}
+
 function FullMenu({ open, onClose, scrollTo }) {
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -43,15 +67,16 @@ function FullMenu({ open, onClose, scrollTo }) {
     window.addEventListener('keydown', fn)
     return () => window.removeEventListener('keydown', fn)
   }, [open, onClose])
+
   const go = (href, page) => {
     onClose()
-    if (page) { setTimeout(() => scrollTo(href), 300) }
-    else { setTimeout(() => scrollTo(href), 420) }
+    setTimeout(() => scrollTo(href), page ? 300 : 420)
   }
+
   const overlay = (
     <div style={{ position:'fixed', inset:0, zIndex:99999, background:C.dark, display:'flex', flexDirection:'column', opacity:open?1:0, pointerEvents:open?'all':'none', transition:'opacity 0.3s ease' }}>
       <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'max(1.5vw,16px)', flexShrink:0 }}>
-        <Link to="/" onClick={onClose} style={{ fontSize:'0.8rem', letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(255,255,255,0.7)', textDecoration:'none' }}>Home Wood Spa</Link>
+        <Link to="/" onClick={onClose} style={{ fontSize:'0.85rem', letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(255,255,255,0.7)', textDecoration:'none', fontWeight:600 }}>HWS</Link>
         <button onClick={onClose} style={{ width:'2.75rem', height:'2.75rem', display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', background:'none', border:'none', cursor:'pointer' }}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
@@ -59,7 +84,8 @@ function FullMenu({ open, onClose, scrollTo }) {
       <nav style={{ flex:1, display:'flex', flexDirection:'column', justifyContent:'center', padding:'0 max(4vw,24px)' }}>
         {NAV_LINKS.map(({ label, href, page }, i) => (
           <div key={label} style={{ overflow:'hidden', borderBottom:'1px solid rgba(255,255,255,0.08)' }}>
-            <button onClick={() => go(href, page)} style={{ width:'100%', textAlign:'left', display:'flex', alignItems:'center', justifyContent:'space-between', padding:'clamp(0.9rem,2.5vw,1.75rem) 0', background:'none', border:'none', cursor:'pointer', color:'#fff', transform:open?'translateY(0)':'translateY(110%)', opacity:open?1:0, transition:`transform 0.6s cubic-bezier(0.16,1,0.3,1) ${0.1+i*0.07}s, opacity 0.4s ease ${0.1+i*0.07}s` }}
+            <button onClick={() => go(href, page)}
+              style={{ width:'100%', textAlign:'left', display:'flex', alignItems:'center', justifyContent:'space-between', padding:'clamp(0.9rem,2.5vw,1.75rem) 0', background:'none', border:'none', cursor:'pointer', color:'#fff', transform:open?'translateY(0)':'translateY(110%)', opacity:open?1:0, transition:`transform 0.6s cubic-bezier(0.16,1,0.3,1) ${0.1+i*0.07}s, opacity 0.4s ease ${0.1+i*0.07}s` }}
               onMouseEnter={e => { e.currentTarget.querySelector('[data-label]').style.color=C.light; e.currentTarget.querySelector('[data-num]').style.opacity='1' }}
               onMouseLeave={e => { e.currentTarget.querySelector('[data-label]').style.color='#fff'; e.currentTarget.querySelector('[data-num]').style.opacity='0' }}>
               <span data-label="" style={{ fontSize:'clamp(2.2rem,6vw,5.5rem)', fontWeight:800, letterSpacing:'-0.03em', lineHeight:1, transition:'color 0.3s ease' }}>{label}</span>
@@ -73,7 +99,7 @@ function FullMenu({ open, onClose, scrollTo }) {
           <a href="mailto:homewoodspa@gmail.com" style={{ fontSize:'0.75rem', color:'rgba(255,255,255,0.4)', letterSpacing:'0.06em', textDecoration:'none' }}>homewoodspa@gmail.com</a>
           <a href="tel:+16785209556" style={{ fontSize:'0.75rem', color:'rgba(255,255,255,0.4)', letterSpacing:'0.06em', textDecoration:'none' }}>+1 (678) 520-9556</a>
         </div>
-        <button onClick={() => go('#contact')} style={{ background:C.mid, color:'#fff', border:'none', cursor:'pointer', padding:'0.6rem 1.5rem', borderRadius:'24px', fontSize:'0.875rem', fontWeight:600 }}>Консультация</button>
+        <button onClick={() => go('#contact', false)} style={{ background:C.mid, color:'#fff', border:'none', cursor:'pointer', padding:'0.6rem 1.5rem', borderRadius:'24px', fontSize:'0.875rem', fontWeight:600 }}>Консультация</button>
       </div>
     </div>
   )
@@ -84,39 +110,88 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const scrollTo = useScrollTo()
+
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
+
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none" style={{ padding:'1.5vw max(1.5vw,16px) 0' }}>
-        <motion.div initial={{ y:-20, opacity:0 }} animate={{ y:0, opacity:1 }} transition={{ duration:0.6, ease:[0.16,1,0.3,1] }}
-          className="pointer-events-auto w-full flex items-center gap-2 p-2 transition-all duration-500"
-          style={{ background:scrolled?'#e0e3dc':'transparent', boxShadow:scrolled?'0 4px 24px rgba(0,0,0,0.10)':'none', maxWidth:'1344px', borderRadius:'10px', transitionTimingFunction:'cubic-bezier(.645,.045,.355,1)' }}>
-          <button onClick={() => setMenuOpen(true)} aria-label="Меню" className="flex items-center justify-center shrink-0 hover:bg-black/10 transition-colors duration-300"
-            style={{ width:'2.75rem', height:'2.75rem', color:C.dark, background:'none', border:'none', cursor:'pointer' }}>
-            <div style={{ display:'flex', flexDirection:'column', gap:'5px', width:'16px' }}>
-              <span style={{ display:'block', height:'1px', background:'currentColor' }}/>
-              <span style={{ display:'block', height:'1px', background:'currentColor' }}/>
-              <span style={{ display:'block', height:'1px', background:'currentColor' }}/>
-            </div>
-          </button>
-          <Link to="/" className="font-display whitespace-nowrap hover:opacity-60 transition-opacity shrink-0"
-            style={{ fontSize:'0.8rem', letterSpacing:'0.18em', textTransform:'uppercase', color:C.dark, textDecoration:'none' }}>Home Wood Spa</Link>
-          <nav className="hidden md:flex items-center gap-1 flex-1 justify-center">
-            {NAV_LINKS.map(({ label, href }) => (
-              <button key={label} onClick={() => scrollTo(href)} className="font-sans font-medium flex items-center transition-all duration-300 whitespace-nowrap cursor-pointer hover:bg-black/10"
-                style={{ height:'2.75rem', padding:'0 1.25rem', fontSize:'1rem', color:C.dark, background:'none', border:'none' }}>{label}</button>
-            ))}
-          </nav>
-          <div className="flex-1 md:hidden"/>
-          <button onClick={() => scrollTo('#contact')} className="shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap hover:opacity-80 cursor-pointer"
-            style={{ height:'2.75rem', padding:'0 1.25rem', borderRadius:'24px', fontSize:'0.95rem', background:C.dark, color:'#fff', border:'none' }}>Консультация</button>
+      <div
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
+        style={{ padding: '1.5vw max(1.5vw,16px) 0' }}
+      >
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="pointer-events-auto w-full p-2 transition-all duration-500"
+          style={{
+            background: scrolled ? '#e0e3dc' : 'transparent',
+            boxShadow: scrolled ? '0 4px 24px rgba(0,0,0,0.10)' : 'none',
+            maxWidth: '1344px',
+            transitionTimingFunction: 'cubic-bezier(.645,.045,.355,1)',
+            /* 3-колонный grid: [hamburger+левые ссылки] [лого] [правые ссылки+CTA] */
+            display: 'grid',
+            gridTemplateColumns: '1fr auto 1fr',
+            alignItems: 'center',
+          }}
+        >
+          {/* ── ЛЕВАЯ КОЛОНКА: hamburger + левые ссылки ── */}
+          <div className="flex items-center justify-start">
+            {/* Hamburger */}
+            <button
+              onClick={() => setMenuOpen(true)}
+              aria-label="Меню"
+              className="flex items-center justify-center shrink-0 hover:bg-black/10 transition-colors duration-300"
+              style={{ width: '2.75rem', height: '2.75rem', color: C.dark, background: 'none', border: 'none', cursor: 'pointer', marginRight: '0.25rem' }}
+            >
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', width: '16px' }}>
+                <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
+                <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
+                <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
+              </div>
+            </button>
+            {/* Левые ссылки (десктоп) */}
+            <nav className="hidden md:flex items-center">
+              {leftLinks.map(({ label, href }) => (
+                <NavBtn key={label} label={label} href={href} onClick={() => scrollTo(href)} />
+              ))}
+            </nav>
+          </div>
+
+          {/* ── ЦЕНТР: лого HWS ── */}
+          <Link
+            to="/"
+            className="font-display whitespace-nowrap hover:opacity-60 transition-opacity"
+            style={{ fontSize: '1rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: C.dark, textDecoration: 'none', fontWeight: 700, padding: '0 1rem' }}
+          >
+            HWS
+          </Link>
+
+          {/* ── ПРАВАЯ КОЛОНКА: правые ссылки + CTA ── */}
+          <div className="flex items-center justify-end">
+            {/* Правые ссылки (десктоп) */}
+            <nav className="hidden md:flex items-center">
+              {rightLinks.map(({ label, href }) => (
+                <NavBtn key={label} label={label} href={href} onClick={() => scrollTo(href)} />
+              ))}
+            </nav>
+            {/* CTA */}
+            <button
+              onClick={() => scrollTo('#contact')}
+              className="shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap hover:opacity-80 cursor-pointer"
+              style={{ height: '2.75rem', padding: '0 1.25rem', borderRadius: '24px', fontSize: '0.95rem', background: C.dark, color: '#fff', border: 'none', marginLeft: '0.25rem' }}
+            >
+              Консультация
+            </button>
+          </div>
         </motion.div>
       </div>
-      <FullMenu open={menuOpen} onClose={() => setMenuOpen(false)} scrollTo={scrollTo}/>
+
+      <FullMenu open={menuOpen} onClose={() => setMenuOpen(false)} scrollTo={scrollTo} />
     </>
   )
 }
