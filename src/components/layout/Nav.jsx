@@ -5,11 +5,8 @@ import { motion } from 'framer-motion'
 
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A' }
 const NAV_LINKS = [
-  { label: 'Услуги',     href: '#services',  page: false },
-  { label: 'Кейсы',      href: '/portfolio', page: true  },
-  { label: 'Процесс',    href: '#process',   page: false },
-  { label: 'О компании', href: '#about',     page: false },
-  { label: 'Контакты',   href: '#contact',   page: false },
+  { label: 'Компания', href: '/',          page: true },
+  { label: 'Кейсы',    href: '/portfolio', page: true },
 ]
 
 function useScrollTo() {
@@ -96,7 +93,7 @@ export default function Nav() {
       <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none" style={{ padding:'1.5vw max(1.5vw,16px) 0' }}>
         <motion.div initial={{ y:-20, opacity:0 }} animate={{ y:0, opacity:1 }} transition={{ duration:0.6, ease:[0.16,1,0.3,1] }}
           className="pointer-events-auto w-full flex items-center gap-2 p-2 transition-all duration-500"
-          style={{ background:scrolled?'#e0e3dc':'transparent', boxShadow:scrolled?'0 4px 24px rgba(0,0,0,0.10)':'none', maxWidth:'1344px', transitionTimingFunction:'cubic-bezier(.645,.045,.355,1)' }}>
+          style={{ background:scrolled?'#e0e3dc':'transparent', boxShadow:scrolled?'0 4px 24px rgba(0,0,0,0.10)':'none', maxWidth:'1344px', borderRadius:'10px', transitionTimingFunction:'cubic-bezier(.645,.045,.355,1)' }}>
           <button onClick={() => setMenuOpen(true)} aria-label="Меню" className="flex items-center justify-center shrink-0 hover:bg-black/10 transition-colors duration-300"
             style={{ width:'2.75rem', height:'2.75rem', color:C.dark, background:'none', border:'none', cursor:'pointer' }}>
             <div style={{ display:'flex', flexDirection:'column', gap:'5px', width:'16px' }}>
