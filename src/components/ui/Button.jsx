@@ -1,15 +1,13 @@
-// Ohio demo34 button — точные значения из CSS
-// border-radius: 16px (--clb-border-radius: 16px → --clb-button-border-radius)
-// height: 2.75rem | padding-x: 1.25rem | font-weight: 600
-// shadow: 0 3px 5px 0 rgb(0 0 0 / .06)
-// filled bg: #323625 (HWS dark, адаптация от #111013)
+// Ohio demo34 button
+// hover: background-color, color, border-color, box-shadow transition
+// border-radius: 16px | height: 2.75rem | shadow: 0 3px 5px 0 rgb(0 0 0 / .06)
 
 export default function Button({
   children,
   href,
   onClick,
-  variant = 'filled',  // 'filled' | 'outlined' | 'ghost'
-  size    = 'default', // 'small' | 'default' | 'large'
+  variant = 'filled',  // filled | filled-light | outlined | outlined-light | ghost | ghost-light
+  size    = 'default', // small | default | large
   shadow  = true,
   icon,
   iconPosition = 'right',
@@ -25,13 +23,12 @@ export default function Button({
     large:   { minHeight: '3.25rem', padding: '0 1.5rem',  fontSize: '1rem'     },
   }
   const variants = {
-    filled:   { background: '#323625', color: '#ffffff', border: '1px solid #323625' },
-    outlined: { background: 'transparent', color: '#323625', border: '1px solid rgba(50,54,37,0.25)' },
-    ghost:    { background: 'transparent', color: '#323625', border: 'none' },
-    // для тёмных секций
-    'filled-light':    { background: '#ffffff', color: '#323625', border: '1px solid #ffffff' },
-    'outlined-light':  { background: 'transparent', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.3)' },
-    'ghost-light':     { background: 'transparent', color: 'rgba(255,255,255,0.7)', border: 'none' },
+    'filled':         { background: '#323625', color: '#ffffff', border: '1px solid #323625' },
+    'filled-light':   { background: '#ffffff', color: '#323625', border: '1px solid #ffffff' },
+    'outlined':       { background: 'transparent', color: '#323625', border: '1px solid rgba(50,54,37,0.3)' },
+    'outlined-light': { background: 'transparent', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.35)' },
+    'ghost':          { background: 'transparent', color: '#323625', border: 'none' },
+    'ghost-light':    { background: 'transparent', color: 'rgba(255,255,255,0.7)', border: 'none' },
   }
 
   const s = sizes[size] || sizes.default
@@ -54,7 +51,6 @@ export default function Button({
     opacity: disabled ? 0.65 : 1,
     textDecoration: 'none',
     whiteSpace: 'nowrap',
-    transition: 'opacity 0.25s ease, box-shadow 0.25s ease',
     boxShadow: shadow ? '0 3px 5px 0 rgb(0 0 0 / .06)' : 'none',
     ...styleProp,
   }
@@ -67,20 +63,21 @@ export default function Button({
     </>
   )
 
+  const sharedProps = {
+    'data-variant': variant,
+    className: `ohio-btn ${className}`,
+    style: baseStyle,
+  }
+
   if (href) {
-    return (
-      <a href={href} style={baseStyle} className={`ohio-btn ${className}`} {...props}>
-        {content}
-      </a>
-    )
+    return <a href={href} {...sharedProps} {...props}>{content}</a>
   }
   return (
     <button
       type={type || 'button'}
       onClick={onClick}
       disabled={disabled}
-      style={baseStyle}
-      className={`ohio-btn ${className}`}
+      {...sharedProps}
       {...props}
     >
       {content}
