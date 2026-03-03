@@ -342,7 +342,7 @@ export default function Wireframe() {
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map(({quote,author}) => (
               <div key={author} className="p-8" style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '2px' }}>
-                <span style={{ color: C.mid, fontSize: '3rem', lineHeight: 1, display: 'block', marginBottom: '1rem', fontFamily: 'Georgia, serif' }}>"</span>
+                <span style={{ color: C.mid, fontSize: '3rem', lineHeight: 1, display: 'block', marginBottom: '1rem', fontFamily: '"Alegreya Sans", sans-serif' }}>"</span>
                 <p className="text-sm leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.65)' }}>{quote}</p>
                 <div className="pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                   <span className="text-xs font-semibold" style={{ color: C.mid }}>— {author}</span>

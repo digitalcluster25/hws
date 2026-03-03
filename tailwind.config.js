@@ -25,9 +25,12 @@ export default {
         display: ['"Alegreya Sans"', 'sans-serif'],
       },
       fontSize: {
-        'display-xl': ['clamp(3rem, 6vw, 5.5rem)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
-        'display-lg': ['clamp(2.25rem, 4vw, 3.75rem)', { lineHeight: '1.1',  letterSpacing: '-0.025em' }],
-        'display-md': ['clamp(1.75rem, 3vw, 2.75rem)', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
+        'xs':           ['1rem',  { lineHeight: '1.5' }],
+        'sm':           ['1rem',  { lineHeight: '1.5' }],
+        'base':         ['1rem',  { lineHeight: '1.6' }],
+        'display-xl':   ['clamp(3rem, 6vw, 5.5rem)',  { lineHeight: '1.05', letterSpacing: '-0.03em' }],
+        'display-lg':   ['clamp(2.25rem, 4vw, 3.75rem)', { lineHeight: '1.1', letterSpacing: '-0.025em' }],
+        'display-md':   ['clamp(1.75rem, 3vw, 2.75rem)', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
       },
       transitionTimingFunction: {
         'expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
