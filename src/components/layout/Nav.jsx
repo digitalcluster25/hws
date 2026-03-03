@@ -77,8 +77,7 @@ function FullMenu({ open, onClose, scrollTo }) {
 
   const overlay = (
     <div style={{ position:'fixed', inset:0, zIndex:99999, background:C.dark, display:'flex', flexDirection:'column', opacity:open?1:0, pointerEvents:open?'all':'none', transition:'opacity 0.3s ease' }}>
-      <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'max(1.5vw,16px)', flexShrink:0 }}>
-        <Link to="/" onClick={onClose} style={{ fontSize:'0.85rem', letterSpacing:'0.18em', textTransform:'uppercase', color:'rgba(255,255,255,0.7)', textDecoration:'none', fontWeight:600 }}>HWS</Link>
+      <div style={{ display:'flex', alignItems:'center', justifyContent:'flex-end', padding:'max(1.5vw,16px)', flexShrink:0 }}>
         <button onClick={onClose} style={{ width:'2.75rem', height:'2.75rem', display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', background:'none', border:'none', cursor:'pointer' }}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
@@ -96,13 +95,6 @@ function FullMenu({ open, onClose, scrollTo }) {
           </div>
         ))}
       </nav>
-      <div style={{ flexShrink:0, display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:'1rem', padding:'0 max(1.5vw,16px) max(2vw,24px)', opacity:open?1:0, transform:open?'translateY(0)':'translateY(16px)', transition:'opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s' }}>
-        <div style={{ display:'flex', gap:'1.5rem', flexWrap:'wrap' }}>
-          <a href="mailto:homewoodspa@gmail.com" style={{ fontSize:'0.75rem', color:'rgba(255,255,255,0.4)', letterSpacing:'0.06em', textDecoration:'none' }}>homewoodspa@gmail.com</a>
-          <a href="tel:+16785209556" style={{ fontSize:'0.75rem', color:'rgba(255,255,255,0.4)', letterSpacing:'0.06em', textDecoration:'none' }}>+1 (678) 520-9556</a>
-        </div>
-        <button onClick={() => go('#contact', false)} style={{ background:C.mid, color:'#fff', border:'none', cursor:'pointer', padding:'0.6rem 1.5rem', borderRadius:'16px', fontSize:'0.875rem', fontWeight:600, boxShadow:'0 3px 5px 0 rgb(0 0 0 / .06)' }}>Консультация</button>
-      </div>
     </div>
   )
   return createPortal(overlay, document.body)
