@@ -218,18 +218,18 @@ export default function Contact() {
     <div className="font-sans min-h-screen" style={{ color:C.dark }}>
 
       {/* ── HERO ── */}
-      <section style={{ background:C.dark, ...sec({ paddingTop:'10rem', paddingBottom:'5rem' }) }}>
+      <section style={{ background:C.light, ...sec({ paddingTop:'10rem', paddingBottom:'5rem' }) }}>
         <div style={wrap}>
-          <Link to="/" style={{ display:'inline-flex', alignItems:'center', gap:'0.5rem', marginBottom:'2.5rem', fontSize:'0.875rem', color:'rgba(255,255,255,0.4)', textDecoration:'none' }}
+          <Link to="/" style={{ display:'inline-flex', alignItems:'center', gap:'0.5rem', marginBottom:'2.5rem', fontSize:'0.875rem', color:C.muted, textDecoration:'none' }}
             className="hover:opacity-70 transition-opacity">← Главная</Link>
           <motion.div initial="hidden" animate="show" variants={stagger}>
-            <motion.p variants={fadeUp} style={{ ...lbl, color:C.mid, marginBottom:'1.25rem' }}>Контакты</motion.p>
+            <motion.p variants={fadeUp} style={{ ...lbl, color:C.muted, marginBottom:'1.25rem' }}>Контакты</motion.p>
             <motion.h1 variants={fadeUp}
-              style={{ fontSize:'clamp(2.8rem,7vw,6.5rem)', fontWeight:900, letterSpacing:'-0.04em', lineHeight:'0.93em', color:'#fff', marginBottom:'1.5rem' }}>
+              style={{ fontSize:'clamp(2.8rem,7vw,6.5rem)', fontWeight:900, letterSpacing:'-0.04em', lineHeight:'0.93em', color:C.dark, marginBottom:'1.5rem' }}>
               Давайте<br/>обсудим проект
             </motion.h1>
             <motion.p variants={fadeUp}
-              style={{ fontSize:'1.05rem', color:'rgba(255,255,255,0.5)', maxWidth:'520px', lineHeight:1.6 }}>
+              style={{ fontSize:'1.05rem', color:C.subtle, maxWidth:'520px', lineHeight:1.6 }}>
               Оставьте заявку — мы свяжемся в течение 24 часов и предложим предварительную концепцию бесплатно.
             </motion.p>
           </motion.div>

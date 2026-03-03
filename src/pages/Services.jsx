@@ -59,14 +59,14 @@ export default function Services() {
     <div className="font-sans min-h-screen" style={{ color:C.dark }}>
 
       {/* HERO */}
-      <section className="pt-40 pb-20" style={{ background:C.dark, ...sec() }}>
+      <section className="pt-40 pb-20" style={{ background:C.light, ...sec() }}>
         <div style={wrap}>
-          <Link to="/" className="inline-flex items-center gap-2 mb-10 text-sm hover:opacity-60 transition-opacity" style={{ color:'rgba(255,255,255,0.45)', textDecoration:'none' }}>← Главная</Link>
-          <p style={{ ...lbl, color:C.mid }} className="mb-6">Услуги</p>
-          <h1 style={{ fontSize:'clamp(2.5rem,6vw,6rem)', fontWeight:900, letterSpacing:'-0.04em', lineHeight:'0.95em', color:'#fff' }}>
+          <Link to="/" className="inline-flex items-center gap-2 mb-10 text-sm hover:opacity-60 transition-opacity" style={{ color:C.muted, textDecoration:'none' }}>← Главная</Link>
+          <p style={{ ...lbl, color:C.muted }} className="mb-6">Услуги</p>
+          <h1 style={{ fontSize:'clamp(2.5rem,6vw,6rem)', fontWeight:900, letterSpacing:'-0.04em', lineHeight:'0.95em', color:C.dark }}>
             Что мы строим
           </h1>
-          <p className="mt-6 max-w-xl leading-relaxed" style={{ color:'rgba(255,255,255,0.55)', fontSize:'1.05rem' }}>
+          <p className="mt-6 max-w-xl leading-relaxed" style={{ color:C.subtle, fontSize:'1.05rem' }}>
             17 лет специализации — от аутентичных хаммамов до масштабных термальных комплексов для luxury-отелей.
           </p>
         </div>
