@@ -13,9 +13,10 @@ const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A' }
  * page: false → плавный скролл к якорю #id
  */
 const NAV_LINKS = [
-  { label: 'Компания', href: '/',          page: true  },
-  { label: 'Услуги',   href: '/services',  page: true  },
-  { label: 'Кейсы',    href: '/portfolio', page: true  },
+  { label: 'Компания', href: '/',          page: true },
+  { label: 'Услуги',   href: '/services',  page: true },
+  { label: 'Кейсы',    href: '/portfolio', page: true },
+  { label: 'Контакты', href: '/contact',   page: true },
 ]
 
 // Авторасчёт разбивки: ceil слева, floor справа
