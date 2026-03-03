@@ -140,13 +140,18 @@ export default function Nav() {
           }}
         >
           {/* ── ЛЕВАЯ КОЛОНКА: hamburger + левые ссылки ── */}
-          <div className="flex items-center justify-start">
-            {/* Hamburger */}
+          <div className="flex items-center justify-end">
+            <nav className="hidden md:flex items-center">
+              {leftLinks.map(({ label, href }) => (
+                <NavBtn key={label} label={label} href={href} onClick={() => scrollTo(href)} />
+              ))}
+            </nav>
+            {/* Hamburger — крайний левый */}
             <button
               onClick={() => setMenuOpen(true)}
               aria-label="Меню"
-              className="flex items-center justify-center shrink-0 hover:bg-black/10 transition-colors duration-300"
-              style={{ width: '2.75rem', height: '2.75rem', color: C.dark, background: 'none', border: 'none', cursor: 'pointer', marginRight: '0.25rem' }}
+              className="flex items-center justify-center shrink-0 hover:bg-black/10 transition-colors duration-300 order-first"
+              style={{ width: '2.75rem', height: '2.75rem', color: C.dark, background: 'none', border: 'none', cursor: 'pointer', marginRight: 'auto' }}
             >
               <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', width: '16px' }}>
                 <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
@@ -154,12 +159,6 @@ export default function Nav() {
                 <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
               </div>
             </button>
-            {/* Левые ссылки (десктоп) */}
-            <nav className="hidden md:flex items-center">
-              {leftLinks.map(({ label, href }) => (
-                <NavBtn key={label} label={label} href={href} onClick={() => scrollTo(href)} />
-              ))}
-            </nav>
           </div>
 
           {/* ── ЦЕНТР: лого HWS ── */}
@@ -172,18 +171,18 @@ export default function Nav() {
           </Link>
 
           {/* ── ПРАВАЯ КОЛОНКА: правые ссылки + CTA ── */}
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-start">
             {/* Правые ссылки (десктоп) */}
             <nav className="hidden md:flex items-center">
               {rightLinks.map(({ label, href }) => (
                 <NavBtn key={label} label={label} href={href} onClick={() => scrollTo(href)} />
               ))}
             </nav>
-            {/* CTA */}
+            {/* CTA — крайний правый */}
             <button
               onClick={() => scrollTo('#contact')}
-              className="shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap hover:opacity-80 cursor-pointer"
-              style={{ height: '2.75rem', padding: '0 1.25rem', borderRadius: '24px', fontSize: '0.95rem', background: C.dark, color: '#fff', border: 'none', marginLeft: '0.25rem' }}
+              className="shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap hover:opacity-80 cursor-pointer ml-auto"
+              style={{ height: '2.75rem', padding: '0 1.25rem', borderRadius: '24px', fontSize: '0.95rem', background: C.dark, color: '#fff', border: 'none' }}
             >
               Консультация
             </button>
