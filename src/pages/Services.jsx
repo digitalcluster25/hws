@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import Button from '../components/ui/Button'
 
 const C = { dark:'#323625', mid:'#A2AC89', light:'#B5BD9A', terra:'#CB8268', muted:'#6b7057', subtle:'rgba(50,54,37,0.55)' }
 const wrap = { maxWidth:'1344px', margin:'0 auto' }
@@ -133,11 +134,9 @@ export default function Services() {
           <p className="max-w-lg mx-auto mb-10 text-sm leading-relaxed" style={{ color:'rgba(255,255,255,0.5)' }}>
             Бесплатная консультация — анализ вашего проекта, предварительная концепция и оценка бюджета.
           </p>
-          <a href="/#contact"
-            className="inline-flex items-center justify-center font-semibold hover:opacity-80 transition-opacity"
-            style={{ height:'2.75rem', padding:'0 2rem', borderRadius:'24px', background:'#fff', color:C.dark, fontSize:'0.95rem', textDecoration:'none' }}>
+          <Button href="/#contact" variant="filled-light" shadow={true}>
             Записаться на консультацию
-          </a>
+          </Button>
         </div>
       </section>
 

@@ -100,7 +100,7 @@ function FullMenu({ open, onClose, scrollTo }) {
           <a href="mailto:homewoodspa@gmail.com" style={{ fontSize:'0.75rem', color:'rgba(255,255,255,0.4)', letterSpacing:'0.06em', textDecoration:'none' }}>homewoodspa@gmail.com</a>
           <a href="tel:+16785209556" style={{ fontSize:'0.75rem', color:'rgba(255,255,255,0.4)', letterSpacing:'0.06em', textDecoration:'none' }}>+1 (678) 520-9556</a>
         </div>
-        <button onClick={() => go('#contact', false)} style={{ background:C.mid, color:'#fff', border:'none', cursor:'pointer', padding:'0.6rem 1.5rem', borderRadius:'24px', fontSize:'0.875rem', fontWeight:600 }}>Консультация</button>
+        <button onClick={() => go('#contact', false)} style={{ background:C.mid, color:'#fff', border:'none', cursor:'pointer', padding:'0.6rem 1.5rem', borderRadius:'16px', fontSize:'0.875rem', fontWeight:600, boxShadow:'0 3px 5px 0 rgb(0 0 0 / .06)' }}>Консультация</button>
       </div>
     </div>
   )
@@ -183,7 +183,7 @@ export default function Nav() {
             <button
               onClick={() => scrollTo('#contact')}
               className="shrink-0 font-sans font-semibold flex items-center transition-all duration-300 whitespace-nowrap hover:opacity-80 cursor-pointer ml-auto"
-              style={{ height: '2.75rem', padding: '0 1.25rem', borderRadius: '24px', fontSize: '0.95rem', background: C.dark, color: '#fff', border: 'none' }}
+              style={{ height: '2.75rem', padding: '0 1.25rem', borderRadius: '16px', fontSize: '0.95rem', background: C.dark, color: '#fff', border: 'none', boxShadow: '0 3px 5px 0 rgb(0 0 0 / .06)' }}
             >
               Консультация
             </button>

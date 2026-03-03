@@ -19,9 +19,9 @@ const h2Style = { fontSize: 'clamp(1.8rem, 3.75vw, 3.5rem)', lineHeight: '1.05em
 const labelStyle = { fontSize: '13.4px', fontWeight: 400, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.mid }
 
 // Кнопки по фону секции
-const btnDark = { style: { background: 'transparent', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.3)' }, shadow: false }
-const btnLight = { style: { background: C.mid, color: C.dark, border: `1px solid ${C.mid}` }, shadow: false }
-const btnDefault = {}
+const btnDark    = { variant: 'outlined-light', shadow: false }
+const btnLight   = { variant: 'filled', shadow: true }
+const btnDefault = { variant: 'filled', shadow: true }
 
 const wrap = { maxWidth: '1344px', margin: '0 auto' }
 const section = (extra = {}) => ({ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)', ...extra })
@@ -364,7 +364,7 @@ export default function Wireframe() {
             Планируете ли вы luxury СПА для отеля, аутентичный хаммам или полноценный wellness-комплекс — мы привносим экспертизу, чтобы сделать его исключительным.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="#contact" style={{ background: '#fff', color: C.dark, border: '1px solid #fff' }} shadow={false}>
+            <Button href="#contact" variant="filled-light" shadow={true}>
               Записаться на бесплатную консультацию
             </Button>
             <Button href="#portfolio" {...btnDark}>

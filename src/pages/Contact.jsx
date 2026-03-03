@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
+import Button from '../components/ui/Button'
 
 const C = { dark:'#323625', mid:'#A2AC89', light:'#B5BD9A', terra:'#CB8268', muted:'#6b7057', subtle:'rgba(50,54,37,0.55)' }
 const wrap = { maxWidth:'1344px', margin:'0 auto' }
@@ -190,19 +191,14 @@ function ContactForm() {
 
       {/* Submit */}
       <div className="flex items-center gap-4 flex-wrap">
-        <button
+        <Button
           type="submit"
           disabled={isSubmitting}
-          style={{
-            height:'2.75rem', padding:'0 2rem', borderRadius:'24px',
-            background: isSubmitting ? C.mid : C.dark, color:'#fff',
-            border:'none', cursor: isSubmitting ? 'wait' : 'pointer',
-            fontSize:'0.95rem', fontWeight:600, fontFamily:'inherit',
-            transition:'opacity 0.2s ease', opacity: isSubmitting ? 0.7 : 1,
-          }}
+          variant="filled"
+          shadow={true}
         >
           {isSubmitting ? 'Отправляем...' : 'Отправить запрос'}
-        </button>
+        </Button>
         {sent && (
           <p style={{ fontSize:'0.875rem', color:C.mid, fontWeight:500 }}>
             ✓ Запрос отправлен — свяжемся в течение 24 часов
@@ -293,11 +289,9 @@ export default function Contact() {
             <p style={{ ...lbl, fontSize:'11px', color:C.mid, marginBottom:'0.4rem' }}>Первый шаг</p>
             <p style={{ fontSize:'0.95rem', color:'rgba(255,255,255,0.7)' }}>Бесплатная консультация</p>
           </div>
-          <a href="mailto:homewoodspa@gmail.com"
-            style={{ height:'2.75rem', padding:'0 1.75rem', borderRadius:'24px', background:'rgba(255,255,255,0.12)', color:'#fff', border:'1px solid rgba(255,255,255,0.2)', fontSize:'0.875rem', fontWeight:600, display:'inline-flex', alignItems:'center', textDecoration:'none', transition:'background 0.2s ease' }}
-            className="hover:bg-white/20">
+          <Button href="mailto:homewoodspa@gmail.com" variant="outlined-light" shadow={false}>
             homewoodspa@gmail.com
-          </a>
+          </Button>
         </div>
       </section>
     </div>
