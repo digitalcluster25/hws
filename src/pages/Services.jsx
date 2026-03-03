@@ -76,50 +76,45 @@ export default function Services() {
       <section className="py-20" style={{ background:'#f8f8f5', ...sec() }}>
         <div style={wrap}>
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="flex flex-col gap-8"
             variants={cont} initial="hidden" animate="show"
           >
             {services.map((s, i) => (
               <motion.article
                 key={s.title}
                 variants={item}
-                className="group flex flex-col bg-white cursor-pointer"
+                className="group flex flex-col md:flex-row bg-white cursor-pointer"
                 style={{ boxShadow:'0 2px 0 0 #e5e7e0' }}
               >
                 {/* Image area */}
-                <div className="relative overflow-hidden" style={{ aspectRatio:'16/10', background: i % 3 === 0 ? C.dark : i % 3 === 1 ? C.light : '#e8ebe3' }}>
-                  {/* Category badge */}
+                <div className="relative overflow-hidden shrink-0" style={{ width:'100%', maxWidth:'460px', minHeight:'300px', background: i % 3 === 0 ? C.dark : i % 3 === 1 ? C.light : '#e8ebe3' }}>
                   <div className="absolute top-5 left-5">
                     <span style={{ ...lbl, fontSize:'11px', color: i % 3 === 0 ? C.mid : C.muted, background: i % 3 === 0 ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.7)', padding:'4px 10px', letterSpacing:'0.1em' }}>
                       {s.category}
                     </span>
                   </div>
-                  {/* Image placeholder */}
                   <span className="absolute bottom-4 left-5 text-xs" style={{ color: i % 3 === 0 ? 'rgba(255,255,255,0.25)' : C.muted }}>
                     [IMAGE: {s.title}]
                   </span>
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100" style={{ background:'rgba(50,54,37,0.15)' }}/>
+                  <div className="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100" style={{ background:'rgba(50,54,37,0.12)' }}/>
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col flex-1 p-7">
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-col flex-1 p-8 md:p-12 justify-center">
+                  <div className="flex flex-wrap gap-3 mb-5">
                     {s.tags.map(t => (
-                      <span key={t} style={{ fontSize:'11px', color:C.muted, letterSpacing:'0.06em', textTransform:'uppercase' }}>
-                        #{t}
-                      </span>
+                      <span key={t} style={{ fontSize:'11px', color:C.muted, letterSpacing:'0.06em', textTransform:'uppercase' }}>#{t}</span>
                     ))}
                   </div>
-                  <h2 className="font-semibold mb-3 leading-snug" style={{ fontSize:'1.2rem', color:C.dark }}>
+                  <h2 className="font-semibold mb-4 leading-snug" style={{ fontSize:'clamp(1.3rem,2.5vw,1.7rem)', color:C.dark }}>
                     {s.title}
                   </h2>
-                  <p className="text-sm leading-relaxed flex-1 mb-6" style={{ color:C.subtle }}>
+                  <p className="text-sm leading-relaxed mb-8" style={{ color:C.subtle, maxWidth:'480px' }}>
                     {s.excerpt}
                   </p>
                   <div className="flex items-center gap-2 text-sm font-medium transition-all duration-300 group-hover:gap-3" style={{ color:C.dark }}>
                     <span>Подробнее</span>
-                    <span style={{ transition:'transform 0.3s ease' }} className="group-hover:translate-x-1">→</span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                   </div>
                 </div>
               </motion.article>
