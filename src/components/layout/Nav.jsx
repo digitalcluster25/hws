@@ -49,8 +49,8 @@ function NavBtn({ label, href, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="font-sans font-medium whitespace-nowrap transition-all duration-300 cursor-pointer hover:bg-black/10"
-      style={{ height: '2.75rem', padding: '0 1.1rem', fontSize: '0.95rem', color: C.dark, background: 'none', border: 'none' }}
+      className="font-sans font-medium whitespace-nowrap transition-all duration-300 cursor-pointer bg-transparent hover:bg-black/10"
+      style={{ height: '2.75rem', padding: '0 1.1rem', fontSize: '0.95rem', color: C.dark, border: 'none' }}
     >
       {label}
     </button>
@@ -151,8 +151,8 @@ export default function Nav() {
             <button
               onClick={() => setMenuOpen(true)}
               aria-label="Меню"
-              className="flex items-center justify-center shrink-0 hover:bg-black/10 transition-colors duration-300 order-first"
-              style={{ width: '2.75rem', height: '2.75rem', color: C.dark, background: 'none', border: 'none', cursor: 'pointer', marginRight: 'auto' }}
+              className="flex items-center justify-center shrink-0 bg-transparent hover:bg-black/10 transition-colors duration-300 order-first"
+              style={{ width: '2.75rem', height: '2.75rem', color: C.dark, border: 'none', cursor: 'pointer', marginRight: 'auto' }}
             >
               <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', width: '16px' }}>
                 <span style={{ display: 'block', height: '1px', background: 'currentColor' }} />
