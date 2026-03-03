@@ -14,8 +14,17 @@ html {
 
 body {
   color: #323625;
-  font-family: "Inter", sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: 1rem;
   font-optical-sizing: auto;
+}
+
+/* Минимальный размер шрифта 1rem глобально */
+* {
+  min-font-size: 1rem;
+}
+p, span, a, li, td, th, label, input, textarea, select, button {
+  font-size: max(1rem, 0.875rem);
 }
 
 /* ── Ohio demo34 button hover pattern ──

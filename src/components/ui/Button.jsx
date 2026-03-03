@@ -40,7 +40,7 @@ export default function Button({
     minHeight: s.minHeight,
     padding: s.padding,
     fontSize: s.fontSize,
-    fontFamily: '"Inter", sans-serif',
+    fontFamily: '"Alegreya Sans", sans-serif',
     fontWeight: 600,
     letterSpacing: '0.01em',
     borderRadius: '16px',
