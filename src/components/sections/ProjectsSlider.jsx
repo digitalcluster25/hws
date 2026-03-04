@@ -190,8 +190,8 @@ export default function ProjectsSlider() {
           <p className="hws-label hws-label-muted mb-5" style={{ marginBottom: 0 }}>Портфолио</p>
           <Link to="/portfolio" className="ps-all" style={{ marginLeft: 0, marginRight: 0, flexShrink: 0 }}>Все проекты →</Link>
         </div>
-        <h2 className="hws-h2 tc-dark" style={{ marginTop: '1.25rem', whiteSpace: 'nowrap' }}>
-          Wellness-пространства, которые задают стандарт
+        <h2 className="hws-h2 tc-dark" style={{ marginTop: '1.25rem' }}>
+          Wellness-пространства,<br/>которые задают стандарт
         </h2>
       </div>
 
