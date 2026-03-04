@@ -18,9 +18,9 @@ export default function Button({
   ...props
 }) {
   const sizes = {
-    small:   { minHeight: '2.25rem', padding: '0 1rem',    fontSize: '0.875rem' },
-    default: { minHeight: '2.75rem', padding: '0 1.25rem', fontSize: '0.95rem'  },
-    large:   { minHeight: '3.25rem', padding: '0 1.5rem',  fontSize: '1rem'     },
+    small:   { minHeight: '2.25rem', padding: '0 1rem',    fontSize: '1rem' },
+    default: { minHeight: '2.75rem', padding: '0 1.25rem', fontSize: '1rem' },
+    large:   { minHeight: '3.25rem', padding: '0 1.5rem',  fontSize: '1rem' },
   }
   const variants = {
     'filled':         { background: '#323625', color: '#ffffff', border: '1px solid #323625' },
