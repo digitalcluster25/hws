@@ -135,16 +135,7 @@ export default function Wireframe() {
         </div>
       </section>
 
-      {/* ── 5. ПРОЕКТЫ — slider ── */}
-      <section id="portfolio" className="py-24" style={{ background: C.light }}>
-        <div style={wrap} className="hws-px">
-          <p className="hws-label hws-label-muted mb-6">Портфолио</p>
-          <h2 className="hws-h2 tc-dark mb-16" style={{ maxWidth: '30rem' }}>
-            Wellness-пространства,<br/>которые задают стандарт
-          </h2>
-        </div>
-        <ProjectsSlider />
-      </section>
+      <ProjectsSlider />
 
       {/* ── 6. ПОД КЛЮЧ ── */}
       <section id="process" className="py-24" style={{ background: '#fff', ...px }}>
