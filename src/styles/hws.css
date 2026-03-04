@@ -499,8 +499,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* ── LEFT ── */
 .proc-left {
-  position: sticky;
-  top: 6rem;
+  position: static;
 }
 
 /* pill badge — как "Best-in-class" на скрине */
@@ -522,9 +521,11 @@ select.hws-field { appearance: none; cursor: pointer; }
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;
-  color: var(--c-dark);
   margin: 0 0 1.75rem;
 }
+.proc-h2-light { color: #9fa08e; font-weight: 700; }
+.proc-h2-dark  { color: var(--c-dark); font-weight: 800; }
+.proc-dot      { color: var(--c-terra); }
 
 /* подзаголовок */
 .proc-lead {

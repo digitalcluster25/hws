@@ -79,7 +79,8 @@ export default function ProcessAccordion() {
         <div className="proc-left">
           <span className="proc-badge">Под ключ</span>
           <h2 className="proc-h2">
-            От концепции<br />до открытия<br />объекта.
+            <span className="proc-h2-light">От концепции</span><br />
+            <span className="proc-h2-dark">до открытия объекта<span className="proc-dot">.</span></span>
           </h2>
           <p className="proc-lead">
             Одна команда на каждом этапе — от маркетингового исследования до запуска.
