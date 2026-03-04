@@ -517,15 +517,23 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* большой заголовок */
 .proc-h2 {
-  font-size: clamp(2.4rem, 4.2vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
   margin: 0 0 1.75rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
-.proc-h2-light { color: #9fa08e; font-weight: 700; }
-.proc-h2-dark  { color: var(--c-dark); font-weight: 800; }
-.proc-dot      { color: var(--c-terra); }
+.proc-h2-light {
+  font-size: clamp(2.4rem, 4.2vw, 4.5rem) !important;
+  font-weight: 700;
+  color: #9fa08e;
+  line-height: 1.05;
+}
+.proc-h2-dark {
+  font-size: clamp(2.4rem, 4.2vw, 4.5rem) !important;
+  font-weight: 800;
+  color: var(--c-dark);
+  line-height: 1.05;
+}
+.proc-dot { color: var(--c-terra); }
 
 /* подзаголовок */
 .proc-lead {

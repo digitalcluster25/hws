@@ -78,10 +78,10 @@ export default function ProcessAccordion() {
         {/* ── LEFT ── */}
         <div className="proc-left">
           <span className="proc-badge">Под ключ</span>
-          <h2 className="proc-h2">
-            <span className="proc-h2-light">От концепции</span><br />
-            <span className="proc-h2-dark">до открытия объекта<span className="proc-dot">.</span></span>
-          </h2>
+          <div className="proc-h2">
+            <div className="proc-h2-light">От концепции</div>
+            <div className="proc-h2-dark">до открытия объекта<span className="proc-dot">.</span></div>
+          </div>
           <p className="proc-lead">
             Одна команда на каждом этапе — от маркетингового исследования до запуска.
             Без смены подрядчиков и потери качества.
