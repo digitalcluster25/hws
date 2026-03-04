@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, useMotionValue, animate, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import Button from '../ui/Button'
 import SectionHeader from '../ui/SectionHeader'
 
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', terra: '#CB8268', muted: '#6b7057' }
@@ -196,7 +197,7 @@ export default function ProjectsSlider() {
       <div className="hws-px mb-12" style={{ maxWidth: '1344px', margin: '0 auto 3rem' }}>
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '2rem' }}>
           <SectionHeader badge="Портфолио" light="Wellness-пространства," dark="которые задают стандарт" />
-          <Link to="/portfolio" className="ps-all" style={{ flexShrink: 0, paddingBottom: '0.2rem' }}>Все проекты →</Link>
+          <Button href="/portfolio" variant="ghost" shadow={false} style={{ flexShrink: 0 }}>Все проекты →</Button>
         </div>
       </div>
 
