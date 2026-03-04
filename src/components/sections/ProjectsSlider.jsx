@@ -186,13 +186,13 @@ export default function ProjectsSlider() {
     <section id="portfolio" className="py-24" style={{ background: C.light }}>
       {/* Header */}
       <div className="hws-px mb-12" style={{ maxWidth: '1344px', margin: '0 auto 3rem' }}>
+        <p className="hws-label hws-label-muted" style={{ marginBottom: '1.25rem' }}>Портфолио</p>
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '2rem' }}>
-          <p className="hws-label hws-label-muted mb-5" style={{ marginBottom: 0 }}>Портфолио</p>
-          <Link to="/portfolio" className="ps-all" style={{ marginLeft: 0, marginRight: 0, flexShrink: 0 }}>Все проекты →</Link>
+          <h2 className="hws-h2 tc-dark" style={{ margin: 0 }}>
+            Wellness-пространства,<br/>которые задают стандарт
+          </h2>
+          <Link to="/portfolio" className="ps-all" style={{ marginLeft: 0, marginRight: 0, flexShrink: 0, paddingBottom: '0.2rem' }}>Все проекты →</Link>
         </div>
-        <h2 className="hws-h2 tc-dark" style={{ marginTop: '1.25rem' }}>
-          Wellness-пространства,<br/>которые задают стандарт
-        </h2>
       </div>
 
       {/* Track */}
