@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, span, a, li, label, input, textarea, select, button, td, th {
-  font-size: max(0.875rem, 0.875rem);
+  font-size: max(1rem, 1rem);
 }
 
 /* ─────────────────────────────────────────────
@@ -46,7 +46,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
    Typography
    ───────────────────────────────────────────── */
 .hws-label {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -56,7 +56,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 .hws-label-dark  { color: var(--c-dark); }
 
 .hws-h1 {
-  font-size: clamp(2.5rem, 8.8vw, 9rem);
+  font-size: clamp(2rem, 7.04vw, 7.2rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 0.9em;
@@ -99,7 +99,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   line-height: 1.25;
 }
 .hws-body  { font-size: 1rem;     line-height: 1.65; }
-.hws-small { font-size: 0.875rem; line-height: 1.55; }
+.hws-small { font-size: 1rem; line-height: 1.55; }
 
 .stat-num {
   font-size: 2rem;
@@ -108,7 +108,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   line-height: 1;
 }
 .stat-label {
-  font-size: 0.875rem;
+  font-size: 1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--c-mid);
@@ -272,7 +272,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 .hws-field--error { border-color: #cb4f4f !important; }
 select.hws-field { appearance: none; cursor: pointer; }
 .hws-field-label {
-  font-size: 0.875rem; font-weight: 400;
+  font-size: 1rem; font-weight: 400;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--c-muted); display: block; margin-bottom: 6px;
 }
@@ -295,26 +295,26 @@ select.hws-field { appearance: none; cursor: pointer; }
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .contact-card:hover .contact-card__icon { background: var(--c-mid); color: #fff; }
-.contact-card__label  { font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 4px; }
+.contact-card__label  { font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 4px; }
 .contact-card__value  { font-size: 1rem; font-weight: 600; color: var(--c-dark); margin-bottom: 2px; }
-.contact-card__note   { font-size: 0.875rem; color: var(--c-subtle); }
+.contact-card__note   { font-size: 1rem; color: var(--c-subtle); }
 .contact-card__arrow  { margin-left: auto; align-self: center; color: var(--c-mid); opacity: 0; transition: opacity 0.3s ease; }
 .contact-card:hover .contact-card__arrow { opacity: 1; }
 
 /* ─────────────────────────────────────────────
    Portfolio / Services / Footer / Misc
    ───────────────────────────────────────────── */
-.portfolio-meta { font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-muted); }
-.portfolio-type { font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-mid); }
-.portfolio-tag  { padding: 2px 8px; font-size: 0.875rem; background: rgba(162,172,137,0.2); color: var(--c-muted); }
-.service-tag    { font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-muted); }
-.service-cat    { font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; }
+.portfolio-meta { font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-muted); }
+.portfolio-type { font-size: 1rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-mid); }
+.portfolio-tag  { padding: 2px 8px; font-size: 1rem; background: rgba(162,172,137,0.2); color: var(--c-muted); }
+.service-tag    { font-size: 1rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-muted); }
+.service-cat    { font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; }
 
 .footer-brand         { font-size: 1.0625rem; font-weight: 700; display: block; margin-bottom: 1rem; }
-.footer-section-title { font-size: 0.875rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-dark); display: block; margin-bottom: 1rem; }
-.footer-contact-line  { font-size: 0.875rem; line-height: 1.8; color: var(--c-mid); }
+.footer-section-title { font-size: 1rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-dark); display: block; margin-bottom: 1rem; }
+.footer-contact-line  { font-size: 1rem; line-height: 1.8; color: var(--c-mid); }
 .footer-nav-item      { font-size: 0.9375rem; line-height: 2; color: var(--c-subtle); }
-.footer-copy          { font-size: 0.875rem; color: var(--c-mid); }
+.footer-copy          { font-size: 1rem; color: var(--c-mid); }
 
 .hws-back-link {
   display: inline-flex; align-items: center; gap: 0.5rem;
@@ -323,13 +323,13 @@ select.hws-field { appearance: none; cursor: pointer; }
 }
 .hws-back-link:hover { opacity: 0.65; }
 .hws-advantage-check { color: var(--c-terra); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
-.featured-badge      { position: absolute; top: 1rem; left: 1rem; padding: 4px 12px; font-size: 0.875rem; font-weight: 600; background: var(--c-terra); color: #fff; }
-.process-num         { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--c-dark); color: #fff; font-size: 0.875rem; font-weight: 700; margin-bottom: 1rem; flex-shrink: 0; }
-.map-pin-label       { font-size: 0.875rem; font-weight: 600; color: var(--c-dark); white-space: nowrap; margin-top: 4px; }
-.map-pin-sub         { font-size: 0.875rem; color: var(--c-muted); white-space: nowrap; }
-.bottom-strip-label  { font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-mid); margin-bottom: 4px; }
+.featured-badge      { position: absolute; top: 1rem; left: 1rem; padding: 4px 12px; font-size: 1rem; font-weight: 600; background: var(--c-terra); color: #fff; }
+.process-num         { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--c-dark); color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; flex-shrink: 0; }
+.map-pin-label       { font-size: 1rem; font-weight: 600; color: var(--c-dark); white-space: nowrap; margin-top: 4px; }
+.map-pin-sub         { font-size: 1rem; color: var(--c-muted); white-space: nowrap; }
+.bottom-strip-label  { font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-mid); margin-bottom: 4px; }
 .bottom-strip-value  { font-size: 0.9375rem; color: rgba(255,255,255,0.7); }
-.img-note            { font-size: 0.875rem; }
+.img-note            { font-size: 1rem; }
 .img-note-light      { color: var(--c-muted); }
 .img-note-dark       { color: rgba(255,255,255,0.3); }
 
