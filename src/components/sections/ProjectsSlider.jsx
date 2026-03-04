@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
+import { motion, useMotionValue, animate, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', terra: '#CB8268', muted: '#6b7057' }
@@ -40,8 +40,9 @@ export default function ProjectsSlider() {
   const trackRef    = useRef(null)
   const [cardW, setCardW] = useState(0)
 
-  // текущий индекс (в ITEMS), начинаем с середины
-  const [idx, setIdx]     = useState(BASE)
+  const [idx, setIdx]             = useState(BASE)
+  const [settledIdx, setSettledIdx] = useState(BASE)
+  const settleTimer               = useRef(null)
   const x = useMotionValue(0)
 
   // drag state
@@ -83,10 +84,17 @@ export default function ProjectsSlider() {
   // анимировать к индексу
   const goTo = useCallback((i, instant = false) => {
     const target = xForIdx(i)
+    // сбрасываем таймер — метаданные пропадают сразу при движении
+    clearTimeout(settleTimer.current)
+    setSettledIdx(-1)
     if (instant) {
       x.set(target)
+      setSettledIdx(i)
     } else {
-      animate(x, target, { type: 'spring', stiffness: 260, damping: 32, mass: 0.8 })
+      animate(x, target, {
+        type: 'spring', stiffness: 260, damping: 32, mass: 0.8,
+        onComplete: () => { setSettledIdx(i) },
+      })
     }
   }, [x, xForIdx])
 
@@ -211,27 +219,38 @@ export default function ProjectsSlider() {
           className="ps-inner"
           style={{ x }}
         >
-          {ITEMS.map((p, i) => (
-            <div
-              key={i}
-              className="ps-card"
-              style={{ width: cardW > 0 ? cardW : '40vw', flexShrink: 0 }}
-            >
-              {/* Image */}
-              <div className="ps-img" style={{ background: p.bg }}>
-                <span className="ps-img-label">[IMAGE: {p.title}]</span>
+          {ITEMS.map((p, i) => {
+            const isVisible = i === settledIdx || i === settledIdx + 1
+            return (
+              <div
+                key={i}
+                className="ps-card"
+                style={{ width: cardW > 0 ? cardW : '40vw', flexShrink: 0 }}
+              >
+                <div className="ps-img" style={{ background: p.bg }}>
+                  <span className="ps-img-label">[IMAGE: {p.title}]</span>
+                </div>
+                <AnimatePresence>
+                  {isVisible && (
+                    <motion.div
+                      className="ps-meta"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 6 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <h3 className="ps-title">{p.title}</h3>
+                      <p className="ps-sub">
+                        <span>{p.loc}</span>
+                        <span className="ps-dot">·</span>
+                        <span>{p.area}</span>
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              {/* Meta */}
-              <div className="ps-meta">
-                <h3 className="ps-title">{p.title}</h3>
-                <p className="ps-sub">
-                  <span>{p.loc}</span>
-                  <span className="ps-dot">·</span>
-                  <span>{p.area}</span>
-                </p>
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </motion.div>
       </div>
 
