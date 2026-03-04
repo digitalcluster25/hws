@@ -547,9 +547,16 @@ select.hws-field { appearance: none; cursor: pointer; }
   display: flex;
   flex-direction: column;
   gap: 0;
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: transparent;
+  transition: background 0.25s ease;
+}
+.proc-card:hover {
+  background: #f0f1ec;
 }
 
-/* icon — залитый серый круг (как на скрине) */
+/* icon круг */
 .proc-icon {
   width: 52px;
   height: 52px;
@@ -561,11 +568,10 @@ select.hws-field { appearance: none; cursor: pointer; }
   color: var(--c-dark);
   margin-bottom: 1.25rem;
   flex-shrink: 0;
-  transition: background 0.22s ease, color 0.22s ease;
+  transition: background 0.25s ease;
 }
 .proc-card:hover .proc-icon {
-  background: var(--c-dark);
-  color: #fff;
+  background: #e2e4db;
 }
 
 /* заголовок карточки — жирный, 2 строки */
