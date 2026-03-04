@@ -476,3 +476,98 @@ select.hws-field { appearance: none; cursor: pointer; }
 @media (max-width: 640px) {
   .ps-img { height: 60vw; }
 }
+
+
+/* ─────────────────────────────────────────────
+   ProcessAccordion — Ohio icon-grid layout
+   ───────────────────────────────────────────── */
+.proc-section {
+  padding: 6rem 0;
+  background: #fff;
+}
+.proc-wrap {
+  max-width: 1344px;
+  margin: 0 auto;
+  padding-left: max(1.5vw, 16px);
+  padding-right: max(1.5vw, 16px);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ── left column ── */
+.proc-left {
+  position: sticky;
+  top: 6rem;
+}
+.proc-label { margin-bottom: 1.5rem; }
+.proc-h2 {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--c-dark);
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.02em;
+}
+.proc-lead {
+  font-size: 1.3rem;
+  line-height: 1.65;
+  color: var(--c-subtle);
+  max-width: 36ch;
+}
+
+/* ── right grid: 3 cols × 2 rows ── */
+.proc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2.5rem;
+}
+
+/* card */
+.proc-card { display: flex; flex-direction: column; gap: 0.75rem; }
+
+/* icon circle */
+.proc-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--c-dark);
+  margin-bottom: 0.5rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.proc-card:hover .proc-icon {
+  background: var(--c-dark);
+  color: #fff;
+  border-color: var(--c-dark);
+}
+
+.proc-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--c-dark);
+}
+.proc-card-desc {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--c-subtle);
+}
+
+/* mobile */
+@media (max-width: 900px) {
+  .proc-wrap {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .proc-left { position: static; }
+  .proc-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
+}
+@media (max-width: 560px) {
+  .proc-grid { grid-template-columns: 1fr; }
+}

@@ -1,5 +1,6 @@
 import Button from '../components/ui/Button'
 import ProjectsSlider from '../components/sections/ProjectsSlider'
+import ProcessAccordion from '../components/sections/ProcessAccordion'
 
 // ── данные ────────────────────────────────────────────────────────
 const expertise = [
@@ -137,33 +138,7 @@ export default function Wireframe() {
 
       <ProjectsSlider />
 
-      {/* ── 6. ПОД КЛЮЧ ── */}
-      <section id="process" className="py-24" style={{ background: '#fff', ...px }}>
-        <div style={wrap}>
-          <p className="hws-label mb-6">Процесс</p>
-          <h2 className="hws-h2 mb-6" style={{ maxWidth: '32rem' }}>От видения до дня открытия</h2>
-          <p className="hws-small tc-subtle mb-16 max-w-xl">Наш подход под ключ — одна команда от маркетингового исследования до открытия.</p>
-          <div className="grid md:grid-cols-4 gap-6">
-            {steps.map(({num,title,items}) => (
-              <div key={num} className="p-6 border" style={{ borderColor: '#e5e7e0' }}>
-                <div className="process-num">{num}</div>
-                <h3 className="hws-small font-semibold tc-dark mb-4">{title}</h3>
-                <ul className="space-y-2">
-                  {items.map(item => (
-                    <li key={item} className="flex items-start gap-2 hws-small tc-subtle">
-                      <span style={{ color: C.mid }}>—</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 flex justify-center">
-            <Button href="#process" variant="outlined" shadow={false}>Наш процесс →</Button>
-          </div>
-        </div>
-      </section>
+      <ProcessAccordion />
 
       {/* ── 7. МАТЕРИАЛЫ ── */}
       <section className="py-24" style={{ background: C.dark, ...px }}>
