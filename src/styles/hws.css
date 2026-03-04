@@ -480,7 +480,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 
 /* ─────────────────────────────────────────────
-   Process — Ohio "complete solutions" layout
+   Process — Ohio numbered steps
    ───────────────────────────────────────────── */
 .proc-section {
   padding: 5rem 0;
@@ -491,11 +491,64 @@ select.hws-field { appearance: none; cursor: pointer; }
   margin: 0 auto;
   padding-left: max(1.5vw, 16px);
   padding-right: max(1.5vw, 16px);
-  display: grid;
-  grid-template-columns: 1fr 1.85fr;
-  gap: 6rem;
-  align-items: start;
 }
+.proc-header-block { margin-bottom: 3.5rem; }
+
+/* 4-col steps grid */
+.proc-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--c-border);
+}
+.proc-step {
+  padding: 2rem 2rem 2rem 0;
+  border-right: 1px solid var(--c-border);
+}
+.proc-step:first-child { padding-left: 0; }
+.proc-step:last-child  { border-right: none; padding-right: 0; }
+
+/* step number */
+.proc-step-num {
+  font-size: 1rem;
+  color: var(--c-muted);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+/* step title */
+.proc-step-title {
+  font-size: clamp(1.3rem, 1.6vw, 1.75rem) !important;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--c-dark);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+/* step desc */
+.proc-step-desc {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--c-subtle);
+}
+.proc-step-desc strong {
+  font-weight: 700;
+  color: var(--c-dark);
+}
+
+/* mobile */
+@media (max-width: 900px) {
+  .proc-steps { grid-template-columns: 1fr 1fr; }
+  .proc-step:nth-child(2) { border-right: none; padding-right: 0; }
+  .proc-step:nth-child(3) { padding-left: 0; }
+  .proc-step:nth-child(3),
+  .proc-step:nth-child(4) { border-top: 1px solid var(--c-border); }
+}
+@media (max-width: 540px) {
+  .proc-steps { grid-template-columns: 1fr; }
+  .proc-step { border-right: none !important; padding: 1.5rem 0; border-top: 1px solid var(--c-border); }
+}
+
 
 /* ── LEFT ── */
 .proc-left {
