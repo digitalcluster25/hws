@@ -186,9 +186,12 @@ export default function ProjectsSlider() {
     <section id="portfolio" className="py-24" style={{ background: C.light }}>
       {/* Header */}
       <div className="hws-px mb-12" style={{ maxWidth: '1344px', margin: '0 auto 3rem' }}>
-        <p className="hws-label hws-label-muted mb-5">Портфолио</p>
-        <h2 className="hws-h2 tc-dark" style={{ maxWidth: '30rem' }}>
-          Wellness-пространства,<br/>которые задают стандарт
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '2rem' }}>
+          <p className="hws-label hws-label-muted mb-5" style={{ marginBottom: 0 }}>Портфолио</p>
+          <Link to="/portfolio" className="ps-all" style={{ marginLeft: 0, marginRight: 0, flexShrink: 0 }}>Все проекты →</Link>
+        </div>
+        <h2 className="hws-h2 tc-dark" style={{ marginTop: '1.25rem', whiteSpace: 'nowrap' }}>
+          Wellness-пространства, которые задают стандарт
         </h2>
       </div>
 
@@ -239,7 +242,7 @@ export default function ProjectsSlider() {
           <span className="ps-line" aria-hidden="true"/>
           <span className="ps-tot">{String(PROJECTS.length).padStart(2, '0')}</span>
         </div>
-        <Link to="/portfolio" className="ps-all">Все проекты →</Link>
+        <Link to="/portfolio" className="ps-all" style={{ display: 'none' }}>Все проекты →</Link>
         <div className="ps-arrows">
           <button className="ps-arrow" onClick={() => navigate(-1)} aria-label="Назад"><ArrowLeft /></button>
           <button className="ps-arrow" onClick={() => navigate(1)}  aria-label="Вперёд"><ArrowRight /></button>
