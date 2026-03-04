@@ -77,20 +77,6 @@ export default function Wireframe() {
         </div>
       </section>
 
-      {/* ── 2. SOCIAL PROOF ── */}
-      <section style={px}>
-        <div style={wrap}>
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-200 border border-gray-200">
-            {[{num:'17+',label:'лет опыта'},{num:'300+',label:'проектов'},{num:'4',label:'страны'},{num:'Под ключ',label:'доставка'}].map(({num,label}) => (
-              <div key={num} className="flex flex-col items-center gap-1 py-10 px-4">
-                <span className="stat-num">{num}</span>
-                <span className="stat-label">{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── 3. КТО МЫ ── */}
       <section id="about" className="py-24" style={{ background: C.dark, ...px }}>
         <div style={wrap}>
