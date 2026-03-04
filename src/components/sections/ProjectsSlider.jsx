@@ -242,7 +242,7 @@ export default function ProjectsSlider() {
           <span className="ps-line" aria-hidden="true"/>
           <span className="ps-tot">{String(PROJECTS.length).padStart(2, '0')}</span>
         </div>
-        <Link to="/portfolio" className="ps-all" style={{ display: 'none' }}>Все проекты →</Link>
+        <Link to="/portfolio" className="ps-all">Все проекты →</Link>
         <div className="ps-arrows">
           <button className="ps-arrow" onClick={() => navigate(-1)} aria-label="Назад"><ArrowLeft /></button>
           <button className="ps-arrow" onClick={() => navigate(1)}  aria-label="Вперёд"><ArrowRight /></button>
