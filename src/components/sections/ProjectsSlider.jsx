@@ -58,7 +58,9 @@ export default function ProjectsSlider() {
       const W = trackRef.current.offsetWidth
       // ширина одной карточки = (W без peek-частей - gap*cards_shown) / cards_shown
       const peekPx = W * PEEK
-      const w = (W - peekPx * 2 - CARD_GAP * (CARDS_SHOWN - 1)) / CARDS_SHOWN
+      // peek = ровно половина карточки
+      // W = cardW/2 + gap + cardW + gap + cardW + gap + cardW/2 = 3*cardW + 3*gap
+      const w = (W - CARD_GAP * 3) / 3
       setCardW(w)
     }
     calc()
@@ -72,8 +74,7 @@ export default function ProjectsSlider() {
   // получить x для заданного индекса
   const xForIdx = useCallback((i) => {
     if (!trackRef.current) return 0
-    const W   = trackRef.current.offsetWidth
-    const peek = W * PEEK
+    const peek = cardW / 2
     return -(i * step) + peek
   }, [step])
 
