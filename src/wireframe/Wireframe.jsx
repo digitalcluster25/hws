@@ -1,6 +1,7 @@
 import Button from '../components/ui/Button'
 import ProjectsSlider from '../components/sections/ProjectsSlider'
 import ProcessAccordion from '../components/sections/ProcessAccordion'
+import SectionHeader from '../components/ui/SectionHeader'
 
 // ── данные ────────────────────────────────────────────────────────
 const expertise = [
@@ -96,8 +97,7 @@ export default function Wireframe() {
         <div style={wrap}>
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="hws-label mb-6">О компании</p>
-              <h2 className="hws-h2 tc-white mb-8">Создаём wellness-пространства, которые трансформируют</h2>
+              <SectionHeader badge="О нас" light="Создаём wellness-пространства," dark="которые трансформируют" className="sh-wrap--inverse" />
               <p className="hws-body tc-w65 mb-4">
                 Почти два десятилетия Home Wood Spa проектирует и строит премиальные wellness-пространства. От масштабных курортных СПА до камерных частных хаммамов — мы соединяем древние банные традиции с современным дизайном и технической точностью.
               </p>
@@ -116,9 +116,8 @@ export default function Wireframe() {
       {/* ── 4. ЭКСПЕРТИЗА ── */}
       <section id="services" className="py-24" style={{ background: '#fff', ...px }}>
         <div style={wrap}>
-          <p className="hws-label mb-6">Экспертиза</p>
+          <SectionHeader badge="Экспертиза" light="Полноценные" dark="wellness-пространства" className="mb-12" />
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-            <h2 className="hws-h2" style={{ maxWidth: '28rem' }}>Полноценные wellness-пространства</h2>
             <p className="hws-small tc-subtle max-w-sm">Мы не строим отдельные сауны — мы создаём полные термальные путешествия.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-px" style={{ background: '#e5e7e0' }}>
@@ -143,8 +142,7 @@ export default function Wireframe() {
       {/* ── 7. МАТЕРИАЛЫ ── */}
       <section className="py-24" style={{ background: C.dark, ...px }}>
         <div style={wrap}>
-          <p className="hws-label mb-6">Материалы</p>
-          <h2 className="hws-h2 tc-white mb-16">Построено на века, создано для вдохновения</h2>
+          <SectionHeader badge="Материалы" light="Построено на века," dark="создано для вдохновения" className="sh-wrap--inverse mb-16" />
           <div className="grid md:grid-cols-3 gap-6">
             {materials.map(({title,text,img}) => (
               <div key={title}>
@@ -162,8 +160,7 @@ export default function Wireframe() {
       {/* ── 8. ДЛЯ КОГО ── */}
       <section className="py-24" style={{ background: '#fff', ...px }}>
         <div style={wrap}>
-          <p className="hws-label mb-6">Клиенты</p>
-          <h2 className="hws-h2 mb-16" style={{ maxWidth: '30rem' }}>Нам доверяют ведущие wellness-направления</h2>
+          <SectionHeader badge="Клиенты" light="Нам доверяют" dark="ведущие wellness-бренды" className="mb-16" />
           <div className="grid md:grid-cols-2 gap-6">
             {segments.map(({title,text}) => (
               <div key={title} className="flex gap-6 items-start p-8 border" style={{ borderColor: '#e5e7e0' }}>
@@ -181,9 +178,8 @@ export default function Wireframe() {
       {/* ── 9. ПОЧЕМУ HWS ── */}
       <section className="py-24" style={{ background: C.light, ...px }}>
         <div style={wrap}>
-          <p className="hws-label hws-label-muted mb-6">Преимущества</p>
           <div className="grid md:grid-cols-2 gap-16 items-start">
-            <h2 className="hws-h2 tc-dark">Европейская экспертиза, мировые стандарты</h2>
+            <SectionHeader badge="Почему мы" light="Европейская экспертиза," dark="мировые стандарты" />
             <div className="grid grid-cols-1 gap-4">
               {advantages.map(item => (
                 <div key={item} className="flex items-start gap-3">
@@ -199,9 +195,8 @@ export default function Wireframe() {
       {/* ── 10. КАРТА ── */}
       <section className="py-24" style={{ background: '#fff', ...px }}>
         <div style={wrap}>
-          <p className="hws-label mb-6">География</p>
+          <SectionHeader badge="География" light="Wellness-объекты" dark="по всему миру" className="mb-12" />
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <h2 className="hws-h2" style={{ maxWidth: '30rem' }}>Создаём wellness-превосходство по всему миру</h2>
             <p className="hws-small tc-subtle max-w-xs">Международное портфолио: Европа, Кавказ, Центральная Азия, выход на рынок США.</p>
           </div>
           <div className="w-full aspect-[16/7] relative flex items-center justify-center" style={{ background: '#f0f0eb', borderRadius: '2px' }}>
@@ -224,8 +219,7 @@ export default function Wireframe() {
       {/* ── 11. ОТЗЫВЫ ── */}
       <section className="py-24" style={{ background: C.dark, ...px }}>
         <div style={wrap}>
-          <p className="hws-label mb-6">Отзывы</p>
-          <h2 className="hws-h2 tc-white mb-16">Что говорят наши клиенты</h2>
+          <SectionHeader badge="Отзывы" light="Что говорят" dark="наши клиенты" className="sh-wrap--inverse mb-16" />
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map(({quote,author}) => (
               <div key={author} className="p-8" style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '2px' }}>
@@ -243,8 +237,7 @@ export default function Wireframe() {
       {/* ── 12. ФИНАЛЬНЫЙ CTA ── */}
       <section id="contact" className="py-28" style={{ background: C.dark, ...px }}>
         <div className="text-center" style={wrap}>
-          <p className="hws-label mb-6">Начать проект</p>
-          <h2 className="hws-cta-h2 tc-white max-w-2xl mx-auto mb-8">Готовы создать своё wellness-направление?</h2>
+          <SectionHeader badge="Начать проект" light="Готовы создать" dark="своё wellness-направление" className="sh-wrap--inverse items-center mb-8" />
           <p className="hws-small tc-w55 max-w-xl mx-auto mb-12">
             Планируете ли вы luxury СПА для отеля, аутентичный хаммам или полноценный wellness-комплекс — мы привносим экспертизу, чтобы сделать его исключительным.
           </p>

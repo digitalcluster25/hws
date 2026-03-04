@@ -616,3 +616,48 @@ select.hws-field { appearance: none; cursor: pointer; }
 @media (max-width: 420px) {
   .proc-grid { grid-template-columns: 1fr; }
 }
+
+/* ─────────────────────────────────────────────
+   SectionHeader — pill + two-tone heading
+   ───────────────────────────────────────────── */
+.sh-wrap { display: flex; flex-direction: column; align-items: flex-start; }
+.sh-badge {
+  display: inline-block;
+  padding: 5px 18px;
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--c-dark);
+  letter-spacing: 0.01em;
+  margin-bottom: 1.5rem;
+}
+.sh-h2 {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.sh-light {
+  display: block;
+  font-size: clamp(2rem, 3.6vw, 4rem) !important;
+  font-weight: 700;
+  color: #9fa08e;
+  line-height: 1.05;
+}
+.sh-dark {
+  display: block;
+  font-size: clamp(2rem, 3.6vw, 4rem) !important;
+  font-weight: 800;
+  color: var(--c-dark);
+  line-height: 1.05;
+}
+.sh-dot { color: var(--c-terra); }
+
+/* на тёмном фоне */
+.sh-wrap--inverse .sh-badge {
+  border-color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.7);
+}
+.sh-wrap--inverse .sh-light { color: rgba(255,255,255,0.45); }
+.sh-wrap--inverse .sh-dark  { color: #fff; }
