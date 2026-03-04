@@ -2,54 +2,17 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Button from '../components/ui/Button'
 
-const C = { dark:'#323625', mid:'#A2AC89', light:'#B5BD9A', terra:'#CB8268', muted:'#6b7057', subtle:'rgba(50,54,37,0.55)' }
+const C = { dark:'#323625', mid:'#A2AC89', light:'#B5BD9A', terra:'#CB8268', muted:'#6b7057' }
 const wrap = { maxWidth:'1344px', margin:'0 auto' }
-const sec  = (x={}) => ({ paddingLeft:'max(1.5vw,16px)', paddingRight:'max(1.5vw,16px)', ...x })
-const lbl  = { fontSize:'13.4px', fontWeight:400, letterSpacing:'0.12em', textTransform:'uppercase' }
+const px   = { paddingLeft:'max(1.5vw,16px)', paddingRight:'max(1.5vw,16px)' }
 
 const services = [
-  {
-    category: 'Коммерческие объекты',
-    title: 'СПА-комплексы для отелей и курортов',
-    excerpt: 'Полноценные термальные комплексы для 5-звёздочных отелей. Проектируем wellness-маршруты, которые повышают RevPAR и делают объект точкой притяжения гостей.',
-    tags: ['Отели', 'Курорты', 'Wellness'],
-    accent: C.dark,
-  },
-  {
-    category: 'Хаммам и восточные бани',
-    title: 'Аутентичные турецкие хаммамы',
-    excerpt: 'Традиционное турецкое банное мастерство с применением исторически точных материалов — мозаика ручной укладки, мраморный göbektaşı, аутентичный нагрев пола.',
-    tags: ['Хаммам', 'Мозаика', 'Турция'],
-    accent: C.terra,
-  },
-  {
-    category: 'Скандинавские бани',
-    title: 'Финские сауны и термальные зоны',
-    excerpt: 'Скандинавские сауны, паровые комнаты, ледяные купели и бассейны для погружения — разрабатываем как целостные wellness-экосистемы с маршрутом горячо-холодно.',
-    tags: ['Сауна', 'Купели', 'Скандинавия'],
-    accent: C.mid,
-  },
-  {
-    category: 'Частные проекты',
-    title: 'Wellness-зоны для частных резиденций',
-    excerpt: 'Камерные хаммамы, домашние сауны и SPA-комнаты для частных вилл и резиденций. Каждый проект создаётся по индивидуальному заказу без компромиссов.',
-    tags: ['Частный', 'Villa', 'Bespoke'],
-    accent: C.muted,
-  },
-  {
-    category: 'Под ключ',
-    title: 'Строительство и монтаж под ключ',
-    excerpt: 'Единый подрядчик от маркетингового исследования до открытия объекта. Управление проектом, европейские материалы, соблюдение сроков и послепродажная поддержка.',
-    tags: ['Turnkey', 'Управление', 'Монтаж'],
-    accent: C.dark,
-  },
-  {
-    category: 'Консалтинг',
-    title: 'Дизайн, концепция и консалтинг',
-    excerpt: 'Конкурентный анализ, позиционирование wellness-направления, обоснование ROI, 3D-визуализация и термальный маршрут — до начала строительства.',
-    tags: ['Концепция', 'ROI', '3D'],
-    accent: C.terra,
-  },
+  { category:'Коммерческие объекты',    title:'СПА-комплексы для отелей и курортов',     excerpt:'Полноценные термальные комплексы для 5-звёздочных отелей. Проектируем wellness-маршруты, которые повышают RevPAR и делают объект точкой притяжения гостей.', tags:['Отели','Курорты','Wellness'], bg: C.dark },
+  { category:'Хаммам и восточные бани', title:'Аутентичные турецкие хаммамы',           excerpt:'Традиционное турецкое банное мастерство с применением исторически точных материалов — мозаика ручной укладки, мраморный göbektaşı, аутентичный нагрев пола.', tags:['Хаммам','Мозаика','Турция'], bg: C.light },
+  { category:'Скандинавские бани',      title:'Финские сауны и термальные зоны',         excerpt:'Скандинавские сауны, паровые комнаты, ледяные купели и бассейны для погружения — разрабатываем как целостные wellness-экосистемы с маршрутом горячо-холодно.', tags:['Сауна','Купели','Скандинавия'], bg: '#e8ebe3' },
+  { category:'Частные проекты',         title:'Wellness-зоны для частных резиденций',    excerpt:'Камерные хаммамы, домашние сауны и SPA-комнаты для частных вилл и резиденций. Каждый проект создаётся по индивидуальному заказу без компромиссов.', tags:['Частный','Villa','Bespoke'], bg: C.dark },
+  { category:'Под ключ',                title:'Строительство и монтаж под ключ',          excerpt:'Единый подрядчик от маркетингового исследования до открытия объекта. Управление проектом, европейские материалы, соблюдение сроков и послепродажная поддержка.', tags:['Turnkey','Управление','Монтаж'], bg: C.light },
+  { category:'Консалтинг',              title:'Дизайн, концепция и консалтинг',           excerpt:'Конкурентный анализ, позиционирование wellness-направления, обоснование ROI, 3D-визуализация и термальный маршрут — до начала строительства.', tags:['Концепция','ROI','3D'], bg: '#e8ebe3' },
 ]
 
 const cont = { hidden:{}, show:{ transition:{ staggerChildren:0.09 } } }
@@ -57,29 +20,24 @@ const item = { hidden:{ opacity:0, y:40 }, show:{ opacity:1, y:0, transition:{ d
 
 export default function Services() {
   return (
-    <div className="font-sans min-h-screen" style={{ color:C.dark }}>
+    <div className="min-h-screen tc-dark">
 
       {/* HERO */}
-      <section className="pt-40 pb-20" style={{ background:C.light, ...sec() }}>
+      <section style={{ background: C.light, ...px, paddingTop:'10rem', paddingBottom:'5rem' }}>
         <div style={wrap}>
-          <Link to="/" className="inline-flex items-center gap-2 mb-10 text-sm hover:opacity-60 transition-opacity" style={{ color:C.muted, textDecoration:'none' }}>← Главная</Link>
-          <p style={{ ...lbl, color:C.muted }} className="mb-6">Услуги</p>
-          <h1 style={{ fontSize:'clamp(2.5rem,6vw,6rem)', fontWeight:900, letterSpacing:'-0.04em', lineHeight:'0.95em', color:C.dark }}>
-            Что мы строим
-          </h1>
-          <p className="mt-6 max-w-xl leading-relaxed" style={{ color:C.subtle, fontSize:'1.05rem' }}>
+          <Link to="/" className="hws-back-link">← Главная</Link>
+          <p className="hws-label hws-label-muted mb-6">Услуги</p>
+          <h1 className="hws-page-h1 mb-6">Что мы строим</h1>
+          <p className="hws-body tc-subtle" style={{ maxWidth:'560px' }}>
             17 лет специализации — от аутентичных хаммамов до масштабных термальных комплексов для luxury-отелей.
           </p>
         </div>
       </section>
 
-      {/* GRID — blog tile style */}
-      <section className="py-20" style={{ background:'#f8f8f5', ...sec() }}>
+      {/* GRID */}
+      <section style={{ background:'#f8f8f5', ...px, paddingTop:'5rem', paddingBottom:'5rem' }}>
         <div style={wrap}>
-          <motion.div
-            className="flex flex-col gap-8"
-            variants={cont} initial="hidden" animate="show"
-          >
+          <motion.div className="flex flex-col gap-8" variants={cont} initial="hidden" animate="show">
             {services.map((s, i) => (
               <motion.article
                 key={s.title}
@@ -87,14 +45,16 @@ export default function Services() {
                 className="group flex flex-col md:flex-row bg-white cursor-pointer"
                 style={{ boxShadow:'0 2px 0 0 #e5e7e0' }}
               >
-                {/* Image area */}
-                <div className="relative overflow-hidden shrink-0" style={{ width:'100%', maxWidth:'460px', minHeight:'300px', background: i % 3 === 0 ? C.dark : i % 3 === 1 ? C.light : '#e8ebe3' }}>
+                {/* Image */}
+                <div className="relative overflow-hidden shrink-0" style={{ width:'100%', maxWidth:'460px', minHeight:'300px', background: s.bg }}>
                   <div className="absolute top-5 left-5">
-                    <span style={{ ...lbl, fontSize:'11px', color: i % 3 === 0 ? C.mid : C.muted, background: i % 3 === 0 ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.7)', padding:'4px 10px', letterSpacing:'0.1em' }}>
+                    <span className={`service-cat${i % 3 === 0 ? ' tc-mid' : ' tc-muted'}`}
+                      style={{ background: i % 3 === 0 ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.7)' }}>
                       {s.category}
                     </span>
                   </div>
-                  <span className="absolute bottom-4 left-5 text-xs" style={{ color: i % 3 === 0 ? 'rgba(255,255,255,0.25)' : C.muted }}>
+                  <span className="absolute bottom-4 left-5 img-note img-note-light"
+                    style={{ color: i % 3 === 0 ? 'rgba(255,255,255,0.25)' : C.muted }}>
                     [IMAGE: {s.title}]
                   </span>
                   <div className="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100" style={{ background:'rgba(50,54,37,0.12)' }}/>
@@ -103,17 +63,11 @@ export default function Services() {
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-8 md:p-12 justify-center">
                   <div className="flex flex-wrap gap-3 mb-5">
-                    {s.tags.map(t => (
-                      <span key={t} style={{ fontSize:'11px', color:C.muted, letterSpacing:'0.06em', textTransform:'uppercase' }}>#{t}</span>
-                    ))}
+                    {s.tags.map(t => <span key={t} className="service-tag">#{t}</span>)}
                   </div>
-                  <h2 className="font-semibold mb-4 leading-snug" style={{ fontSize:'clamp(1.3rem,2.5vw,1.7rem)', color:C.dark }}>
-                    {s.title}
-                  </h2>
-                  <p className="text-sm leading-relaxed mb-8" style={{ color:C.subtle, maxWidth:'480px' }}>
-                    {s.excerpt}
-                  </p>
-                  <div className="flex items-center gap-2 text-sm font-medium transition-all duration-300 group-hover:gap-3" style={{ color:C.dark }}>
+                  <h2 className="hws-card-title tc-dark mb-4">{s.title}</h2>
+                  <p className="hws-small tc-subtle mb-8" style={{ maxWidth:'480px' }}>{s.excerpt}</p>
+                  <div className="flex items-center gap-2 hws-small font-medium tc-dark transition-all duration-300 group-hover:gap-3">
                     <span>Подробнее</span>
                     <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                   </div>
@@ -125,18 +79,14 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center" style={{ background:C.dark, ...sec() }}>
+      <section className="py-24 text-center" style={{ background: C.dark, ...px }}>
         <div style={wrap}>
-          <p style={{ ...lbl, color:C.mid }} className="mb-6">Начать проект</p>
-          <h2 style={{ fontSize:'clamp(1.8rem,3.5vw,3rem)', fontWeight:800, letterSpacing:'-0.02em', color:'#fff' }} className="max-w-2xl mx-auto mb-8">
-            Обсудим ваш wellness-объект?
-          </h2>
-          <p className="max-w-lg mx-auto mb-10 text-sm leading-relaxed" style={{ color:'rgba(255,255,255,0.5)' }}>
+          <p className="hws-label mb-6">Начать проект</p>
+          <h2 className="hws-cta-h2 tc-white max-w-2xl mx-auto mb-8">Обсудим ваш wellness-объект?</h2>
+          <p className="hws-small tc-w50 max-w-lg mx-auto mb-10">
             Бесплатная консультация — анализ вашего проекта, предварительная концепция и оценка бюджета.
           </p>
-          <Button href="/#contact" variant="filled-light" shadow={true}>
-            Записаться на консультацию
-          </Button>
+          <Button href="/#contact" variant="filled-light" shadow={false}>Записаться на консультацию</Button>
         </div>
       </section>
 

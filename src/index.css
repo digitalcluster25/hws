@@ -1,73 +1,44 @@
+@import './styles/hws.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  color: #323625;
-  font-family: "Alegreya Sans", sans-serif;
-  font-size: 1rem;
-}
-
-/* ── Ohio demo34 button hover pattern ──
-   source: --clb-color-button:#323625 → hover: --clb-color-primary (accent)
-   transition: background-color, color, border-color only — NO shadows
-*/
-
+/* ── Ohio button hover ── */
 .ohio-btn {
   transition-property: background-color, color, border-color !important;
   transition-duration: 0.3s !important;
   transition-timing-function: cubic-bezier(.645,.045,.355,1) !important;
   box-shadow: none !important;
 }
-
-/* filled #323625 → hover #A2AC89 */
 .ohio-btn[data-variant="filled"]:hover,
 .ohio-btn[data-variant="filled"]:focus {
   background-color: #A2AC89 !important;
   border-color: #A2AC89 !important;
 }
-
-/* filled-light (white) → hover #A2AC89 */
 .ohio-btn[data-variant="filled-light"]:hover,
 .ohio-btn[data-variant="filled-light"]:focus {
   background-color: #A2AC89 !important;
   border-color: #A2AC89 !important;
   color: #fff !important;
 }
-
-/* outlined → fill dark on hover */
 .ohio-btn[data-variant="outlined"]:hover,
 .ohio-btn[data-variant="outlined"]:focus {
   background-color: #323625 !important;
   border-color: #323625 !important;
-  color: #ffffff !important;
+  color: #fff !important;
 }
-
-/* outlined-light → slight white fill */
 .ohio-btn[data-variant="outlined-light"]:hover,
 .ohio-btn[data-variant="outlined-light"]:focus {
   background-color: rgba(255,255,255,0.15) !important;
   border-color: rgba(255,255,255,0.5) !important;
 }
-
-/* ghost → soft fill */
 .ohio-btn[data-variant="ghost"]:hover,
 .ohio-btn[data-variant="ghost"]:focus {
   background-color: rgba(50,54,37,0.08) !important;
-  color: #323625 !important;
 }
-
-/* ghost-light */
 .ohio-btn[data-variant="ghost-light"]:hover,
 .ohio-btn[data-variant="ghost-light"]:focus {
   background-color: rgba(255,255,255,0.12) !important;

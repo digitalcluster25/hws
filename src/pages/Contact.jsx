@@ -4,15 +4,13 @@ import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import Button from '../components/ui/Button'
 
-const C = { dark:'#323625', mid:'#A2AC89', light:'#B5BD9A', terra:'#CB8268', muted:'#6b7057', subtle:'rgba(50,54,37,0.55)' }
+const C = { dark:'#323625', mid:'#A2AC89', light:'#B5BD9A', terra:'#CB8268', muted:'#6b7057' }
 const wrap = { maxWidth:'1344px', margin:'0 auto' }
-const sec  = (x={}) => ({ paddingLeft:'max(1.5vw,16px)', paddingRight:'max(1.5vw,16px)', ...x })
-const lbl  = { fontSize:'13.4px', fontWeight:400, letterSpacing:'0.12em', textTransform:'uppercase' }
+const px   = { paddingLeft:'max(1.5vw,16px)', paddingRight:'max(1.5vw,16px)' }
 
 const fadeUp = { hidden:{ opacity:0, y:32 }, show:{ opacity:1, y:0, transition:{ duration:0.6, ease:[0.16,1,0.3,1] } } }
 const stagger = { hidden:{}, show:{ transition:{ staggerChildren:0.1 } } }
 
-/* ── иконки ── */
 const IcoPhone = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.13 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
@@ -37,57 +35,22 @@ const IcoWhatsapp = () => (
 )
 
 const contacts = [
-  {
-    Icon: IcoPhone,
-    label: 'Телефон',
-    value: '+1 (678) 520-9556',
-    href: 'tel:+16785209556',
-    note: 'Пн–Пт, 9:00–18:00 EST',
-  },
-  {
-    Icon: IcoWhatsapp,
-    label: 'WhatsApp',
-    value: '+1 (678) 520-9556',
-    href: 'https://wa.me/16785209556',
-    note: 'Ответим в течение часа',
-  },
-  {
-    Icon: IcoMail,
-    label: 'Email',
-    value: 'homewoodspa@gmail.com',
-    href: 'mailto:homewoodspa@gmail.com',
-    note: 'Для проектных запросов',
-  },
-  {
-    Icon: IcoPin,
-    label: 'Офис',
-    value: 'Atlanta, Georgia, USA',
-    href: null,
-    note: 'Работаем по всему миру',
-  },
+  { Icon: IcoPhone,    label: 'Телефон',  value: '+1 (678) 520-9556',     href: 'tel:+16785209556',              note: 'Пн–Пт, 9:00–18:00 EST' },
+  { Icon: IcoWhatsapp, label: 'WhatsApp', value: '+1 (678) 520-9556',     href: 'https://wa.me/16785209556',     note: 'Ответим в течение часа' },
+  { Icon: IcoMail,     label: 'Email',    value: 'homewoodspa@gmail.com', href: 'mailto:homewoodspa@gmail.com',  note: 'Для проектных запросов' },
+  { Icon: IcoPin,      label: 'Офис',     value: 'Atlanta, Georgia, USA', href: null,                            note: 'Работаем по всему миру' },
 ]
 
-function ContactCard({ Icon, label, value, href, note, index }) {
+function ContactCard({ Icon, label, value, href, note }) {
   const inner = (
-    <motion.div
-      variants={fadeUp}
-      className="group flex items-start gap-5 p-7 bg-white transition-all duration-300 hover:shadow-lg"
-      style={{ borderBottom: '2px solid #e5e7e0' }}
-    >
-      <div className="shrink-0 flex items-center justify-center rounded-full transition-colors duration-300 group-hover:bg-opacity-100"
-        style={{ width:'52px', height:'52px', background:'#f0f2ec', color:C.dark }}>
-        <Icon />
-      </div>
+    <motion.div variants={fadeUp} className="contact-card">
+      <div className="contact-card__icon"><Icon /></div>
       <div>
-        <p style={{ ...lbl, fontSize:'11px', color:C.muted }} className="mb-1">{label}</p>
-        <p className="font-semibold mb-1 transition-colors duration-300 group-hover:text-opacity-80"
-          style={{ fontSize:'1rem', color:C.dark }}>{value}</p>
-        <p style={{ fontSize:'0.8rem', color:C.subtle }}>{note}</p>
+        <p className="contact-card__label">{label}</p>
+        <p className="contact-card__value">{value}</p>
+        <p className="contact-card__note">{note}</p>
       </div>
-      {href && (
-        <div className="ml-auto self-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{ color:C.mid }}>→</div>
-      )}
+      {href && <div className="contact-card__arrow">→</div>}
     </motion.div>
   )
   return href
@@ -107,65 +70,36 @@ function ContactForm() {
     setTimeout(() => setSent(false), 5000)
   }
 
-  const field = {
-    base: {
-      width:'100%', background:'#fff', border:'1px solid #d9dcd3',
-      borderRadius:'4px', padding:'0.85rem 1.1rem', fontSize:'0.95rem',
-      color:C.dark, outline:'none', fontFamily:'inherit',
-      transition:'border-color 0.2s ease',
-    },
-    error: { borderColor: '#cb4f4f' },
-  }
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{ display:'flex', flexDirection:'column', gap:'1.1rem' }} noValidate>
-      {/* Name + Email */}
       <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1.1rem' }} className="grid-cols-1 sm:grid-cols-2">
         <div>
-          <label style={{ ...lbl, fontSize:'11px', color:C.muted, display:'block', marginBottom:'6px' }}>Имя *</label>
+          <label className="hws-field-label">Имя *</label>
           <input
             {...register('name', { required: true })}
             placeholder="Ваше имя"
-            style={{ ...field.base, ...(errors.name ? field.error : {}) }}
-            onFocus={e => e.target.style.borderColor = C.mid}
-            onBlur={e => e.target.style.borderColor = errors.name ? '#cb4f4f' : '#d9dcd3'}
+            className={`hws-field${errors.name ? ' hws-field--error' : ''}`}
           />
         </div>
         <div>
-          <label style={{ ...lbl, fontSize:'11px', color:C.muted, display:'block', marginBottom:'6px' }}>Email *</label>
+          <label className="hws-field-label">Email *</label>
           <input
             {...register('email', { required: true, pattern: /^\S+@\S+\.\S+$/ })}
             type="email"
             placeholder="your@email.com"
-            style={{ ...field.base, ...(errors.email ? field.error : {}) }}
-            onFocus={e => e.target.style.borderColor = C.mid}
-            onBlur={e => e.target.style.borderColor = errors.email ? '#cb4f4f' : '#d9dcd3'}
+            className={`hws-field${errors.email ? ' hws-field--error' : ''}`}
           />
         </div>
       </div>
 
-      {/* Phone */}
       <div>
-        <label style={{ ...lbl, fontSize:'11px', color:C.muted, display:'block', marginBottom:'6px' }}>Телефон</label>
-        <input
-          {...register('phone')}
-          type="tel"
-          placeholder="+1 (___) ___-____"
-          style={field.base}
-          onFocus={e => e.target.style.borderColor = C.mid}
-          onBlur={e => e.target.style.borderColor = '#d9dcd3'}
-        />
+        <label className="hws-field-label">Телефон</label>
+        <input {...register('phone')} type="tel" placeholder="+1 (___) ___-____" className="hws-field" />
       </div>
 
-      {/* Subject */}
       <div>
-        <label style={{ ...lbl, fontSize:'11px', color:C.muted, display:'block', marginBottom:'6px' }}>Тип объекта</label>
-        <select
-          {...register('subject')}
-          style={{ ...field.base, appearance:'none', cursor:'pointer' }}
-          onFocus={e => e.target.style.borderColor = C.mid}
-          onBlur={e => e.target.style.borderColor = '#d9dcd3'}
-        >
+        <label className="hws-field-label">Тип объекта</label>
+        <select {...register('subject')} className="hws-field" style={{ appearance:'none' }}>
           <option value="">— Выберите —</option>
           <option>СПА-комплекс для отеля</option>
           <option>Хаммам</option>
@@ -176,34 +110,22 @@ function ContactForm() {
         </select>
       </div>
 
-      {/* Message */}
       <div>
-        <label style={{ ...lbl, fontSize:'11px', color:C.muted, display:'block', marginBottom:'6px' }}>Сообщение *</label>
+        <label className="hws-field-label">Сообщение *</label>
         <textarea
           {...register('message', { required: true })}
           rows={5}
           placeholder="Расскажите о вашем проекте: локация, масштаб, сроки..."
-          style={{ ...field.base, resize:'vertical', ...(errors.message ? field.error : {}) }}
-          onFocus={e => e.target.style.borderColor = C.mid}
-          onBlur={e => e.target.style.borderColor = errors.message ? '#cb4f4f' : '#d9dcd3'}
+          className={`hws-field${errors.message ? ' hws-field--error' : ''}`}
+          style={{ resize:'vertical' }}
         />
       </div>
 
-      {/* Submit */}
       <div className="flex items-center gap-4 flex-wrap">
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          variant="filled"
-          shadow={true}
-        >
+        <Button type="submit" disabled={isSubmitting} variant="filled" shadow={false}>
           {isSubmitting ? 'Отправляем...' : 'Отправить запрос'}
         </Button>
-        {sent && (
-          <p style={{ fontSize:'0.875rem', color:C.mid, fontWeight:500 }}>
-            ✓ Запрос отправлен — свяжемся в течение 24 часов
-          </p>
-        )}
+        {sent && <p className="hws-small tc-mid font-medium">✓ Запрос отправлен — свяжемся в течение 24 часов</p>}
       </div>
     </form>
   )
@@ -211,51 +133,44 @@ function ContactForm() {
 
 export default function Contact() {
   return (
-    <div className="font-sans min-h-screen" style={{ color:C.dark }}>
+    <div className="min-h-screen tc-dark">
 
-      {/* ── HERO ── */}
-      <section style={{ background:C.light, ...sec({ paddingTop:'10rem', paddingBottom:'5rem' }) }}>
+      {/* HERO */}
+      <section style={{ background: C.light, ...px, paddingTop:'10rem', paddingBottom:'5rem' }}>
         <div style={wrap}>
-          <Link to="/" style={{ display:'inline-flex', alignItems:'center', gap:'0.5rem', marginBottom:'2.5rem', fontSize:'0.875rem', color:C.muted, textDecoration:'none' }}
-            className="hover:opacity-70 transition-opacity">← Главная</Link>
+          <Link to="/" className="hws-back-link">← Главная</Link>
           <motion.div initial="hidden" animate="show" variants={stagger}>
-            <motion.p variants={fadeUp} style={{ ...lbl, color:C.muted, marginBottom:'1.25rem' }}>Контакты</motion.p>
-            <motion.h1 variants={fadeUp}
-              style={{ fontSize:'clamp(2.8rem,7vw,6.5rem)', fontWeight:900, letterSpacing:'-0.04em', lineHeight:'0.93em', color:C.dark, marginBottom:'1.5rem' }}>
+            <motion.p variants={fadeUp} className="hws-label hws-label-muted mb-5">Контакты</motion.p>
+            <motion.h1 variants={fadeUp} className="hws-page-h1 mb-6">
               Давайте<br/>обсудим проект
             </motion.h1>
-            <motion.p variants={fadeUp}
-              style={{ fontSize:'1.05rem', color:C.subtle, maxWidth:'520px', lineHeight:1.6 }}>
+            <motion.p variants={fadeUp} className="hws-body tc-subtle" style={{ maxWidth:'520px' }}>
               Оставьте заявку — мы свяжемся в течение 24 часов и предложим предварительную концепцию бесплатно.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── MAIN CONTENT: Info left + Form right ── */}
-      <section style={{ background:'#f8f8f5', ...sec({ paddingTop:'5rem', paddingBottom:'6rem' }) }}>
+      {/* MAIN CONTENT */}
+      <section style={{ background:'#f8f8f5', ...px, paddingTop:'5rem', paddingBottom:'6rem' }}>
         <div style={{ ...wrap, display:'grid', gridTemplateColumns:'1fr 1fr', gap:'4rem', alignItems:'start' }}
           className="grid-cols-1 lg:grid-cols-2">
 
-          {/* ── LEFT: contact info ── */}
+          {/* LEFT */}
           <motion.div initial="hidden" whileInView="show" viewport={{ once:true }} variants={stagger}>
-            <motion.p variants={fadeUp} style={{ ...lbl, color:C.muted, marginBottom:'1rem' }}>Как связаться</motion.p>
-            <motion.h2 variants={fadeUp}
-              style={{ fontSize:'clamp(1.5rem,2.8vw,2.4rem)', fontWeight:800, letterSpacing:'-0.02em', color:C.dark, marginBottom:'2rem', lineHeight:1.15 }}>
+            <motion.p variants={fadeUp} className="hws-label hws-label-muted mb-4">Как связаться</motion.p>
+            <motion.h2 variants={fadeUp} className="hws-contact-h2 mb-8">
               Мы на связи<br/>для вашего проекта
             </motion.h2>
-            <motion.p variants={fadeUp}
-              style={{ fontSize:'0.95rem', color:C.subtle, lineHeight:1.7, marginBottom:'2.5rem', maxWidth:'400px' }}>
+            <motion.p variants={fadeUp} className="hws-body tc-subtle mb-10" style={{ maxWidth:'400px' }}>
               17 лет опыта в wellness-строительстве. Работаем с отелями, курортами и частными заказчиками по всему миру.
             </motion.p>
             <div style={{ display:'flex', flexDirection:'column', gap:'1px', background:'#e5e7e0' }}>
-              {contacts.map((c, i) => (
-                <ContactCard key={c.label} {...c} index={i} />
-              ))}
+              {contacts.map((c) => <ContactCard key={c.label} {...c} />)}
             </div>
           </motion.div>
 
-          {/* ── RIGHT: form ── */}
+          {/* RIGHT — form */}
           <motion.div
             initial={{ opacity:0, y:40 }}
             whileInView={{ opacity:1, y:0 }}
@@ -263,31 +178,27 @@ export default function Contact() {
             transition={{ duration:0.65, ease:[0.16,1,0.3,1], delay:0.15 }}
             style={{ background:'#fff', padding:'clamp(1.5rem,4vw,3rem)', boxShadow:'0 0 0 1px #e5e7e0, 0 8px 40px rgba(50,54,37,0.07)' }}
           >
-            <h3 style={{ fontSize:'1.3rem', fontWeight:700, color:C.dark, marginBottom:'0.5rem' }}>
-              Запрос на консультацию
-            </h3>
-            <p style={{ fontSize:'0.875rem', color:C.subtle, marginBottom:'2rem' }}>
-              Заполните форму — это займёт 2 минуты
-            </p>
+            <h3 className="hws-h3 tc-dark mb-2">Запрос на консультацию</h3>
+            <p className="hws-small tc-subtle mb-8">Заполните форму — это займёт 2 минуты</p>
             <ContactForm />
           </motion.div>
         </div>
       </section>
 
-      {/* ── BOTTOM STRIP ── */}
-      <section style={{ background:C.dark, ...sec({ paddingTop:'3rem', paddingBottom:'3rem' }) }}>
+      {/* BOTTOM STRIP */}
+      <section style={{ background: C.dark, ...px, paddingTop:'3rem', paddingBottom:'3rem' }}>
         <div style={{ ...wrap, display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:'1.5rem' }}>
           <div>
-            <p style={{ ...lbl, fontSize:'11px', color:C.mid, marginBottom:'0.4rem' }}>Время ответа</p>
-            <p style={{ fontSize:'0.95rem', color:'rgba(255,255,255,0.7)' }}>В течение 24 часов в рабочие дни</p>
+            <p className="bottom-strip-label">Время ответа</p>
+            <p className="bottom-strip-value">В течение 24 часов в рабочие дни</p>
           </div>
           <div>
-            <p style={{ ...lbl, fontSize:'11px', color:C.mid, marginBottom:'0.4rem' }}>Языки</p>
-            <p style={{ fontSize:'0.95rem', color:'rgba(255,255,255,0.7)' }}>Русский · English · Türkçe</p>
+            <p className="bottom-strip-label">Языки</p>
+            <p className="bottom-strip-value">Русский · English · Türkçe</p>
           </div>
           <div>
-            <p style={{ ...lbl, fontSize:'11px', color:C.mid, marginBottom:'0.4rem' }}>Первый шаг</p>
-            <p style={{ fontSize:'0.95rem', color:'rgba(255,255,255,0.7)' }}>Бесплатная консультация</p>
+            <p className="bottom-strip-label">Первый шаг</p>
+            <p className="bottom-strip-value">Бесплатная консультация</p>
           </div>
           <Button href="mailto:homewoodspa@gmail.com" variant="outlined-light" shadow={false}>
             homewoodspa@gmail.com

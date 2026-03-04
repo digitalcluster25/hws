@@ -21,8 +21,8 @@ export default {
         },
       },
       fontFamily: {
-        sans:    ['"Alegreya Sans"', 'sans-serif'],
-        display: ['"Alegreya Sans"', 'sans-serif'],
+        sans:    ['Alegreya Sans', 'sans-serif'],
+        display: ['Alegreya Sans', 'sans-serif'],
       },
       fontSize: {
         'xs':           ['1rem',  { lineHeight: '1.5' }],
