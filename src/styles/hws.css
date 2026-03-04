@@ -459,7 +459,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 .ps-all:hover { opacity: 1; }
 
 /* стрелки */
-.ps-arrows { display: flex; gap: 8px; flex-shrink: 0; }
+.ps-arrows { display: flex; gap: 8px; flex-shrink: 0; margin-left: auto; }
 .ps-arrow {
   width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
