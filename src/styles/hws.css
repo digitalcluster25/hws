@@ -533,7 +533,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   color: var(--c-dark);
   line-height: 1.05;
 }
-.proc-dot { color: var(--c-terra); }
+.proc-dot { color: var(--c-terra); font-size: inherit !important; line-height: 1; }
 
 /* подзаголовок */
 .proc-lead {
