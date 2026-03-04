@@ -19,7 +19,7 @@ const ITEMS = [...PROJECTS, ...PROJECTS, ...PROJECTS]
 const BASE  = PROJECTS.length // индекс середины (реального начала)
 
 const CARD_GAP    = 20   // px между карточками
-const PEEK        = 0.18 // доля ширины контейнера — сколько видно по краям
+const PEEK        = 0.09 // вдвое меньше оригинала — края маленькие
 const CARDS_SHOWN = 2    // полностью видимых карточек
 
 function ArrowLeft() {
@@ -56,11 +56,8 @@ export default function ProjectsSlider() {
     function calc() {
       if (!trackRef.current) return
       const W = trackRef.current.offsetWidth
-      // ширина одной карточки = (W без peek-частей - gap*cards_shown) / cards_shown
       const peekPx = W * PEEK
-      // peek = ровно половина карточки
-      // W = cardW/2 + gap + cardW + gap + cardW + gap + cardW/2 = 3*cardW + 3*gap
-      const w = (W - CARD_GAP * 3) / 3
+      const w = (W - peekPx * 2 - CARD_GAP * (CARDS_SHOWN - 1)) / CARDS_SHOWN
       setCardW(w)
     }
     calc()
@@ -74,7 +71,8 @@ export default function ProjectsSlider() {
   // получить x для заданного индекса
   const xForIdx = useCallback((i) => {
     if (!trackRef.current) return 0
-    const peek = cardW / 2
+    const W = trackRef.current.offsetWidth
+    const peek = W * PEEK
     return -(i * step) + peek
   }, [step])
 
