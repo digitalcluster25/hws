@@ -1,15 +1,11 @@
 import Button from '../components/ui/Button'
+import ProjectsSlider from '../components/sections/ProjectsSlider'
 
 // ── данные ────────────────────────────────────────────────────────
 const expertise = [
   { title: 'Коммерческие СПА и Wellness', text: 'Полноценные термальные комплексы для отелей и курортов. Сауна, хаммам, ледяные купели — всё как единое wellness-путешествие.' },
   { title: 'Аутентичные хаммамы', text: 'Традиционное турецкое банное мастерство, адаптированное для современных luxury-объектов. Каждый хаммам строится с применением исторически точных материалов и методов.' },
   { title: 'Термальные зоны и бани', text: 'Скандинавские сауны, паровые комнаты, ледяные купели и бассейны для погружения, разработанные как целостные wellness-экосистемы.' },
-]
-const projects = [
-  { title: 'Emily Resort', loc: 'Турция', text: '12 уникальных термальных зон, аутентичный хаммам' },
-  { title: 'Taze Bay Historic Baths', loc: 'Баку', text: 'Исторические бани с современным wellness-оснащением' },
-  { title: 'Sadu Hotel & Radisson', loc: 'Центральная Азия', text: 'Luxury СПА как конкурентное преимущество курорта' },
 ]
 const steps = [
   { num:'01', title:'Исследование рынка и позиционирование', items:['Конкурентный анализ','Позиционирование wellness','Обоснование ROI'] },
@@ -139,30 +135,15 @@ export default function Wireframe() {
         </div>
       </section>
 
-      {/* ── 5. ПРОЕКТЫ ── */}
-      <section id="portfolio" className="py-24" style={{ background: C.light, ...px }}>
-        <div style={wrap}>
+      {/* ── 5. ПРОЕКТЫ — slider ── */}
+      <section id="portfolio" className="py-24" style={{ background: C.light }}>
+        <div style={wrap} className="hws-px">
           <p className="hws-label hws-label-muted mb-6">Портфолио</p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-            <h2 className="hws-h2 tc-dark" style={{ maxWidth: '28rem' }}>Wellness-пространства, которые задают стандарт</h2>
-            <Button href="#portfolio" variant="filled" shadow={false}>Всё портфолио →</Button>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {projects.map(({title,loc,text}) => (
-              <div key={title} style={{ background: 'rgba(255,255,255,0.6)', borderRadius: '2px' }}>
-                <div className="aspect-[4/3] w-full flex items-end p-3" style={{ background: 'rgba(50,54,37,0.12)' }}>
-                  <span className="img-note img-note-light">[IMAGE: {title}]</span>
-                </div>
-                <div className="p-6">
-                  <p className="portfolio-meta mb-2">{loc}</p>
-                  <h3 className="hws-h3 tc-dark mb-2">{title}</h3>
-                  <p className="hws-small tc-muted mb-4">{text}</p>
-                  <span className="hws-small tc-dark" style={{ textDecoration: 'underline', cursor: 'pointer' }}>Посмотреть →</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="hws-h2 tc-dark mb-16" style={{ maxWidth: '30rem' }}>
+            Wellness-пространства,<br/>которые задают стандарт
+          </h2>
         </div>
+        <ProjectsSlider />
       </section>
 
       {/* ── 6. ПОД КЛЮЧ ── */}
