@@ -16,11 +16,6 @@ const steps = [
   { num:'03', title:'Строительство и монтаж', items:['Управление проектом','Европейские материалы','Соблюдение сроков'] },
   { num:'04', title:'Запуск и операционная поддержка', items:['Открытие объекта','Обучение команды','Послепродажная поддержка'] },
 ]
-const materials = [
-  { title: 'Природный камень и талькохлорид', text: 'Материалы для долговечной красоты с терапевтическими свойствами.', img: '[IMAGE: камень]' },
-  { title: 'Термообработанная древесина', text: 'Скандинавский термодерево для саун — устойчиво к влаге и теплу.', img: '[IMAGE: дерево]' },
-  { title: 'Традиционная мозаика', text: 'Аутентичные плитки хаммама, поставляемые от проверенных турецких мастеров.', img: '[IMAGE: мозаика]' },
-]
 const segments = [
   { title: 'Luxury-отели и курорты', text: 'Создание wellness-направлений, которые повышают RevPAR и отличают ваш объект.' },
   { title: 'Частные резиденции', text: 'Частные хаммамы, сауны и wellness-пространства, созданные по вашим стандартам.' },
@@ -130,23 +125,6 @@ export default function Wireframe() {
 
       <ProcessAccordion />
 
-      {/* ── 7. МАТЕРИАЛЫ ── */}
-      <section className="py-24" style={{ background: C.dark, ...px }}>
-        <div style={wrap}>
-          <SectionHeader badge="Материалы" light="Построено на века," dark="создано для вдохновения" className="sh-wrap--inverse mb-16" />
-          <div className="grid md:grid-cols-3 gap-6">
-            {materials.map(({title,text,img}) => (
-              <div key={title}>
-                <div className="aspect-square w-full flex items-end p-3 mb-4" style={{ background: 'rgba(255,255,255,0.07)', borderRadius: '2px' }}>
-                  <span className="img-note img-note-dark">{img}</span>
-                </div>
-                <h3 className="hws-h3 tc-white mb-2">{title}</h3>
-                <p className="hws-small tc-w55">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── 8. ДЛЯ КОГО ── */}
       <section className="py-24" style={{ background: '#fff', ...px }}>
