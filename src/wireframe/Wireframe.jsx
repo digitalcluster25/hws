@@ -89,7 +89,6 @@ export default function Wireframe() {
               <p className="hws-body tc-w65 mb-8">
                 Каждый проект начинается с вашего видения и заканчивается пространством, которое запомнят ваши гости.
               </p>
-              <Button variant="outlined-light" shadow={false}>Узнать о нас →</Button>
             </div>
             <div className="aspect-[4/3] rounded flex items-end p-4" style={{ background: 'rgba(255,255,255,0.06)' }}>
               <span className="img-note img-note-dark">[IMAGE: Emily Resort главный СПА-зал]</span>
