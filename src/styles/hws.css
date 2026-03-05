@@ -760,18 +760,17 @@ select.hws-field { appearance: none; cursor: pointer; }
    ───────────────────────────────────────────── */
 .hl {
   display: inline;
-  background-image: linear-gradient(rgba(203,130,104,0.65), rgba(203,130,104,0.65));
+  background-image: linear-gradient(rgba(203,130,104,0.55), rgba(203,130,104,0.55));
   background-repeat: no-repeat;
   background-position: 0% 100%;
-  background-size: 0% 50%;
+  background-size: 0% 0.45em;
   backface-visibility: hidden;
   transition: background-size 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-/* анимация по IntersectionObserver — добавляем .hl--animate */
 .hl--animate {
-  background-size: 100% 50%;
+  background-size: 100% 0.45em;
 }
-/* hover — полная высота */
 .hl--animate:hover {
-  background-size: 100% 100%;
+  background-size: 100% 1em;
+  transition-duration: 0.2s;
 }
