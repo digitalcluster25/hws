@@ -245,45 +245,8 @@ export default function Wireframe() {
       {/* ── ФУТЕР ── */}
       <footer className="py-16 border-t" style={{ borderColor: '#e5e7e0', ...px }}>
         <div style={wrap}>
-          <div className="grid md:grid-cols-4 gap-12">
-            <div>
-              <span className="footer-brand tc-dark">Home Wood Spa</span>
-              <p className="hws-small tc-subtle mb-6">
-                Более 17 лет специализируемся на проектировании, строительстве и управлении премиальными wellness-комплексами.
-              </p>
-              <div className="space-y-1">
-                {['Homewoodspa@gmail.com','Homewoodspa.com','+1 (678) 520-9556 — Igor Kostin','+1 (470) 760-9323 — Eugene Voit'].map(t => (
-                  <p key={t} className="footer-contact-line">{t}</p>
-                ))}
-              </div>
-            </div>
-            <div>
-              <span className="footer-section-title">Услуги</span>
-              <ul className="space-y-1">
-                {['Коммерческие СПА','Luxury хаммамы','Традиционные сауны','Термальные впечатления','Строительство под ключ','Дизайн и консалтинг'].map(i => (
-                  <li key={i} className="footer-nav-item">{i}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <span className="footer-section-title">Проекты</span>
-              <ul className="space-y-1">
-                {['Отели и курорты','Wellness-центры','Частные резиденции','Корпоративные объекты'].map(i => (
-                  <li key={i} className="footer-nav-item">{i}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <span className="footer-section-title">Портфолио</span>
-              <ul className="space-y-1">
-                {['Европа','Центральная Азия','Северная Америка (скоро)'].map(i => (
-                  <li key={i} className="footer-nav-item">{i}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between gap-4" style={{ borderColor: '#e5e7e0' }}>
-            <span className="footer-copy">© 2024 Home Wood Spa. Все права защищены.</span>
+          <div className="flex flex-col md:flex-row justify-between gap-4">
+            <span className="footer-copy">© 2026 Home Wood Spa. Все права защищены.</span>
             <span className="footer-copy">Политика конфиденциальности · Условия использования</span>
           </div>
         </div>
