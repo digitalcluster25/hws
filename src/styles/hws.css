@@ -796,7 +796,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 .cta-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(30, 32, 24, 0.62);
+  background: rgba(30, 32, 24, 0.32);
   z-index: 1;
 }
 .cta-inner {

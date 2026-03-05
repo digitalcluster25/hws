@@ -244,7 +244,7 @@ export default function Wireframe() {
           <div className="cta-bottom">
             <div className="cta-left">
               <h2 className="cta-h2">Создадим ваш wellness-объект с нуля до открытия.</h2>
-              <Button href="/contact" variant="filled-light" shadow={false}>Связаться с нами →</Button>
+              <Button href="/contact" variant="filled-light" shadow={false}>Забронировать встречу</Button>
             </div>
             <div className="cta-right">
               <div className="cta-contact">
