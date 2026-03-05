@@ -756,23 +756,16 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* ─────────────────────────────────────────────
    Text highlighter — Ohio heading-shortcode
+   50%: нижняя половина строки, текст не меняет цвет
    ───────────────────────────────────────────── */
 .hl {
   display: inline;
-  background: var(--c-terra);
-  color: #fff;
-  /* полная высота строки: вертикальный padding заполняет межстрочный интервал */
-  padding: 0.22em 0.22em 0.18em;
-  line-height: inherit;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  border-radius: 2px;
+  background-image: linear-gradient(rgba(203,130,104,0.55), rgba(203,130,104,0.55));
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  background-size: 0% 50%;
+  transition: background-size 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-/* приглушённый вариант */
-.hl--light {
-  background: rgba(203, 130, 104, 0.18);
-  color: var(--c-dark);
-  padding: 0.22em 0.22em 0.18em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+.hl.hl--animate {
+  background-size: 100% 50%;
 }
