@@ -119,6 +119,7 @@ export default function Wireframe() {
               ].map(({ cat, title, desc }) => (
                 <div key={cat} className="exp-card">
                   <p className="exp-cat">{cat}</p>
+                  <div className="exp-divider" />
                   <h3 className="exp-card-title">{title}</h3>
                   <p className="exp-card-desc">{desc}</p>
                 </div>

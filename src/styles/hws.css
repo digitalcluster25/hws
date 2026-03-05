@@ -710,17 +710,10 @@ select.hws-field { appearance: none; cursor: pointer; }
 }
 .exp-card {
   padding: 2rem 2rem 2.5rem 0;
-  border-bottom: 1px solid var(--c-border);
 }
 /* правая колонка — отступ слева */
 .exp-card:nth-child(even) {
   padding-left: 2rem;
-  border-left: 1px solid var(--c-border);
-}
-/* последние две строки без нижней границы */
-.exp-card:nth-child(3),
-.exp-card:nth-child(4) {
-  border-bottom: none;
 }
 
 .exp-cat {
