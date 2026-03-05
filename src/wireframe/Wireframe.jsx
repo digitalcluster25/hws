@@ -1,5 +1,4 @@
 import Button from '../components/ui/Button'
-import { useEffect } from 'react'
 import ProjectsSlider from '../components/sections/ProjectsSlider'
 import ProcessAccordion from '../components/sections/ProcessAccordion'
 import SectionHeader from '../components/ui/SectionHeader'
@@ -57,14 +56,6 @@ const wrap = { maxWidth: '1344px', margin: '0 auto' }
 const px   = { paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }
 
 export default function Wireframe() {
-  useEffect(() => {
-    const els = document.querySelectorAll('.hl-trigger')
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('hl--animate'); io.unobserve(e.target) } })
-    }, { threshold: 0.5 })
-    els.forEach(el => io.observe(el))
-    return () => io.disconnect()
-  }, [])
   return (
     <div className="min-h-screen tc-dark">
 
@@ -115,7 +106,7 @@ export default function Wireframe() {
             {/* левая колонка */}
             <div className="exp-left">
               <p className="exp-label">ЭКСПЕРТИЗА</p>
-              <h2 className="exp-h2">Создаём <span className="hl hl-trigger">wellness-пространства, которые задают стандарт</span>.</h2>
+              <h2 className="exp-h2">Создаём wellness-пространства, которые задают стандарт.</h2>
             </div>
 
             {/* правая сетка 2×2 */}
