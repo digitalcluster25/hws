@@ -1,6 +1,7 @@
 import Button from '../components/ui/Button'
 import ProjectsSlider from '../components/sections/ProjectsSlider'
 import ProcessAccordion from '../components/sections/ProcessAccordion'
+import TestimonialsSlider from '../components/sections/TestimonialsSlider'
 import SectionHeader from '../components/ui/SectionHeader'
 
 // ── данные ────────────────────────────────────────────────────────
@@ -36,18 +37,14 @@ const advantages = [
   'Аутентичное знание хаммама и скандинавских банных традиций',
   'Портфолио 5-звёздочных проектов в 4 странах',
 ]
-const pins = [
-  { label:'Турция',       sub:'Emily Resort',    x:'51%', y:'42%' },
-  { label:'Азербайджан',  sub:'Taze Bay Baths',  x:'56%', y:'38%' },
-  { label:'Казахстан',    sub:'Sadu Hotel',      x:'63%', y:'33%' },
-  { label:'США',          sub:'Скоро',           x:'18%', y:'40%' },
+const clients = [
+  { project: 'Emily Resort', city: 'Анталья', country: 'Турция', website: 'emilyresort.com' },
+  { project: 'Taze Bay Historic Baths', city: 'Баку', country: 'Азербайджан', website: 'tazebay.az' },
+  { project: 'Sadu Hotel & Radisson', city: 'Алматы', country: 'Казахстан', website: 'saduhotel.com' },
+  { project: 'Private Residence', city: 'Дубай', country: 'ОАЭ', website: '—' },
+  { project: 'Mountain Wellness Club', city: 'Тироль', country: 'Австрия', website: '—' },
+  { project: 'Corporate Wellness Hub', city: 'Варшава', country: 'Польша', website: '—' },
 ]
-const testimonials = [
-  { quote:'СПА в Emily Resort стал нашей визитной карточкой. Гости специально бронируют у нас ради термальных впечатлений — 12 уникальных саун, аутентичный хаммам и wellness-путешествие, которое выделяет нас на рынке.', author:'Управление Emily Resort' },
-  { quote:'От концепции до завершения Home Wood Spa превзошли ожидания. Их внимание к деталям, качество материалов и понимание аутентичного строительства хаммамов не имеют аналогов.', author:'Taze Bay Historic Baths, Баку' },
-  { quote:'Они не просто построили СПА — они создали wellness-направление. Термальный контур, премиальная отделка и продуманный дизайн подняли всю нашу собственность на новый уровень.', author:'Sadu Hotel & Radisson Individuals' },
-]
-
 const C = {
   dark: '#323625', mid: '#A2AC89', light: '#B5BD9A',
   terra: '#CB8268', muted: '#6b7057',
@@ -57,7 +54,7 @@ const px   = { paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)'
 
 export default function Wireframe() {
   return (
-    <div className="min-h-screen tc-dark">
+    <main className="min-h-screen tc-dark">
 
       {/* ── 1. HERO ── */}
       <section id="home" className="min-h-screen flex flex-col items-center justify-center py-28 text-center"
@@ -177,7 +174,7 @@ export default function Wireframe() {
             <div className="grid grid-cols-1 gap-4">
               {advantages.map(item => (
                 <div key={item} className="flex items-start gap-3">
-                  <span className="hws-advantage-check">✓</span>
+                  <span className="hws-advantage-check" aria-hidden="true">✓</span>
                   <p className="hws-small tc-dark">{item}</p>
                 </div>
               ))}
@@ -186,54 +183,36 @@ export default function Wireframe() {
         </div>
       </section>
 
-      {/* ── 10. КАРТА ── */}
-      <section className="py-24" style={{ background: '#fff', ...px }}>
+      {/* ── 10. КЛИЕНТЫ ПО ГЕОГРАФИИ (Ohio Our clients style) ── */}
+      <section className="py-24 clients-section" style={{ background: '#f8f8f5', ...px }}>
         <div style={wrap}>
-          <SectionHeader badge="География" light="Wellness-объекты" dark="по всему миру" className="mb-12" />
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <p className="hws-small tc-subtle max-w-xs">Международное портфолио: Европа, Кавказ, Центральная Азия, выход на рынок США.</p>
-          </div>
-          <div className="w-full aspect-[16/7] relative flex items-center justify-center" style={{ background: '#f0f0eb', borderRadius: '2px' }}>
-            <span className="img-note img-note-light">[MAP: интерактивная карта]</span>
-            {pins.map(({label,sub,x,y}) => (
-              <div key={label} className="absolute flex flex-col items-center" style={{ left: x, top: y }}>
-                <div className="h-3 w-3 rounded-full" style={{ background: C.terra }} />
-                <span className="map-pin-label">{label}</span>
-                <span className="map-pin-sub">{sub}</span>
-              </div>
+          <p className="clients-label">ГЕОГРАФИЯ</p>
+          <h2 className="clients-h2">Wellness-объекты<br />по всему миру.</h2>
+          <p className="hws-small tc-subtle max-w-md mt-4 mb-12">Международное портфолио: Европа, Кавказ, Центральная Азия.</p>
+          <ul className="clients-grid list-none p-0 m-0">
+            {clients.map(({ project, city, country, website }) => (
+              <li key={project} className="clients-entry">
+                <p className="clients-name">{project}, {city}, {country}</p>
+                <p className="clients-website">
+                  {website !== '—' ? (
+                    <a href={`https://${website}`} target="_blank" rel="noopener noreferrer">www.{website}</a>
+                  ) : (
+                    <span aria-label="нет сайта">—</span>
+                  )}
+                </p>
+              </li>
             ))}
-          </div>
-          <div className="mt-4 flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full" style={{ background: C.mid }} />
-            <span className="hws-small tc-muted">Расширение: Соединённые Штаты</span>
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* ── 11. ОТЗЫВЫ ── */}
-      <section className="py-24" style={{ background: C.dark, ...px }}>
-        <div style={wrap}>
-          <SectionHeader badge="Отзывы" light="Что говорят" dark="наши клиенты" className="sh-wrap--inverse mb-16" />
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map(({quote,author}) => (
-              <div key={author} className="p-8" style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '2px' }}>
-                <span className="hws-quote-mark">"</span>
-                <p className="hws-small tc-w65 mb-6">{quote}</p>
-                <div className="pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-                  <span className="hws-small font-semibold tc-mid">— {author}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsSlider />
 
       {/* ── 12. ФИНАЛЬНЫЙ CTA ── */}
-      {/* ── 12. ФИНАЛЬНЫЙ CTA ── */}
       <section id="contact" className="cta-section">
-        {/* фоновое изображение */}
-        <div className="cta-bg" style={{ backgroundImage: 'url(/contactus.jpg)' }} />
-        <div className="cta-overlay" />
+        <div className="cta-bg" aria-hidden="true" style={{ backgroundImage: 'url(/contactus.jpg)' }} />
+        <div className="cta-overlay" aria-hidden="true" />
 
         <div className="cta-inner" style={wrap}>
           {/* лейбл — над обеими колонками */}
@@ -258,6 +237,6 @@ export default function Wireframe() {
         </div>
       </section>
 
-    </div>
+    </main>
   )
 }

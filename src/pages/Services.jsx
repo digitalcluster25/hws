@@ -20,7 +20,7 @@ const item = { hidden:{ opacity:0, y:40 }, show:{ opacity:1, y:0, transition:{ d
 
 export default function Services() {
   return (
-    <div className="min-h-screen tc-dark">
+    <main className="min-h-screen tc-dark">
 
       {/* HERO */}
       <section style={{ background: C.light, ...px, paddingTop:'10rem', paddingBottom:'5rem' }}>
@@ -90,6 +90,6 @@ export default function Services() {
         </div>
       </section>
 
-    </div>
+    </main>
   )
 }

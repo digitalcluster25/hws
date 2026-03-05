@@ -99,7 +99,9 @@ export default function Nav() {
           <div className="nav-col nav-col--left">
             <nav className="nav-desktop">
               {leftLinks.map(({ label, href }) => (
-                <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
+                href.startsWith('/') && !href.includes('#')
+                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
+                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
               ))}
             </nav>
             <button onClick={() => setMenuOpen(true)} className="nav-hamburger" aria-label="Меню">
@@ -118,7 +120,9 @@ export default function Nav() {
           <div className="nav-col nav-col--right">
             <nav className="nav-desktop">
               {rightLinks.map(({ label, href }) => (
-                <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
+                href.startsWith('/') && !href.includes('#')
+                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
+                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
               ))}
             </nav>
             <button onClick={() => scrollTo('#contact')} className="nav-cta ohio-btn" data-variant="filled">

@@ -19,7 +19,7 @@ const item = { hidden:{ opacity:0, y:32 }, show:{ opacity:1, y:0, transition:{ d
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen tc-dark">
+    <main className="min-h-screen tc-dark">
 
       {/* HERO */}
       <section style={{ background: C.light, ...px, paddingTop:'10rem', paddingBottom:'6rem' }}>
@@ -34,23 +34,24 @@ export default function Portfolio() {
       {/* STATS */}
       <section style={px}>
         <div style={wrap}>
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-200 border border-gray-200">
+          <dl className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-200 border border-gray-200">
             {[{num:'300+',lb:'Проектов'},{num:'17+',lb:'Лет опыта'},{num:'4',lb:'Страны'},{num:'5★',lb:'Только luxury'}].map(({num,lb}) => (
               <div key={num} className="flex flex-col items-center gap-1 py-10 px-4">
-                <span className="stat-num">{num}</span>
-                <span className="stat-label">{lb}</span>
+                <dd className="stat-num">{num}</dd>
+                <dt className="stat-label">{lb}</dt>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
       {/* GRID */}
       <section className="py-24" style={{ background:'#fff', ...px }}>
         <div style={wrap}>
-          <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" variants={cont} initial="hidden" animate="show">
+          <motion.ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0" variants={cont} initial="hidden" animate="show">
             {projects.map((p) => (
-              <motion.div key={p.title} variants={item} className="flex flex-col" style={{ border:'1px solid #e5e7e0' }}>
+              <motion.li key={p.title} variants={item} className="flex flex-col">
+                <article className="flex flex-col h-full" style={{ border:'1px solid #e5e7e0' }}>
                 <div className="aspect-[4/3] w-full flex items-end p-4 relative"
                   style={{ background: p.featured ? C.dark : 'rgba(181,189,154,0.35)' }}>
                   {p.featured && <span className="featured-badge">Featured</span>}
@@ -65,17 +66,14 @@ export default function Portfolio() {
                   </div>
                   <h3 className="hws-h3 tc-dark mb-2" style={{ fontSize:'1.125rem' }}>{p.title}</h3>
                   <p className="hws-small tc-subtle mb-4 flex-1">{p.text}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2">
                     {p.tags.map(t => <span key={t} className="portfolio-tag">{t}</span>)}
                   </div>
-                  <button className="hws-small font-medium text-left tc-dark hover:opacity-60 transition-opacity"
-                    style={{ background:'none', border:'none', cursor:'pointer', padding:0 }}>
-                    Подробнее →
-                  </button>
                 </div>
-              </motion.div>
+                </article>
+              </motion.li>
             ))}
-          </motion.div>
+          </motion.ul>
         </div>
       </section>
 
@@ -89,6 +87,6 @@ export default function Portfolio() {
           </a>
         </div>
       </section>
-    </div>
+    </main>
   )
 }

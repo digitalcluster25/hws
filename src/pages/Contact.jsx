@@ -74,16 +74,18 @@ function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} style={{ display:'flex', flexDirection:'column', gap:'1.1rem' }} noValidate>
       <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'1.1rem' }} className="grid-cols-1 sm:grid-cols-2">
         <div>
-          <label className="hws-field-label">Имя *</label>
+          <label htmlFor="f-name" className="hws-field-label">Имя *</label>
           <input
+            id="f-name"
             {...register('name', { required: true })}
             placeholder="Ваше имя"
             className={`hws-field${errors.name ? ' hws-field--error' : ''}`}
           />
         </div>
         <div>
-          <label className="hws-field-label">Email *</label>
+          <label htmlFor="f-email" className="hws-field-label">Email *</label>
           <input
+            id="f-email"
             {...register('email', { required: true, pattern: /^\S+@\S+\.\S+$/ })}
             type="email"
             placeholder="your@email.com"
@@ -93,13 +95,13 @@ function ContactForm() {
       </div>
 
       <div>
-        <label className="hws-field-label">Телефон</label>
-        <input {...register('phone')} type="tel" placeholder="+1 (___) ___-____" className="hws-field" />
+        <label htmlFor="f-phone" className="hws-field-label">Телефон</label>
+        <input id="f-phone" {...register('phone')} type="tel" placeholder="+1 (___) ___-____" className="hws-field" />
       </div>
 
       <div>
-        <label className="hws-field-label">Тип объекта</label>
-        <select {...register('subject')} className="hws-field" style={{ appearance:'none' }}>
+        <label htmlFor="f-subject" className="hws-field-label">Тип объекта</label>
+        <select id="f-subject" {...register('subject')} className="hws-field" style={{ appearance:'none' }}>
           <option value="">— Выберите —</option>
           <option>СПА-комплекс для отеля</option>
           <option>Хаммам</option>
@@ -111,8 +113,9 @@ function ContactForm() {
       </div>
 
       <div>
-        <label className="hws-field-label">Сообщение *</label>
+        <label htmlFor="f-message" className="hws-field-label">Сообщение *</label>
         <textarea
+          id="f-message"
           {...register('message', { required: true })}
           rows={5}
           placeholder="Расскажите о вашем проекте: локация, масштаб, сроки..."
@@ -133,7 +136,7 @@ function ContactForm() {
 
 export default function Contact() {
   return (
-    <div className="min-h-screen tc-dark">
+    <main className="min-h-screen tc-dark">
 
       {/* HERO */}
       <section style={{ background: C.light, ...px, paddingTop:'10rem', paddingBottom:'5rem' }}>
@@ -165,9 +168,9 @@ export default function Contact() {
             <motion.p variants={fadeUp} className="hws-body tc-subtle mb-10" style={{ maxWidth:'400px' }}>
               17 лет опыта в wellness-строительстве. Работаем с отелями, курортами и частными заказчиками по всему миру.
             </motion.p>
-            <div style={{ display:'flex', flexDirection:'column', gap:'1px', background:'#e5e7e0' }}>
+            <address style={{ display:'flex', flexDirection:'column', gap:'1px', background:'#e5e7e0', fontStyle:'normal' }}>
               {contacts.map((c) => <ContactCard key={c.label} {...c} />)}
-            </div>
+            </address>
           </motion.div>
 
           {/* RIGHT — form */}
@@ -205,6 +208,6 @@ export default function Contact() {
           </Button>
         </div>
       </section>
-    </div>
+    </main>
   )
 }
