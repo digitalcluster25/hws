@@ -243,7 +243,7 @@ export default function Wireframe() {
       </section>
 
       {/* ── ФУТЕР ── */}
-      <footer className="py-16 border-t" style={{ borderColor: '#e5e7e0', ...px }}>
+      <footer className="py-8 border-t" style={{ borderColor: '#e5e7e0', ...px }}>
         <div style={wrap}>
           <div className="flex flex-col md:flex-row justify-between gap-4">
             <span className="footer-copy">© 2026 Home Wood Spa. Все права защищены.</span>
