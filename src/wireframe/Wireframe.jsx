@@ -236,20 +236,23 @@ export default function Wireframe() {
         <div className="cta-overlay" />
 
         <div className="cta-inner" style={wrap}>
-          {/* левая колонка */}
-          <div className="cta-left">
+          {/* лейбл — над обеими колонками */}
+          <div className="cta-top">
             <p className="cta-label">ЗАПРОСЫ НА ПРОЕКТ</p>
-            <h2 className="cta-h2">Создадим ваш wellness-объект с нуля до открытия.</h2>
-            <Button href="/contact" variant="filled-light" shadow={false}>Связаться с нами →</Button>
           </div>
-
-          {/* правая колонка — контакты */}
-          <div className="cta-right">
-            <div className="cta-contact">
-              <p className="cta-contact-city">США / Европа / Центральная Азия</p>
-              <p className="cta-contact-name">Igor Kostin</p>
-              <p className="cta-contact-line">Homewoodspa@gmail.com</p>
-              <p className="cta-contact-line">+1 (678) 520-9556</p>
+          {/* нижняя строка: заголовок + контакты */}
+          <div className="cta-bottom">
+            <div className="cta-left">
+              <h2 className="cta-h2">Создадим ваш wellness-объект с нуля до открытия.</h2>
+              <Button href="/contact" variant="filled-light" shadow={false}>Связаться с нами →</Button>
+            </div>
+            <div className="cta-right">
+              <div className="cta-contact">
+                <p className="cta-contact-city">США / Европа / Центральная Азия</p>
+                <p className="cta-contact-name">Igor Kostin</p>
+                <p className="cta-contact-line">Homewoodspa@gmail.com</p>
+                <p className="cta-contact-line">+1 (678) 520-9556</p>
+              </div>
             </div>
           </div>
         </div>

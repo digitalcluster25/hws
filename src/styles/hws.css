@@ -803,10 +803,16 @@ select.hws-field { appearance: none; cursor: pointer; }
   position: relative;
   z-index: 2;
   display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+.cta-top {}
+.cta-bottom {
+  display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 4rem;
-  width: 100%;
 }
 
 /* left */
