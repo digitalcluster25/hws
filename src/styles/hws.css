@@ -774,3 +774,90 @@ select.hws-field { appearance: none; cursor: pointer; }
   background-size: 100% 1em;
   transition-duration: 0.2s;
 }
+
+/* ─────────────────────────────────────────────
+   CTA / Work Inquiries — Ohio demo2 style
+   ───────────────────────────────────────────── */
+.cta-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  padding: 5rem max(1.5vw, 16px);
+}
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 32, 24, 0.62);
+  z-index: 1;
+}
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4rem;
+  width: 100%;
+}
+
+/* left */
+.cta-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 520px;
+}
+.cta-label {
+  font-size: 0.8rem !important;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+.cta-h2 {
+  font-size: clamp(2rem, 3.2vw, 3.6rem) !important;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+
+/* right — contacts */
+.cta-right {
+  flex-shrink: 0;
+}
+.cta-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.cta-contact-city {
+  font-size: 1rem !important;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+.cta-contact-name {
+  font-size: 1rem !important;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+}
+.cta-contact-line {
+  font-size: 1rem !important;
+  color: rgba(255,255,255,0.75);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .cta-inner { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+}

@@ -229,15 +229,28 @@ export default function Wireframe() {
       </section>
 
       {/* ── 12. ФИНАЛЬНЫЙ CTA ── */}
-      <section id="contact" className="py-28" style={{ background: C.dark, ...px }}>
-        <div className="text-center" style={wrap}>
-          <SectionHeader badge="Начать проект" light="Готовы создать" dark="своё wellness-направление" className="sh-wrap--inverse items-center mb-8" />
-          <p className="hws-small tc-w55 max-w-xl mx-auto mb-12">
-            Планируете ли вы luxury СПА для отеля, аутентичный хаммам или полноценный wellness-комплекс — мы привносим экспертизу, чтобы сделать его исключительным.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="#contact" variant="filled-light" shadow={false}>Записаться на бесплатную консультацию</Button>
-            <Button href="#portfolio" variant="outlined-light" shadow={false}>Скачать портфолио [PDF]</Button>
+      {/* ── 12. ФИНАЛЬНЫЙ CTA ── */}
+      <section id="contact" className="cta-section">
+        {/* фоновое изображение */}
+        <div className="cta-bg" style={{ backgroundImage: 'url(/contactus.jpg)' }} />
+        <div className="cta-overlay" />
+
+        <div className="cta-inner" style={wrap}>
+          {/* левая колонка */}
+          <div className="cta-left">
+            <p className="cta-label">ЗАПРОСЫ НА ПРОЕКТ</p>
+            <h2 className="cta-h2">Создадим ваш wellness-объект с нуля до открытия.</h2>
+            <Button href="/contact" variant="filled-light" shadow={false}>Связаться с нами →</Button>
+          </div>
+
+          {/* правая колонка — контакты */}
+          <div className="cta-right">
+            <div className="cta-contact">
+              <p className="cta-contact-city">США / СНГ</p>
+              <p className="cta-contact-name">Igor Kostin</p>
+              <p className="cta-contact-line">Homewoodspa@gmail.com</p>
+              <p className="cta-contact-line">+1 (678) 520-9556</p>
+            </div>
           </div>
         </div>
       </section>
