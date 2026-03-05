@@ -106,7 +106,7 @@ export default function Wireframe() {
             {/* левая колонка */}
             <div className="exp-left">
               <p className="exp-label">ЭКСПЕРТИЗА</p>
-              <h2 className="exp-h2">Создаём wellness-пространства, которые задают стандарт.</h2>
+              <h2 className="exp-h2">Создаём <span className="hl">wellness-пространства,</span> которые задают стандарт.</h2>
             </div>
 
             {/* правая сетка 2×2 */}
