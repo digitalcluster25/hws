@@ -63,7 +63,7 @@ export default function Wireframe() {
       <section id="home" className="min-h-screen flex flex-col items-center justify-center py-28 text-center"
         style={{ background: C.light, ...px }}>
         <div style={wrap}>
-          <h1 className="hws-h1 mb-6">Строительство<br />СПА и<br />Wellness</h1>
+          <h1 className="hws-h1 mb-6">Строительство<br /><span className="hl">СПА</span> и<br /><span className="hl">Wellness</span></h1>
           <p className="hws-body tc-muted max-w-xl mx-auto mb-10">
             От аутентичных турецких хаммамов до скандинавских саун — 17 лет европейского мастерства в luxury-отелях и курортах по всему миру.
           </p>

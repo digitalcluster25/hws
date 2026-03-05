@@ -753,3 +753,22 @@ select.hws-field { appearance: none; cursor: pointer; }
   .exp-card:nth-child(3) { border-bottom: 1px solid var(--c-border); }
   .exp-card:last-child { border-bottom: none; }
 }
+
+/* ─────────────────────────────────────────────
+   Text highlighter — Ohio heading-shortcode
+   ───────────────────────────────────────────── */
+.hl {
+  display: inline;
+  background: var(--c-terra);
+  color: #fff;
+  /* padding по вертикали = полная высота строки */
+  padding: 0.05em 0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-radius: 2px;
+}
+/* приглушённый вариант */
+.hl--light {
+  background: rgba(203, 130, 104, 0.18);
+  color: var(--c-dark);
+}
