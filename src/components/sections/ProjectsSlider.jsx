@@ -196,7 +196,11 @@ export default function ProjectsSlider() {
       {/* Header */}
       <div className="hws-px mb-12" style={{ maxWidth: '1344px', margin: '0 auto 3rem' }}>
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '2rem' }}>
-          <SectionHeader badge="Портфолио" light="Wellness-пространства," dark="которые задают стандарт" />
+          <SectionHeader
+            badge="Портфолио"
+            light="Wellness-пространства,"
+            dark={<><span className="hl">которые задают</span> стандарт</>}
+          />
           <Button href="/portfolio" variant="ghost" shadow={false} style={{ flexShrink: 0 }}>Все проекты →</Button>
         </div>
       </div>
