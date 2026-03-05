@@ -762,13 +762,13 @@ select.hws-field { appearance: none; cursor: pointer; }
   display: inline;
   background-image: linear-gradient(rgba(203,130,104,0.55), rgba(203,130,104,0.55));
   background-repeat: no-repeat;
-  background-position: 0% 100%;
-  background-size: 0% 1em;
+  background-position: 0% 55%;
+  background-size: 0% 0.8em;
   backface-visibility: hidden;
   transition: background-size 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .hl--animate {
-  background-size: 100% 1em;
+  background-size: 100% 0.8em;
 }
 .hl--animate:hover {
   background-size: 100% 1em;
