@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Nav from './components/layout/Nav'
+import Footer from './components/layout/Footer'
 import Wireframe from './wireframe/Wireframe'
 import Portfolio from './pages/Portfolio'
 import Services from './pages/Services'
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/services"  element={<Services />} />
         <Route path="/contact"   element={<Contact />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
