@@ -667,3 +667,96 @@ select.hws-field { appearance: none; cursor: pointer; }
 .ohio-btn * {
   font-size: 1rem !important;
 }
+
+/* ─────────────────────────────────────────────
+   Expertise — Ohio about-ver4 capabilities layout
+   ───────────────────────────────────────────── */
+.exp-section {
+  padding: 6rem 0;
+  background: #fff;
+}
+.exp-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ── left ── */
+.exp-left {
+  padding-top: 0.25rem;
+}
+.exp-label {
+  font-size: 0.8rem !important;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--c-muted);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.exp-h2 {
+  font-size: clamp(2rem, 3.2vw, 3.6rem) !important;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--c-dark);
+}
+
+/* ── right grid 2×2 ── */
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.exp-card {
+  padding: 2rem 2rem 2.5rem 0;
+  border-bottom: 1px solid var(--c-border);
+}
+/* правая колонка — отступ слева */
+.exp-card:nth-child(even) {
+  padding-left: 2rem;
+  border-left: 1px solid var(--c-border);
+}
+/* последние две строки без нижней границы */
+.exp-card:nth-child(3),
+.exp-card:nth-child(4) {
+  border-bottom: none;
+}
+
+.exp-cat {
+  font-size: 0.8rem !important;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--c-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+.exp-divider {
+  height: 1px;
+  background: var(--c-border);
+  margin-bottom: 1.25rem;
+}
+.exp-card-title {
+  font-size: clamp(1.3rem, 1.5vw, 1.6rem) !important;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--c-dark);
+  margin-bottom: 0.85rem;
+  white-space: pre-line;
+}
+.exp-card-desc {
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: var(--c-subtle);
+}
+
+/* mobile */
+@media (max-width: 960px) {
+  .exp-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 560px) {
+  .exp-grid { grid-template-columns: 1fr; }
+  .exp-card:nth-child(even) { padding-left: 0; border-left: none; }
+  .exp-card:nth-child(3) { border-bottom: 1px solid var(--c-border); }
+  .exp-card:last-child { border-bottom: none; }
+}

@@ -99,23 +99,33 @@ export default function Wireframe() {
       </section>
 
       {/* ── 4. ЭКСПЕРТИЗА ── */}
-      <section id="services" className="py-24" style={{ background: '#fff', ...px }}>
+      <section id="services" className="exp-section" style={{ ...px }}>
         <div style={wrap}>
-          <SectionHeader badge="Экспертиза" light="Полноценные" dark="wellness-пространства" className="mb-12" />
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-            <p className="hws-small tc-subtle max-w-sm">Мы не строим отдельные сауны — мы создаём полные термальные путешествия.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-px" style={{ background: '#e5e7e0' }}>
-            {expertise.map(({title,text}) => (
-              <div key={title} className="p-8" style={{ background: '#fff' }}>
-                <div className="h-10 w-10 rounded mb-6" style={{ background: C.light }} />
-                <h3 className="hws-h3 tc-dark mb-3">{title}</h3>
-                <p className="hws-small tc-subtle">{text}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10">
-            <Button href="#services" variant="outlined" shadow={false}>Все услуги →</Button>
+          <div className="exp-wrap">
+
+            {/* левая колонка */}
+            <div className="exp-left">
+              <p className="exp-label">ЭКСПЕРТИЗА</p>
+              <h2 className="exp-h2">Создаём wellness-пространства, которые задают стандарт.</h2>
+            </div>
+
+            {/* правая сетка 2×2 */}
+            <div className="exp-grid">
+              {[
+                { cat: 'ХАММАМЫ', title: 'Турецкие бани,\nаутентичные хаммамы', desc: 'Традиционное банное мастерство с применением исторически точных материалов. Каждый хаммам — культурный и термальный опыт.' },
+                { cat: 'САУНЫ', title: 'Финские сауны,\nтермальные бани', desc: 'Скандинавские сауны и паровые комнаты, разработанные как целостные wellness-экосистемы для отелей и резиденций.' },
+                { cat: 'СПА-КОМПЛЕКСЫ', title: 'Термальные зоны,\nwellness-маршруты', desc: 'Полноценные термальные комплексы: ледяные купели, бассейны для погружения, паровые комнаты — как единое путешествие.' },
+                { cat: 'ЧАСТНЫЕ ОБЪЕКТЫ', title: 'Резиденции,\nкорпоративные СПА', desc: 'Частные хаммамы и wellness-пространства, созданные по индивидуальным стандартам и эстетике заказчика.' },
+              ].map(({ cat, title, desc }) => (
+                <div key={cat} className="exp-card">
+                  <p className="exp-cat">{cat}</p>
+                  <div className="exp-divider" />
+                  <h3 className="exp-card-title">{title}</h3>
+                  <p className="exp-card-desc">{desc}</p>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
