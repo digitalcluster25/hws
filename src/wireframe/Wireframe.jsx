@@ -246,7 +246,7 @@ export default function Wireframe() {
           {/* правая колонка — контакты */}
           <div className="cta-right">
             <div className="cta-contact">
-              <p className="cta-contact-city">США / СНГ</p>
+              <p className="cta-contact-city">США / Европа / Центральная Азия</p>
               <p className="cta-contact-name">Igor Kostin</p>
               <p className="cta-contact-line">Homewoodspa@gmail.com</p>
               <p className="cta-contact-line">+1 (678) 520-9556</p>

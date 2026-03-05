@@ -803,7 +803,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   position: relative;
   z-index: 2;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 4rem;
   width: 100%;
