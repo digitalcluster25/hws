@@ -176,9 +176,12 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 .nav-logo-img { height: 28px; width: auto; display: block; }
 
 .nav-btn {
+  display: inline-flex;
+  align-items: center;
   font-size: 1.3rem;
   font-weight: 500;
   color: var(--c-dark);
+  text-decoration: none;
   background: transparent;
   border: none;
   border-radius: 10px;
