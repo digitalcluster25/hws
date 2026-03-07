@@ -117,27 +117,25 @@ export default function Wireframe() {
 
 
       {/* ── 8. ДЛЯ КОГО ── */}
-      <section className="clients-who-section" style={{ background: C.dark, ...px }}>
-        <div style={wrap}>
-          <div className="clients-who-inner">
+      <section className="clients-who-section" style={{ background: C.dark }}>
+        <div className="clients-who-inner">
 
-            {/* левая колонка: заголовок + изображение */}
-            <div className="clients-who-left">
-              <SectionHeader badge="Клиенты" light="Нам доверяют" dark="ведущие wellness-бренды" className="sh-wrap--inverse mb-10" />
-              <img src="/shape1.png" alt="" aria-hidden="true" className="clients-who-shape" />
-            </div>
-
-            {/* правая колонка: 2×2 сетка */}
-            <div className="clients-who-grid">
-              {segments.map(({ title, text }) => (
-                <div key={title} className="clients-who-card">
-                  <h3 className="clients-who-title">{title}</h3>
-                  <p className="clients-who-text">{text}</p>
-                </div>
-              ))}
-            </div>
-
+          {/* левая колонка: заголовок + изображение */}
+          <div className="clients-who-left">
+            <SectionHeader badge="Клиенты" light="Нам доверяют" dark="ведущие wellness-бренды" className="sh-wrap--inverse" />
+            <img src="/shape1.png" alt="" aria-hidden="true" className="clients-who-shape" />
           </div>
+
+          {/* правая колонка: 2×2 сетка */}
+          <div className="clients-who-grid">
+            {segments.map(({ title, text }) => (
+              <div key={title} className="clients-who-card">
+                <h3 className="clients-who-title">{title}</h3>
+                <p className="clients-who-text">{text}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
