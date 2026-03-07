@@ -1026,3 +1026,60 @@ select.hws-field { appearance: none; cursor: pointer; }
 @media (max-width: 768px) {
   .cta-inner { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
 }
+
+/* ─────────────────────────────────────────────
+   Клиенты — Ohio about-ver dark layout
+   ───────────────────────────────────────────── */
+.clients-who-section {
+  padding: 6rem max(1.5vw, 16px);
+}
+.clients-who-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.clients-who-left {
+  display: flex;
+  flex-direction: column;
+}
+.clients-who-shape {
+  width: 100%;
+  max-width: 420px;
+  opacity: 0.18;
+  margin-top: 3rem;
+  filter: brightness(0) invert(1);
+}
+.clients-who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.clients-who-card {
+  padding: 2.5rem 2rem 2.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.clients-who-card:nth-child(even) {
+  padding-left: 2rem;
+  border-left: 1px solid rgba(255,255,255,0.1);
+}
+.clients-who-title {
+  font-size: clamp(1.2rem, 1.4vw, 1.5rem) !important;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+.clients-who-text {
+  font-size: 1.3rem !important;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.55;
+}
+@media (max-width: 900px) {
+  .clients-who-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .clients-who-shape { max-width: 260px; }
+}
+@media (max-width: 560px) {
+  .clients-who-grid { grid-template-columns: 1fr; }
+  .clients-who-card:nth-child(even) { padding-left: 0; border-left: none; }
+}
