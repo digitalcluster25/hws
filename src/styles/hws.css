@@ -1031,13 +1031,18 @@ select.hws-field { appearance: none; cursor: pointer; }
    Клиенты — Ohio about-ver dark layout
    ───────────────────────────────────────────── */
 .clients-who-section {
-  padding: 6rem max(1.5vw, 16px);
+  padding: 7rem max(1.5vw, 16px);
 }
 .clients-who-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  grid-template-columns: 56fr 44fr;
+  gap: 6rem;
   align-items: start;
+}
+/* увеличиваем заголовок под размер Ohio */
+.clients-who-left .sh-light,
+.clients-who-left .sh-dark {
+  font-size: clamp(2.4rem, 4.2vw, 5rem) !important;
 }
 .clients-who-left {
   display: flex;
@@ -1045,41 +1050,36 @@ select.hws-field { appearance: none; cursor: pointer; }
 }
 .clients-who-shape {
   width: 100%;
-  max-width: 420px;
-  opacity: 0.18;
-  margin-top: 3rem;
+  max-width: 460px;
+  opacity: 0.12;
+  margin-top: 4rem;
   filter: brightness(0) invert(1);
 }
 .clients-who-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
+  gap: 3rem 3.5rem;
+  padding-top: 0.5rem;
 }
 .clients-who-card {
-  padding: 2.5rem 2rem 2.5rem 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-.clients-who-card:nth-child(even) {
-  padding-left: 2rem;
-  border-left: 1px solid rgba(255,255,255,0.1);
+  /* без рамок */
 }
 .clients-who-title {
-  font-size: clamp(1.2rem, 1.4vw, 1.5rem) !important;
+  font-size: clamp(1.15rem, 1.3vw, 1.4rem) !important;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
   line-height: 1.2;
 }
 .clients-who-text {
   font-size: 1.3rem !important;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.55;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
 }
-@media (max-width: 900px) {
-  .clients-who-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .clients-who-shape { max-width: 260px; }
+@media (max-width: 960px) {
+  .clients-who-inner { grid-template-columns: 1fr; gap: 3.5rem; }
+  .clients-who-shape { max-width: 300px; }
 }
 @media (max-width: 560px) {
-  .clients-who-grid { grid-template-columns: 1fr; }
-  .clients-who-card:nth-child(even) { padding-left: 0; border-left: none; }
+  .clients-who-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
