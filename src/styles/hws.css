@@ -733,24 +733,18 @@ select.hws-field { appearance: none; cursor: pointer; }
 }
 
 /* icon круг */
-.proc-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #f0f1ec;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--c-dark);
-  margin-bottom: 0.9rem;
-  flex-shrink: 0;
-  transition: background 0.25s ease;
+.proc-step-num {
+  font-size: 1rem !important;
+  font-weight: 400;
+  color: var(--c-subtle);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
 }
 .proc-card:hover .proc-icon {
   background: #e2e4db;
 }
 
-/* заголовок карточки — жирный, 2 строки */
+
 .proc-card-title {
   font-size: 1.3rem;
   font-weight: 700;
