@@ -22,16 +22,6 @@ const segments = [
   { title: 'Wellness-центры', text: 'Оздоровительные центры, разработанные для максимальной терапевтической пользы.' },
   { title: 'Корпоративные объекты', text: 'Wellness-решения для корпоративных клиентов и hospitality-групп.' },
 ]
-const advantages = [
-  '17+ лет специализированного опыта в wellness-строительстве',
-  'Единственный поставщик от концепции до открытия',
-  'Европейские строительные стандарты и материалы',
-  'Работа в нескольких странах с местными командами',
-  'Исследование рынка и ROI-аналитика включены',
-  'Послепродажная поддержка и операционная помощь',
-  'Аутентичное знание хаммама и скандинавских банных традиций',
-  'Портфолио 5-звёздочных проектов в 4 странах',
-]
 const clients = [
   { project: 'Emily Resort', city: 'Анталья', country: 'Турция', website: 'emilyresort.com' },
   { project: 'Taze Bay Historic Baths', city: 'Баку', country: 'Азербайджан', website: 'tazebay.az' },
@@ -149,13 +139,10 @@ export default function Wireframe() {
         <div style={wrap}>
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <SectionHeader badge="Почему мы" light="Европейская экспертиза," dark="мировые стандарты" />
-            <div className="grid grid-cols-1 gap-4">
-              {advantages.map(item => (
-                <div key={item} className="flex items-start gap-3">
-                  <span className="hws-advantage-check" aria-hidden="true">✓</span>
-                  <p className="hws-small tc-dark">{item}</p>
-                </div>
-              ))}
+            <div className="flex flex-col gap-6">
+              <p className="hws-body tc-dark">Каждый объект начинается с задачи, у которой нет готового ответа. Локация, аудитория, бюджет, ощущение которое должно остаться у гостя — мы работаем со всем этим одновременно.</p>
+              <p className="hws-body tc-dark">Emily Resort, Taze Bay, SOP Spa в Sadu Hotel — каждый из этих объектов мог быть просто хорошим. Мы сделали их такими, о которых говорят.</p>
+              <p className="hws-body tc-dark">Именно этот подход мы передаём партнёрам Home Wood Spa.</p>
             </div>
           </div>
         </div>
