@@ -127,13 +127,6 @@ export default function Portfolio() {
       <section style={{ background: '#fff', ...px, paddingTop: '0', paddingBottom: '0' }}>
         <div style={wrap}>
 
-          {/* Шапка списка */}
-          <div className="port-list-header">
-            <span className="port-list-title">НАШИ ОБЪЕКТЫ</span>
-            <span className="port-list-range">/ 2007 — 2024</span>
-            <span className="port-list-more">300+ проектов</span>
-          </div>
-
           {/* Разделитель */}
           <div className="port-divider" />
 

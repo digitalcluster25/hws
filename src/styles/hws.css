@@ -1232,7 +1232,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 .port-row-inner {
   display: grid;
   grid-template-columns: 0fr 1fr;
-  transition: grid-template-columns 0.45s cubic-bezier(0.16,1,0.3,1);
+  transition: grid-template-columns 1.35s cubic-bezier(0.16,1,0.3,1);
 }
 .port-row-inner.is-hovered {
   grid-template-columns: 36fr 64fr;
@@ -1242,23 +1242,21 @@ select.hws-field { appearance: none; cursor: pointer; }
 .port-img-col {
   overflow: hidden;
   padding: 0;
-  transition: padding 0.45s cubic-bezier(0.16,1,0.3,1);
+  transition: padding 1.35s cubic-bezier(0.16,1,0.3,1);
 }
 .port-row-inner.is-hovered .port-img-col {
   padding: 1.6rem 2rem 1.6rem 0;
 }
 .port-img-wrap {
   width: 100%;
-  aspect-ratio: 4/3;
+  height: 100%;
   border-radius: 8px;
   overflow: hidden;
   opacity: 0;
-  transform: scale(0.96);
-  transition: opacity 0.4s ease 0.05s, transform 0.45s cubic-bezier(0.16,1,0.3,1) 0.05s;
+  transition: opacity 0.8s ease 0.2s;
 }
 .port-row-inner.is-hovered .port-img-wrap {
   opacity: 1;
-  transform: scale(1);
 }
 .port-img {
   width: 100%;
@@ -1325,7 +1323,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   line-height: 1;
   opacity: 0;
   transform: translate(-6px, 6px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 .port-row:hover .port-arrow {
   opacity: 1;
