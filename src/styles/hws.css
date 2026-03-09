@@ -1104,3 +1104,79 @@ select.hws-field { appearance: none; cursor: pointer; }
   .clients-who-grid { grid-template-columns: 1fr; }
   .clients-who-card:nth-child(even) { padding-left: 0; }
 }
+
+/* ─────────────────────────────────────────────
+   Services page — Ohio service-ver1 layout
+   ───────────────────────────────────────────── */
+.svc-layout {
+  display: grid;
+  grid-template-columns: 30fr 70fr;
+  gap: 0;
+  align-items: start;
+}
+.svc-label-col {
+  padding-top: 2rem;
+  padding-right: 3rem;
+  position: sticky;
+  top: 6rem;
+}
+.svc-section-label {
+  font-size: 1.35rem !important;
+  font-weight: 400;
+  color: var(--c-subtle);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+.svc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.svc-card {
+  padding: 2rem 2.5rem 2.5rem 2rem;
+  border-left: 1px solid #e0e2db;
+  border-top: 1px solid #e0e2db;
+}
+.svc-card:nth-child(odd) {
+  border-left: none;
+  padding-left: 0;
+}
+.svc-card:nth-child(1),
+.svc-card:nth-child(2) {
+  border-top: none;
+}
+.svc-num {
+  font-size: 1.3rem !important;
+  color: var(--c-subtle);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.svc-title {
+  font-size: clamp(1.15rem, 1.3vw, 1.5rem) !important;
+  font-weight: 700;
+  color: var(--c-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.svc-desc {
+  font-size: 1.35rem !important;
+  color: var(--c-subtle);
+  line-height: 1.65;
+}
+.svc-desc + .svc-desc {
+  margin-top: 0.75rem;
+}
+.svc-desc--em {
+  color: var(--c-muted);
+  font-style: italic;
+}
+@media (max-width: 900px) {
+  .svc-layout { grid-template-columns: 1fr; }
+  .svc-label-col { position: static; padding: 0 0 2rem 0; }
+}
+@media (max-width: 600px) {
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-card:nth-child(even) { border-left: none; padding-left: 0; }
+  .svc-card { border-top: 1px solid #e0e2db; }
+  .svc-card:nth-child(1) { border-top: none; }
+}
