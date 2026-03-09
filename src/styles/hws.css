@@ -654,8 +654,6 @@ select.hws-field { appearance: none; cursor: pointer; }
 .proc-wrap {
   max-width: 1344px;
   margin: 0 auto;
-  padding-left: max(1.5vw, 16px);
-  padding-right: max(1.5vw, 16px);
   display: grid;
   grid-template-columns: 1fr 1.85fr;
   gap: 6rem;

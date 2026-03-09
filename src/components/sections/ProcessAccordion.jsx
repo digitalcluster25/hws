@@ -37,7 +37,7 @@ const FADE = {
 
 export default function ProcessAccordion() {
   return (
-    <section id="process" className="proc-section">
+    <section id="process" className="proc-section" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
       <div className="proc-wrap">
 
         {/* ── LEFT ── */}
