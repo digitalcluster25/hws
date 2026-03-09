@@ -1180,3 +1180,189 @@ select.hws-field { appearance: none; cursor: pointer; }
   .svc-card { border-top: 1px solid #e0e2db; }
   .svc-card:nth-child(1) { border-top: none; }
 }
+
+
+/* ============================================================
+   PORTFOLIO — Ohio-style list
+   ============================================================ */
+
+.port-list-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: baseline;
+  padding: 3rem 0 2rem;
+  gap: 1rem;
+}
+.port-list-title {
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--c-dark);
+  text-transform: uppercase;
+  font-family: var(--f-head);
+}
+.port-list-range {
+  font-size: 1.4rem;
+  color: var(--c-subtle);
+  text-align: center;
+}
+.port-list-more {
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-dark);
+  text-align: right;
+  font-weight: 600;
+}
+.port-divider {
+  height: 1px;
+  background: #d8dbd2;
+}
+.port-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* === Строка проекта === */
+.port-row {
+  border-bottom: 1px solid #d8dbd2;
+  overflow: hidden;
+}
+.port-row-inner {
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+  transition: grid-template-columns 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+.port-row-inner.is-hovered {
+  grid-template-columns: 36fr 64fr;
+}
+
+/* === Фото-колонка === */
+.port-img-col {
+  overflow: hidden;
+  padding: 0;
+  transition: padding 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+.port-row-inner.is-hovered .port-img-col {
+  padding: 1.6rem 2rem 1.6rem 0;
+}
+.port-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.4s ease 0.05s, transform 0.45s cubic-bezier(0.16,1,0.3,1) 0.05s;
+}
+.port-row-inner.is-hovered .port-img-wrap {
+  opacity: 1;
+  transform: scale(1);
+}
+.port-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.port-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--c-mid);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.2rem;
+  position: relative;
+}
+.port-img-label {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.5);
+}
+.port-img-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(50,54,37,0.75);
+  backdrop-filter: blur(6px);
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
+}
+.port-img-badge-num {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+.port-img-badge-txt {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/* === Контент-колонка === */
+.port-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 2.4rem 0;
+}
+.port-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+.port-meta {
+  font-size: 1.3rem;
+  color: var(--c-subtle);
+}
+.port-arrow {
+  font-size: 2rem;
+  color: var(--c-dark);
+  text-decoration: none;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(-6px, 6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.port-row:hover .port-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.port-title {
+  font-family: var(--f-head);
+  font-size: clamp(2rem, 4.5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--c-dark);
+  text-transform: uppercase;
+  margin: 0 0 1.6rem 0;
+  transition: font-size 0.3s ease;
+}
+.port-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.port-tag {
+  font-size: 1.2rem;
+  color: var(--c-subtle);
+  border: 1px solid #c8cbbf;
+  border-radius: 100px;
+  padding: 0.25rem 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .port-row-inner,
+  .port-row-inner.is-hovered {
+    grid-template-columns: 1fr;
+  }
+  .port-img-col { display: none; }
+  .port-list-header { grid-template-columns: 1fr 1fr; }
+  .port-list-more { display: none; }
+  .port-title { font-size: clamp(2rem, 8vw, 3.5rem); }
+}
