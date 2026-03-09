@@ -50,12 +50,11 @@ export default function TestimonialsSlider() {
 
   return (
     <section className="py-24 ts-section--dark" style={{ background: C.dark, paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
-      <div style={{ maxWidth: '1344px', margin: '0 auto 3rem' }}>
+      <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
         <SectionHeader badge="Отзывы" light="Что говорят" dark="наши клиенты" className="sh-wrap--inverse mb-12" />
-      </div>
 
-      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <div className="ts-card">
+        <div style={{ maxWidth: '800px' }}>
+          <div className="ts-card">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={idx}
