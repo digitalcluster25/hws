@@ -101,8 +101,9 @@ export default function TestimonialsSlider() {
               <ArrowRight />
             </button>
           </div>
-        </div>
-      </div>
+        </div>   {/* ts-nav */}
+        </div>   {/* 800px */}
+      </div>     {/* 1344px */}
     </section>
   )
 }
