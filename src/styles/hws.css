@@ -1031,7 +1031,8 @@ select.hws-field { appearance: none; cursor: pointer; }
    Клиенты — Ohio about-ver dark layout
    ───────────────────────────────────────────── */
 .clients-who-section {
-  padding: 7rem 0 0 0;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 .clients-who-inner {
   display: grid;
@@ -1044,7 +1045,6 @@ select.hws-field { appearance: none; cursor: pointer; }
 .clients-who-left {
   display: flex;
   flex-direction: column;
-  padding: 0 4rem 0 max(3vw, 24px);
 }
 /* Заголовок — такой же большой как в Ohio */
 .clients-who-left .sh-badge {
@@ -1073,7 +1073,6 @@ select.hws-field { appearance: none; cursor: pointer; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  padding: 0 max(3vw, 24px) 7rem 4rem;
   align-self: center;
 }
 .clients-who-card {
