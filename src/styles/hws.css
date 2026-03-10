@@ -1242,6 +1242,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 .port-img-col {
   overflow: hidden;
   padding: 0;
+  min-width: 0;
   transition: padding 1.35s cubic-bezier(0.16,1,0.3,1);
 }
 .port-row-inner.is-hovered .port-img-col {
@@ -1305,6 +1306,11 @@ select.hws-field { appearance: none; cursor: pointer; }
   flex-direction: column;
   gap: 0;
   padding: 2.4rem 0;
+  min-width: 0;
+  transition: padding 1.35s cubic-bezier(0.16,1,0.3,1);
+}
+.port-row-inner.is-hovered .port-content-col {
+  padding-left: 2rem;
 }
 .port-meta-row {
   display: flex;
