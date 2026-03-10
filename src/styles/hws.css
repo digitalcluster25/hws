@@ -1230,53 +1230,48 @@ select.hws-field { appearance: none; cursor: pointer; }
   overflow: hidden;
 }
 .port-row-inner {
-  display: grid;
-  grid-template-columns: 0fr 1fr;
-  transition: grid-template-columns 2.7s cubic-bezier(0.16,1,0.3,1);
-}
-.port-row-inner.is-hovered {
-  grid-template-columns: 36fr 64fr;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 }
 
 /* === Фото-колонка === */
 .port-img-col {
+  max-width: 0;
   overflow: hidden;
-  padding: 0;
+  flex-shrink: 0;
   min-width: 0;
-  transition: padding 2.7s cubic-bezier(0.16,1,0.3,1);
+  transition: max-width 1.2s cubic-bezier(0.77,0,0.175,1);
 }
 .port-row-inner.is-hovered .port-img-col {
-  padding: 1.6rem 2rem 1.6rem 0;
+  max-width: 380px;
 }
 .port-img-wrap {
+  width: 340px;
+  height: 100%;
+  padding: 1.4rem 2rem 1.4rem 0;
+  box-sizing: border-box;
+}
+.port-img-inner {
   width: 100%;
   height: 100%;
   border-radius: 8px;
   overflow: hidden;
-  opacity: 0;
-  transition: opacity 1.2s ease 0.4s;
-}
-.port-row-inner.is-hovered .port-img-wrap {
-  opacity: 1;
+  background: var(--c-mid);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
 }
 .port-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.port-img-placeholder {
-  width: 100%;
-  height: 100%;
-  background: var(--c-mid);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.2rem;
-  position: relative;
-}
 .port-img-label {
   font-size: 1.1rem;
   color: rgba(255,255,255,0.5);
+  padding: 1rem;
 }
 .port-img-badge {
   position: absolute;
@@ -1302,14 +1297,12 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* === Контент-колонка === */
 .port-content-col {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0;
   padding: 2.4rem 0;
-  min-width: 0;
-}
-.port-row-inner.is-hovered .port-content-col {
-  padding-left: 2rem;
 }
 .port-meta-row {
   display: flex;
@@ -1343,7 +1336,6 @@ select.hws-field { appearance: none; cursor: pointer; }
   color: var(--c-dark);
   text-transform: uppercase;
   margin: 0 0 1.6rem 0;
-  transition: font-size 0.3s ease;
 }
 .port-tags-row {
   display: flex;
@@ -1360,12 +1352,6 @@ select.hws-field { appearance: none; cursor: pointer; }
 }
 
 @media (max-width: 768px) {
-  .port-row-inner,
-  .port-row-inner.is-hovered {
-    grid-template-columns: 1fr;
-  }
   .port-img-col { display: none; }
-  .port-list-header { grid-template-columns: 1fr 1fr; }
-  .port-list-more { display: none; }
   .port-title { font-size: clamp(2rem, 8vw, 3.5rem); }
 }

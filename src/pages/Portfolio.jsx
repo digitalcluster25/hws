@@ -71,18 +71,16 @@ function ProjectRow({ p, index }) {
         {/* Фото — появляется при ховере */}
         <div className="port-img-col">
           <div className="port-img-wrap">
-            {p.img
-              ? <img src={p.img} alt={p.title} className="port-img" />
-              : (
-                <div className="port-img-placeholder">
-                  <span className="port-img-label">[IMAGE: {p.title}]</span>
-                  <div className="port-img-badge">
-                    <span className="port-img-badge-num">{String(index + 1).padStart(2,'0')}</span>
-                    <span className="port-img-badge-txt">{p.type}</span>
-                  </div>
-                </div>
-              )
-            }
+            <div className="port-img-inner">
+              {p.img
+                ? <img src={p.img} alt={p.title} className="port-img" />
+                : <span className="port-img-label">[IMAGE: {p.title}]</span>
+              }
+              <div className="port-img-badge">
+                <span className="port-img-badge-num">{String(index + 1).padStart(2,'0')}</span>
+                <span className="port-img-badge-txt">{p.type}</span>
+              </div>
+            </div>
           </div>
         </div>
 
