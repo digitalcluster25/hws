@@ -1232,7 +1232,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 .port-row-inner {
   display: grid;
   grid-template-columns: 0fr 1fr;
-  transition: grid-template-columns 1.35s cubic-bezier(0.16,1,0.3,1);
+  transition: grid-template-columns 2.7s cubic-bezier(0.16,1,0.3,1);
 }
 .port-row-inner.is-hovered {
   grid-template-columns: 36fr 64fr;
@@ -1243,7 +1243,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   overflow: hidden;
   padding: 0;
   min-width: 0;
-  transition: padding 1.35s cubic-bezier(0.16,1,0.3,1);
+  transition: padding 2.7s cubic-bezier(0.16,1,0.3,1);
 }
 .port-row-inner.is-hovered .port-img-col {
   padding: 1.6rem 2rem 1.6rem 0;
@@ -1254,7 +1254,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   border-radius: 8px;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 0.8s ease 0.2s;
+  transition: opacity 1.2s ease 0.4s;
 }
 .port-row-inner.is-hovered .port-img-wrap {
   opacity: 1;
@@ -1307,7 +1307,6 @@ select.hws-field { appearance: none; cursor: pointer; }
   gap: 0;
   padding: 2.4rem 0;
   min-width: 0;
-  transition: padding 1.35s cubic-bezier(0.16,1,0.3,1);
 }
 .port-row-inner.is-hovered .port-content-col {
   padding-left: 2rem;
