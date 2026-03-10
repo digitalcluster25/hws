@@ -147,8 +147,6 @@ export default function Services() {
       {/* HERO */}
       <section style={{ background: C.light, ...px, paddingTop: '10rem', paddingBottom: '5rem' }}>
         <div style={wrap}>
-          <Link to="/" className="hws-back-link">← Главная</Link>
-          <p className="hws-label hws-label-muted mb-6">Услуги</p>
           <h1 className="hws-page-h1 mb-6">Что мы строим</h1>
           <p className="hws-body tc-subtle" style={{ maxWidth: '560px' }}>
             17 лет специализации — от аутентичных хаммамов до масштабных термальных комплексов для luxury-отелей.

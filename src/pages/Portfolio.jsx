@@ -108,8 +108,6 @@ export default function Portfolio() {
       {/* HERO */}
       <section style={{ background: C.light, ...px, paddingTop: '10rem', paddingBottom: '6rem' }}>
         <div style={wrap}>
-          <Link to="/" className="hws-back-link">← Главная</Link>
-          <p className="hws-label hws-label-muted mb-6">Портфолио</p>
           <h1 className="hws-page-h1 mb-6">Наши проекты</h1>
           <p className="hws-body tc-muted" style={{ maxWidth: '520px' }}>
             17+ лет, 300+ проектов, 4 страны. Каждый wellness-объект — уникальный мир.

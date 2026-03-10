@@ -141,9 +141,7 @@ export default function Contact() {
       {/* HERO */}
       <section style={{ background: C.light, ...px, paddingTop:'10rem', paddingBottom:'5rem' }}>
         <div style={wrap}>
-          <Link to="/" className="hws-back-link">← Главная</Link>
           <motion.div initial="hidden" animate="show" variants={stagger}>
-            <motion.p variants={fadeUp} className="hws-label hws-label-muted mb-5">Контакты</motion.p>
             <motion.h1 variants={fadeUp} className="hws-page-h1 mb-6">
               Давайте<br/>обсудим проект
             </motion.h1>
