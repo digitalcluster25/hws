@@ -1,29 +1,35 @@
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import Button from '../components/ui/Button'
 
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', terra: '#CB8268', muted: '#6b7057' }
-const px = { paddingLeft: 'max(1.5vw,16px)', paddingRight: 'max(1.5vw,16px)' }
+const px   = { paddingLeft: 'max(1.5vw,16px)', paddingRight: 'max(1.5vw,16px)' }
 const wrap = { maxWidth: '1344px', margin: '0 auto' }
 
-function ImgPlaceholder({ label, style = {} }) {
+function Photo({ src, alt, style = {} }) {
   return (
-    <div style={{ background: C.mid, display: 'flex', alignItems: 'flex-end', padding: '1.5rem', ...style }}>
-      <span style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.45)' }}>[IMAGE: {label}]</span>
+    <div style={{ overflow: 'hidden', background: '#d0d3c8', ...style }}>
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+      />
     </div>
   )
 }
 
 export default function ProjectDetail() {
   const { slug } = useParams()
-  const navigate = useNavigate()
   const idx = projects.findIndex(p => p.slug === slug)
-  const p = projects[idx]
+  const p   = projects[idx]
 
   if (!p) {
     return (
       <main style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p className="hws-body tc-subtle">Проект не найден. <Link to="/portfolio" style={{ color: C.dark }}>← Все проекты</Link></p>
+        <p style={{ fontSize: '1.5rem', color: C.muted }}>
+          Проект не найден. <Link to="/portfolio" style={{ color: C.dark }}>← Все проекты</Link>
+        </p>
       </main>
     )
   }
@@ -36,12 +42,18 @@ export default function ProjectDetail() {
 
       {/* ── HERO — split screen ── */}
       <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '100vh', paddingTop: '5rem' }}>
-
         {/* Левая — тёмная */}
-        <div style={{ background: C.dark, ...px, paddingTop: '5rem', paddingBottom: '4rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div style={{
+          background: C.dark, ...px,
+          paddingTop: '4rem', paddingBottom: '4rem',
+          display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+        }}>
           <div>
             <Link to="/portfolio" className="proj-back-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" style={{ transform: 'rotate(180deg)' }}><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                style={{ transform: 'rotate(180deg)', flexShrink: 0 }}>
+                <path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/>
+              </svg>
               Все проекты
             </Link>
             <div className="proj-tags-hero">
@@ -57,20 +69,17 @@ export default function ProjectDetail() {
             <div><p className="proj-meta-label">ЛОКАЦИЯ</p><p className="proj-meta-val">{p.loc}</p></div>
           </div>
         </div>
-
-        {/* Правая — фото */}
-        <ImgPlaceholder label={`${p.title} — главное фото`} style={{ minHeight: '100%' }} />
+        {/* Правая — hero фото */}
+        <Photo src={p.heroImg} alt={p.title} style={{ minHeight: '100%' }} />
       </section>
 
-      {/* ── DESCRIPTION SECTION ── */}
+      {/* ── DESCRIPTION ── */}
       <section style={{ background: '#eef0e8', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
         <div style={wrap}>
-          {/* Верхняя строка: шаг + большая цитата */}
           <div className="proj-desc-top">
             <p className="proj-step-label">01. КОНЦЕПЦИЯ</p>
             <h2 className="proj-quote">«{p.quote}»</h2>
           </div>
-          {/* Нижняя строка: два абзаца */}
           <div className="proj-desc-cols">
             <p className="proj-body-text">{p.p1}</p>
             <p className="proj-body-text">{p.p2}</p>
@@ -78,17 +87,17 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* ── FULL-WIDTH IMAGE ── */}
-      <ImgPlaceholder label={`${p.title} — общий вид`} style={{ height: '65vh', width: '100%' }} />
+      {/* ── FULL-WIDTH ФОТО ── */}
+      <Photo src={p.galleryFull} alt={`${p.title} — общий вид`} style={{ height: '65vh', width: '100%' }} />
 
-      {/* ── 3-COLUMN IMAGE GRID ── */}
+      {/* ── 3-COLUMN GRID ── */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
-        <ImgPlaceholder label={`${p.title} — деталь 1`} style={{ aspectRatio: '3/4' }} />
-        <ImgPlaceholder label={`${p.title} — деталь 2`} style={{ aspectRatio: '3/4', background: C.dark }} />
-        <ImgPlaceholder label={`${p.title} — деталь 3`} style={{ aspectRatio: '3/4', background: '#a8b090' }} />
+        {p.gallery3.map((src, i) => (
+          <Photo key={i} src={src} alt={`${p.title} — деталь ${i + 1}`} style={{ aspectRatio: '3/4' }} />
+        ))}
       </div>
 
-      {/* ── RESULT SECTION ── */}
+      {/* ── RESULT ── */}
       <section style={{ background: '#eef0e8', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
         <div style={wrap}>
           <div className="proj-desc-top">
@@ -119,10 +128,11 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* ── 2-COLUMN IMAGE ── */}
+      {/* ── 2-COLUMN ФОТО ── */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
-        <ImgPlaceholder label={`${p.title} — интерьер A`} style={{ aspectRatio: '4/3' }} />
-        <ImgPlaceholder label={`${p.title} — интерьер B`} style={{ aspectRatio: '4/3', background: C.dark }} />
+        {p.gallery2.map((src, i) => (
+          <Photo key={i} src={src} alt={`${p.title} — интерьер ${i + 1}`} style={{ aspectRatio: '4/3' }} />
+        ))}
       </div>
 
       {/* ── PREV / NEXT ── */}

@@ -3,25 +3,19 @@ import { motion, useMotionValue, animate, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Button from '../ui/Button'
 import SectionHeader from '../ui/SectionHeader'
+import { projects as allProjects } from '../../data/projects'
 
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', terra: '#CB8268', muted: '#6b7057' }
 
-const PROJECTS = [
-  { title: 'Emily Resort',            loc: 'Анталья, Турция',   area: '3 200 м²', type: 'Термальный СПА', bg: '#3d4435' },
-  { title: 'Taze Bay Historic Baths', loc: 'Баку, Азербайджан', area: '850 м²',   type: 'Хаммам',         bg: '#5c6350' },
-  { title: 'Sadu Hotel & Radisson',   loc: 'Алматы, Казахстан', area: '1 600 м²', type: 'Отельный СПА',   bg: '#7a8368' },
-  { title: 'Private Residence',       loc: 'Дубай, ОАЭ',        area: '420 м²',   type: 'Частный хаммам', bg: '#A2AC89' },
-  { title: 'Mountain Wellness Club',  loc: 'Тироль, Австрия',   area: '2 100 м²', type: 'Wellness-клуб',  bg: '#6b7057' },
-  { title: 'Corporate Wellness Hub',  loc: 'Варшава, Польша',   area: '680 м²',   type: 'Корп. СПА',      bg: '#8a9478' },
-]
-
+// Только featured-кейсы для слайдера
+const PROJECTS = allProjects.filter(p => p.featured)
 // Трижды дублируем для бесшовного infinite loop
 const ITEMS = [...PROJECTS, ...PROJECTS, ...PROJECTS]
-const BASE  = PROJECTS.length // индекс середины (реального начала)
+const BASE  = PROJECTS.length
 
-const CARD_GAP    = 20   // px между карточками
-const PEEK        = 0.09 // вдвое меньше оригинала — края маленькие
-const CARDS_SHOWN = 2    // полностью видимых карточек
+const CARD_GAP    = 20
+const PEEK        = 0.09
+const CARDS_SHOWN = 2
 
 function ArrowLeft() {
   return (
@@ -39,20 +33,17 @@ function ArrowRight() {
 }
 
 export default function ProjectsSlider() {
-  const trackRef    = useRef(null)
+  const trackRef  = useRef(null)
   const [cardW, setCardW] = useState(0)
 
-  const [idx, setIdx]             = useState(BASE)
+  const [idx, setIdx]               = useState(BASE)
   const [settledIdx, setSettledIdx] = useState(BASE)
-  const settleTimer               = useRef(null)
   const x = useMotionValue(0)
 
-  // drag state
-  const isDragging  = useRef(false)
-  const dragStartX  = useRef(0)
-  const dragStartXMV = useRef(0)
+  const isDragging    = useRef(false)
+  const dragStartX    = useRef(0)
+  const dragStartXMV  = useRef(0)
 
-  // вычислить ширину карточки из ширины контейнера
   useEffect(() => {
     function calc() {
       if (!trackRef.current) return
@@ -69,7 +60,6 @@ export default function ProjectsSlider() {
 
   const step = cardW + CARD_GAP
 
-  // получить x для заданного индекса
   const xForIdx = useCallback((i) => {
     if (!trackRef.current) return 0
     const W = trackRef.current.offsetWidth
@@ -77,16 +67,10 @@ export default function ProjectsSlider() {
     return -(i * step) + peek
   }, [step])
 
-  // прыгнуть на индекс без анимации (для infinite loop)
-  const jumpTo = useCallback((i) => {
-    x.set(xForIdx(i))
-  }, [x, xForIdx])
+  const jumpTo = useCallback((i) => { x.set(xForIdx(i)) }, [x, xForIdx])
 
-  // анимировать к индексу
   const goTo = useCallback((i, instant = false) => {
     const target = xForIdx(i)
-    // сбрасываем таймер — метаданные пропадают сразу при движении
-    clearTimeout(settleTimer.current)
     setSettledIdx(-1)
     if (instant) {
       x.set(target)
@@ -94,46 +78,27 @@ export default function ProjectsSlider() {
     } else {
       animate(x, target, {
         type: 'spring', stiffness: 260, damping: 32, mass: 0.8,
-        onComplete: () => { setSettledIdx(i) },
+        onComplete: () => setSettledIdx(i),
       })
     }
   }, [x, xForIdx])
 
-  // начальная позиция
-  useEffect(() => {
-    if (cardW > 0) goTo(idx, true)
-  }, [cardW]) // eslint-disable-line
+  useEffect(() => { if (cardW > 0) goTo(idx, true) }, [cardW]) // eslint-disable-line
 
-  // функция навигации
   const navigate = useCallback((delta) => {
     setIdx(prev => {
       const next = prev + delta
       goTo(next)
-
-      // бесшовный перескок: когда вышли за границы среднего блока
-      const TOTAL = ITEMS.length
       const limit = BASE + PROJECTS.length
-
       if (next >= limit) {
-        // прыгнуть на эквивалент в среднем блоке, потом снова анимировать
-        setTimeout(() => {
-          const corrected = next - PROJECTS.length
-          jumpTo(corrected)
-          setIdx(corrected)
-        }, 0)
+        setTimeout(() => { const c = next - PROJECTS.length; jumpTo(c); setIdx(c) }, 0)
       } else if (next < BASE) {
-        setTimeout(() => {
-          const corrected = next + PROJECTS.length
-          jumpTo(corrected)
-          setIdx(corrected)
-        }, 0)
+        setTimeout(() => { const c = next + PROJECTS.length; jumpTo(c); setIdx(c) }, 0)
       }
-
       return next
     })
   }, [goTo, jumpTo])
 
-  // ── MOUSE DRAG ──────────────────────────────────────────
   const onMouseDown = useCallback((e) => {
     isDragging.current = true
     dragStartX.current   = e.clientX
@@ -144,8 +109,7 @@ export default function ProjectsSlider() {
 
   const onMouseMove = useCallback((e) => {
     if (!isDragging.current) return
-    const dx = e.clientX - dragStartX.current
-    x.set(dragStartXMV.current + dx)
+    x.set(dragStartXMV.current + (e.clientX - dragStartX.current))
   }, [x])
 
   const onMouseUp = useCallback((e) => {
@@ -153,21 +117,14 @@ export default function ProjectsSlider() {
     isDragging.current = false
     document.body.style.userSelect = ''
     document.body.style.cursor     = ''
-
     const dx = e.clientX - dragStartX.current
-    if (Math.abs(dx) < 5) return // click
-
+    if (Math.abs(dx) < 5) return
     const cards = Math.round(-dx / step)
-    const snapped = cards !== 0 ? cards : 0
-    if (snapped !== 0) {
-      navigate(snapped)
-    } else {
-      goTo(idx)
-    }
+    if (cards !== 0) navigate(cards)
+    else goTo(idx)
   }, [step, navigate, goTo, idx])
 
-  // touch drag
-  const touchStartX = useRef(0)
+  const touchStartX   = useRef(0)
   const touchStartXMV = useRef(0)
 
   const onTouchStart = useCallback((e) => {
@@ -176,8 +133,7 @@ export default function ProjectsSlider() {
   }, [x])
 
   const onTouchMove = useCallback((e) => {
-    const dx = e.touches[0].clientX - touchStartX.current
-    x.set(touchStartXMV.current + dx)
+    x.set(touchStartXMV.current + (e.touches[0].clientX - touchStartX.current))
   }, [x])
 
   const onTouchEnd = useCallback((e) => {
@@ -188,7 +144,6 @@ export default function ProjectsSlider() {
     else goTo(idx)
   }, [step, navigate, goTo, idx])
 
-  // реальный индекс в PROJECTS для счётчика
   const displayIdx = ((idx - BASE) % PROJECTS.length + PROJECTS.length) % PROJECTS.length
 
   return (
@@ -213,20 +168,25 @@ export default function ProjectsSlider() {
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        <motion.div
-          className="ps-inner"
-          style={{ x }}
-        >
+        <motion.div className="ps-inner" style={{ x }}>
           {ITEMS.map((p, i) => {
             const isVisible = i === settledIdx || i === settledIdx + 1
             return (
-              <div
+              <Link
                 key={i}
+                to={`/portfolio/${p.slug}`}
                 className="ps-card"
-                style={{ width: cardW > 0 ? cardW : '40vw', flexShrink: 0 }}
+                style={{ width: cardW > 0 ? cardW : '40vw', flexShrink: 0, textDecoration: 'none', display: 'block' }}
+                draggable={false}
+                onClick={(e) => { if (isDragging.current) e.preventDefault() }}
               >
-                <div className="ps-img" style={{ background: p.bg }}>
-                  <span className="ps-img-label">[IMAGE: {p.title}]</span>
+                <div className="ps-img">
+                  <img
+                    src={p.cover}
+                    alt={p.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', userSelect: 'none', pointerEvents: 'none' }}
+                    draggable={false}
+                  />
                 </div>
                 <AnimatePresence>
                   {isVisible && (
@@ -241,12 +201,12 @@ export default function ProjectsSlider() {
                       <p className="ps-sub">
                         <span>{p.loc}</span>
                         <span className="ps-dot">·</span>
-                        <span>{p.area}</span>
+                        <span>{p.area || p.type}</span>
                       </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </Link>
             )
           })}
         </motion.div>
