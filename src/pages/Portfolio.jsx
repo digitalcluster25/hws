@@ -22,13 +22,10 @@ function ProjectRow({ p }) {
         <div className="port-img-col">
           <div className="port-img-wrap">
             <div className="port-img-inner">
-              <img
-                src={`/cases/${p.folder}/cover.JPG`}
-                alt={p.title}
-                className="port-img"
-                loading="lazy"
-                style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }}
-              />
+              {p.cover
+                ? <img src={p.cover} alt={p.title} className="port-img" loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
+                : <span className="port-img-label">[IMAGE: {p.title}]</span>
+              }
             </div>
           </div>
         </div>
