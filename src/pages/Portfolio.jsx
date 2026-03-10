@@ -76,10 +76,6 @@ function ProjectRow({ p, index }) {
                 ? <img src={p.img} alt={p.title} className="port-img" />
                 : <span className="port-img-label">[IMAGE: {p.title}]</span>
               }
-              <div className="port-img-badge">
-                <span className="port-img-badge-num">{String(index + 1).padStart(2,'0')}</span>
-                <span className="port-img-badge-txt">{p.type}</span>
-              </div>
             </div>
           </div>
         </div>

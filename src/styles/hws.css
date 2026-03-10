@@ -1244,10 +1244,10 @@ select.hws-field { appearance: none; cursor: pointer; }
   transition: max-width 1.2s cubic-bezier(0.77,0,0.175,1);
 }
 .port-row-inner.is-hovered .port-img-col {
-  max-width: 380px;
+  max-width: 570px;
 }
 .port-img-wrap {
-  width: 340px;
+  width: 510px;
   height: 100%;
   padding: 1.4rem 2rem 1.4rem 0;
   box-sizing: border-box;
