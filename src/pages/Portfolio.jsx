@@ -23,7 +23,7 @@ function ProjectRow({ p }) {
           <div className="port-img-wrap">
             <div className="port-img-inner">
               <img
-                src={p.cover}
+                src={`/cases/${p.folder}/cover.JPG`}
                 alt={p.title}
                 className="port-img"
                 loading="lazy"

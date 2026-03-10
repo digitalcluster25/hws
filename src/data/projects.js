@@ -1,10 +1,12 @@
 // Единый источник данных для всех кейсов.
 // featured: true — выводится в слайдере на главной.
-// Управление featured будет через админку.
+// folder — имя папки в /public/cases/{folder}/
+// Фото: cover.JPG (обложка) + 1.JPG, 2.JPG, ... (галерея по порядку)
 
 export const projects = [
   {
     slug: 'emily-resort',
+    folder: 'emilyresort',
     featured: true,
     title: 'Emily Resort',
     loc: 'Анталья, Турция',
@@ -12,20 +14,6 @@ export const projects = [
     type: 'Термальный СПА',
     tags: ['Хаммам', 'Сауна', 'Термальный контур'],
     desc: '12 уникальных термальных зон, аутентичный хаммам, 4 сауны, купели и полноценный wellness-маршрут для отеля 5★.',
-    // Фото
-    cover:       '/cases/emilyresort/IMG_1971.JPG',
-    heroImg:     '/cases/emilyresort/IMG_6050.JPG',
-    galleryFull: '/cases/emilyresort/IMG_1946.JPG',
-    gallery3: [
-      '/cases/emilyresort/IMG_1960.JPG',
-      '/cases/emilyresort/IMG_1976.JPG',
-      '/cases/emilyresort/IMG_6056.JPG',
-    ],
-    gallery2: [
-      '/cases/emilyresort/IMG_6061.JPG',
-      '/cases/emilyresort/IMG_6072.JPG',
-    ],
-    // Тексты
     client: 'Emily Resort Group',
     period: '2021–2022',
     area: '1 840 м²',
@@ -36,6 +24,7 @@ export const projects = [
   },
   {
     slug: 'gaisin',
+    folder: 'gaisin',
     featured: true,
     title: 'Gaisin Spa',
     loc: 'Частная резиденция',
@@ -43,20 +32,6 @@ export const projects = [
     type: 'Частный СПА',
     tags: ['Хаммам', 'Сауна', 'Частный объект'],
     desc: 'Персональный spa-комплекс для частной резиденции: хаммам, финская сауна и зона релаксации.',
-    // Фото
-    cover:       '/cases/gaisin/IMG_1887.JPG',
-    heroImg:     '/cases/gaisin/IMG_1895.JPG',
-    galleryFull: '/cases/gaisin/IMG_1906.JPG',
-    gallery3: [
-      '/cases/gaisin/IMG_1890.JPG',
-      '/cases/gaisin/IMG_1897.JPG',
-      '/cases/gaisin/IMG_1917.JPG',
-    ],
-    gallery2: [
-      '/cases/gaisin/IMG_1920.JPG',
-      '/cases/gaisin/IMG_1921.JPG',
-    ],
-    // Тексты
     client: 'Частный заказчик',
     period: '2022–2023',
     area: '280 м²',
@@ -67,6 +42,7 @@ export const projects = [
   },
   {
     slug: 'vosparenie',
+    folder: 'vosparenie',
     featured: true,
     title: 'Воспарение',
     loc: 'Wellness-центр',
@@ -74,20 +50,6 @@ export const projects = [
     type: 'Wellness-центр',
     tags: ['Сауна', 'Хаммам', 'Wellness'],
     desc: 'Многозонный wellness-центр с полным термальным маршрутом: от русской бани до хаммама и зон релаксации.',
-    // Фото
-    cover:       '/cases/vosparenie/IMG_5569.WEBP',
-    heroImg:     '/cases/vosparenie/IMG_5590.WEBP',
-    galleryFull: '/cases/vosparenie/IMG_5599.WEBP',
-    gallery3: [
-      '/cases/vosparenie/IMG_3301.JPG',
-      '/cases/vosparenie/IMG_3318.JPG',
-      '/cases/vosparenie/IMG_5554.JPG',
-    ],
-    gallery2: [
-      '/cases/vosparenie/IMG_5607.WEBP',
-      '/cases/vosparenie/IMG_5617.WEBP',
-    ],
-    // Тексты
     client: 'Воспарение Wellness',
     period: '2022–2023',
     area: '520 м²',
@@ -98,6 +60,7 @@ export const projects = [
   },
   {
     slug: '4elements',
+    folder: '4elements',
     featured: true,
     title: '4 Elements',
     loc: 'Spa & Wellness',
@@ -105,20 +68,6 @@ export const projects = [
     type: 'Коммерческий СПА',
     tags: ['Хаммам', 'Термальный контур', 'Дизайн'],
     desc: 'Концептуальный spa-комплекс с авторской философией четырёх стихий — каждая зона воплощает отдельную термальную практику.',
-    // Фото
-    cover:       '/cases/4elements/IMG_6784.JPG',
-    heroImg:     '/cases/4elements/IMG_6788.JPG',
-    galleryFull: '/cases/4elements/IMG_6794.JPG',
-    gallery3: [
-      '/cases/4elements/IMG_6798.JPG',
-      '/cases/4elements/IMG_6801.JPG',
-      '/cases/4elements/IMG_6804.JPG',
-    ],
-    gallery2: [
-      '/cases/4elements/IMG_6784.JPG',
-      '/cases/4elements/IMG_6794.JPG',
-    ],
-    // Тексты
     client: '4 Elements Spa',
     period: '2023–2024',
     area: '680 м²',
