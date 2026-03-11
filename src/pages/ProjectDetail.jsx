@@ -26,35 +26,45 @@ export default function ProjectDetail() {
   return (
     <main className="tc-dark" style={{ background: '#fff' }}>
 
-      {/* ── HERO split ── */}
-      <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '100vh' }}>
-        <div style={{ background: C.dark, ...px, paddingTop: '9rem', paddingBottom: '4rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <div>
+      {/* ── HERO fullscreen ── */}
+      <section className="proj-hero-full">
+        {/* Фоновое фото */}
+        {p.cover && (
+          <img
+            src={p.cover}
+            alt={p.title}
+            className="proj-hero-bg"
+          />
+        )}
+        {/* Градиентный оверлей */}
+        <div className="proj-hero-overlay" />
+
+        {/* Контент поверх */}
+        <div className="proj-hero-content">
+          {/* Верх — кнопка назад */}
+          <div className="proj-hero-top">
             <Link to="/portfolio" className="proj-back-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" style={{ transform: 'rotate(180deg)' }}><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style={{ transform: 'rotate(180deg)', flexShrink: 0 }}><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
               Все проекты
             </Link>
+          </div>
+
+          {/* Низ — теги + заголовок + мета */}
+          <div className="proj-hero-bottom">
             {p.tags && p.tags.length > 0 && (
-              <div className="proj-tags-hero">
+              <div className="proj-tags-hero" style={{ marginBottom: '1.5rem' }}>
                 {p.tags.map(t => <span key={t} className="proj-tag-hero">{t}</span>)}
                 <span className="proj-tag-hero">{p.year}</span>
               </div>
             )}
             <h1 className="proj-hero-title">{p.title}</h1>
+            <div className="proj-meta-grid">
+              <div><p className="proj-meta-label">КЛИЕНТ</p><p className="proj-meta-val">{p.client}</p></div>
+              <div><p className="proj-meta-label">ПЕРИОД</p><p className="proj-meta-val">{p.period}</p></div>
+              <div><p className="proj-meta-label">ПЛОЩАДЬ</p><p className="proj-meta-val">{p.area}</p></div>
+              <div><p className="proj-meta-label">ЛОКАЦИЯ</p><p className="proj-meta-val">{p.loc}</p></div>
+            </div>
           </div>
-          <div className="proj-meta-grid">
-            <div><p className="proj-meta-label">КЛИЕНТ</p><p className="proj-meta-val">{p.client}</p></div>
-            <div><p className="proj-meta-label">ПЕРИОД</p><p className="proj-meta-val">{p.period}</p></div>
-            <div><p className="proj-meta-label">ПЛОЩАДЬ</p><p className="proj-meta-val">{p.area}</p></div>
-            <div><p className="proj-meta-label">ЛОКАЦИЯ</p><p className="proj-meta-val">{p.loc}</p></div>
-          </div>
-        </div>
-
-        <div style={{ overflow: 'hidden', paddingTop: '5rem' }}>
-          {p.cover
-            ? <img src={p.cover} alt={`${p.title} — обложка`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            : <div style={{ width: '100%', height: '100%', background: C.mid }} />
-          }
         </div>
       </section>
 
