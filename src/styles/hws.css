@@ -170,7 +170,6 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0;
-  padding-left: 6px;
 }
 
 /* CENTER: все ссылки меню — абсолютный центр */
@@ -189,7 +188,6 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   margin-left: auto;
   display: flex;
   align-items: center;
-  padding-right: 6px;
 }
 
 /* Логотип */
