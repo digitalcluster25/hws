@@ -220,32 +220,53 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 }
 .nav-btn:hover { color: rgb(242, 239, 228); }
 
-/* Бургер — тёмный кружок, 3 линии */
+/* Бургер — Ohio: круг 56px, прозрачный фон, 2 линии через псевдоэлементы */
 .nav-hamburger {
   display: flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px;
+  width: 56px; height: 56px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(136, 135, 137, 0.08);
   border: none;
-  color: rgba(242, 239, 228, 0.85);
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease;
+  padding: 0;
 }
 .nav-hamburger:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: rgb(242, 239, 228);
+  background: rgba(136, 135, 137, 0.18);
 }
-.nav-hamburger-lines {
-  display: flex; flex-direction: column; gap: 5px; width: 18px;
+
+/* Иконка: 22×16px, 2 линии через ::before и ::after */
+.nav-hamburger-icon {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 16px;
+  pointer-events: none;
 }
-.nav-hamburger-lines span {
-  display: block; height: 1.5px;
-  background: currentColor; border-radius: 2px;
-  transition: width 0.2s ease;
+.nav-hamburger-icon::before,
+.nav-hamburger-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(242, 239, 228, 0.75);
+  transition: background 0.2s ease, width 0.2s ease;
 }
-.nav-hamburger-lines span:nth-child(2) { width: 72%; }
-.nav-hamburger:hover .nav-hamburger-lines span { width: 100%; }
+.nav-hamburger-icon::before {
+  top: 2px;
+  width: 22px;
+}
+.nav-hamburger-icon::after {
+  bottom: 2px;
+  width: 16px;
+}
+.nav-hamburger:hover .nav-hamburger-icon::before,
+.nav-hamburger:hover .nav-hamburger-icon::after {
+  background: rgb(242, 239, 228);
+  width: 22px;
+}
 
 /* CTA — оливковая pill-кнопка */
 .nav-cta {

@@ -92,9 +92,7 @@ export default function Nav() {
           {/* LEFT: burger + logo */}
           <div className="nav-left">
             <button onClick={() => setMenuOpen(true)} className="nav-hamburger" aria-label="Меню">
-              <div className="nav-hamburger-lines">
-                <span /><span /><span />
-              </div>
+              <i className="nav-hamburger-icon"></i>
             </button>
             <Link to="/" className="nav-logo-link">
               <img src={logoDark} alt="Home Wood Spa" className="nav-logo-img" />
