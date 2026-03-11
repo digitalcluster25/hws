@@ -140,19 +140,27 @@ p, span, a, li, label, input, textarea, select, button, td, th {
    ───────────────────────────────────────────── */
 /* ── NAV — Ohio demo8 dark style ── */
 
-/* Хедер: fixed, full-width, flex, 3 зоны: left | center | right */
+/* Хедер: fixed, full-width, прозрачный — только позиционирование */
 .nav-bar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  height: 72px;
+  padding: 16px 19px;
+  pointer-events: none;
+}
+
+/* Inner wrapper: pill-форма, фон, border-radius 40px — как Ohio */
+.nav-inner {
+  pointer-events: all;
   display: flex;
   align-items: center;
-  padding: 0 max(2vw, 24px);
+  height: 72px;
+  padding: 0 8px;
+  border-radius: 40px;
   background: rgb(36, 35, 38);
   transition: background 0.4s ease;
 }
-.nav-bar--scrolled {
+.nav-inner--scrolled {
   background: rgb(36, 35, 38);
 }
 
@@ -160,8 +168,9 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   flex-shrink: 0;
+  padding-left: 6px;
 }
 
 /* CENTER: все ссылки меню — абсолютный центр */
@@ -180,6 +189,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   margin-left: auto;
   display: flex;
   align-items: center;
+  padding-right: 6px;
 }
 
 /* Логотип */

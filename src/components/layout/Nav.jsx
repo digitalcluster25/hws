@@ -86,40 +86,38 @@ export default function Nav() {
 
   return (
     <>
-      <header className={`nav-bar${scrolled ? ' nav-bar--scrolled' : ''}`}>
+      <header className="nav-bar">
+        <div className={`nav-inner${scrolled ? ' nav-inner--scrolled' : ''}`}>
 
-        {/* LEFT: burger + logo */}
-        <div className="nav-left">
-          <button
-            onClick={() => setMenuOpen(true)}
-            className="nav-hamburger"
-            aria-label="Меню"
-          >
-            <div className="nav-hamburger-lines">
-              <span /><span /><span />
-            </div>
-          </button>
-          <Link to="/" className="nav-logo-link">
-            <img src={logoDark} alt="Home Wood Spa" className="nav-logo-img" />
-          </Link>
+          {/* LEFT: burger + logo */}
+          <div className="nav-left">
+            <button onClick={() => setMenuOpen(true)} className="nav-hamburger" aria-label="Меню">
+              <div className="nav-hamburger-lines">
+                <span /><span /><span />
+              </div>
+            </button>
+            <Link to="/" className="nav-logo-link">
+              <img src={logoDark} alt="Home Wood Spa" className="nav-logo-img" />
+            </Link>
+          </div>
+
+          {/* CENTER: all nav links */}
+          <nav className="nav-links">
+            {NAV_LINKS.map(({ label, href }) =>
+              href.startsWith('/') && !href.includes('#')
+                ? <Link key={label} to={href} className="nav-btn">{label}</Link>
+                : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
+            )}
+          </nav>
+
+          {/* RIGHT: CTA */}
+          <div className="nav-right">
+            <button onClick={() => scrollTo('#contact')} className="nav-cta">
+              Консультация
+            </button>
+          </div>
+
         </div>
-
-        {/* CENTER: all nav links */}
-        <nav className="nav-links">
-          {NAV_LINKS.map(({ label, href }) =>
-            href.startsWith('/') && !href.includes('#')
-              ? <Link key={label} to={href} className="nav-btn">{label}</Link>
-              : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
-          )}
-        </nav>
-
-        {/* RIGHT: CTA */}
-        <div className="nav-right">
-          <button onClick={() => scrollTo('#contact')} className="nav-cta">
-            Консультация
-          </button>
-        </div>
-
       </header>
 
       <FullMenu open={menuOpen} onClose={() => setMenuOpen(false)} scrollTo={scrollTo} />
