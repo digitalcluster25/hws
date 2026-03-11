@@ -66,6 +66,21 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
+
+        {/* Плашка "Следующий проект" — правый нижний угол */}
+        {next && (
+          <Link to={`/portfolio/${next.slug}`} className="proj-next-card">
+            <div className="proj-next-card-top">
+              <span className="proj-next-card-label">Следующий проект</span>
+              <div className="proj-next-card-arrows">
+                <span className="proj-next-card-arr">←</span>
+                <span className="proj-next-card-arr proj-next-card-arr--active">→</span>
+              </div>
+            </div>
+            <p className="proj-next-card-title">{next.title}</p>
+            <p className="proj-next-card-sub">{next.loc} · {next.year}</p>
+          </Link>
+        )}
       </section>
 
       {/* ── DESCRIPTION ── */}
