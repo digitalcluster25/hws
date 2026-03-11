@@ -145,7 +145,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 16px 19px;
+  padding: 16px 21px;
   pointer-events: none;
 }
 
