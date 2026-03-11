@@ -1,21 +1,11 @@
 import { useParams, Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import Button from '../components/ui/Button'
+import ProjectGallery from '../components/sections/ProjectGallery'
 
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', terra: '#CB8268', muted: '#6b7057' }
 const px = { paddingLeft: 'max(1.5vw,16px)', paddingRight: 'max(1.5vw,16px)' }
 const wrap = { maxWidth: '1344px', margin: '0 auto' }
-
-function Img({ src, alt, style = {} }) {
-  if (!src) {
-    return (
-      <div style={{ background: C.mid, display: 'flex', alignItems: 'flex-end', padding: '1.5rem', ...style }}>
-        <span style={{ fontSize: '1.2rem', color: 'rgba(255,255,255,0.4)' }}>[IMAGE REQUIRED]</span>
-      </div>
-    )
-  }
-  return <img src={src} alt={alt || ''} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...style }} />
-}
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -30,7 +20,6 @@ export default function ProjectDetail() {
     )
   }
 
-  const photos = p.photos || []
   const prev = projects[idx - 1] || null
   const next = projects[idx + 1] || null
 
@@ -39,15 +28,13 @@ export default function ProjectDetail() {
 
       {/* ── HERO split ── */}
       <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '100vh' }}>
-
-        {/* Левая тёмная */}
         <div style={{ background: C.dark, ...px, paddingTop: '9rem', paddingBottom: '4rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <Link to="/portfolio" className="proj-back-link">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" style={{ transform: 'rotate(180deg)' }}><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
               Все проекты
             </Link>
-            {p.tags.length > 0 && (
+            {p.tags && p.tags.length > 0 && (
               <div className="proj-tags-hero">
                 {p.tags.map(t => <span key={t} className="proj-tag-hero">{t}</span>)}
                 <span className="proj-tag-hero">{p.year}</span>
@@ -63,9 +50,11 @@ export default function ProjectDetail() {
           </div>
         </div>
 
-        {/* Правая — cover */}
         <div style={{ overflow: 'hidden', paddingTop: '5rem' }}>
-          <Img src={p.cover} alt={`${p.title} — обложка`} style={{ height: '100%', minHeight: '500px' }} />
+          {p.cover
+            ? <img src={p.cover} alt={`${p.title} — обложка`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            : <div style={{ width: '100%', height: '100%', background: C.mid }} />
+          }
         </div>
       </section>
 
@@ -83,23 +72,8 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* ── ФОТО 1 — full-width ── */}
-      {photos[0] && (
-        <div style={{ height: '65vh', overflow: 'hidden' }}>
-          <Img src={photos[0]} alt={`${p.title} 1`} />
-        </div>
-      )}
-
-      {/* ── ФОТО 2,3,4 — 3 колонки ── */}
-      {photos.slice(1, 4).length > 0 && (
-        <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(photos.slice(1,4).length, 3)}, 1fr)` }}>
-          {photos.slice(1, 4).map((src, i) => (
-            <div key={i} style={{ aspectRatio: '3/4', overflow: 'hidden' }}>
-              <Img src={src} alt={`${p.title} ${i+2}`} />
-            </div>
-          ))}
-        </div>
-      )}
+      {/* ── GALLERY SLIDER ── */}
+      <ProjectGallery photos={p.photos || []} title={p.title} />
 
       {/* ── RESULT ── */}
       <section style={{ background: '#eef0e8', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
@@ -121,24 +95,6 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
-
-      {/* ── ФОТО 5,6 — 2 колонки ── */}
-      {photos.slice(4, 6).length > 0 && (
-        <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(photos.slice(4,6).length, 2)}, 1fr)` }}>
-          {photos.slice(4, 6).map((src, i) => (
-            <div key={i} style={{ aspectRatio: '4/3', overflow: 'hidden' }}>
-              <Img src={src} alt={`${p.title} ${i+6}`} />
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* ── ФОТО 7+ — full-width по одному ── */}
-      {photos.slice(6).map((src, i) => (
-        <div key={i} style={{ height: '60vh', overflow: 'hidden' }}>
-          <Img src={src} alt={`${p.title} ${i+8}`} />
-        </div>
-      ))}
 
       {/* ── PREV / NEXT ── */}
       <section style={{ ...px, paddingTop: '5rem', paddingBottom: '5rem', background: '#fff' }}>
