@@ -36,23 +36,19 @@ export default function ProjectDetail() {
             className="proj-hero-bg"
           />
         )}
-        {/* Градиентный оверлей */}
-        <div className="proj-hero-overlay" />
+        {/* Кнопка назад — поверх фото, верхний левый */}
+        <div className="proj-hero-top">
+          <Link to="/portfolio" className="proj-back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style={{ transform: 'rotate(180deg)', flexShrink: 0 }}><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
+            Все проекты
+          </Link>
+        </div>
 
-        {/* Контент поверх */}
-        <div className="proj-hero-content">
-          {/* Верх — кнопка назад */}
-          <div className="proj-hero-top">
-            <Link to="/portfolio" className="proj-back-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style={{ transform: 'rotate(180deg)', flexShrink: 0 }}><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
-              Все проекты
-            </Link>
-          </div>
-
-          {/* Низ — теги + заголовок + мета */}
-          <div className="proj-hero-bottom">
+        {/* Зелёная полупрозрачная плашка — нижняя часть */}
+        <div className="proj-hero-panel">
+          <div className="proj-hero-panel-inner">
             {p.tags && p.tags.length > 0 && (
-              <div className="proj-tags-hero" style={{ marginBottom: '1.5rem' }}>
+              <div className="proj-tags-hero">
                 {p.tags.map(t => <span key={t} className="proj-tag-hero">{t}</span>)}
                 <span className="proj-tag-hero">{p.year}</span>
               </div>
