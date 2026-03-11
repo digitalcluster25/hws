@@ -1561,21 +1561,18 @@ select.hws-field { appearance: none; cursor: pointer; }
   z-index: 3;
 }
 
-/* Зелёная полупрозрачная плашка */
+/* Зелёная полупрозрачная плашка — левый нижний угол, ~55% ширины */
 .proj-hero-panel {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
   z-index: 2;
-  background: rgba(42, 47, 28, 0.80);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  width: 55%;
+  max-width: 860px;
+  background: rgba(50, 54, 37, 0.90);
 }
 .proj-hero-panel-inner {
-  max-width: 1344px;
-  margin: 0 auto;
-  padding: 3rem max(1.5vw, 16px) 3.5rem;
+  padding: 3.5rem 5.5rem 3.5rem 3.5rem;
 }
 
 /* Переопределяем цвет back-link на тёмном фоне */
