@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import logoDark from '../../assets/logo-dark.svg'
 
 const NAV_LINKS = [
@@ -10,12 +9,10 @@ const NAV_LINKS = [
   { label: 'Кейсы',    href: '/portfolio' },
   { label: 'Контакты', href: '/contact' },
 ]
-const leftLinks  = NAV_LINKS.slice(0, Math.ceil(NAV_LINKS.length / 2))
-const rightLinks = NAV_LINKS.slice(Math.ceil(NAV_LINKS.length / 2))
 
 function useScrollTo() {
-  const navigate  = useNavigate()
-  const location  = useLocation()
+  const navigate = useNavigate()
+  const location = useLocation()
   return useCallback((href) => {
     if (href.startsWith('/')) { navigate(href); return }
     const id = href.slice(1)
@@ -82,55 +79,48 @@ export default function Nav() {
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40)
+    fn()
     window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
   return (
     <>
-      <div className="nav-outer">
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className={`nav-bar${scrolled ? ' nav-bar--scrolled' : ''}`}
-        >
-          {/* LEFT */}
-          <div className="nav-col nav-col--left">
-            <nav className="nav-desktop">
-              {leftLinks.map(({ label, href }) => (
-                href.startsWith('/') && !href.includes('#')
-                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
-                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
-              ))}
-            </nav>
-            <button onClick={() => setMenuOpen(true)} className="nav-hamburger" aria-label="Меню">
-              <div className="nav-hamburger-lines">
-                <span /><span /><span />
-              </div>
-            </button>
-          </div>
+      <header className={`nav-bar${scrolled ? ' nav-bar--scrolled' : ''}`}>
 
-          {/* CENTER */}
+        {/* LEFT: burger + logo */}
+        <div className="nav-left">
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="nav-hamburger"
+            aria-label="Меню"
+          >
+            <div className="nav-hamburger-lines">
+              <span /><span /><span />
+            </div>
+          </button>
           <Link to="/" className="nav-logo-link">
             <img src={logoDark} alt="Home Wood Spa" className="nav-logo-img" />
           </Link>
+        </div>
 
-          {/* RIGHT */}
-          <div className="nav-col nav-col--right">
-            <nav className="nav-desktop">
-              {rightLinks.map(({ label, href }) => (
-                href.startsWith('/') && !href.includes('#')
-                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
-                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
-              ))}
-            </nav>
-            <button onClick={() => scrollTo('#contact')} className="nav-cta ohio-btn" data-variant="filled">
-              Консультация
-            </button>
-          </div>
-        </motion.div>
-      </div>
+        {/* CENTER: all nav links */}
+        <nav className="nav-links">
+          {NAV_LINKS.map(({ label, href }) =>
+            href.startsWith('/') && !href.includes('#')
+              ? <Link key={label} to={href} className="nav-btn">{label}</Link>
+              : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
+          )}
+        </nav>
+
+        {/* RIGHT: CTA */}
+        <div className="nav-right">
+          <button onClick={() => scrollTo('#contact')} className="nav-cta">
+            Консультация
+          </button>
+        </div>
+
+      </header>
 
       <FullMenu open={menuOpen} onClose={() => setMenuOpen(false)} scrollTo={scrollTo} />
     </>
