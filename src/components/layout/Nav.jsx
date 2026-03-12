@@ -92,13 +92,27 @@ export default function Nav() {
       <header className="nav-bar">
         <div className={`nav-inner${scrolled ? ' nav-inner--scrolled' : ''}`}>
 
-          {/* LEFT: burger + left links */}
+          {/* LEFT: burger only */}
           <div className="nav-left">
             <button onClick={() => setMenuOpen(true)} className="nav-hamburger" aria-label="Меню">
               <i className="nav-hamburger-icon"></i>
             </button>
-            <nav className="nav-links nav-links--left">
+          </div>
+
+          {/* CENTER: left links + logo + right links — single absolute group */}
+          <div className="nav-center-group">
+            <nav className="nav-links">
               {NAV_LINKS_LEFT.map(({ label, href }) =>
+                href.startsWith('/') && !href.includes('#')
+                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
+                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
+              )}
+            </nav>
+            <Link to="/" className="nav-logo-link">
+              <img src={logoLight} alt="Home Wood Spa" className="nav-logo-img" />
+            </Link>
+            <nav className="nav-links">
+              {NAV_LINKS_RIGHT.map(({ label, href }) =>
                 href.startsWith('/') && !href.includes('#')
                   ? <Link key={label} to={href} className="nav-btn">{label}</Link>
                   : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
@@ -106,20 +120,8 @@ export default function Nav() {
             </nav>
           </div>
 
-          {/* CENTER: logo — position:absolute */}
-          <Link to="/" className="nav-logo-link nav-logo-center">
-            <img src={logoLight} alt="Home Wood Spa" className="nav-logo-img" />
-          </Link>
-
-          {/* RIGHT: right links + CTA */}
+          {/* RIGHT: CTA only */}
           <div className="nav-right">
-            <nav className="nav-links nav-links--right">
-              {NAV_LINKS_RIGHT.map(({ label, href }) =>
-                href.startsWith('/') && !href.includes('#')
-                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
-                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
-              )}
-            </nav>
             <button onClick={() => scrollTo('#contact')} className="nav-cta">
               Консультация
             </button>
