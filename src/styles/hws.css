@@ -197,7 +197,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   transition: opacity 0.2s ease;
 }
 .nav-logo-link:hover { opacity: 0.6; }
-.nav-logo-img { height: 26px; width: auto; display: block; }
+.nav-logo-img { height: 36px; width: auto; display: block; }
 
 /* Ссылки меню */
 .nav-btn {

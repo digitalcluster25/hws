@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logoDark from '../../assets/logo-dark.svg'
+import logoLight from '../../assets/logo-light.png'
 
 const NAV_LINKS = [
   { label: 'Компания', href: '/' },
@@ -95,7 +95,7 @@ export default function Nav() {
               <i className="nav-hamburger-icon"></i>
             </button>
             <Link to="/" className="nav-logo-link">
-              <img src={logoDark} alt="Home Wood Spa" className="nav-logo-img" />
+              <img src={logoLight} alt="Home Wood Spa" className="nav-logo-img" />
             </Link>
           </div>
 
