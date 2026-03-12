@@ -56,11 +56,19 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 .hws-label-dark  { color: var(--c-dark); }
 
 .hws-h1 {
-  font-size: clamp(2rem, 7.04vw, 7.2rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 0.9em;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: clamp(2rem, 4.464vw, 4.725rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.008;
   color: var(--c-dark);
+}
+.hws-h1 span {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: inherit !important;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
 }
 .hws-page-h1 {
   font-size: clamp(2.5rem, 6vw, 6rem);
