@@ -55,14 +55,14 @@ export default function Wireframe() {
       <ProjectsSlider />
 
       {/* ── 3. КТО МЫ ── */}
-      <section id="about" className="py-24" style={{ background: C.light, ...px }}>
+      <section id="about" className="py-24" style={{ background: C.dark, ...px }}>
         <div style={wrap}>
           <h2 className="about-statement">
             <span className="about-statement__bright">Почти два десятилетия мы проектируем и строим премиальные wellness-пространства — </span>
             <span className="about-statement__muted">от масштабных курортных СПА до камерных частных хаммамов, соединяя древние банные традиции с современным дизайном и технической точностью.</span>
           </h2>
           <div style={{ marginTop: '2.5rem' }}>
-            <Button href="/portfolio" variant="filled" shadow={false}>Смотреть проекты →</Button>
+            <Button href="/portfolio" variant="ghost" shadow={false}>Смотреть проекты →</Button>
           </div>
         </div>
       </section>
