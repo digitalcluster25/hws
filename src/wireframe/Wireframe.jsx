@@ -45,7 +45,7 @@ export default function Wireframe() {
       <section id="home" className="flex flex-col items-center justify-center text-center"
         style={{ background: C.light, ...px, minHeight: '72vh', paddingTop: '120px', paddingBottom: '48px' }}>
         <div style={wrap}>
-          <h1 className="hws-h1 mb-6">Строительство<br />СПА и Wellness</h1>
+          <h1 className="hws-h1 mb-6">Строительство<br />спа и велнес</h1>
           <p className="hws-body tc-muted max-w-xl mx-auto mb-10">
             От аутентичных турецких хаммамов до скандинавских саун — 17 лет европейского мастерства в luxury-отелях и курортах по всему миру.
           </p>
