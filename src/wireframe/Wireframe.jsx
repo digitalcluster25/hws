@@ -43,10 +43,10 @@ export default function Wireframe() {
 
       {/* ── 1. HERO ── */}
       <section id="home" className="flex flex-col items-center justify-center text-center"
-        style={{ background: C.light, ...px, minHeight: '72vh', paddingTop: '120px', paddingBottom: '48px' }}>
+        style={{ background: C.dark, ...px, minHeight: '72vh', paddingTop: '120px', paddingBottom: '48px' }}>
         <div style={wrap}>
-          <h1 className="hws-h1 mb-6">Строительство<br />спа и велнес</h1>
-          <p className="hws-body tc-muted max-w-xl mx-auto mb-10">
+          <h1 className="hws-h1 tc-white mb-6">Строительство<br />спа и велнес</h1>
+          <p className="hws-body tc-w65 max-w-xl mx-auto mb-10">
             От аутентичных турецких хаммамов до скандинавских саун — 17 лет европейского мастерства в luxury-отелях и курортах по всему миру.
           </p>
         </div>
@@ -55,20 +55,20 @@ export default function Wireframe() {
       <ProjectsSlider />
 
       {/* ── 3. КТО МЫ ── */}
-      <section id="about" className="py-24" style={{ background: C.dark, ...px }}>
+      <section id="about" className="py-24" style={{ background: C.light, ...px }}>
         <div style={wrap}>
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <SectionHeader badge="О нас" light="Создаём wellness-пространства," dark="которые трансформируют" className="sh-wrap--inverse" />
-              <p className="hws-body tc-w65 mb-4">
+              <SectionHeader badge="О нас" light="Создаём wellness-пространства," dark="которые трансформируют" />
+              <p className="hws-body tc-muted mb-4">
                 Почти два десятилетия Home Wood Spa проектирует и строит премиальные wellness-пространства. От масштабных курортных СПА до камерных частных хаммамов — мы соединяем древние банные традиции с современным дизайном и технической точностью.
               </p>
-              <p className="hws-body tc-w65 mb-8">
+              <p className="hws-body tc-muted mb-8">
                 Каждый проект начинается с вашего видения и заканчивается пространством, которое запомнят ваши гости.
               </p>
             </div>
-            <div className="aspect-[4/3] rounded flex items-end p-4" style={{ background: 'rgba(255,255,255,0.06)' }}>
-              <span className="img-note img-note-dark">[IMAGE: Emily Resort главный СПА-зал]</span>
+            <div className="aspect-[4/3] rounded flex items-end p-4" style={{ background: 'rgba(50,54,37,0.08)' }}>
+              <span className="img-note">[IMAGE: Emily Resort главный СПА-зал]</span>
             </div>
           </div>
         </div>
