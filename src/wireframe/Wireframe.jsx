@@ -104,10 +104,11 @@ export default function Wireframe() {
             </div>
 
           </div>
+          <div className="flex justify-end mt-8" style={{ maxWidth: '100%' }}>
+            <Button href="/services" variant="ghost" shadow={false}>Смотреть все услуги →</Button>
+          </div>
         </div>
       </section>
-
-      <ProjectsSlider />
 
       <ProcessAccordion />
 
