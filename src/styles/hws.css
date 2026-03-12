@@ -632,6 +632,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   width: 100%;
   height: clamp(280px, 34vw, 520px);
   overflow: hidden;
+  border-radius: 20px;
   transition: opacity 0.3s ease;
   flex-shrink: 0;
 }
