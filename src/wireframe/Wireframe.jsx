@@ -55,6 +55,8 @@ export default function Wireframe() {
         </div>
       </section>
 
+      <ProjectsSlider />
+
       {/* ── 3. КТО МЫ ── */}
       <section id="about" className="py-24" style={{ background: C.dark, ...px }}>
         <div style={wrap}>
@@ -109,8 +111,6 @@ export default function Wireframe() {
           </div>
         </div>
       </section>
-
-      <ProjectsSlider />
 
       <ProcessAccordion />
 
