@@ -123,7 +123,7 @@ export default function Nav() {
           {/* RIGHT: CTA only */}
           <div className="nav-right">
             <button onClick={() => scrollTo('#contact')} className="nav-cta">
-              Консультация
+            Обсудить проект
             </button>
           </div>
 

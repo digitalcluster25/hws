@@ -46,7 +46,7 @@ export default function Wireframe() {
         style={{ background: C.dark, ...px, minHeight: '72vh', paddingTop: '120px', paddingBottom: '48px' }}>
         <div style={wrap}>
           <h1 className="hws-h1 tc-white mb-6">Строительство<br />спа и велнес</h1>
-          <p className="hws-body tc-w65 max-w-xl mx-auto mb-10">
+          <p className="hws-body tc-w65 max-w-xl mx-auto mb-10" style={{ fontSize: '1.425rem' }}>
             От аутентичных турецких хаммамов до скандинавских саун — 17 лет европейского мастерства в luxury-отелях и курортах по всему миру.
           </p>
         </div>
