@@ -56,7 +56,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 .hws-label-dark  { color: var(--c-dark); }
 
 .hws-h1 {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: 'Alegreya Sans', sans-serif !important;
   font-size: clamp(2rem, 4.464vw, 4.725rem);
   font-weight: 400;
   letter-spacing: -0.045em;
@@ -64,7 +64,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   color: var(--c-dark);
 }
 .hws-h1 span {
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: 'Alegreya Sans', sans-serif !important;
   font-size: inherit !important;
   font-weight: inherit;
   letter-spacing: inherit;
