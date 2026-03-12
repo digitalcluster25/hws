@@ -42,8 +42,8 @@ export default function Wireframe() {
     <main className="min-h-screen tc-dark">
 
       {/* ── 1. HERO ── */}
-      <section id="home" className="min-h-screen flex flex-col items-center justify-center py-28 text-center"
-        style={{ background: C.light, ...px }}>
+      <section id="home" className="flex flex-col items-center justify-center text-center"
+        style={{ background: C.light, ...px, minHeight: '72vh', paddingTop: '120px', paddingBottom: '48px' }}>
         <div style={wrap}>
           <h1 className="hws-h1 mb-6">Строительство<br />СПА и Wellness</h1>
           <p className="hws-body tc-muted max-w-xl mx-auto mb-10">
