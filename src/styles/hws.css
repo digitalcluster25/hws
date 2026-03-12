@@ -173,11 +173,8 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   flex-shrink: 0;
 }
 
-/* CENTER: все ссылки меню — абсолютный центр */
+/* CENTER: все ссылки меню — flex в потоке */
 .nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 0;
@@ -191,13 +188,17 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   align-items: center;
 }
 
-/* Логотип */
+/* Логотип — абсолютный центр */
 .nav-logo-link {
   display: flex;
   align-items: center;
   text-decoration: none;
   transition: opacity 0.2s ease;
-  margin-left: 1rem;
+}
+.nav-logo-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .nav-logo-link:hover { opacity: 0.6; }
 .nav-logo-img { height: 46px; width: auto; display: block; }

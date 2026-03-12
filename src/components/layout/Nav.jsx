@@ -3,12 +3,15 @@ import { createPortal } from 'react-dom'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logoLight from '../../assets/logo-light.png'
 
-const NAV_LINKS = [
+const NAV_LINKS_LEFT = [
   { label: 'Компания', href: '/' },
   { label: 'Услуги',   href: '/services' },
+]
+const NAV_LINKS_RIGHT = [
   { label: 'Кейсы',    href: '/portfolio' },
   { label: 'Контакты', href: '/contact' },
 ]
+const NAV_LINKS = [...NAV_LINKS_LEFT, ...NAV_LINKS_RIGHT]
 
 function useScrollTo() {
   const navigate = useNavigate()
@@ -89,27 +92,34 @@ export default function Nav() {
       <header className="nav-bar">
         <div className={`nav-inner${scrolled ? ' nav-inner--scrolled' : ''}`}>
 
-          {/* LEFT: burger + logo */}
+          {/* LEFT: burger + left links */}
           <div className="nav-left">
             <button onClick={() => setMenuOpen(true)} className="nav-hamburger" aria-label="Меню">
               <i className="nav-hamburger-icon"></i>
             </button>
-            <Link to="/" className="nav-logo-link">
-              <img src={logoLight} alt="Home Wood Spa" className="nav-logo-img" />
-            </Link>
+            <nav className="nav-links nav-links--left">
+              {NAV_LINKS_LEFT.map(({ label, href }) =>
+                href.startsWith('/') && !href.includes('#')
+                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
+                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
+              )}
+            </nav>
           </div>
 
-          {/* CENTER: nav links — position:absolute center */}
-          <nav className="nav-links">
-            {NAV_LINKS.map(({ label, href }) =>
-              href.startsWith('/') && !href.includes('#')
-                ? <Link key={label} to={href} className="nav-btn">{label}</Link>
-                : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
-            )}
-          </nav>
+          {/* CENTER: logo — position:absolute */}
+          <Link to="/" className="nav-logo-link nav-logo-center">
+            <img src={logoLight} alt="Home Wood Spa" className="nav-logo-img" />
+          </Link>
 
-          {/* RIGHT: CTA */}
+          {/* RIGHT: right links + CTA */}
           <div className="nav-right">
+            <nav className="nav-links nav-links--right">
+              {NAV_LINKS_RIGHT.map(({ label, href }) =>
+                href.startsWith('/') && !href.includes('#')
+                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
+                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
+              )}
+            </nav>
             <button onClick={() => scrollTo('#contact')} className="nav-cta">
               Консультация
             </button>
