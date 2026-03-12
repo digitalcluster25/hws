@@ -106,7 +106,8 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   font-weight: 700;
   line-height: 1.25;
 }
-.hws-body  { font-size: 1.3rem;     line-height: 1.65; }
+.hws-body  { font-family: 'Alegreya Sans', sans-serif !important; font-size: 1.3rem; line-height: 1.65; }
+.hws-body span { font-family: 'Alegreya Sans', sans-serif !important; font-size: inherit !important; }
 .hws-small { font-size: 1.3rem; line-height: 1.55; }
 
 /* ── О нас — Ohio-style statement text ── */
