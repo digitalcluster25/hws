@@ -110,6 +110,19 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 .hws-body span { font-family: 'Alegreya Sans', sans-serif !important; font-size: inherit !important; }
 .hws-small { font-size: 1.3rem; line-height: 1.55; }
 
+/* ── Hero ── */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--c-dark);
+  min-height: 72vh;
+  padding-top: 120px;
+  padding-bottom: 48px;
+}
+
 /* ── О нас — Ohio-style statement text ── */
 .about-section {
   padding-top: 72px;

@@ -42,11 +42,10 @@ export default function Wireframe() {
     <main className="min-h-screen tc-dark">
 
       {/* ── 1. HERO ── */}
-      <section id="home" className="flex flex-col items-center justify-center text-center"
-        style={{ background: C.dark, ...px, minHeight: '72vh', paddingTop: '120px', paddingBottom: '48px' }}>
-        <div style={wrap}>
+      <section id="home" className="hero-section">
+        <div className="hws-wrap hws-px">
           <h1 className="hws-h1 tc-white mb-6">Строительство<br />спа и велнес</h1>
-          <p className="hws-body tc-w65 max-w-xl mx-auto mb-10" style={{ fontSize: '1.425rem' }}>
+          <p className="hws-body tc-w65 max-w-xl mx-auto mb-10">
             От аутентичных турецких хаммамов до скандинавских саун — 17 лет европейского мастерства в luxury-отелях и курортах по всему миру.
           </p>
         </div>
