@@ -147,15 +147,7 @@ export default function ProjectsSlider() {
   const displayIdx = ((idx - BASE) % PROJECTS.length + PROJECTS.length) % PROJECTS.length
 
   return (
-    <section id="portfolio" className="py-24" style={{ background: C.light }}>
-      {/* Header */}
-      <div className="hws-px mb-12" style={{ maxWidth: '1344px', margin: '0 auto 3rem' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '2rem' }}>
-          <SectionHeader badge="Портфолио" light="Wellness-пространства," dark="которые задают стандарт" />
-          <Button href="/portfolio" variant="ghost" shadow={false} style={{ flexShrink: 0 }}>Все проекты →</Button>
-        </div>
-      </div>
-
+    <section id="portfolio" className="pb-24 pt-0" style={{ background: C.light }}>
       {/* Track */}
       <div
         ref={trackRef}

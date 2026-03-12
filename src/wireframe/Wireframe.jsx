@@ -49,9 +49,6 @@ export default function Wireframe() {
           <p className="hws-body tc-muted max-w-xl mx-auto mb-10">
             От аутентичных турецких хаммамов до скандинавских саун — 17 лет европейского мастерства в luxury-отелях и курортах по всему миру.
           </p>
-          <div className="flex justify-center mb-10">
-            <Button href="/portfolio" variant="filled" shadow={false}>Посмотреть проекты →</Button>
-          </div>
         </div>
       </section>
 
