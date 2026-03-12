@@ -152,6 +152,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 /* Inner wrapper: pill-форма, фон, border-radius 40px — как Ohio */
 .nav-inner {
   pointer-events: all;
+  position: relative;
   display: flex;
   align-items: center;
   height: 72px;
@@ -192,13 +193,14 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 
 /* Логотип */
 .nav-logo-link {
-  display: flex; align-items: center;
+  display: flex;
+  align-items: center;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  margin-left: 1rem;
 }
 .nav-logo-link:hover { opacity: 0.6; }
 .nav-logo-img { height: 46px; width: auto; display: block; }
-.nav-logo-link { display: flex; align-items: center; }
 
 /* Ссылки меню */
 .nav-btn {

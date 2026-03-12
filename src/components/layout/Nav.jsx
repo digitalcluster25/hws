@@ -99,7 +99,7 @@ export default function Nav() {
             </Link>
           </div>
 
-          {/* CENTER: all nav links */}
+          {/* CENTER: nav links — position:absolute center */}
           <nav className="nav-links">
             {NAV_LINKS.map(({ label, href }) =>
               href.startsWith('/') && !href.includes('#')
