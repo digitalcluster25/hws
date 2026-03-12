@@ -49,13 +49,9 @@ export default function Wireframe() {
           <p className="hws-body tc-muted max-w-xl mx-auto mb-10">
             От аутентичных турецких хаммамов до скандинавских саун — 17 лет европейского мастерства в luxury-отелях и курортах по всему миру.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-            <Button href="#contact" variant="filled" shadow={false}>Записаться на консультацию</Button>
-            <Button href="#portfolio" variant="ghost" shadow={false}>Посмотреть проекты →</Button>
+          <div className="flex justify-center mb-10">
+            <Button href="/portfolio" variant="filled" shadow={false}>Посмотреть проекты →</Button>
           </div>
-          <p className="hws-small tc-muted" style={{ letterSpacing: '0.05em' }}>
-            Нам доверяют 5-звёздочные курорты в Европе, Центральной Азии и за их пределами
-          </p>
         </div>
       </section>
 
