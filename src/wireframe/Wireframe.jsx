@@ -55,8 +55,8 @@ export default function Wireframe() {
       <ProjectsSlider />
 
       {/* ── 3. КТО МЫ ── */}
-      <section id="about" className="py-24" style={{ background: C.dark, ...px }}>
-        <div style={wrap}>
+      <section id="about" className="about-section" style={{ background: C.dark }}>
+        <div style={{ maxWidth: '1440px', margin: '0 auto', ...px }}>
           <h2 className="about-statement">
             <span className="about-statement__bright">Почти два десятилетия мы проектируем и строим премиальные wellness-пространства — </span>
             <span className="about-statement__muted">от масштабных курортных СПА до камерных частных хаммамов, соединяя древние банные традиции с современным дизайном и технической точностью.</span>

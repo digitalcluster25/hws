@@ -102,6 +102,10 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 .hws-small { font-size: 1.3rem; line-height: 1.55; }
 
 /* ── О нас — Ohio-style statement text ── */
+.about-section {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
 .about-statement {
   font-family: 'DM Sans', sans-serif !important;
   font-size: clamp(1.75rem, 4.5vw, 4.725rem);
