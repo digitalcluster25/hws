@@ -4,7 +4,7 @@ import { projects as allProjects } from '../../data/projects'
 
 const PROJECTS = allProjects.filter(p => p.featured)
 
-function Card({ p, tall }) {
+function Card({ p, wide }) {
   const [hovered, setHovered] = useState(false)
 
   const meta = [
@@ -15,8 +15,7 @@ function Card({ p, tall }) {
   return (
     <Link
       to={`/portfolio/${p.slug}`}
-      className="pg-card"
-      style={{ aspectRatio: tall ? '4/5' : '16/10' }}
+      className={`pg-card${wide ? ' pg-card--wide' : ''}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -44,13 +43,13 @@ export default function ProjectsSlider() {
     <section id="portfolio" style={{ background: '#323625', padding: '0 max(1.5vw,16px) 5rem' }}>
       <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
 
-        {/* Row 1: большая (4/6) + меньшая (2/6) */}
+        {/* Row 1: 3-колоночная сетка, карточка 1 занимает 2 кол, карточка 2 — 1 кол */}
         <div className="pg-row pg-row--top">
-          {a && <Card p={a} />}
+          {a && <Card p={a} wide />}
           {b && <Card p={b} />}
         </div>
 
-        {/* Row 2: 2 равных */}
+        {/* Row 2: 2 равных по 1 колонке */}
         <div className="pg-row pg-row--bottom">
           {c && <Card p={c} />}
           {d && <Card p={d} />}

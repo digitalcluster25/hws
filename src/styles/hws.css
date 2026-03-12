@@ -632,7 +632,9 @@ select.hws-field { appearance: none; cursor: pointer; }
   gap: 12px;
   margin-bottom: 12px;
 }
-.pg-row--top    { grid-template-columns: 62fr 38fr; }
+/* Row 1: 3 колонки, первая карточка span 2, вторая span 1 */
+.pg-row--top    { grid-template-columns: repeat(3, 1fr); }
+/* Row 2: 2 равных */
 .pg-row--bottom { grid-template-columns: 1fr 1fr; }
 
 .pg-card {
@@ -642,7 +644,9 @@ select.hws-field { appearance: none; cursor: pointer; }
   border-radius: 16px;
   text-decoration: none;
   background: #1a1a1a;
+  height: 480px;
 }
+.pg-card--wide { grid-column: span 2; }
 
 .pg-img {
   width: 100%;
@@ -687,7 +691,8 @@ select.hws-field { appearance: none; cursor: pointer; }
 @media (max-width: 768px) {
   .pg-row--top    { grid-template-columns: 1fr; }
   .pg-row--bottom { grid-template-columns: 1fr; }
-  .pg-card { aspect-ratio: 4/3 !important; }
+  .pg-card--wide  { grid-column: span 1; }
+  .pg-card        { height: 300px; }
 }
 
 /* ─────────────────────────────────────────────
