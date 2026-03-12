@@ -45,7 +45,7 @@ export default function Wireframe() {
       <section id="home" className="hero-section">
         <div className="hws-wrap hws-px">
           <h1 className="hws-h1 tc-white mb-6">Строительство<br />спа и велнес</h1>
-          <p className="hws-body tc-w65 max-w-xl mx-auto mb-10">
+          <p className="hws-body tc-w65 mb-10">
             От аутентичных турецких хаммамов до скандинавских саун — 17 лет европейского мастерства в luxury-отелях и курортах по всему миру.
           </p>
         </div>

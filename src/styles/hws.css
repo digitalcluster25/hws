@@ -106,7 +106,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   font-weight: 700;
   line-height: 1.25;
 }
-.hws-body  { font-family: 'Alegreya Sans', sans-serif !important; font-size: clamp(2rem, 4.464vw, 4.725rem) !important; line-height: 1.65; }
+.hws-body  { font-family: 'Alegreya Sans', sans-serif !important; font-size: clamp(2rem, 4.464vw, 4.725rem) !important; line-height: 1.008; }
 .hws-body span { font-family: 'Alegreya Sans', sans-serif !important; font-size: inherit !important; }
 .hws-small { font-size: 1.3rem; line-height: 1.55; }
 
