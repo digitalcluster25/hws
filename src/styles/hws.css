@@ -312,7 +312,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   padding: max(1.5vw, 16px); flex-shrink: 0;
 }
 .fullmenu-close {
-  width: 5.5rem; height: 5.5rem;
+  width: 46px; height: 46px;
   display: flex; align-items: center; justify-content: center;
   color: #fff; background: none; border: none;
   cursor: pointer; border-radius: 16px;
