@@ -147,7 +147,7 @@ export default function ProjectsSlider() {
   const displayIdx = ((idx - BASE) % PROJECTS.length + PROJECTS.length) % PROJECTS.length
 
   return (
-    <section id="portfolio" className="pb-24 pt-0" style={{ background: C.light }}>
+    <section id="portfolio" className="pb-24 pt-0" style={{ background: '#323625' }}>
       {/* Track */}
       <div
         ref={trackRef}
