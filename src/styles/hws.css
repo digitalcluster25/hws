@@ -624,7 +624,74 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 
 /* ─────────────────────────────────────────────
-   ProjectsSlider — infinite horizontal carousel
+   Projects Grid — Ohio-style masonry tile
+   ───────────────────────────────────────────── */
+
+.pg-row {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.pg-row--top    { grid-template-columns: 62fr 38fr; }
+.pg-row--bottom { grid-template-columns: 1fr 1fr; }
+
+.pg-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 16px;
+  text-decoration: none;
+  background: #1a1a1a;
+}
+
+.pg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.pg-img--zoom { transform: scale(1.04); }
+
+.pg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 45%, transparent 70%);
+  pointer-events: none;
+}
+
+.pg-meta {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1.75rem 2rem;
+}
+
+.pg-title {
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem) !important;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+}
+
+.pg-sub {
+  font-size: 0.9rem !important;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  margin: 0;
+  transition: color 0.25s ease;
+  letter-spacing: 0.01em;
+}
+.pg-card:hover .pg-sub { color: rgba(255,255,255,0.9); }
+
+@media (max-width: 768px) {
+  .pg-row--top    { grid-template-columns: 1fr; }
+  .pg-row--bottom { grid-template-columns: 1fr; }
+  .pg-card { aspect-ratio: 4/3 !important; }
+}
+
+/* ─────────────────────────────────────────────
+   ProjectsSlider — infinite horizontal carousel (DEPRECATED)
    ───────────────────────────────────────────── */
 
 /* overflow-hidden контейнер — видно 2 полных + 2 частичных по краям */
