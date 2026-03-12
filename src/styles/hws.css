@@ -101,6 +101,17 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 .hws-body  { font-size: 1.3rem;     line-height: 1.65; }
 .hws-small { font-size: 1.3rem; line-height: 1.55; }
 
+/* ── О нас — Ohio-style statement text ── */
+.about-statement {
+  font-size: clamp(1.75rem, 3.5vw, 3.06rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.about-statement__bright { color: var(--c-dark); }
+.about-statement__muted  { color: rgba(50, 54, 37, 0.42); }
+
 .stat-num {
   font-size: 2rem;
   font-weight: 700;

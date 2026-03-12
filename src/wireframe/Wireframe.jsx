@@ -57,19 +57,12 @@ export default function Wireframe() {
       {/* ── 3. КТО МЫ ── */}
       <section id="about" className="py-24" style={{ background: C.light, ...px }}>
         <div style={wrap}>
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <SectionHeader badge="О нас" light="Создаём wellness-пространства," dark="которые трансформируют" />
-              <p className="hws-body tc-muted mb-4">
-                Почти два десятилетия Home Wood Spa проектирует и строит премиальные wellness-пространства. От масштабных курортных СПА до камерных частных хаммамов — мы соединяем древние банные традиции с современным дизайном и технической точностью.
-              </p>
-              <p className="hws-body tc-muted mb-8">
-                Каждый проект начинается с вашего видения и заканчивается пространством, которое запомнят ваши гости.
-              </p>
-            </div>
-            <div className="aspect-[4/3] rounded flex items-end p-4" style={{ background: 'rgba(50,54,37,0.08)' }}>
-              <span className="img-note">[IMAGE: Emily Resort главный СПА-зал]</span>
-            </div>
+          <h2 className="about-statement">
+            <span className="about-statement__bright">Почти два десятилетия мы проектируем и строим премиальные wellness-пространства — </span>
+            <span className="about-statement__muted">от масштабных курортных СПА до камерных частных хаммамов, соединяя древние банные традиции с современным дизайном и технической точностью.</span>
+          </h2>
+          <div style={{ marginTop: '2.5rem' }}>
+            <Button href="/portfolio" variant="filled" shadow={false}>Смотреть проекты →</Button>
           </div>
         </div>
       </section>
