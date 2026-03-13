@@ -1061,9 +1061,9 @@ select.hws-field { appearance: none; cursor: pointer; }
   border-color: var(--c-dark);
 }
 .ohio-btn--filled:hover {
-  background: #eb0b0b;
-  color: #fff;
-  border-color: #eb0b0b;
+  background: #eb0b0b !important;
+  color: #fff !important;
+  border-color: #eb0b0b !important;
 }
 
 /* ── filled-light (акцент на тёмном фоне) ── */
@@ -1073,8 +1073,8 @@ select.hws-field { appearance: none; cursor: pointer; }
   border-color: #fff;
 }
 .ohio-btn--filled-light:hover {
-  background: rgba(255,255,255,0.85);
-  color: var(--c-dark);
+  background: rgba(255,255,255,0.85) !important;
+  color: var(--c-dark) !important;
 }
 
 /* ── outlined ── */
@@ -1084,9 +1084,9 @@ select.hws-field { appearance: none; cursor: pointer; }
   border-color: rgba(50, 54, 37, 0.3);
 }
 .ohio-btn--outlined:hover {
-  background: var(--c-dark);
-  color: #fff;
-  border-color: var(--c-dark);
+  background: var(--c-dark) !important;
+  color: #fff !important;
+  border-color: var(--c-dark) !important;
 }
 
 /* ── outlined-light ── */
@@ -1096,9 +1096,9 @@ select.hws-field { appearance: none; cursor: pointer; }
   border-color: rgba(255, 255, 255, 0.35);
 }
 .ohio-btn--outlined-light:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* ── ghost ── */
@@ -1107,7 +1107,10 @@ select.hws-field { appearance: none; cursor: pointer; }
   color: rgba(50, 54, 37, 0.75);
   border-color: transparent;
 }
-.ohio-btn--ghost:hover { color: var(--c-dark); }
+.ohio-btn--ghost:hover {
+  color: var(--c-dark) !important;
+  background: rgba(50,54,37,0.06) !important;
+}
 
 /* ── ghost-light ── */
 .ohio-btn--ghost-light {
@@ -1115,7 +1118,10 @@ select.hws-field { appearance: none; cursor: pointer; }
   color: rgba(255, 255, 255, 0.7);
   border-color: transparent;
 }
-.ohio-btn--ghost-light:hover { color: #fff; }
+.ohio-btn--ghost-light:hover {
+  color: #fff !important;
+  background: rgba(255,255,255,0.08) !important;
+}
 
 
 /* ─────────────────────────────────────────────
