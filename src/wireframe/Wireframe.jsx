@@ -61,7 +61,7 @@ export default function Wireframe() {
             </span>
           </h2>
           <div style={{ marginTop: '2.5rem' }}>
-            <Button href="/portfolio" variant="filled" shadow={false}>Смотреть проекты →</Button>
+            <Button href="/portfolio" variant="filled" shadow={false}>Смотреть проекты</Button>
           </div>
         </div>
       </section>
@@ -96,7 +96,7 @@ export default function Wireframe() {
 
           </div>
           <div className="flex justify-end mt-8" style={{ maxWidth: '100%' }}>
-            <Button href="/services" variant="ghost" shadow={false}>Смотреть все услуги →</Button>
+            <Button href="/services" variant="ghost" shadow={false}>Смотреть все услуги</Button>
           </div>
         </div>
       </section>
