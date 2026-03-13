@@ -44,7 +44,7 @@ export default function Wireframe() {
       {/* ── 1. HERO ── */}
       <section id="home" className="hero-section" style={{ background: '#191918' }}>
         <div className="hws-wrap hws-px">
-          <h1 className="hws-h1 tc-white">От аутентичных хаммамов до скандинавских саун.<br />Европейское мастерство<br />в luxury-отелях и курортах по всему миру.</h1>
+          <h1 className="hws-h1 tc-white">От аутентичных хаммамов<br />до скандинавских саун.<br />Европейское мастерство<br />в luxury-отелях и курортах по всему миру.</h1>
         </div>
       </section>
 
