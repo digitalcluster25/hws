@@ -1061,9 +1061,9 @@ select.hws-field { appearance: none; cursor: pointer; }
   border-color: var(--c-dark);
 }
 .ohio-btn--filled:hover {
-  background: #474d38;
+  background: #eb0b0b;
   color: #fff;
-  border-color: #474d38;
+  border-color: #eb0b0b;
 }
 
 /* ── filled-light (акцент на тёмном фоне) ── */
