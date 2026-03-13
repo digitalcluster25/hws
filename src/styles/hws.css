@@ -1015,112 +1015,105 @@ select.hws-field { appearance: none; cursor: pointer; }
 .sh-wrap--inverse .sh-light { color: rgba(255,255,255,0.45); }
 .sh-wrap--inverse .sh-dark  { color: #fff; }
 
-/* кнопки — фиксированный 16px, пробивает любые глобальные overrides */
-.ohio-btn,
-.ohio-btn * {
-  font-size: 1rem !important;
-}
-
 /* ─────────────────────────────────────────────
-   Ohio btn — demo34 exact
+   Ohio btn — demo8 EXACT
+   bg rgb(74,79,73) | color rgb(242,239,228)
+   DM Sans 500 15.58px | border-radius 28px
+   height 52px | padding 0 24px | gap 8px
    ───────────────────────────────────────────── */
 .ohio-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 48px;
-  padding: 0 20px;
-  font-family: var(--font) !important;
-  font-size: 14.4px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  border-radius: 32px;
-  border: 1px solid transparent;
-  cursor: pointer;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: 52px !important;
+  padding: 0 24px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15.58px !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  border-radius: 28px !important;
+  border: 1px solid rgba(255,255,255,0) !important;
+  cursor: pointer !important;
   transition:
-    background-color 0.35s cubic-bezier(0.645, 0.045, 0.355, 1),
-    color            0.35s cubic-bezier(0.645, 0.045, 0.355, 1),
-    border-color     0.35s cubic-bezier(0.645, 0.045, 0.355, 1),
-    box-shadow       0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-color 0.35s cubic-bezier(0.645,0.045,0.355,1),
+    color            0.35s cubic-bezier(0.645,0.045,0.355,1),
+    border-color     0.35s cubic-bezier(0.645,0.045,0.355,1),
+    box-shadow       0.35s cubic-bezier(0.645,0.045,0.355,1) !important;
 }
-.ohio-btn--small {
-  height: 36px;
-  padding: 0 16px;
-}
-.ohio-btn--disabled { opacity: 0.5; pointer-events: none; }
-.ohio-btn__icon { display: flex; align-items: center; }
+.ohio-btn--small { height: 40px !important; padding: 0 18px !important; }
+.ohio-btn--disabled { opacity: 0.5 !important; pointer-events: none !important; }
+.ohio-btn__icon { display: flex !important; align-items: center !important; flex-shrink: 0 !important; }
 
-/* ── filled (акцент) ── */
+/* ── filled ── */
 .ohio-btn--filled {
-  background: var(--c-dark);
-  color: rgba(255, 255, 255, 0.75);
-  border-color: var(--c-dark);
+  background: rgb(74,79,73) !important;
+  color: rgb(242,239,228) !important;
+  border-color: rgba(255,255,255,0) !important;
 }
 .ohio-btn--filled:hover {
-  background: #eb0b0b !important;
-  color: #fff !important;
-  border-color: #eb0b0b !important;
+  background: rgb(95,102,91) !important;
+  color: rgb(255,253,245) !important;
 }
 
-/* ── filled-light (акцент на тёмном фоне) ── */
+/* ── filled-light ── */
 .ohio-btn--filled-light {
-  background: #fff;
-  color: var(--c-dark);
-  border-color: #fff;
+  background: rgb(242,239,228) !important;
+  color: rgb(50,54,37) !important;
+  border-color: rgba(255,255,255,0) !important;
 }
 .ohio-btn--filled-light:hover {
-  background: rgba(255,255,255,0.85) !important;
-  color: var(--c-dark) !important;
+  background: #fff !important;
+  color: rgb(50,54,37) !important;
 }
 
 /* ── outlined ── */
 .ohio-btn--outlined {
-  background: transparent;
-  color: rgba(50, 54, 37, 0.75);
-  border-color: rgba(50, 54, 37, 0.3);
+  background: transparent !important;
+  color: rgb(74,79,73) !important;
+  border-color: rgba(74,79,73,0.4) !important;
 }
 .ohio-btn--outlined:hover {
-  background: var(--c-dark) !important;
-  color: #fff !important;
-  border-color: var(--c-dark) !important;
+  background: rgb(74,79,73) !important;
+  color: rgb(242,239,228) !important;
+  border-color: rgb(74,79,73) !important;
 }
 
 /* ── outlined-light ── */
 .ohio-btn--outlined-light {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.75);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: transparent !important;
+  color: rgb(242,239,228) !important;
+  border-color: rgba(242,239,228,0.35) !important;
 }
 .ohio-btn--outlined-light:hover {
-  background: rgba(255, 255, 255, 0.12) !important;
-  color: #fff !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
+  background: rgba(242,239,228,0.12) !important;
+  color: rgb(242,239,228) !important;
+  border-color: rgba(242,239,228,0.6) !important;
 }
 
 /* ── ghost ── */
 .ohio-btn--ghost {
-  background: transparent;
-  color: rgba(50, 54, 37, 0.75);
-  border-color: transparent;
+  background: transparent !important;
+  color: rgb(74,79,73) !important;
+  border-color: transparent !important;
 }
 .ohio-btn--ghost:hover {
-  color: var(--c-dark) !important;
-  background: rgba(50,54,37,0.06) !important;
+  background: rgba(74,79,73,0.08) !important;
+  color: rgb(50,54,37) !important;
 }
 
 /* ── ghost-light ── */
 .ohio-btn--ghost-light {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  border-color: transparent;
+  background: transparent !important;
+  color: rgba(242,239,228,0.75) !important;
+  border-color: transparent !important;
 }
 .ohio-btn--ghost-light:hover {
-  color: #fff !important;
-  background: rgba(255,255,255,0.08) !important;
+  background: rgba(242,239,228,0.1) !important;
+  color: rgb(242,239,228) !important;
 }
 
 
