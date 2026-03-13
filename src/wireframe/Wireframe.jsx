@@ -61,7 +61,7 @@ export default function Wireframe() {
             </span>
           </h2>
           <div style={{ marginTop: '2.5rem' }}>
-            <Button href="/portfolio" variant="ghost" shadow={false}>Смотреть проекты →</Button>
+            <Button href="/portfolio" variant="filled" shadow={false}>Смотреть проекты →</Button>
           </div>
         </div>
       </section>
