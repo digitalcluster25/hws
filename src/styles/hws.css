@@ -1059,11 +1059,11 @@ select.hws-field { appearance: none; cursor: pointer; }
   color: rgb(255,255,255) !important;
 }
 
-/* иконка Bootstrap Icons внутри кнопки */
+/* иконка Bootstrap Icons внутри кнопки — Ohio demo8 exact 24.928px */
 .ohio-btn .bi {
-  font-size: 1.1rem !important;
+  font-size: 24.928px !important;
   line-height: 1 !important;
-  flex-shrink: 0;
+  flex-shrink: 0 !important;
 }
 
 /* ── filled-light ── */
