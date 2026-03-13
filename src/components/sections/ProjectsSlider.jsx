@@ -46,7 +46,7 @@ function Card({ p, span }) {
 
 export default function ProjectsSlider() {
   return (
-    <section id="portfolio" style={{ background: '#323625', padding: '0 max(1.5vw,16px) 5rem' }}>
+    <section id="portfolio" style={{ background: '#191918', padding: '0 max(1.5vw,16px) 5rem' }}>
       <div className="pg-grid" style={{ maxWidth: '1440px', margin: '0 auto' }}>
         {PROJECTS.map((p, i) => (
           <Card key={p.slug} p={p} span={getSpan(i)} />

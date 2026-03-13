@@ -42,20 +42,23 @@ export default function Wireframe() {
     <main className="min-h-screen tc-dark">
 
       {/* ── 1. HERO ── */}
-      <section id="home" className="hero-section">
+      <section id="home" className="hero-section" style={{ background: '#191918' }}>
         <div className="hws-wrap hws-px">
-          <h1 className="hws-h1 tc-white">Строительство спа и велнес,<br />от аутентичных турецких хаммамов до<br />скандинавских саун — 17 лет европейского<br />мастерства в luxury-отелях и курортах<br />по всему миру.</h1>
+          <h1 className="hws-h1 tc-white">От аутентичных хаммамов до скандинавских саун.<br />Европейское мастерство<br />в luxury-отелях и курортах по всему миру.</h1>
         </div>
       </section>
 
       <ProjectsSlider />
 
       {/* ── 3. КТО МЫ ── */}
-      <section id="about" className="about-section" style={{ background: C.dark }}>
+      <section id="about" className="about-section" style={{ background: '#191918' }}>
         <div style={{ maxWidth: '1440px', margin: '0 auto', ...px }}>
           <h2 className="about-statement">
             <span className="about-statement__bright">Почти два десятилетия мы проектируем и строим премиальные wellness-пространства — </span>
-            <span className="about-statement__muted">от масштабных курортных СПА до камерных частных хаммамов, соединяя древние банные традиции с современным дизайном и технической точностью.</span>
+            <span className="about-statement__muted">
+              от масштабных курортных СПА до камерных частных хаммамов
+              , соединяя древние банные традиции с современным дизайном и технической точностью.
+            </span>
           </h2>
           <div style={{ marginTop: '2.5rem' }}>
             <Button href="/portfolio" variant="ghost" shadow={false}>Смотреть проекты →</Button>
@@ -127,16 +130,41 @@ export default function Wireframe() {
       </section>
 
       {/* ── 9. ПОЧЕМУ HWS ── */}
-      <section className="py-24" style={{ background: C.light, ...px }}>
+      <section className="py-24" style={{ background: '#111111', ...px }}>
         <div style={wrap}>
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            <SectionHeader badge="Почему мы" light="Европейская экспертиза," dark="мировые стандарты" />
-            <div className="flex flex-col gap-6">
-              <p className="hws-body tc-dark">Каждый объект начинается с задачи, у которой нет готового ответа. Локация, аудитория, бюджет, ощущение которое должно остаться у гостя — мы работаем со всем этим одновременно.</p>
-              <p className="hws-body tc-dark">Emily Resort, Taze Bay, SOP Spa в Sadu Hotel — каждый из этих объектов мог быть просто хорошим. Мы сделали их такими, о которых говорят.</p>
-              <p className="hws-body tc-dark">Именно этот подход мы передаём партнёрам Home Wood Spa.</p>
-            </div>
+          
+          {/* Верхняя линия и заголовок */}
+          <div className="flex items-center gap-10 w-full mb-10 pb-6 border-b border-white/10">
+            <span className="text-[11px] font-bold tracking-[0.15em] text-white/40 uppercase w-[210px] shrink-0">
+              ПОЧЕМУ МЫ
+            </span>
           </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-x-12 pt-2">
+            
+            {/* Левая колонка - Крупный текст (5 колонок) */}
+            <div className="lg:col-span-6 pr-4 lg:pr-10">
+              <h2 className="text-[40px] md:text-[56px] lg:text-[64px] leading-[1.05] tracking-[-0.02em] text-white font-medium">
+                Европейская экспертиза,<br className="hidden md:block"/> мировые стандарты.
+              </h2>
+            </div>
+            
+            {/* Средняя колонка - Текст (3 колонки) */}
+            <div className="lg:col-span-3 lg:pt-[10px]">
+              <p className="text-[17px] leading-[1.6] text-[#A3A3A3] pr-2">
+                Каждый объект начинается с задачи, у которой нет готового ответа. Локация, аудитория, бюджет, ощущение которое должно остаться у гостя — мы работаем со всем этим одновременно.
+              </p>
+            </div>
+
+            {/* Правая колонка - Текст (3 колонки) */}
+            <div className="lg:col-span-3 lg:pt-[10px]">
+              <p className="text-[17px] leading-[1.6] text-[#A3A3A3]">
+                Emily Resort, Taze Bay, SOP Spa в Sadu Hotel — каждый из этих объектов мог быть просто хорошим. Мы сделали их такими, о которых говорят. Именно этот подход мы передаём партнёрам Home Wood Spa.
+              </p>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
