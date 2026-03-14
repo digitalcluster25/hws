@@ -1243,24 +1243,24 @@ select.hws-field { appearance: none; cursor: pointer; }
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(136,136,137,0.08);
+  background: rgb(17,16,19);
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(242,239,228,0.75);
-  transition: background 0.25s ease, color 0.25s ease;
+  color: rgb(242,239,228);
+  transition: background 0.25s ease;
   flex-shrink: 0;
   align-self: flex-start;
 }
 .why-card--active .why-card-btn {
-  background: rgba(136,136,137,0.18);
-  color: rgb(242,239,228);
+  background: rgb(10,10,12);
+  color: #fff;
 }
 .why-card-btn:hover {
-  background: rgba(136,136,137,0.2) !important;
-  color: rgb(242,239,228) !important;
+  background: rgba(17,16,19,0.8) !important;
+  color: #fff !important;
 }
 .why-card-btn .bi { font-size: 18.67px !important; }
 
