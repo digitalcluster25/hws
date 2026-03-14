@@ -76,8 +76,6 @@ export default function Wireframe() {
         <div style={wrap}>
           <div className="exp-wrap">
             <div className="exp-left">
-              <p className="exp-label">ЭКСПЕРТИЗА</p>
-              <h2 className="exp-h2">Создаём wellness-пространства, которые задают стандарт.</h2>
             </div>
             <div className="exp-grid">
               {[
