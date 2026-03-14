@@ -1615,6 +1615,23 @@ select.hws-field { appearance: none; cursor: pointer; }
   color: var(--c-muted);
   font-style: italic;
 }
+.svc-arrow-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(50,54,37,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-dark);
+  margin-top: 1.5rem;
+  flex-shrink: 0;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.svc-card:hover .svc-arrow-btn {
+  background: var(--c-dark);
+  color: #fff;
+}
 @media (max-width: 900px) {
   .svc-layout { grid-template-columns: 1fr; }
   .svc-label-col { position: static; padding: 0 0 2rem 0; }

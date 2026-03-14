@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "bootstrap-icons";
+  src: url("/bi-fonts/bootstrap-icons.woff2") format("woff2"),
+       url("/bi-fonts/bootstrap-icons.woff") format("woff");
+}
+
+.bi-arrow-up-right-circle::before { content: "\f141"; }
+.bi-arrow-up-right::before { content: "\f144"; }
