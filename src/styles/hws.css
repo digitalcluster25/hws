@@ -1164,6 +1164,12 @@ select.hws-field { appearance: none; cursor: pointer; }
   line-height: 1.05;
   letter-spacing: -0.04em;
   margin: 0;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.why-h2 span {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: inherit !important;
+  letter-spacing: inherit;
 }
 .why-h2-bright { color: rgb(242,239,228); }
 .why-h2-muted  { color: rgba(242,239,228,0.35); }
