@@ -1262,7 +1262,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   background: rgba(17,16,19,0.8) !important;
   color: #fff !important;
 }
-.why-card-btn .bi { font-size: 18.67px !important; }
+.why-card-btn svg { width: 16px !important; height: 16px !important; }
 
 @media (max-width: 1024px) {
   .why-top { flex-wrap: wrap; }
