@@ -49,41 +49,46 @@ export default function Wireframe() {
         </div>
       </section>
 
-      {/* ── 4. ПОЧЕМУ МЫ + ЭКСПЕРТИЗА ── */}
-      <section className="why-section" style={{ background: '#111111', ...px }}>
+      {/* ── 4. КАК МЫ РАБОТАЕМ (Ohio How we work) ── */}
+      <section className="why-section hws-px" style={{ background: '#111013' }}>
         <div style={wrap}>
 
-          {/* Верхняя часть: лейбл + заголовок + 2 колонки текста */}
+          {/* Верх: 3 колонки 50/25/25 */}
           <div className="why-top">
             <div className="why-top-left">
-              <p className="why-label">КАК МЫ РАБОТАЕМ</p>
-              <div className="why-divider" />
+              <p className="why-label">Как мы работаем</p>
               <h2 className="why-h2">
-                <span className="why-h2-bright">Европейское мастерство,</span>
-                <span className="why-h2-muted"> которое создаёт wellness-объекты мирового уровня.</span>
+                <span className="why-h2-bright">Европейское мастерство, </span>
+                <span className="why-h2-muted">которое создаёт wellness-объекты мирового уровня.</span>
               </h2>
             </div>
-            <div className="why-top-right">
+            <div className="why-top-col">
               <p className="why-text">Каждый объект начинается с задачи, у которой нет готового ответа. Локация, аудитория, бюджет, ощущение которое должно остаться у гостя — мы работаем со всем этим одновременно.</p>
+            </div>
+            <div className="why-top-col">
               <p className="why-text">Emily Resort, Taze Bay, SOP Spa в Sadu Hotel — каждый из этих объектов мог быть просто хорошим. Мы сделали их такими, о которых говорят.</p>
             </div>
           </div>
 
-          {/* Нижняя часть: 4 карточки */}
+          {/* Низ: 4 карточки */}
           <div className="why-cards">
             {[
-              { cat: 'ХАММАМЫ',         title: 'Турецкие бани, аутентичные хаммамы',    desc: 'Традиционное банное мастерство с применением исторически точных материалов. Каждый хаммам — культурный и термальный опыт.' },
-              { cat: 'САУНЫ',           title: 'Финские сауны, термальные бани',         desc: 'Скандинавские сауны и паровые комнаты, разработанные как целостные wellness-экосистемы для отелей и резиденций.' },
-              { cat: 'СПА-КОМПЛЕКСЫ',  title: 'Термальные зоны, wellness-маршруты',     desc: 'Полноценные термальные комплексы: ледяные купели, бассейны для погружения, паровые комнаты — как единое путешествие.' },
-              { cat: 'ЧАСТНЫЕ ОБЪЕКТЫ', title: 'Резиденции, корпоративные СПА',         desc: 'Частные хаммамы и wellness-пространства, созданные по индивидуальным стандартам и эстетике заказчика.' },
+              { cat: 'ХАММАМЫ',          title: 'Турецкие бани, аутентичные хаммамы',  desc: 'Традиционное банное мастерство с применением исторически точных материалов. Каждый хаммам — культурный и термальный опыт.' },
+              { cat: 'САУНЫ',            title: 'Финские сауны, термальные бани',       desc: 'Скандинавские сауны и паровые комнаты, разработанные как целостные wellness-экосистемы для отелей и резиденций.' },
+              { cat: 'СПА-КОМПЛЕКСЫ',   title: 'Термальные зоны, wellness-маршруты',   desc: 'Полноценные термальные комплексы: ледяные купели, бассейны для погружения, паровые комнаты — как единое путешествие.' },
+              { cat: 'ЧАСТНЫЕ ОБЪЕКТЫ', title: 'Резиденции, корпоративные СПА',        desc: 'Частные хаммамы и wellness-пространства, созданные по индивидуальным стандартам и эстетике заказчика.' },
             ].map(({ cat, title, desc }, i) => (
               <div key={cat} className={`why-card${i === 3 ? ' why-card--active' : ''}`}>
-                <p className="why-card-cat">{cat}</p>
-                <h3 className="why-card-title">{title}</h3>
-                <p className="why-card-desc">{desc}</p>
-                <button className="why-card-btn" aria-label="Подробнее">
-                  <i className="bi bi-arrow-up-right" />
-                </button>
+                <div>
+                  <p className="why-card-cat">{cat}</p>
+                  <h3 className="why-card-title">{title}</h3>
+                </div>
+                <div>
+                  <p className="why-card-desc">{desc}</p>
+                  <button className="why-card-btn" aria-label="Подробнее">
+                    <i className="bi bi-arrow-up-right" />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
