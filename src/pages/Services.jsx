@@ -131,8 +131,8 @@ function ServiceGrid({ label, items, bg = '#f8f8f5', numOffset = 0 }) {
                 <p className="svc-desc">{s.p1}</p>
                 <p className="svc-desc svc-desc--em">{s.p2}</p>
                 <div className="svc-arrow-btn">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor"/>
                   </svg>
                 </div>
               </div>

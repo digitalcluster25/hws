@@ -66,8 +66,11 @@ export default function Wireframe() {
             <div className="why-top-col">
               <p className="why-text">Каждый объект начинается с задачи, у которой нет готового ответа. Локация, аудитория, бюджет, ощущение которое должно остаться у гостя — мы работаем со всем этим одновременно.</p>
             </div>
-            <div className="why-top-col">
+            <div className="why-top-col" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <p className="why-text">Emily Resort, Taze Bay, SOP Spa в Sadu Hotel — каждый из этих объектов мог быть просто хорошим. Мы сделали их такими, о которых говорят.</p>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '1.5rem' }}>
+                <Button href="/services" variant="filled">Посмотреть все услуги</Button>
+              </div>
             </div>
           </div>
 
@@ -87,7 +90,9 @@ export default function Wireframe() {
                 <div>
                   <p className="why-card-desc">{desc}</p>
                   <button className="why-card-btn" aria-label="Подробнее">
-                    <i className="bi bi-arrow-up-right" />
+                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z" fill="currentColor"/>
+                    </svg>
                   </button>
                 </div>
               </div>

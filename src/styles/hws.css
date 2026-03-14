@@ -1181,7 +1181,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* Тексты справа */
 .why-text {
-  font-size: 17.4px !important;
+  font-size: 18.4px !important;
   line-height: 1.6;
   color: rgba(242,239,228,0.75);
   margin: 0;
@@ -1243,27 +1243,26 @@ select.hws-field { appearance: none; cursor: pointer; }
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.7);
+  background: #000;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(242,239,228);
+  color: #fff;
   transition: background 0.25s ease;
   flex-shrink: 0;
   align-self: flex-start;
 }
 .why-card--active .why-card-btn {
-  background: rgba(0,0,0,0.85);
+  background: #222;
   color: #fff;
 }
 .why-card-btn:hover {
-  background: rgba(0,0,0,0.9) !important;
+  background: #222 !important;
   color: #fff !important;
 }
-.why-card-btn .bi { font-size: 18.67px !important; }
-.why-card-btn svg { width: 16px !important; height: 16px !important; }
+.why-card-btn svg { width: 16px; height: 16px; }
 
 @media (max-width: 1024px) {
   .why-top { flex-wrap: wrap; }
@@ -1619,17 +1618,17 @@ select.hws-field { appearance: none; cursor: pointer; }
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(50,54,37,0.08);
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--c-dark);
+  color: #fff;
   margin-top: 1.5rem;
   flex-shrink: 0;
   transition: background 0.25s ease, color 0.25s ease;
 }
 .svc-card:hover .svc-arrow-btn {
-  background: var(--c-dark);
+  background: #222;
   color: #fff;
 }
 @media (max-width: 900px) {
