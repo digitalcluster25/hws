@@ -27,7 +27,7 @@ export default function Wireframe() {
     <main className="min-h-screen tc-dark">
 
       {/* ── 1. HERO ── */}
-      <section id="home" className="hero-section" style={{ background: '#191918' }}>
+      <section id="home" className="hero-section" style={{ background: '#111013' }}>
         <div className="hws-wrap hws-px">
           <h1 className="hws-h1 tc-white">От аутентичных хаммамов<br />до скандинавских саун.<br />Европейское мастерство<br />в luxury-отелях и курортах по всему миру.</h1>
         </div>
@@ -37,7 +37,7 @@ export default function Wireframe() {
       <ProjectsSlider />
 
       {/* ── 3. О НАС ── */}
-      <section id="about" className="about-section" style={{ background: '#191918' }}>
+      <section id="about" className="about-section" style={{ background: '#111013' }}>
         <div style={{ maxWidth: '1440px', margin: '0 auto', ...px }}>
           <h2 className="about-statement">
             <span className="about-statement__bright">Почти два десятилетия мы проектируем и строим премиальные wellness-пространства — </span>
@@ -57,6 +57,7 @@ export default function Wireframe() {
           <div className="why-top">
             <div className="why-top-left">
               <p className="why-label">Как мы работаем</p>
+              <div className="why-divider" />
               <h2 className="why-h2">
                 <span className="why-h2-bright">Европейское мастерство, </span>
                 <span className="why-h2-muted">которое создаёт wellness-объекты мирового уровня.</span>
