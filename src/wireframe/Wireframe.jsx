@@ -49,53 +49,45 @@ export default function Wireframe() {
         </div>
       </section>
 
-      {/* ── 4. ПОЧЕМУ МЫ ── */}
-      <section className="py-24" style={{ background: '#111111', ...px }}>
+      {/* ── 4. ПОЧЕМУ МЫ + ЭКСПЕРТИЗА ── */}
+      <section className="why-section" style={{ background: '#111111', ...px }}>
         <div style={wrap}>
-          <div className="flex items-center gap-10 w-full mb-10 pb-6 border-b border-white/10">
-            <span className="text-[11px] font-bold tracking-[0.15em] text-white/40 uppercase w-[210px] shrink-0">ПОЧЕМУ МЫ</span>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-x-12 pt-2">
-            <div className="lg:col-span-6 pr-4 lg:pr-10">
-              <h2 className="text-[40px] md:text-[56px] lg:text-[64px] leading-[1.05] tracking-[-0.02em] text-white font-medium">
-                Европейская экспертиза,<br className="hidden md:block"/> мировые стандарты.
+
+          {/* Верхняя часть: лейбл + заголовок + 2 колонки текста */}
+          <div className="why-top">
+            <div className="why-top-left">
+              <p className="why-label">КАК МЫ РАБОТАЕМ</p>
+              <div className="why-divider" />
+              <h2 className="why-h2">
+                <span className="why-h2-bright">Европейское мастерство,</span>
+                <span className="why-h2-muted"> которое создаёт wellness-объекты мирового уровня.</span>
               </h2>
             </div>
-            <div className="lg:col-span-3 lg:pt-[10px]">
-              <p className="text-[17px] leading-[1.6] text-[#A3A3A3] pr-2">Каждый объект начинается с задачи, у которой нет готового ответа. Локация, аудитория, бюджет, ощущение которое должно остаться у гостя — мы работаем со всем этим одновременно.</p>
-            </div>
-            <div className="lg:col-span-3 lg:pt-[10px]">
-              <p className="text-[17px] leading-[1.6] text-[#A3A3A3]">Emily Resort, Taze Bay, SOP Spa в Sadu Hotel — каждый из этих объектов мог быть просто хорошим. Мы сделали их такими, о которых говорят. Именно этот подход мы передаём партнёрам Home Wood Spa.</p>
+            <div className="why-top-right">
+              <p className="why-text">Каждый объект начинается с задачи, у которой нет готового ответа. Локация, аудитория, бюджет, ощущение которое должно остаться у гостя — мы работаем со всем этим одновременно.</p>
+              <p className="why-text">Emily Resort, Taze Bay, SOP Spa в Sadu Hotel — каждый из этих объектов мог быть просто хорошим. Мы сделали их такими, о которых говорят.</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ── 5. ЭКСПЕРТИЗА ── */}
-      <section id="services" className="exp-section" style={{ background: '#111111', ...px }}>
-        <div style={wrap}>
-          <div className="exp-wrap">
-            <div className="exp-left">
-            </div>
-            <div className="exp-grid">
-              {[
-                { cat: 'ХАММАМЫ', title: 'Турецкие бани,\nаутентичные хаммамы', desc: 'Традиционное банное мастерство с применением исторически точных материалов. Каждый хаммам — культурный и термальный опыт.' },
-                { cat: 'САУНЫ', title: 'Финские сауны,\nтермальные бани', desc: 'Скандинавские сауны и паровые комнаты, разработанные как целостные wellness-экосистемы для отелей и резиденций.' },
-                { cat: 'СПА-КОМПЛЕКСЫ', title: 'Термальные зоны,\nwellness-маршруты', desc: 'Полноценные термальные комплексы: ледяные купели, бассейны для погружения, паровые комнаты — как единое путешествие.' },
-                { cat: 'ЧАСТНЫЕ ОБЪЕКТЫ', title: 'Резиденции,\nкорпоративные СПА', desc: 'Частные хаммамы и wellness-пространства, созданные по индивидуальным стандартам и эстетике заказчика.' },
-              ].map(({ cat, title, desc }) => (
-                <div key={cat} className="exp-card">
-                  <p className="exp-cat">{cat}</p>
-                  <div className="exp-divider" />
-                  <h3 className="exp-card-title">{title}</h3>
-                  <p className="exp-card-desc">{desc}</p>
-                </div>
-              ))}
-            </div>
+          {/* Нижняя часть: 4 карточки */}
+          <div className="why-cards">
+            {[
+              { cat: 'ХАММАМЫ',         title: 'Турецкие бани, аутентичные хаммамы',    desc: 'Традиционное банное мастерство с применением исторически точных материалов. Каждый хаммам — культурный и термальный опыт.' },
+              { cat: 'САУНЫ',           title: 'Финские сауны, термальные бани',         desc: 'Скандинавские сауны и паровые комнаты, разработанные как целостные wellness-экосистемы для отелей и резиденций.' },
+              { cat: 'СПА-КОМПЛЕКСЫ',  title: 'Термальные зоны, wellness-маршруты',     desc: 'Полноценные термальные комплексы: ледяные купели, бассейны для погружения, паровые комнаты — как единое путешествие.' },
+              { cat: 'ЧАСТНЫЕ ОБЪЕКТЫ', title: 'Резиденции, корпоративные СПА',         desc: 'Частные хаммамы и wellness-пространства, созданные по индивидуальным стандартам и эстетике заказчика.' },
+            ].map(({ cat, title, desc }, i) => (
+              <div key={cat} className={`why-card${i === 3 ? ' why-card--active' : ''}`}>
+                <p className="why-card-cat">{cat}</p>
+                <h3 className="why-card-title">{title}</h3>
+                <p className="why-card-desc">{desc}</p>
+                <button className="why-card-btn" aria-label="Подробнее">
+                  <i className="bi bi-arrow-up-right" />
+                </button>
+              </div>
+            ))}
           </div>
-          <div className="flex justify-end mt-8">
-            <Button href="/services" variant="ghost">Смотреть все услуги</Button>
-          </div>
+
         </div>
       </section>
 

@@ -1125,8 +1125,137 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 
 /* ─────────────────────────────────────────────
-   Expertise — Ohio about-ver4 capabilities layout
+   Why / Expertise unified section
    ───────────────────────────────────────────── */
+.why-section { padding: 5rem 0; }
+
+/* верхняя строка */
+.why-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  padding-bottom: 4rem;
+}
+.why-label {
+  font-size: 0.75rem !important;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.25rem;
+}
+.why-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin-bottom: 1.5rem;
+}
+.why-h2 {
+  font-size: clamp(2rem, 3.5vw, 3.75rem) !important;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.why-h2-bright { color: #fff; }
+.why-h2-muted  { color: rgba(255,255,255,0.35); }
+
+.why-top-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+}
+.why-text {
+  font-size: 1.05rem !important;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+}
+
+/* 4 карточки */
+.why-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.why-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 2rem 0;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  gap: 0;
+}
+.why-card:first-child { padding-left: 0; }
+.why-card:not(:first-child) { padding-left: 2rem; }
+.why-card:last-child { border-right: none; }
+
+.why-card--active {
+  background: rgba(162,172,137,0.12);
+  border-radius: 16px;
+  padding: 2rem;
+  border-right: none;
+  margin: -1px 0 0 0;
+}
+
+.why-card-cat {
+  font-size: 0.72rem !important;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin: 0 0 1.25rem;
+}
+.why-card-title {
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem) !important;
+  font-weight: 600;
+  line-height: 1.25;
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 auto;
+  flex: 1;
+}
+.why-card-desc {
+  font-size: 0.9rem !important;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.35);
+  margin: 1.5rem 0 1.5rem;
+}
+.why-card-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  transition: background 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+.why-card--active .why-card-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+}
+.why-card-btn:hover {
+  background: rgba(255,255,255,0.18) !important;
+  color: #fff !important;
+}
+.why-card-btn .bi { font-size: 1rem !important; }
+
+@media (max-width: 900px) {
+  .why-top { grid-template-columns: 1fr; gap: 2rem; }
+  .why-cards { grid-template-columns: 1fr 1fr; }
+  .why-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+}
+@media (max-width: 540px) {
+  .why-cards { grid-template-columns: 1fr; }
+}
 .exp-section {
   padding: 6rem 0;
   background: #fff;
