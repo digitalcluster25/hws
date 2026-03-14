@@ -1181,7 +1181,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* Тексты справа */
 .why-text {
-  font-size: 16.4px !important;
+  font-size: 17.4px !important;
   line-height: 1.6;
   color: rgba(242,239,228,0.75);
   margin: 0;
