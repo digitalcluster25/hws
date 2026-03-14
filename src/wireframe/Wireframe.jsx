@@ -72,7 +72,7 @@ export default function Wireframe() {
       </section>
 
       {/* ── 5. ЭКСПЕРТИЗА ── */}
-      <section id="services" className="exp-section" style={{ ...px }}>
+      <section id="services" className="exp-section" style={{ background: '#111111', ...px }}>
         <div style={wrap}>
           <div className="exp-wrap">
             <div className="exp-left">
