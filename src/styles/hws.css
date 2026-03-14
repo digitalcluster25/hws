@@ -1132,10 +1132,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   background: #fff;
 }
 .exp-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 5rem;
-  align-items: start;
+  display: block;
 }
 
 /* ── left ── */
@@ -1158,10 +1155,10 @@ select.hws-field { appearance: none; cursor: pointer; }
   color: var(--c-dark);
 }
 
-/* ── right grid 2×2 ── */
+/* ── right grid 4 columns ── */
 .exp-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
 }
 .exp-card {
