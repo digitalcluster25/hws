@@ -106,12 +106,11 @@ export default function Wireframe() {
       <ProcessAccordion />
 
       {/* ── 7. ДЛЯ КОГО ── */}
-      <section className="clients-who-section" style={{ background: C.dark, ...px }}>
+      <section className="clients-who-section" style={{ background: '#323625', ...px }}>
         <div style={wrap}>
           <div className="clients-who-inner">
             <div className="clients-who-left">
               <SectionHeader badge="Клиенты" light="Нам доверяют" dark="ведущие wellness-бренды" className="sh-wrap--inverse" />
-              <img src="/shape1.png" alt="" aria-hidden="true" className="clients-who-shape" />
             </div>
             <div className="clients-who-grid">
               {segments.map(({ title, text }) => (
@@ -123,6 +122,7 @@ export default function Wireframe() {
             </div>
           </div>
         </div>
+        <img src="/shape1.png" alt="" aria-hidden="true" className="clients-who-shape" />
       </section>
 
       {/* ── 8. ГЕОГРАФИЯ ── */}

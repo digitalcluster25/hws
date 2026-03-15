@@ -1,8 +1,5 @@
-import { useState } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import SectionHeader from '../ui/SectionHeader'
-
-const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', muted: '#6b7057', subtle: 'rgba(50,54,37,0.55)' }
 
 const TESTIMONIALS = [
   {
@@ -25,6 +22,17 @@ const TESTIMONIALS = [
   },
 ]
 
+function TestimonialCard({ tag, quote, name, title }) {
+  return (
+    <div className="tsl-card">
+      <span className="tsl-tag">{tag}</span>
+      <p className="tsl-quote">"{quote}"</p>
+      <p className="tsl-name">{name}</p>
+      <p className="tsl-role">{title}</p>
+    </div>
+  )
+}
+
 function ArrowLeft() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -43,67 +51,69 @@ function ArrowRight() {
 export default function TestimonialsSlider() {
   const [idx, setIdx] = useState(0)
   const total = TESTIMONIALS.length
+  const go = (d) => setIdx((p) => (p + d + total) % total)
 
-  const go = (delta) => {
-    setIdx((prev) => (prev + delta + total) % total)
-  }
+  const wrapRef = useRef(null)
+  const maxH = useRef(0)
+  useLayoutEffect(() => {
+    const el = wrapRef.current
+    if (!el) return
+    el.style.minHeight = ''
+    const h = el.offsetHeight
+    if (h > maxH.current) {
+      maxH.current = h
+    }
+    el.style.minHeight = maxH.current + 'px'
+  })
 
   return (
-    <section className="py-24 ts-section--dark" style={{ background: C.dark, paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }}>
-      <div style={{ maxWidth: '1344px', margin: '0 auto' }}>
-        <SectionHeader badge="Отзывы" light="Что говорят" dark="наши клиенты" className="sh-wrap--inverse mb-12" />
+    <section className="tsl-section" style={{ background: '#323625' }}>
+      <div className="tsl-inner">
 
-        <div style={{ maxWidth: '800px' }}>
-          <div className="ts-card">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={idx}
-              className="ts-content"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6, ease: [0.645, 0.045, 0.355, 1] }}
-            >
-              <div className="ts-avatar-wrap" aria-hidden="true">
-                <div
-                  className="ts-avatar"
-                  style={{
-                    background: `linear-gradient(135deg, ${C.light} 0%, ${C.mid} 100%)`,
-                    color: C.dark,
-                    fontSize: '2rem',
-                    fontWeight: 700,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
+        {/* ── MAIN ROW: left heading + right (cards + bar) ── */}
+        <div className="tsl-main">
+          <div className="tsl-left">
+            <p className="tsl-label">ОТЗЫВЫ</p>
+            <h2 className="tsl-heading">Что говорят<br />клиенты.</h2>
+          </div>
+
+          <div className="tsl-right">
+            <div className="tsl-cards-wrap" ref={wrapRef}>
+              <AnimatePresence initial={false}>
+                <motion.div
+                  key={idx}
+                  className="tsl-cards"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.35, ease: 'easeInOut' }}
                 >
-                  {TESTIMONIALS[idx].name.charAt(0)}
-                </div>
+                  <TestimonialCard {...TESTIMONIALS[idx]} />
+                  <TestimonialCard {...TESTIMONIALS[(idx + 1) % total]} />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* ── BAR: counter bottom-left of first card, arrows right ── */}
+            <div className="tsl-bar">
+              <div className="tsl-counter">
+                <span className="tsl-cur">{idx + 1}</span>
+                <span className="tsl-sep"> — </span>
+                <span className="tsl-tot">{total}</span>
               </div>
-              <blockquote className="ts-quote">"{TESTIMONIALS[idx].quote}"</blockquote>
-              <p className="ts-name">{TESTIMONIALS[idx].name}</p>
-              <p className="ts-title">{TESTIMONIALS[idx].title}</p>
-            </motion.div>
-          </AnimatePresence>
+              <div className="tsl-arrows">
+                <button type="button" className="tsl-arrow" onClick={() => go(-1)} aria-label="Назад">
+                  <ArrowLeft />
+                </button>
+                <button type="button" className="tsl-arrow" onClick={() => go(1)} aria-label="Вперёд">
+                  <ArrowRight />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="ts-nav">
-          <div className="ts-counter">
-            <span className="ts-cur">{idx + 1}</span>
-            <span className="ts-line" aria-hidden="true">—</span>
-            <span className="ts-tot">{total}</span>
-          </div>
-          <div className="ts-arrows">
-            <button type="button" className="ts-arrow" onClick={() => go(-1)} aria-label="Назад">
-              <ArrowLeft />
-            </button>
-            <button type="button" className="ts-arrow" onClick={() => go(1)} aria-label="Вперёд">
-              <ArrowRight />
-            </button>
-          </div>
-        </div>   {/* ts-nav */}
-        </div>   {/* 800px */}
-      </div>     {/* 1344px */}
+      </div>
     </section>
   )
 }
