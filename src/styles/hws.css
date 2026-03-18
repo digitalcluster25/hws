@@ -2012,19 +2012,17 @@ select.hws-field { appearance: none; cursor: pointer; }
   z-index: 3;
 }
 
-/* Плашка — полная ширина, нижняя часть экрана */
+/* Плашка — 840px фиксированная ширина, левый нижний угол (как Ohio demo34) */
 .proj-hero-panel {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
   z-index: 2;
-  background: rgba(50, 54, 37, 0.88);
+  width: min(840px, 100%);
+  background: rgba(50, 54, 37, 0.90);
 }
 .proj-hero-panel-inner {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 3rem max(1.5vw, 28px) 3.5rem;
+  padding: 3.5rem 5.8rem 3.5rem 5.8rem;
 }
 
 /* Переопределяем цвет back-link на тёмном фоне */
