@@ -13,12 +13,13 @@ const gaisinPhotos = ph('gaisin', Array.from({length:10}, (_,i) => [i+1, 'JPG'])
 // 4elements: 1-3 JPG
 const elementsPhotos = ph('4elements', Array.from({length:3}, (_,i) => [i+1, 'JPG']))
 
-// vosparenie: смешанные расширения
+// vosparenie: 1-16, 18-27 (17 отсутствует, 27 — новый)
 const vospaреniePhotos = ph('vosparenie', [
   [1,'WEBP'],[2,'JPG'],[3,'WEBP'],[4,'WEBP'],[5,'WEBP'],[6,'WEBP'],[7,'WEBP'],
   [8,'JPG'],[9,'WEBP'],[10,'JPG'],[11,'WEBP'],[12,'WEBP'],[13,'WEBP'],[14,'WEBP'],
-  [15,'WEBP'],[16,'WEBP'],[17,'WEBP'],[18,'WEBP'],[19,'JPG'],[20,'JPG'],
-  [21,'JPG'],[22,'JPG'],[23,'JPG'],[24,'WEBP'],[25,'WEBP'],[26,'JPG'],
+  [15,'WEBP'],[16,'WEBP'],
+  [18,'WEBP'],[19,'JPG'],[20,'JPG'],[21,'JPG'],[22,'JPG'],[23,'JPG'],
+  [24,'WEBP'],[25,'WEBP'],[26,'JPG'],[27,'WEBP'],
 ])
 
 export const projects = [
@@ -132,7 +133,7 @@ export const projects = [
     type: 'Банный комплекс при отеле',
     tags: ['Бревенчатое строительство', 'Post and Beam', 'Сауна'],
     featured: true,
-    cover: '/cases/vosparenie/cover.WEBP',
+    cover: '/cases/vosparenie/cover.jpg',
     photos: vospaреniePhotos,
     client: 'Отель «Вдох»',
     period: '2021–2023',
