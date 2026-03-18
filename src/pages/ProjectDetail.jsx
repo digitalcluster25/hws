@@ -51,6 +51,7 @@ export default function ProjectDetail() {
             className="proj-hero-bg"
           />
         )}
+        <div className="proj-hero-overlay" aria-hidden="true" />
         <div className="proj-hero-top">
           <Link to="/portfolio" className="proj-back-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style={{ transform: 'rotate(180deg)', flexShrink: 0 }}><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>

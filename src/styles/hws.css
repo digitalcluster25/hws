@@ -1984,6 +1984,14 @@ select.hws-field { appearance: none; cursor: pointer; }
   flex-direction: column;
 }
 
+.proj-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: color-mix(in srgb, var(--clb-color-overlay, #000) 30%, transparent);
+  pointer-events: none;
+}
+
 .proj-hero-bg {
   position: absolute;
   inset: 0;
