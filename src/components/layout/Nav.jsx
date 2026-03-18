@@ -3,14 +3,11 @@ import { createPortal } from 'react-dom'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logoLight from '../../assets/logo-light.png'
 
-const NAV_LINKS_LEFT = [
+const NAV_LINKS = [
   { label: 'Компания', href: '/' },
   { label: 'Услуги',   href: '/services' },
-]
-const NAV_LINKS_RIGHT = [
   { label: 'Контакты', href: '/contact' },
 ]
-const NAV_LINKS = [...NAV_LINKS_LEFT, ...NAV_LINKS_RIGHT]
 
 function useScrollTo() {
   const navigate = useNavigate()
@@ -44,13 +41,15 @@ function FullMenu({ open, onClose, scrollTo }) {
 
   return createPortal(
     <div className="fullmenu" style={{ opacity: open ? 1 : 0, pointerEvents: open ? 'all' : 'none' }}>
-      <div className="fullmenu-header">
-        <button onClick={onClose} className="fullmenu-close" aria-label="Закрыть">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M18 6L6 18M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
+
+      {/* Крестик — точно на месте pill «МЕНЮ» */}
+      <button onClick={onClose} className="fullmenu-close-pill" aria-label="Закрыть">
+        <span className="nav-menu-label">ЗАКРЫТЬ</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
       <nav className="fullmenu-nav">
         {NAV_LINKS.map(({ label, href }, i) => (
           <div key={label} className="fullmenu-row">
@@ -75,58 +74,27 @@ function FullMenu({ open, onClose, scrollTo }) {
 }
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const scrollTo = useScrollTo()
-
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 40)
-    fn()
-    window.addEventListener('scroll', fn, { passive: true })
-    return () => window.removeEventListener('scroll', fn)
-  }, [])
 
   return (
     <>
       <header className="nav-bar">
-        <div className={`nav-inner${scrolled ? ' nav-inner--scrolled' : ''}`}>
+        <Link to="/" className="nav-logo-link">
+          <img src={logoLight} alt="Home Wood Spa" className="nav-logo-img" />
+        </Link>
 
-          {/* LEFT: burger only */}
-          <div className="nav-left">
-            <button onClick={() => setMenuOpen(true)} className="nav-hamburger" aria-label="Меню">
-              <i className="nav-hamburger-icon"></i>
-            </button>
-          </div>
-
-          {/* CENTER: left links + logo + right links — single absolute group */}
-          <div className="nav-center-group">
-            <nav className="nav-links">
-              {NAV_LINKS_LEFT.map(({ label, href }) =>
-                href.startsWith('/') && !href.includes('#')
-                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
-                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
-              )}
-            </nav>
-            <Link to="/" className="nav-logo-link">
-              <img src={logoLight} alt="Home Wood Spa" className="nav-logo-img" />
-            </Link>
-            <nav className="nav-links">
-              {NAV_LINKS_RIGHT.map(({ label, href }) =>
-                href.startsWith('/') && !href.includes('#')
-                  ? <Link key={label} to={href} className="nav-btn">{label}</Link>
-                  : <button key={label} className="nav-btn" onClick={() => scrollTo(href)}>{label}</button>
-              )}
-            </nav>
-          </div>
-
-          {/* RIGHT: CTA only */}
-          <div className="nav-right">
-            <button onClick={() => scrollTo('#contact')} className="nav-cta">
-            Обсудить проект
-            </button>
-          </div>
-
-        </div>
+        <button
+          onClick={() => setMenuOpen(true)}
+          className="nav-menu-pill"
+          aria-label="Открыть меню"
+          aria-expanded={menuOpen}
+        >
+          <span className="nav-menu-label">МЕНЮ</span>
+          <span className="nav-menu-lines" aria-hidden="true">
+            <i /><i />
+          </span>
+        </button>
       </header>
 
       <FullMenu open={menuOpen} onClose={() => setMenuOpen(false)} scrollTo={scrollTo} />
