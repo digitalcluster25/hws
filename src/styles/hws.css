@@ -2056,7 +2056,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   gap: 1rem;
 }
 .proj-next-card-label {
-  font-size: 1.5rem;
+  font-size: 18px;
   letter-spacing: normal;
   color: rgba(50, 54, 37, 0.75);
   text-transform: none;
