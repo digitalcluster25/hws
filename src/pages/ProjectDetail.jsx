@@ -53,9 +53,10 @@ export default function ProjectDetail() {
         )}
         <div className="proj-hero-overlay" aria-hidden="true" />
         <div className="proj-hero-top">
-          <Link to="/portfolio" className="proj-back-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style={{ transform: 'rotate(180deg)', flexShrink: 0 }}><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
-            Все проекты
+          <Link to="/" className="proj-back-arrow" aria-label="На главную">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 12H5M12 5l-7 7 7 7"/>
+            </svg>
           </Link>
         </div>
 
@@ -93,18 +94,38 @@ export default function ProjectDetail() {
           </div>
         </div>
 
-        {next && (
-          <Link to={`/portfolio/${next.slug}`} className="proj-next-card">
+        {(prev || next) && (
+          <div className="proj-next-card">
             <div className="proj-next-card-top">
               <span className="proj-next-card-label">Следующий проект</span>
               <div className="proj-next-card-arrows">
-                <span className="proj-next-card-arr">←</span>
-                <span className="proj-next-card-arr proj-next-card-arr--active">→</span>
+                {prev ? (
+                  <Link to={`/portfolio/${prev.slug}`} className="proj-next-arr-btn" aria-label="Предыдущий проект">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                  </Link>
+                ) : (
+                  <span className="proj-next-arr-btn proj-next-arr-btn--off" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                  </span>
+                )}
+                {next ? (
+                  <Link to={`/portfolio/${next.slug}`} className="proj-next-arr-btn proj-next-arr-btn--on" aria-label="Следующий проект">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </Link>
+                ) : (
+                  <span className="proj-next-arr-btn proj-next-arr-btn--off" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                )}
               </div>
             </div>
-            <p className="proj-next-card-title">{next.title}</p>
-            <p className="proj-next-card-sub">{next.loc} · {next.year}</p>
-          </Link>
+            {next && (
+              <Link to={`/portfolio/${next.slug}`} className="proj-next-card-body">
+                <p className="proj-next-card-title">{next.title}</p>
+                <p className="proj-next-card-sub">{next.loc} · {next.year}</p>
+              </Link>
+            )}
+          </div>
         )}
       </section>
 
