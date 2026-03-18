@@ -61,29 +61,33 @@ export default function ProjectDetail() {
 
         <div className="proj-hero-panel">
           <div className="proj-hero-panel-inner">
+            {/* Теги одной строкой: "Хаммам, Сауна · 2022" */}
             {p.tags && p.tags.length > 0 && (
-              <div className="proj-tags-hero">
-                {p.tags.map(t => <span key={t} className="proj-tag-hero">{t}</span>)}
-                {p.year && <span className="proj-tag-hero">{p.year}</span>}
-              </div>
+              <p className="proj-hero-tagline">
+                {p.tags.join(', ')}{p.year ? ` · ${p.year}` : ''}
+              </p>
             )}
+
             <h1 className="proj-hero-title">{p.title}</h1>
+
+            <div className="proj-hero-divider" aria-hidden="true" />
+
             <div className="proj-meta-grid">
               <div>
-                <p className="proj-meta-label">ЛОКАЦИЯ</p>
-                <p className="proj-meta-val">{p.city && p.country ? `${p.city}, ${p.country}` : p.loc}</p>
+                <p className="proj-meta-label">КЛИЕНТ</p>
+                <p className="proj-meta-val">{p.client || '—'}</p>
               </div>
               <div>
-                <p className="proj-meta-label">СТАТУС</p>
-                <p className="proj-meta-val">{p.status || '—'}</p>
-              </div>
-              <div>
-                <p className="proj-meta-label">СРОК</p>
-                <p className="proj-meta-val">{p.duration || '—'}</p>
+                <p className="proj-meta-label">ПЕРИОД</p>
+                <p className="proj-meta-val">{p.period || p.duration || '—'}</p>
               </div>
               <div>
                 <p className="proj-meta-label">ПЛОЩАДЬ</p>
                 <p className="proj-meta-val">{p.area || '—'}</p>
+              </div>
+              <div>
+                <p className="proj-meta-label">ЛОКАЦИЯ</p>
+                <p className="proj-meta-val">{p.city && p.country ? `${p.city}, ${p.country}` : p.loc}</p>
               </div>
             </div>
           </div>
