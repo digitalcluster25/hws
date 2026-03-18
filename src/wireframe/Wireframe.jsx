@@ -156,15 +156,9 @@ export default function Wireframe() {
           <div className="cta-bottom">
             <div className="cta-left">
               <h2 className="cta-h2">Создадим ваш wellness-объект с нуля до открытия.</h2>
-              <Button href="/contact" variant="filled">Забронировать встречу</Button>
             </div>
             <div className="cta-right">
-              <div className="cta-contact">
-                <p className="cta-contact-city">США / Европа / Центральная Азия</p>
-                <p className="cta-contact-name">Igor Kostin</p>
-                <p className="cta-contact-line">Homewoodspa@gmail.com</p>
-                <p className="cta-contact-line">+1 (678) 520-9556</p>
-              </div>
+              <Button href="/contact" variant="filled">Забронировать встречу</Button>
             </div>
           </div>
         </div>

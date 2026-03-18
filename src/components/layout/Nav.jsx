@@ -8,7 +8,6 @@ const NAV_LINKS_LEFT = [
   { label: 'Услуги',   href: '/services' },
 ]
 const NAV_LINKS_RIGHT = [
-  { label: 'Кейсы',    href: '/portfolio' },
   { label: 'Контакты', href: '/contact' },
 ]
 const NAV_LINKS = [...NAV_LINKS_LEFT, ...NAV_LINKS_RIGHT]

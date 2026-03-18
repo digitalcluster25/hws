@@ -7,6 +7,13 @@ const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', terra: '#CB8268',
 const px = { paddingLeft: 'max(1.5vw,16px)', paddingRight: 'max(1.5vw,16px)' }
 const wrap = { maxWidth: '1344px', margin: '0 auto' }
 
+// Split an attraction string "Name — description" into parts
+function splitAttraction(str) {
+  const sep = str.indexOf(' — ')
+  if (sep === -1) return { name: str, desc: '' }
+  return { name: str.slice(0, sep), desc: str.slice(sep + 3) }
+}
+
 export default function ProjectDetail() {
   const { slug } = useParams()
   const idx = projects.findIndex(p => p.slug === slug)
@@ -23,12 +30,20 @@ export default function ProjectDetail() {
   const prev = projects[idx - 1] || null
   const next = projects[idx + 1] || null
 
+  const hasAttractions = p.attractions && p.attractions.length > 0
+  const techCards = [
+    p.materials    && { label: 'Материалы',              text: p.materials },
+    p.buildingTech && { label: 'Строительные технологии', text: p.buildingTech },
+    p.energy       && { label: 'Энергоэффективность',    text: p.energy },
+    p.ecology      && { label: 'Экология',               text: p.ecology },
+  ].filter(Boolean)
+  const hasTech = techCards.length > 0
+
   return (
     <main className="tc-dark" style={{ background: '#fff' }}>
 
       {/* ── HERO fullscreen ── */}
       <section className="proj-hero-full">
-        {/* Фоновое фото */}
         {p.cover && (
           <img
             src={p.cover}
@@ -36,7 +51,6 @@ export default function ProjectDetail() {
             className="proj-hero-bg"
           />
         )}
-        {/* Кнопка назад — поверх фото, верхний левый */}
         <div className="proj-hero-top">
           <Link to="/portfolio" className="proj-back-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style={{ transform: 'rotate(180deg)', flexShrink: 0 }}><path d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/></svg>
@@ -44,26 +58,36 @@ export default function ProjectDetail() {
           </Link>
         </div>
 
-        {/* Зелёная полупрозрачная плашка — нижняя часть */}
         <div className="proj-hero-panel">
           <div className="proj-hero-panel-inner">
             {p.tags && p.tags.length > 0 && (
               <div className="proj-tags-hero">
                 {p.tags.map(t => <span key={t} className="proj-tag-hero">{t}</span>)}
-                <span className="proj-tag-hero">{p.year}</span>
+                {p.year && <span className="proj-tag-hero">{p.year}</span>}
               </div>
             )}
             <h1 className="proj-hero-title">{p.title}</h1>
             <div className="proj-meta-grid">
-              <div><p className="proj-meta-label">КЛИЕНТ</p><p className="proj-meta-val">{p.client}</p></div>
-              <div><p className="proj-meta-label">ПЕРИОД</p><p className="proj-meta-val">{p.period}</p></div>
-              <div><p className="proj-meta-label">ПЛОЩАДЬ</p><p className="proj-meta-val">{p.area}</p></div>
-              <div><p className="proj-meta-label">ЛОКАЦИЯ</p><p className="proj-meta-val">{p.loc}</p></div>
+              <div>
+                <p className="proj-meta-label">ЛОКАЦИЯ</p>
+                <p className="proj-meta-val">{p.city && p.country ? `${p.city}, ${p.country}` : p.loc}</p>
+              </div>
+              <div>
+                <p className="proj-meta-label">СТАТУС</p>
+                <p className="proj-meta-val">{p.status || '—'}</p>
+              </div>
+              <div>
+                <p className="proj-meta-label">СРОК</p>
+                <p className="proj-meta-val">{p.duration || '—'}</p>
+              </div>
+              <div>
+                <p className="proj-meta-label">ПЛОЩАДЬ</p>
+                <p className="proj-meta-val">{p.area || '—'}</p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Плашка "Следующий проект" — правый нижний угол */}
         {next && (
           <Link to={`/portfolio/${next.slug}`} className="proj-next-card">
             <div className="proj-next-card-top">
@@ -79,34 +103,100 @@ export default function ProjectDetail() {
         )}
       </section>
 
-      {/* ── DESCRIPTION ── */}
+      {/* ── 01. КОНЦЕПЦИЯ ── */}
       <section style={{ background: '#eef0e8', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
         <div style={wrap}>
-          <div className="proj-desc-top">
-            <p className="proj-step-label">01. КОНЦЕПЦИЯ</p>
-            <h2 className="proj-quote">«{p.quote}»</h2>
+          <div className="proj-concept-grid">
+            <div className="proj-concept-left">
+              <p className="proj-step-label">01. КОНЦЕПЦИЯ</p>
+              {p.positioning && (
+                <p className="proj-positioning-text">{p.positioning}</p>
+              )}
+            </div>
+            <div className="proj-concept-right">
+              {p.description && (
+                <p className="proj-body-text proj-description">{p.description}</p>
+              )}
+              {p.p1 && (
+                <p className="proj-body-text" style={{ marginTop: '1.5rem' }}>{p.p1}</p>
+              )}
+            </div>
           </div>
-          <div className="proj-desc-cols">
-            <p className="proj-body-text">{p.p1}</p>
-            <p className="proj-body-text">{p.p2}</p>
-          </div>
+          {p.quote && (
+            <div className="proj-quote-strip">
+              <h2 className="proj-quote">«{p.quote}»</h2>
+            </div>
+          )}
+          {p.p2 && (
+            <p className="proj-body-text proj-p2-full">{p.p2}</p>
+          )}
         </div>
       </section>
 
-      {/* ── GALLERY SLIDER ── */}
+      {/* ── 02. ТЕРМАЛЬНЫЕ ЗОНЫ (attractions) ── */}
+      {hasAttractions && (
+        <section style={{ background: '#fff', ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
+          <div style={wrap}>
+            <div className="proj-attr-header">
+              <p className="proj-step-label" style={{ color: C.muted }}>02. ПРОСТРАНСТВА</p>
+              <div className="proj-attr-heading-row">
+                <h2 className="proj-section-h2">Термальные зоны</h2>
+                <span className="proj-attr-count">{p.attractions.length}</span>
+              </div>
+            </div>
+            <div className="proj-attr-grid">
+              {p.attractions.map((item, i) => {
+                const { name, desc } = splitAttraction(item)
+                return (
+                  <div key={i} className="proj-attr-card">
+                    <span className="proj-attr-num">{String(i + 1).padStart(2, '0')}</span>
+                    <p className="proj-attr-name">{name}</p>
+                    {desc && <p className="proj-attr-desc">{desc}</p>}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── GALLERY ── */}
       <ProjectGallery photos={p.photos || []} title={p.title} />
 
-      {/* ── RESULT ── */}
+      {/* ── 03. ТЕХНОЛОГИИ ── */}
+      {hasTech && (
+        <section style={{ background: C.dark, ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
+          <div style={wrap}>
+            <p className="proj-step-label" style={{ color: 'rgba(255,255,255,0.45)' }}>03. ТЕХНОЛОГИИ</p>
+            <div className="proj-tech-grid">
+              {techCards.map((card, i) => (
+                <div key={i} className="proj-tech-card">
+                  <p className="proj-tech-label">{card.label}</p>
+                  <p className="proj-tech-text">{card.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── 04. РЕЗУЛЬТАТ ── */}
       <section style={{ background: '#eef0e8', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
         <div style={wrap}>
           <div className="proj-desc-top">
-            <p className="proj-step-label">02. РЕЗУЛЬТАТ</p>
-            <h2 className="proj-result-heading">Объект работает.<br/>Цифры говорят сами.</h2>
+            <p className="proj-step-label">04. РЕЗУЛЬТАТ</p>
           </div>
-          <div className="proj-desc-cols" style={{ marginTop: '3rem' }}>
-            <p className="proj-body-text">{p.p3}</p>
+          <div className="proj-desc-cols" style={{ marginTop: '2rem' }}>
+            {p.p3 && <p className="proj-body-text">{p.p3}</p>}
             <div className="proj-spec-list">
-              {[['Тип объекта', p.type], ['Площадь', p.area], ['Период', p.period], ['Локация', p.loc]].map(([label, val]) => (
+              {[
+                ['Тип объекта', p.type],
+                ['Площадь',    p.area],
+                ['Срок',       p.duration],
+                ['Статус',     p.status],
+                ['Город',      p.city],
+                ['Страна',     p.country],
+              ].filter(([, val]) => val).map(([label, val]) => (
                 <div key={label} className="proj-spec-item">
                   <span className="proj-spec-label">{label}</span>
                   <span className="proj-spec-val">{val}</span>
@@ -114,26 +204,6 @@ export default function ProjectDetail() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── PREV / NEXT ── */}
-      <section style={{ ...px, paddingTop: '5rem', paddingBottom: '5rem', background: '#fff' }}>
-        <div style={{ ...wrap, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-          {prev ? (
-            <Link to={`/portfolio/${prev.slug}`} className="proj-nav-link proj-nav-link--prev">
-              <span className="proj-nav-dir">← Предыдущий</span>
-              <span className="proj-nav-name">{prev.title}</span>
-              <span className="proj-nav-sub">{prev.loc} · {prev.year}</span>
-            </Link>
-          ) : <div />}
-          {next ? (
-            <Link to={`/portfolio/${next.slug}`} className="proj-nav-link proj-nav-link--next">
-              <span className="proj-nav-dir">Следующий →</span>
-              <span className="proj-nav-name">{next.title}</span>
-              <span className="proj-nav-sub">{next.loc} · {next.year}</span>
-            </Link>
-          ) : <div />}
         </div>
       </section>
 

@@ -7,7 +7,7 @@ export default function Footer() {
       <div style={wrap}>
         <div className="flex flex-col md:flex-row justify-between gap-4">
           <span className="footer-copy">© 2026 Home Wood Spa. Все права защищены.</span>
-          <span className="footer-copy">Политика конфиденциальности · Условия использования</span>
+          <span className="footer-copy">Публичная оферта</span>
         </div>
       </div>
     </footer>
