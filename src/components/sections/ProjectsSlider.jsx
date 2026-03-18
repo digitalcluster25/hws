@@ -27,12 +27,10 @@ function Card({ p, span }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <img
-        src={p.cover}
-        alt={p.title}
-        className={`pg-img${hovered ? ' pg-img--zoom' : ''}`}
-        draggable={false}
-      />
+      {p.cover
+        ? <img src={p.cover} alt={p.title} className={`pg-img${hovered ? ' pg-img--zoom' : ''}`} draggable={false} />
+        : <div className="pg-img pg-img--placeholder" aria-hidden="true" />
+      }
       <div className="pg-overlay" />
       <div className="pg-meta">
         <p className="pg-title">{p.title}</p>
