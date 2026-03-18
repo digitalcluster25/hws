@@ -133,7 +133,7 @@ export const projects = [
     type: 'Банный комплекс при отеле',
     tags: ['Бревенчатое строительство', 'Post and Beam', 'Сауна'],
     featured: true,
-    cover: '/cases/vosparenie/cover.jpg',
+    cover: '/cases/vosparenie/cover2.jpg',
     photos: vospaреniePhotos,
     client: 'Отель «Вдох»',
     period: '2021–2023',
