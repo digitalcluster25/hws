@@ -71,8 +71,6 @@ export default function ProjectDetail() {
 
             <h1 className="proj-hero-title">{p.title}</h1>
 
-            <div className="proj-hero-divider" aria-hidden="true" />
-
             <div className="proj-meta-grid">
               <div>
                 <p className="proj-meta-label">КЛИЕНТ</p>
