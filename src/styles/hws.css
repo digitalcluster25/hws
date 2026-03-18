@@ -2043,15 +2043,21 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* ── Next project card ── */
 .proj-next-card {
-  position: absolute;
-  right: max(1.5vw, 16px);
-  bottom: 3rem;
-  z-index: 3;
+  position: fixed;
+  right: max(2vw, 24px);
+  bottom: 2.5rem;
+  z-index: 100;
   background: #fff;
   border-radius: 20px;
   padding: 1.6rem 1.8rem 1.8rem;
   width: 300px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.proj-next-card--hidden {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
 }
 .proj-next-card-top {
   display: flex;

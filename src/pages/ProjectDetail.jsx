@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
 import { projects } from '../data/projects'
 import Button from '../components/ui/Button'
 import ProjectGallery from '../components/sections/ProjectGallery'
@@ -18,6 +19,20 @@ export default function ProjectDetail() {
   const { slug } = useParams()
   const idx = projects.findIndex(p => p.slug === slug)
   const p = projects[idx]
+
+  const ctaSentinelRef = useRef(null)
+  const [cardHidden, setCardHidden] = useState(false)
+
+  useEffect(() => {
+    const el = ctaSentinelRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => setCardHidden(entry.isIntersecting),
+      { threshold: 0 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
 
   if (!p) {
     return (
@@ -92,40 +107,42 @@ export default function ProjectDetail() {
           </div>
         </div>
 
-        {(prev || next) && (
-          <div className="proj-next-card">
-            <div className="proj-next-card-top">
-              <span className="proj-next-card-label">Следующий проект</span>
-              <div className="proj-next-card-arrows">
-                {prev ? (
-                  <Link to={`/portfolio/${prev.slug}`} className="proj-next-arr-btn" aria-label="Предыдущий проект">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-                  </Link>
-                ) : (
-                  <span className="proj-next-arr-btn proj-next-arr-btn--off" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-                  </span>
-                )}
-                {next ? (
-                  <Link to={`/portfolio/${next.slug}`} className="proj-next-arr-btn proj-next-arr-btn--on" aria-label="Следующий проект">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </Link>
-                ) : (
-                  <span className="proj-next-arr-btn proj-next-arr-btn--off" aria-hidden="true">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </span>
-                )}
-              </div>
-            </div>
-            {next && (
-              <Link to={`/portfolio/${next.slug}`} className="proj-next-card-body">
-                <p className="proj-next-card-title">{next.title}</p>
-                <p className="proj-next-card-sub">{next.loc} · {next.year}</p>
-              </Link>
-            )}
-          </div>
-        )}
       </section>
+
+      {/* ── Плавающая карточка следующего проекта ── */}
+      {(prev || next) && (
+        <div className={`proj-next-card${cardHidden ? ' proj-next-card--hidden' : ''}`}>
+          <div className="proj-next-card-top">
+            <span className="proj-next-card-label">Следующий проект</span>
+            <div className="proj-next-card-arrows">
+              {prev ? (
+                <Link to={`/portfolio/${prev.slug}`} className="proj-next-arr-btn" aria-label="Предыдущий проект">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                </Link>
+              ) : (
+                <span className="proj-next-arr-btn proj-next-arr-btn--off" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                </span>
+              )}
+              {next ? (
+                <Link to={`/portfolio/${next.slug}`} className="proj-next-arr-btn proj-next-arr-btn--on" aria-label="Следующий проект">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </Link>
+              ) : (
+                <span className="proj-next-arr-btn proj-next-arr-btn--off" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              )}
+            </div>
+          </div>
+          {next && (
+            <Link to={`/portfolio/${next.slug}`} className="proj-next-card-body">
+              <p className="proj-next-card-title">{next.title}</p>
+              <p className="proj-next-card-sub">{next.loc} · {next.year}</p>
+            </Link>
+          )}
+        </div>
+      )}
 
       {/* ── 01. КОНЦЕПЦИЯ ── */}
       <section style={{ background: '#eef0e8', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
@@ -230,6 +247,9 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+
+      {/* Sentinel: карточка скрывается когда CTA входит в viewport */}
+      <div ref={ctaSentinelRef} aria-hidden="true" />
 
       {/* ── CTA ── */}
       <section className="py-24 text-center" style={{ background: C.dark, ...px }}>
