@@ -4,14 +4,17 @@ function ph(folder, entries) {
   return entries.map(([n, ext]) => `/cases/${folder}/${n}.${ext}`)
 }
 
-// emilyresort: 1-24 JPG
-const emilyPhotos = ph('emilyresort', Array.from({length:24}, (_,i) => [i+1, 'JPG']))
+// emilyresort: 1-25 JPG
+const emilyPhotos = ph('emilyresort', Array.from({length:25}, (_,i) => [i+1, 'JPG']))
 
-// gaisin: 1-10 JPG
-const gaisinPhotos = ph('gaisin', Array.from({length:10}, (_,i) => [i+1, 'JPG']))
+// gaisin: 1-11 JPG
+const gaisinPhotos = ph('gaisin', Array.from({length:11}, (_,i) => [i+1, 'JPG']))
 
-// 4elements: 1-3 JPG
-const elementsPhotos = ph('4elements', Array.from({length:3}, (_,i) => [i+1, 'JPG']))
+// 4elements: 1-4 JPG
+const elementsPhotos = ph('4elements', Array.from({length:4}, (_,i) => [i+1, 'JPG']))
+
+// sadu: 1-20 jpg (конвертировано из HEIC)
+const saduPhotos = ph('sadu', Array.from({length:20}, (_,i) => [i+1, 'jpg']))
 
 // vosparenie: 1-16, 18-27 (17 отсутствует, 27 — новый)
 const vospaреniePhotos = ph('vosparenie', [
@@ -36,7 +39,7 @@ export const projects = [
     type: 'Оздоровительный комплекс',
     tags: ['Хаммам', 'Сауна', 'Термальный контур', 'Флоатариум'],
     featured: true,
-    cover: '/cases/emilyresort/cover.JPG',
+    cover: '/cases/emilyresort/cover.jpg',
     photos: emilyPhotos,
     client: 'Emily Resort',
     period: '2021–2022',
@@ -77,7 +80,7 @@ export const projects = [
     type: 'Банный комплекс',
     tags: ['Сауна', 'Хаммам', 'Бассейн'],
     featured: true,
-    cover: '/cases/gaisin/cover.JPG',
+    cover: '/cases/gaisin/cover.jpg',
     photos: gaisinPhotos,
     client: 'Частный заказчик',
     period: '2023–2024',
@@ -105,7 +108,7 @@ export const projects = [
     type: 'Деревянный банный комплекс',
     tags: ['Деревянное строительство', 'Экостроительство', 'Сауна'],
     featured: true,
-    cover: '/cases/4elements/cover.JPG',
+    cover: '/cases/4elements/cover.jpg',
     photos: elementsPhotos,
     client: '4 Стихии',
     period: '2020–2022',
@@ -161,8 +164,8 @@ export const projects = [
     type: 'Спа-зона при отеле',
     tags: ['Этнический стиль', 'Хаммам', 'Сауна', 'Глиняные парные'],
     featured: true,
-    cover: null,
-    photos: [],
+    cover: '/cases/sadu/cover.jpg',
+    photos: saduPhotos,
     client: 'Sadu Hotel & Radisson',
     period: '2022–2023',
     quote: 'Этнический характер и природные материалы превратили техническое ограничение в самобытный дизайн-код.',
