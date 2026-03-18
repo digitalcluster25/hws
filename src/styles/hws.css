@@ -1820,20 +1820,20 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* Теги одной строкой — "Хаммам, Сауна · 2022" */
 .proj-hero-tagline {
-  font-size: 1.15rem;
-  letter-spacing: 0.12em;
+  font-size: 14.4px;
+  letter-spacing: normal;
   text-transform: uppercase;
   font-family: ui-monospace, 'SF Mono', 'Fira Code', monospace;
-  color: rgba(255,255,255,0.65);
-  margin: 0 0 2rem 0;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 10.8px 0;
   line-height: 1;
 }
 .proj-hero-title {
   font-family: var(--f-head);
-  font-size: clamp(2rem, 4.67vw, 6rem);
-  font-weight: 400;
+  font-size: clamp(2rem, 4.44vw, 4rem);
+  font-weight: 500;
   line-height: 1.0;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
   color: #fff;
   margin: 0;
 }
