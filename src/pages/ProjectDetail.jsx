@@ -167,8 +167,27 @@ export default function ProjectDetail() {
               )}
             </div>
           </div>
-          {p.p2 && (
-            <p className="proj-body-text proj-p2-full" style={{ marginTop: '3rem', paddingTop: '3rem', borderTop: '1px solid rgba(50,54,37,0.15)' }}>{p.p2}</p>
+          {/* Блок 2: p2 (лево, 2 подколонки) + quote (право, крупно) */}
+          {(p.p2 || p.quote) && (
+            <div className="proj-concept-block2">
+              <div className="proj-concept-block2-left">
+                {p.p2 && (
+                  <div className="proj-concept-block2-text">
+                    <p className="proj-description">{p.p2}</p>
+                  </div>
+                )}
+                {p.p3 && (
+                  <div className="proj-concept-block2-text">
+                    <p className="proj-description">{p.p3}</p>
+                  </div>
+                )}
+              </div>
+              {p.quote && (
+                <div className="proj-concept-block2-right">
+                  <p className="proj-concept-statement">«{p.quote}»</p>
+                </div>
+              )}
+            </div>
           )}
         </div>
       </section>
