@@ -2428,39 +2428,48 @@ select.hws-field { appearance: none; cursor: pointer; }
   max-width: 780px;
 }
 
-/* Блок 2 концепции: p2 (лево) + цитата-заявление (право) */
+/* Блок 2 концепции: p2 (лево, 2 подколонки) + огромная цитата (право) */
 .proj-concept-block2 {
   display: grid;
-  grid-template-columns: 5fr 8fr;
+  grid-template-columns: 4fr 9fr;
   gap: 0;
   border-top: 1px solid rgba(30,35,15,0.22);
+  align-items: stretch;
 }
 .proj-concept-block2-left {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
   border-right: 1px solid rgba(30,35,15,0.22);
+  align-content: end;
 }
 .proj-concept-block2-text {
   padding: 3.5rem 2.5rem 3.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .proj-concept-block2-text + .proj-concept-block2-text {
-  padding: 3.5rem 2rem;
+  padding: 3.5rem 1.5rem 3.5rem 2.5rem;
   border-left: 1px solid rgba(30,35,15,0.22);
 }
+.proj-concept-block2-text .proj-description {
+  font-weight: 600;
+  font-size: 1.45rem;
+}
 .proj-concept-block2-right {
-  padding: 3rem 0 3rem 4rem;
+  padding: 2.5rem 0 2.5rem 3.5rem;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 .proj-concept-statement {
   font-family: var(--f-head);
-  font-size: clamp(2.8rem, 5.5vw, 7.5rem);
-  font-weight: 800;
-  line-height: 0.92;
+  font-size: clamp(4.5rem, 9.5vw, 13.5rem);
+  font-weight: 900;
+  line-height: 0.88;
   color: #1a1f0e;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 /* ── Attractions section ── */
@@ -2573,10 +2582,11 @@ select.hws-field { appearance: none; cursor: pointer; }
   .proj-concept-left { padding: 2rem 0; }
   .proj-concept-col { padding: 2rem 0; border-left: none; border-top: 1px solid rgba(50,54,37,0.15); }
   .proj-concept-block2 { grid-template-columns: 1fr; }
-  .proj-concept-block2-left { grid-template-columns: 1fr; }
-  .proj-concept-block2-right { padding: 2rem 0; border-top: 1px solid rgba(50,54,37,0.15); }
-  .proj-concept-block2-text + .proj-concept-block2-text { border-left: none; border-top: 1px solid rgba(50,54,37,0.15); padding: 2rem 0; }
+  .proj-concept-block2-left { grid-template-columns: 1fr; border-right: none; border-bottom: 1px solid rgba(30,35,15,0.22); }
+  .proj-concept-block2-right { padding: 2.5rem 0; }
+  .proj-concept-block2-text + .proj-concept-block2-text { border-left: none; border-top: 1px solid rgba(30,35,15,0.22); padding: 2rem 0; }
   .proj-concept-block2-text { padding: 2rem 0; }
+  .proj-concept-statement { font-size: clamp(3rem, 10vw, 6rem); }
   .proj-tech-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
