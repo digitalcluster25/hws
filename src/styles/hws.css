@@ -2378,12 +2378,15 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* ── Concept section 2-col grid ── */
 /* 01. КОНЦЕПЦИЯ — 3-col grid, Ohio demo34 style */
+/* Разделители на sage-зелёном фоне (#A2AC89) */
+.proj-concept-divider { color: rgba(30,35,15,0.22); }
+
 .proj-concept-grid {
   display: grid;
   grid-template-columns: 5fr 4fr 4fr;
   gap: 0;
   align-items: start;
-  border-top: 1px solid rgba(50,54,37,0.15);
+  border-top: 1px solid rgba(30,35,15,0.22);
 }
 .proj-concept-left {
   display: flex;
@@ -2393,12 +2396,12 @@ select.hws-field { appearance: none; cursor: pointer; }
 }
 .proj-concept-col {
   padding: 3rem 2.5rem;
-  border-left: 1px solid rgba(50,54,37,0.15);
+  border-left: 1px solid rgba(30,35,15,0.22);
 }
 .proj-positioning-text {
   font-size: clamp(2rem, 3vw, 3.8rem);
   font-weight: 300;
-  color: #323625;
+  color: #1a1f0e;
   line-height: 1.1;
   font-style: normal;
   border-left: none;
@@ -2406,13 +2409,19 @@ select.hws-field { appearance: none; cursor: pointer; }
 }
 .proj-description {
   font-size: 1.55rem;
-  color: rgba(50,54,37,0.7);
+  color: rgba(20,25,10,0.82);
   line-height: 1.65;
+}
+.proj-step-label-concept {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(20,25,10,0.5);
 }
 .proj-quote-strip {
   margin-top: 3.5rem;
   padding-top: 3rem;
-  border-top: 1px solid rgba(50,54,37,0.15);
+  border-top: 1px solid rgba(30,35,15,0.22);
 }
 .proj-p2-full {
   margin-top: 2rem;
@@ -2424,20 +2433,20 @@ select.hws-field { appearance: none; cursor: pointer; }
   display: grid;
   grid-template-columns: 5fr 8fr;
   gap: 0;
-  border-top: 1px solid rgba(50,54,37,0.15);
+  border-top: 1px solid rgba(30,35,15,0.22);
 }
 .proj-concept-block2-left {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  border-right: 1px solid rgba(50,54,37,0.15);
+  border-right: 1px solid rgba(30,35,15,0.22);
 }
 .proj-concept-block2-text {
   padding: 3.5rem 2.5rem 3.5rem 0;
 }
 .proj-concept-block2-text + .proj-concept-block2-text {
   padding: 3.5rem 2rem;
-  border-left: 1px solid rgba(50,54,37,0.15);
+  border-left: 1px solid rgba(30,35,15,0.22);
 }
 .proj-concept-block2-right {
   padding: 3rem 0 3rem 4rem;
@@ -2449,7 +2458,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   font-size: clamp(2.8rem, 5.5vw, 7.5rem);
   font-weight: 800;
   line-height: 0.92;
-  color: #323625;
+  color: #1a1f0e;
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }

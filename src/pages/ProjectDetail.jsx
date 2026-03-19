@@ -145,12 +145,12 @@ export default function ProjectDetail() {
       )}
 
       {/* ── 01. КОНЦЕПЦИЯ ── */}
-      <section style={{ background: '#eef0e8', ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
+      <section style={{ background: '#A2AC89', ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
         <div style={wrap}>
           <div className="proj-concept-grid">
             {/* Левая колонка: лейбл + большой заголовок */}
             <div className="proj-concept-left">
-              <p className="proj-step-label">01. КОНЦЕПЦИЯ</p>
+              <p className="proj-step-label-concept">01. КОНЦЕПЦИЯ</p>
               {p.positioning && (
                 <p className="proj-positioning-text">{p.positioning}</p>
               )}
