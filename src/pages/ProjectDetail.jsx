@@ -145,31 +145,30 @@ export default function ProjectDetail() {
       )}
 
       {/* ── 01. КОНЦЕПЦИЯ ── */}
-      <section style={{ background: '#eef0e8', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
+      <section style={{ background: '#eef0e8', ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
         <div style={wrap}>
           <div className="proj-concept-grid">
+            {/* Левая колонка: лейбл + большой заголовок */}
             <div className="proj-concept-left">
               <p className="proj-step-label">01. КОНЦЕПЦИЯ</p>
               {p.positioning && (
                 <p className="proj-positioning-text">{p.positioning}</p>
               )}
             </div>
-            <div className="proj-concept-right">
+            {/* Правые колонки: description и p1 */}
+            <div className="proj-concept-col">
               {p.description && (
-                <p className="proj-body-text proj-description">{p.description}</p>
+                <p className="proj-description">{p.description}</p>
               )}
+            </div>
+            <div className="proj-concept-col">
               {p.p1 && (
-                <p className="proj-body-text" style={{ marginTop: '1.5rem' }}>{p.p1}</p>
+                <p className="proj-description">{p.p1}</p>
               )}
             </div>
           </div>
-          {p.quote && (
-            <div className="proj-quote-strip">
-              <h2 className="proj-quote">«{p.quote}»</h2>
-            </div>
-          )}
           {p.p2 && (
-            <p className="proj-body-text proj-p2-full">{p.p2}</p>
+            <p className="proj-body-text proj-p2-full" style={{ marginTop: '3rem', paddingTop: '3rem', borderTop: '1px solid rgba(50,54,37,0.15)' }}>{p.p2}</p>
           )}
         </div>
       </section>
