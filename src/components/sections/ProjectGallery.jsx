@@ -112,7 +112,7 @@ export default function ProjectGallery({ photos = [], title = '' }) {
       }}>
         {/* Counter */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
-          <span style={{ fontSize: '1.4rem', fontWeight: 600, color: C.dark, fontVariantNumeric: 'tabular-nums' }}>
+          <span style={{ fontSize: '14px', fontWeight: 600, color: C.dark, fontVariantNumeric: 'tabular-nums' }}>
             {String(slide + 1).padStart(2, '0')}
           </span>
           <span style={{
@@ -126,7 +126,7 @@ export default function ProjectGallery({ photos = [], title = '' }) {
               transition: 'width 0.4s ease',
             }}/>
           </span>
-          <span style={{ fontSize: '1.4rem', color: '#a8ad9b', fontVariantNumeric: 'tabular-nums' }}>
+          <span style={{ fontSize: '14px', color: '#a8ad9b', fontVariantNumeric: 'tabular-nums' }}>
             {String(total).padStart(2, '0')}
           </span>
         </div>
