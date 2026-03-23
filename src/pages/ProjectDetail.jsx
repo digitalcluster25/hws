@@ -55,8 +55,8 @@ export default function ProjectDetail() {
     )
   }
 
-  const prev = projects[idx - 1] || null
-  const next = projects[idx + 1] || null
+  const prev = projects[(idx - 1 + projects.length) % projects.length]
+  const next = projects[(idx + 1) % projects.length]
 
   const hasAttractions = p.attractions && p.attractions.length > 0
   const techCards = [
