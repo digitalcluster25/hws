@@ -1560,16 +1560,15 @@ select.hws-field { appearance: none; cursor: pointer; }
    ───────────────────────────────────────────── */
 .clients-who-section {
   padding-top: 7rem;
-  padding-bottom: 0;
+  padding-bottom: 7rem;
   position: relative;
   overflow: hidden;
 }
 .clients-who-inner {
   display: grid;
   grid-template-columns: 55fr 45fr;
-  align-items: end;
+  align-items: start;
   gap: 0;
-  min-height: 72vh;
 }
 
 /* ── ЛЕВАЯ КОЛОНКА ── */
@@ -1618,7 +1617,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  align-content: end;
+  align-content: start;
   padding-bottom: 4rem;
 }
 .clients-who-card {
@@ -1629,14 +1628,14 @@ select.hws-field { appearance: none; cursor: pointer; }
   padding-right: 0;
 }
 .clients-who-title {
-  font-size: clamp(1rem, 1.1vw, 1.25rem) !important;
+  font-size: 20px !important;
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.75rem;
   line-height: 1.25;
 }
 .clients-who-text {
-  font-size: 1.3rem !important;
+  font-size: 16px !important;
   color: rgba(255,255,255,0.45);
   line-height: 1.4;
 }

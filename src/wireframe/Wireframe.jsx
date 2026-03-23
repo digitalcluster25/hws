@@ -126,8 +126,13 @@ export default function Wireframe() {
       <section className="clients-who-section" style={{ background: '#323625', ...px }}>
         <div style={wrap}>
           <div className="clients-who-inner">
-            <div className="clients-who-left">
-              <SectionHeader badge="Клиенты" light="Нам доверяют" dark="ведущие wellness-бренды" className="sh-wrap--inverse" />
+            <div className="clients-who-left sh-wrap--inverse">
+              <span className="sh-badge">Клиенты</span>
+              <div className="sh-h2">
+                <span className="sh-light" style={{ display: 'block' }}>Нам доверяют</span>
+                <span className="sh-dark" style={{ display: 'block' }}>ведущие</span>
+                <span className="sh-dark" style={{ display: 'block' }}>wellness-бренды</span>
+              </div>
             </div>
             <div className="clients-who-grid">
               {segments.map(({ title, text }) => (
