@@ -929,7 +929,7 @@ select.hws-field { appearance: none; cursor: pointer; }
    ───────────────────────────────────────────── */
 .proc-section {
   padding: 5rem 0;
-  background: #fff;
+  background: #FBF6F0;
 }
 .proc-wrap {
   max-width: 1344px;
@@ -938,6 +938,8 @@ select.hws-field { appearance: none; cursor: pointer; }
   grid-template-columns: 1fr 1.85fr;
   gap: 6rem;
   align-items: start;
+  border-top: 1px solid rgba(50,54,37,0.25);
+  padding-top: 4rem;
 }
 
 /* ── LEFT ── */
@@ -1021,7 +1023,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 
 .proc-card-title {
-  font-size: 1.3rem;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.2;
   color: var(--c-dark);
@@ -1030,7 +1032,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 /* описание */
 .proc-card-desc {
-  font-size: 1.3rem;
+  font-size: 16px;
   line-height: 1.4;
   color: var(--c-subtle);
 }
