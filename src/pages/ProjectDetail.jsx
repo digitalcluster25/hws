@@ -260,15 +260,15 @@ export default function ProjectDetail() {
 
       {/* ── 05. РЕЗУЛЬТАТ ── */}
       <section style={{ background: 'rgba(203,130,104,0.8)', paddingLeft: '5.8rem', paddingRight: '5.8rem', paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <p className="proj-step-label-concept" style={{ marginBottom: '2rem' }}>05. РЕЗУЛЬТАТ</p>
         <div className="proj-concept-grid">
-          {/* Левая колонка: лейбл + заголовок */}
-          <div className="proj-concept-left">
-            <p className="proj-step-label-concept">05. РЕЗУЛЬТАТ</p>
+          {/* Левая колонка: заголовок */}
+          <div className="proj-concept-left" style={{ padding: 0 }}>
             {p.p3 && <p className="proj-positioning-text">{p.p3}</p>}
           </div>
           <div aria-hidden="true" />
           {/* Правая часть: инфографика или spec list */}
-          <div style={{ gridColumn: '3 / -1', display: 'flex', alignItems: 'center' }}>
+          <div style={{ gridColumn: '3 / -1', display: 'flex', alignItems: 'flex-start' }}>
             {p.stats ? (
               <div className="proj-stats-grid" style={{ width: '100%' }}>
                 {p.stats.map((s, i) => (
