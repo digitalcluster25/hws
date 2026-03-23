@@ -2,6 +2,7 @@ import { useState, useRef, useCallback, useEffect } from 'react'
 import { motion, animate, useMotionValue } from 'framer-motion'
 
 const C = { dark: '#323625', mid: '#A2AC89', muted: '#6b7057' }
+const SIDE = '5.8rem'
 
 function ArrowLeft() {
   return (
@@ -26,7 +27,6 @@ export default function ProjectGallery({ photos = [], title = '' }) {
   const x = useMotionValue(0)
   const [slide, setSlide] = useState(0)
 
-  // Группируем фото по 3
   const groups = []
   for (let i = 0; i < photos.length; i += PER_SLIDE) {
     groups.push(photos.slice(i, i + PER_SLIDE))
@@ -51,7 +51,6 @@ export default function ProjectGallery({ photos = [], title = '' }) {
     setSlide(clamped)
   }, [x, trackW, total])
 
-  // при ресайзе — прыгаем без анимации
   useEffect(() => {
     if (trackW > 0) x.set(-(slide * trackW))
   }, [trackW]) // eslint-disable-line
@@ -60,26 +59,33 @@ export default function ProjectGallery({ photos = [], title = '' }) {
 
   return (
     <section style={{ background: '#fff' }}>
-      {/* Track */}
+
+      {/* Лейбл — как в секции 03 */}
+      <div style={{ paddingLeft: SIDE, paddingRight: SIDE, paddingTop: '5rem', paddingBottom: '2rem' }}>
+        <p className="proj-step-label-concept" style={{ color: C.muted }}>04. Галерея</p>
+      </div>
+
+      {/* Фото-трек — с отступами как у секции */}
       <div ref={trackRef} style={{ overflow: 'hidden', width: '100%' }}>
-        <motion.div
-          style={{ display: 'flex', x }}
-        >
+        <motion.div style={{ display: 'flex', x }}>
           {groups.map((group, gi) => (
             <div
               key={gi}
               style={{
                 display: 'grid',
                 gridTemplateColumns: `repeat(${group.length}, 1fr)`,
-                gap: 0,
+                gap: '0.75rem',
                 flexShrink: 0,
                 width: trackW || '100vw',
+                paddingLeft: SIDE,
+                paddingRight: SIDE,
+                boxSizing: 'border-box',
               }}
             >
               {group.map((src, pi) => (
                 <div
                   key={pi}
-                  style={{ height: '56vh', minHeight: '320px', overflow: 'hidden', position: 'relative' }}
+                  style={{ height: '56vh', minHeight: '320px', overflow: 'hidden', position: 'relative', borderRadius: '2px' }}
                 >
                   <img
                     src={src}
@@ -94,14 +100,15 @@ export default function ProjectGallery({ photos = [], title = '' }) {
         </motion.div>
       </div>
 
-      {/* Nav bar */}
+      {/* Nav bar — те же отступы что и в секции 03 */}
       <div style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '1.2rem max(1.5vw, 16px)',
-        maxWidth: '1344px',
-        margin: '0 auto',
+        paddingLeft: SIDE,
+        paddingRight: SIDE,
+        paddingTop: '1.2rem',
+        paddingBottom: '3rem',
       }}>
         {/* Counter */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
@@ -130,13 +137,11 @@ export default function ProjectGallery({ photos = [], title = '' }) {
             onClick={() => goTo(slide - 1)}
             disabled={slide === 0}
             style={{
-              width: '44px', height: '44px', borderRadius: '50%',
-              border: `1px solid ${slide === 0 ? '#e0e3da' : C.dark}`,
-              background: 'transparent',
+              background: 'none', border: 'none', padding: '4px',
               color: slide === 0 ? '#c0c4b8' : C.dark,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: slide === 0 ? 'default' : 'pointer',
-              transition: 'all 0.2s',
+              transition: 'color 0.2s',
             }}
             aria-label="Назад"
           >
@@ -146,13 +151,11 @@ export default function ProjectGallery({ photos = [], title = '' }) {
             onClick={() => goTo(slide + 1)}
             disabled={slide === total - 1}
             style={{
-              width: '44px', height: '44px', borderRadius: '50%',
-              border: `1px solid ${slide === total - 1 ? '#e0e3da' : C.dark}`,
-              background: slide === total - 1 ? 'transparent' : C.dark,
-              color: slide === total - 1 ? '#c0c4b8' : '#fff',
+              background: 'none', border: 'none', padding: '4px',
+              color: slide === total - 1 ? '#c0c4b8' : C.dark,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: slide === total - 1 ? 'default' : 'pointer',
-              transition: 'all 0.2s',
+              transition: 'color 0.2s',
             }}
             aria-label="Вперёд"
           >

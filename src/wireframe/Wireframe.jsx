@@ -1,4 +1,5 @@
 import Button from '../components/ui/Button'
+import linesUrl from '../../assets/lines.svg'
 import ProjectsSlider from '../components/sections/ProjectsSlider'
 import ProcessAccordion from '../components/sections/ProcessAccordion'
 import TestimonialsSlider from '../components/sections/TestimonialsSlider'
@@ -27,21 +28,37 @@ export default function Wireframe() {
     <main className="min-h-screen tc-dark">
 
       {/* ── 1. HERO ── */}
-      <section id="home" className="hero-section" style={{ background: '#111013' }}>
-        <div className="hws-wrap hws-px">
-          <h1 className="hws-h1 tc-white">От аутентичных хаммамов<br />до скандинавских саун.<br />Европейское мастерство<br />в luxury-отелях и курортах по всему миру.</h1>
+      <section id="home" className="hero-section" style={{ background: '#110101', position: 'relative', overflow: 'hidden' }}>
+        <div className="hws-wrap hws-px" style={{ position: 'relative', zIndex: 1, marginBottom: '100px' }}>
+          <p className="hero-subtitle">Европейское мастерство в luxury-отелях и курортах по всему миру.</p>
+          <h1 className="hws-h1">Строим от аутентичных хаммамов<br />до скандинавских саун.</h1>
         </div>
+        <img
+          src={linesUrl}
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: '100%',
+            height: '55%',
+            objectFit: 'cover',
+            objectPosition: 'top center',
+            opacity: 0.55,
+            pointerEvents: 'none',
+          }}
+        />
       </section>
 
       {/* ── 2. ПРОЕКТЫ ── */}
       <ProjectsSlider />
 
       {/* ── 3. О НАС ── */}
-      <section id="about" className="about-section" style={{ background: '#111013' }}>
+      <section id="about" className="about-section" style={{ background: '#110101' }}>
         <div style={{ maxWidth: '1440px', margin: '0 auto', ...px }}>
           <h2 className="about-statement">
             <span className="about-statement__bright">Почти два десятилетия мы проектируем и строим премиальные wellness-пространства — </span>
-            <span className="about-statement__muted">от масштабных курортных СПА до камерных частных хаммамов, соединяя древние банные традиции с современным дизайном и технической точностью.</span>
+            <span className="about-statement__muted">от масштабных курортных СПА до камерных частных комплексов, соединяя древние банные традиции с современным дизайном и технической точностью.</span>
           </h2>
           <div style={{ marginTop: '2.5rem' }}>
             <Button href="/portfolio" variant="filled">Смотреть проекты</Button>
@@ -50,7 +67,7 @@ export default function Wireframe() {
       </section>
 
       {/* ── 4. КАК МЫ РАБОТАЕМ (Ohio How we work) ── */}
-      <section className="why-section hws-px" style={{ background: '#111013' }}>
+      <section className="why-section hws-px" style={{ background: '#110101' }}>
         <div style={wrap}>
 
           {/* Верх: 3 колонки 50/25/25 */}

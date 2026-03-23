@@ -8,6 +8,19 @@ const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', terra: '#CB8268',
 const px = { paddingLeft: 'max(1.5vw,16px)', paddingRight: 'max(1.5vw,16px)' }
 const wrap = { maxWidth: '1344px', margin: '0 auto' }
 
+const conceptSectionStyle = { background: '#B5BD9A', paddingLeft: '5.8rem', paddingRight: '5.8rem', paddingTop: '5rem', paddingBottom: '5rem', position: 'relative' }
+const conceptContentStyle = { position: 'relative', zIndex: 1 }
+
+function GridLines() {
+  return (
+    <ul aria-hidden="true" style={{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', listStyle: 'none', margin: 0, padding: 0, pointerEvents: 'none' }}>
+      {[0,1,2,3].map(i => (
+        <li key={i} style={{ borderLeft: i === 0 ? '1px solid rgba(136,135,137,0.14)' : 'none', borderRight: '1px solid rgba(136,135,137,0.14)' }} />
+      ))}
+    </ul>
+  )
+}
+
 // Split an attraction string "Name — description" into parts
 function splitAttraction(str) {
   const sep = str.indexOf(' — ')
@@ -145,9 +158,9 @@ export default function ProjectDetail() {
       )}
 
       {/* ── 01. КОНЦЕПЦИЯ ── */}
-      <section style={{ background: '#A2AC89', ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
-        <div style={wrap}>
-          <div className="proj-concept-grid">
+      <section style={conceptSectionStyle}>
+        <GridLines />
+          <div className="proj-concept-grid" style={conceptContentStyle}>
             {/* Левая колонка: лейбл + большой заголовок */}
             <div className="proj-concept-left">
               <p className="proj-step-label-concept">01. КОНЦЕПЦИЯ</p>
@@ -155,6 +168,8 @@ export default function ProjectDetail() {
                 <p className="proj-positioning-text">{p.positioning}</p>
               )}
             </div>
+            {/* Пустой разделитель (Ohio: 1/12) */}
+            <div aria-hidden="true" />
             {/* Правые колонки: description и p1 */}
             <div className="proj-concept-col">
               {p.description && (
@@ -167,53 +182,49 @@ export default function ProjectDetail() {
               )}
             </div>
           </div>
-          {/* Блок 2: p2 (лево, 2 подколонки) + quote (право, крупно) */}
-          {(p.p2 || p.quote) && (
-            <div className="proj-concept-block2">
-              <div className="proj-concept-block2-left">
-                {p.p2 && (
-                  <div className="proj-concept-block2-text">
-                    <p className="proj-description">{p.p2}</p>
-                  </div>
-                )}
-                {p.p3 && (
-                  <div className="proj-concept-block2-text">
-                    <p className="proj-description">{p.p3}</p>
-                  </div>
-                )}
-              </div>
-              {p.quote && (
-                <div className="proj-concept-block2-right">
-                  <p className="proj-concept-statement">«{p.quote}»</p>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
       </section>
 
-      {/* ── 02. ТЕРМАЛЬНЫЕ ЗОНЫ (attractions) ── */}
-      {hasAttractions && (
-        <section style={{ background: '#fff', ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
-          <div style={wrap}>
-            <div className="proj-attr-header">
-              <p className="proj-step-label" style={{ color: C.muted }}>02. ПРОСТРАНСТВА</p>
-              <div className="proj-attr-heading-row">
-                <h2 className="proj-section-h2">Термальные зоны</h2>
-                <span className="proj-attr-count">{p.attractions.length}</span>
-              </div>
+      {/* ── 02. ПОЗИЦИОНИРОВАНИЕ ── */}
+      {(p.p2 || p.p3 || p.quote) && (
+        <section style={{ ...conceptSectionStyle, background: '#eef0e8' }}>
+          <GridLines />
+          <div className="proj-concept-grid" style={conceptContentStyle}>
+            <div className="proj-concept-left">
+              <p className="proj-step-label-concept">02. ПОЗИЦИОНИРОВАНИЕ</p>
+              {p.quote && (
+                <p className="proj-positioning-text">«{p.quote}»</p>
+              )}
             </div>
-            <div className="proj-attr-grid">
+            <div aria-hidden="true" />
+            <div className="proj-concept-col">
+              {p.p2 && <p className="proj-description">{p.p2}</p>}
+            </div>
+            <div className="proj-concept-col">
+              {p.p3 && <p className="proj-description">{p.p3}</p>}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── 03. АТРАКЦИИ ── */}
+      {hasAttractions && (
+        <section style={{ background: '#fff', paddingLeft: '5.8rem', paddingRight: '5.8rem', paddingTop: '5rem', paddingBottom: '5rem', position: 'relative' }}>
+          <GridLines />
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <p className="proj-step-label-concept" style={{ marginBottom: '2rem' }}>03. Атракции</p>
+            <div className="proj-credits-layout">
+            <h2 className="proj-positioning-text" style={{ margin: 0 }}>Термальные зоны</h2>
+            <div className="proj-credits-cols">
               {p.attractions.map((item, i) => {
                 const { name, desc } = splitAttraction(item)
                 return (
-                  <div key={i} className="proj-attr-card">
-                    <span className="proj-attr-num">{String(i + 1).padStart(2, '0')}</span>
+                  <div key={i} className="proj-attr-item">
                     <p className="proj-attr-name">{name}</p>
                     {desc && <p className="proj-attr-desc">{desc}</p>}
                   </div>
                 )
               })}
+            </div>
             </div>
           </div>
         </section>
@@ -222,60 +233,75 @@ export default function ProjectDetail() {
       {/* ── GALLERY ── */}
       <ProjectGallery photos={p.photos || []} title={p.title} />
 
-      {/* ── 03. ТЕХНОЛОГИИ ── */}
+      {/* ── 05. ТЕХНОЛОГИИ ── */}
       {hasTech && (
-        <section style={{ background: C.dark, ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
-          <div style={wrap}>
-            <p className="proj-step-label" style={{ color: 'rgba(255,255,255,0.45)' }}>03. ТЕХНОЛОГИИ</p>
-            <div className="proj-tech-grid">
-              {techCards.map((card, i) => (
-                <div key={i} className="proj-tech-card">
-                  <p className="proj-tech-label">{card.label}</p>
-                  <p className="proj-tech-text">{card.text}</p>
+        <section style={{ background: '#fff', paddingLeft: '5.8rem', paddingRight: '5.8rem', paddingTop: '5rem', paddingBottom: '5rem' }}>
+          <p className="proj-step-label-concept" style={{ color: C.muted, marginBottom: '2rem' }}>05. ТЕХНОЛОГИИ</p>
+          <div className="proj-tech-cards-grid">
+            {techCards.map((card, i) => {
+              const bgs = ['rgba(85,100,65,0.18)', 'rgb(181,189,154)', 'rgba(203,130,104,0.8)', 'rgb(50,54,37)']
+              const dark = i === 3
+              const bg = bgs[i % bgs.length]
+              const tc = dark ? 'rgb(255,255,255)' : 'rgb(50,54,37)'
+              const mutedTc = dark ? 'rgba(255,255,255,0.7)' : 'rgba(50,54,37,0.7)'
+              return (
+                <div key={i} className="proj-tech-card-new" style={{ background: bg }}>
+                  <div className="proj-tech-card-top">
+                    <span className="proj-tech-card-num" style={{ color: mutedTc }}>0{i + 1}.</span>
+                    <p className="proj-tech-card-title" style={{ color: tc }}>{card.label}</p>
+                  </div>
+                  <p className="proj-tech-card-desc" style={{ color: mutedTc }}>{card.text}</p>
                 </div>
-              ))}
-            </div>
+              )
+            })}
           </div>
         </section>
       )}
 
-      {/* ── 04. РЕЗУЛЬТАТ ── */}
-      <section style={{ background: '#eef0e8', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
-        <div style={wrap}>
-          <div className="proj-desc-top">
-            <p className="proj-step-label">04. РЕЗУЛЬТАТ</p>
+      {/* ── 05. РЕЗУЛЬТАТ ── */}
+      <section style={{ background: 'rgba(203,130,104,0.8)', paddingLeft: '5.8rem', paddingRight: '5.8rem', paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <div className="proj-concept-grid">
+          {/* Левая колонка: лейбл + заголовок */}
+          <div className="proj-concept-left">
+            <p className="proj-step-label-concept">05. РЕЗУЛЬТАТ</p>
+            {p.p3 && <p className="proj-positioning-text">{p.p3}</p>}
           </div>
-          <div className="proj-desc-cols" style={{ marginTop: '2rem' }}>
-            {p.p3 && <p className="proj-body-text">{p.p3}</p>}
-            <div className="proj-spec-list">
-              {[
-                ['Тип объекта', p.type],
-                ['Площадь',    p.area],
-                ['Срок',       p.duration],
-                ['Статус',     p.status],
-                ['Город',      p.city],
-                ['Страна',     p.country],
-              ].filter(([, val]) => val).map(([label, val]) => (
-                <div key={label} className="proj-spec-item">
-                  <span className="proj-spec-label">{label}</span>
-                  <span className="proj-spec-val">{val}</span>
-                </div>
-              ))}
-            </div>
+          <div aria-hidden="true" />
+          {/* Правая часть: инфографика или spec list */}
+          <div style={{ gridColumn: '3 / -1', display: 'flex', alignItems: 'center' }}>
+            {p.stats ? (
+              <div className="proj-stats-grid" style={{ width: '100%' }}>
+                {p.stats.map((s, i) => (
+                  <div key={i} className="proj-stat-item">
+                    <p className="proj-stat-value">{s.value}</p>
+                    <p className="proj-stat-label">{s.label}</p>
+                    <p className="proj-stat-desc">{s.desc}</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="proj-spec-list" style={{ width: '100%' }}>
+                {[
+                  ['Тип объекта', p.type],
+                  ['Площадь',    p.area],
+                  ['Срок',       p.duration],
+                  ['Статус',     p.status],
+                  ['Город',      p.city],
+                  ['Страна',     p.country],
+                ].filter(([, val]) => val).map(([label, val]) => (
+                  <div key={label} className="proj-spec-item">
+                    <span className="proj-spec-label">{label}</span>
+                    <span className="proj-spec-val">{val}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Sentinel: карточка скрывается когда CTA входит в viewport */}
+      {/* Sentinel: карточка скрывается когда достигает конца страницы */}
       <div ref={ctaSentinelRef} aria-hidden="true" />
-
-      {/* ── CTA ── */}
-      <section className="py-24 text-center" style={{ background: C.dark, ...px }}>
-        <div style={wrap}>
-          <h2 className="hws-cta-h2 tc-white max-w-2xl mx-auto mb-8">Обсудим ваш wellness-объект?</h2>
-          <Button href="/contact" variant="filled-light" shadow={false}>Записаться на консультацию</Button>
-        </div>
-      </section>
 
     </main>
   )
