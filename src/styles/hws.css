@@ -493,7 +493,7 @@ select.hws-field { appearance: none; cursor: pointer; }
 .footer-section-title { font-size: 1.3rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-dark); display: block; margin-bottom: 1rem; }
 .footer-contact-line  { font-size: 1.3rem; line-height: 1.8; color: var(--c-mid); }
 .footer-nav-item      { font-size: 1.3rem; line-height: 2; color: var(--c-subtle); }
-.footer-copy          { font-size: 1.3rem; color: #111; }
+.footer-copy          { font-size: 12px; color: #111; }
 
 .hws-back-link {
   display: inline-flex; align-items: center; gap: 0.5rem;
@@ -1560,7 +1560,7 @@ select.hws-field { appearance: none; cursor: pointer; }
    ───────────────────────────────────────────── */
 .clients-who-section {
   padding-top: 7rem;
-  padding-bottom: 7rem;
+  padding-bottom: 50px;
   position: relative;
   overflow: hidden;
 }
@@ -1618,7 +1618,6 @@ select.hws-field { appearance: none; cursor: pointer; }
   grid-template-columns: 1fr 1fr;
   gap: 0;
   align-content: start;
-  padding-bottom: 4rem;
 }
 .clients-who-card {
   padding: 2.5rem 2rem 2.5rem 0;
