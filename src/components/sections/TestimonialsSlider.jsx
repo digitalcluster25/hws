@@ -67,8 +67,22 @@ export default function TestimonialsSlider() {
   })
 
   return (
-    <section className="tsl-section" style={{ background: '#323625' }}>
-      <div className="tsl-inner">
+    <section className="tsl-section" style={{ background: '#323625', position: 'relative', overflow: 'hidden' }}>
+      <ul aria-hidden="true" style={{
+        position: 'absolute', inset: 0,
+        display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
+        listStyle: 'none', margin: 0,
+        padding: '0 max(1.5vw, 16px)',
+        pointerEvents: 'none', boxSizing: 'border-box',
+      }}>
+        {[0,1,2,3].map(i => (
+          <li key={i} style={{
+            borderLeft: i === 0 ? '1px solid rgba(255,255,255,0.07)' : 'none',
+            borderRight: '1px solid rgba(255,255,255,0.07)',
+          }} />
+        ))}
+      </ul>
+      <div className="tsl-inner" style={{ position: 'relative', zIndex: 1 }}>
 
         {/* ── MAIN ROW: left heading + right (cards + bar) ── */}
         <div className="tsl-main">

@@ -5,6 +5,25 @@ import ProcessAccordion from '../components/sections/ProcessAccordion'
 import TestimonialsSlider from '../components/sections/TestimonialsSlider'
 import SectionHeader from '../components/ui/SectionHeader'
 
+function GridLines() {
+  return (
+    <ul aria-hidden="true" style={{
+      position: 'absolute', inset: 0,
+      display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
+      listStyle: 'none', margin: 0,
+      padding: '0 max(1.5vw, 16px)',
+      pointerEvents: 'none', boxSizing: 'border-box',
+    }}>
+      {[0,1,2,3].map(i => (
+        <li key={i} style={{
+          borderLeft: i === 0 ? '1px solid rgba(136,135,137,0.14)' : 'none',
+          borderRight: '1px solid rgba(136,135,137,0.14)',
+        }} />
+      ))}
+    </ul>
+  )
+}
+
 const segments = [
   { title: 'Luxury-отели и курорты', text: 'Создание wellness-направлений, которые повышают RevPAR и отличают ваш объект.' },
   { title: 'Частные резиденции', text: 'Частные хаммамы, сауны и wellness-пространства, созданные по вашим стандартам.' },
@@ -148,15 +167,17 @@ export default function Wireframe() {
       </section>
 
       {/* ── 8. ГЕОГРАФИЯ ── */}
-      <section className="py-24 clients-section" style={{ background: '#f8f8f5', ...px }}>
-        <div style={wrap}>
+      <section className="py-24 clients-section" style={{ background: '#B5BD9A', ...px, position: 'relative', overflow: 'hidden' }}>
+        <GridLines />
+        <div style={{ ...wrap, position: 'relative', zIndex: 1, borderTop: '1px solid rgba(50,54,37,0.25)', paddingTop: '4rem' }}>
           <p className="clients-label">ГЕОГРАФИЯ</p>
           <h2 className="clients-h2">Wellness-объекты<br />по всему миру.</h2>
-          <p className="hws-small tc-subtle max-w-md mt-4 mb-12">Международное портфолио: Европа, Кавказ, Центральная Азия.</p>
+          <p className="hws-small max-w-md mt-4 mb-12" style={{ color: 'var(--c-dark)' }}>Международное портфолио: Европа, Кавказ, Центральная Азия.</p>
           <ul className="clients-grid list-none p-0 m-0">
             {clients.map(({ project, city, country, website }) => (
               <li key={project} className="clients-entry">
-                <p className="clients-name">{project}, {city}, {country}</p>
+                <p className="clients-name">{project}</p>
+                <p className="clients-city">{city}, {country}</p>
                 <p className="clients-website">
                   {website !== '—' ? <a href={`https://${website}`} target="_blank" rel="noopener noreferrer">www.{website}</a> : <span>—</span>}
                 </p>
