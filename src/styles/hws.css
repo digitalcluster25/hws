@@ -216,9 +216,20 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   align-items: center;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  background: rgba(60, 60, 60, 0.32);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 40px;
+  height: 52px;
+  min-height: 52px;
+  max-height: 52px;
+  padding: 0 18px;
+  border: none;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .nav-logo-link:hover { opacity: 0.65; }
-.nav-logo-img { height: 44px; width: auto; display: block; }
+.nav-logo-img { height: 32px; width: auto; display: block; }
 
 /* МЕНЮ pill */
 .nav-menu-pill {
