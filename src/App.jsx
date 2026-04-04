@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import Wireframe from './wireframe/Wireframe'
@@ -7,9 +8,16 @@ import ProjectDetail from './pages/ProjectDetail'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  return null
+}
+
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/"                   element={<Wireframe />} />

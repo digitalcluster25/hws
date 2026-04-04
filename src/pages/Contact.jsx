@@ -14,7 +14,6 @@ export default function Contact() {
         <div className="ct-hero-inner hws-px" style={wrap}>
           <h1 className="ct-hero-h1">Связаться с нами</h1>
           <p className="ct-hero-sub">Оставьте заявку — свяжемся в течение 24 часов и предложим предварительную концепцию бесплатно.</p>
-          <Button href="mailto:homewoodspa@gmail.com" variant="filled">Написать нам</Button>
         </div>
       </section>
 
@@ -40,20 +39,8 @@ export default function Contact() {
               <p className="ct-col-val">Atlanta, Georgia,<br />USA</p>
               <p className="ct-col-note" style={{ marginTop: '0.5rem' }}>
                 Работаем по всему миру:<br />
-                Европа · Кавказ · Центральная Азия
+                США · Европа · Кавказ · Центральная Азия
               </p>
-              <a
-                href="https://maps.google.com/?q=Atlanta,Georgia,USA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ct-dir-link"
-              >
-                Показать на карте
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M12 8l4 4-4 4M8 12h8"/>
-                </svg>
-              </a>
             </div>
 
             {/* Колонка 3 */}
@@ -63,7 +50,6 @@ export default function Contact() {
                 <a href="https://wa.me/16785209556" target="_blank" rel="noopener noreferrer" className="ct-social-link">WhatsApp</a>
                 <a href="mailto:homewoodspa@gmail.com" className="ct-social-link">Email</a>
                 <a href="https://instagram.com/homewoodspa" target="_blank" rel="noopener noreferrer" className="ct-social-link">Instagram</a>
-                <a href="https://linkedin.com/company/homewoodspa" target="_blank" rel="noopener noreferrer" className="ct-social-link">LinkedIn</a>
               </div>
             </div>
 

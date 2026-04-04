@@ -31,12 +31,11 @@ const segments = [
   { title: 'Корпоративные объекты', text: 'Wellness-решения для корпоративных клиентов и hospitality-групп.' },
 ]
 const clients = [
-  { project: 'Emily Resort', city: 'Анталья', country: 'Турция', website: 'emilyresort.com' },
+  { project: 'Porvapør Nordic Spa & Tapas Bar', city: 'Барселона', country: 'Испания', website: 'porvapor.com' },
+  { project: 'Woloshin Banya', city: 'Кишинёв', country: 'Молдова', website: 'banya.md' },
+  { project: 'Luxury House Veles', city: 'Хисаря', country: 'Болгария', website: 'luxuryhouseveles.com' },
   { project: 'Taze Bay Historic Baths', city: 'Баку', country: 'Азербайджан', website: 'tazebay.az' },
-  { project: 'Sadu Hotel & Radisson', city: 'Алматы', country: 'Казахстан', website: 'saduhotel.com' },
-  { project: 'Private Residence', city: 'Дубай', country: 'ОАЭ', website: '—' },
-  { project: 'Mountain Wellness Club', city: 'Тироль', country: 'Австрия', website: '—' },
-  { project: 'Corporate Wellness Hub', city: 'Варшава', country: 'Польша', website: '—' },
+  { project: 'Hammam Bath', city: 'Шихов', country: 'Азербайджан', website: 'hamambath.az' },
 ]
 const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', terra: '#CB8268', muted: '#6b7057' }
 const wrap = { maxWidth: '1344px', margin: '0 auto' }
@@ -201,7 +200,7 @@ export default function Wireframe() {
               <h2 className="cta-h2">Создадим ваш wellness-объект с нуля до открытия.</h2>
             </div>
             <div className="cta-right">
-              <Button href="/contact" variant="filled">Забронировать встречу</Button>
+              <Button href="https://calendly.com/wellness-hws" target="_blank" rel="noopener noreferrer" variant="filled">Забронировать встречу</Button>
             </div>
           </div>
         </div>
