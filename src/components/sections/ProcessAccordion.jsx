@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 function GridLines() {
   return (
-    <ul aria-hidden="true" style={{
+    <ul aria-hidden="true" className="grid-vlines" style={{
       position: 'absolute', inset: 0,
       display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
       listStyle: 'none', margin: 0,
@@ -64,7 +64,7 @@ export default function ProcessAccordion() {
         <div className="proc-left">
           <span className="proc-badge">Под ключ</span>
           <div className="proc-h2">
-            <span className="proc-h2-light">От концепции</span>
+            <span className="proc-h2-light">От концепции </span>
             <span className="proc-h2-dark">до открытия объекта<span className="proc-dot">.</span></span>
           </div>
           <p className="proc-lead">

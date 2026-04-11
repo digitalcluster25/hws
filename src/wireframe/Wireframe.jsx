@@ -7,7 +7,7 @@ import SectionHeader from '../components/ui/SectionHeader'
 
 function GridLines() {
   return (
-    <ul aria-hidden="true" style={{
+    <ul aria-hidden="true" className="grid-vlines" style={{
       position: 'absolute', inset: 0,
       display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
       listStyle: 'none', margin: 0,
@@ -49,7 +49,7 @@ export default function Wireframe() {
       <section id="home" className="hero-section" style={{ background: '#110101', position: 'relative', overflow: 'hidden' }}>
         <div className="hws-wrap hws-px" style={{ position: 'relative', zIndex: 1, marginBottom: '100px' }}>
           <p className="hero-subtitle">Европейское мастерство в luxury-отелях и курортах по всему миру.</p>
-          <h1 className="hws-h1">Строим от аутентичных хаммамов<br />до скандинавских саун.</h1>
+          <h1 className="hws-h1">Строим от аутентичных хаммамов <br />до скандинавских саун.</h1>
         </div>
         <img
           src={linesUrl}
@@ -78,9 +78,7 @@ export default function Wireframe() {
             <span className="about-statement__bright">Почти два десятилетия мы проектируем и строим премиальные wellness-пространства — </span>
             <span className="about-statement__muted">от масштабных курортных СПА до камерных частных комплексов, соединяя древние банные традиции с современным дизайном и технической точностью.</span>
           </h2>
-          <div style={{ marginTop: '2.5rem' }}>
-            <Button href="/portfolio" variant="filled">Смотреть проекты</Button>
-          </div>
+
         </div>
       </section>
 
@@ -103,7 +101,7 @@ export default function Wireframe() {
             </div>
             <div className="why-top-col" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <p className="why-text">Emily Resort, Taze Bay, SOP Spa в Sadu Hotel — каждый из этих объектов мог быть просто хорошим. Мы сделали их такими, о которых говорят.</p>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '1.5rem' }}>
+              <div style={{ marginTop: '1.5rem' }}>
                 <Button href="/services" variant="filled">Посмотреть все услуги</Button>
               </div>
             </div>
@@ -147,9 +145,9 @@ export default function Wireframe() {
             <div className="clients-who-left sh-wrap--inverse">
               <span className="sh-badge">Клиенты</span>
               <div className="sh-h2">
-                <span className="sh-light" style={{ display: 'block' }}>Нам доверяют</span>
-                <span className="sh-dark" style={{ display: 'block' }}>ведущие</span>
-                <span className="sh-dark" style={{ display: 'block' }}>wellness-бренды</span>
+                <span className="sh-light">Нам доверяют </span>
+                <span className="sh-dark">ведущие </span>
+                <span className="sh-dark">wellness-бренды</span>
               </div>
             </div>
             <div className="clients-who-grid">
@@ -170,7 +168,7 @@ export default function Wireframe() {
         <GridLines />
         <div style={{ ...wrap, position: 'relative', zIndex: 1, borderTop: '1px solid rgba(50,54,37,0.25)', paddingTop: '4rem' }}>
           <p className="clients-label">ГЕОГРАФИЯ</p>
-          <h2 className="clients-h2">Wellness-объекты<br />по всему миру.</h2>
+          <h2 className="clients-h2">Wellness-объекты <br />по всему миру.</h2>
           <p className="hws-small max-w-md mt-4 mb-12" style={{ color: 'var(--c-dark)' }}>Международное портфолио: Европа, Кавказ, Центральная Азия.</p>
           <ul className="clients-grid list-none p-0 m-0">
             {clients.map(({ project, city, country, website }) => (
@@ -198,8 +196,6 @@ export default function Wireframe() {
           <div className="cta-bottom">
             <div className="cta-left">
               <h2 className="cta-h2">Создадим ваш wellness-объект с нуля до открытия.</h2>
-            </div>
-            <div className="cta-right">
               <Button href="https://calendly.com/wellness-hws" target="_blank" rel="noopener noreferrer" variant="filled">Забронировать встречу</Button>
             </div>
           </div>

@@ -74,7 +74,7 @@ export default function TestimonialsSlider() {
 
   return (
     <section className="tsl-section" style={{ background: '#323625', position: 'relative', overflow: 'hidden' }}>
-      <ul aria-hidden="true" style={{
+      <ul aria-hidden="true" className="grid-vlines" style={{
         position: 'absolute', inset: 0,
         display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
         listStyle: 'none', margin: 0,
@@ -94,7 +94,7 @@ export default function TestimonialsSlider() {
         <div className="tsl-main">
           <div className="tsl-left">
             <p className="tsl-label">ОТЗЫВЫ</p>
-            <h2 className="tsl-heading">Что говорят<br />клиенты.</h2>
+            <h2 className="tsl-heading">Что говорят <br />клиенты.</h2>
           </div>
 
           <div className="tsl-right">

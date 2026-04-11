@@ -36,7 +36,7 @@ export default function Contact() {
             {/* Колонка 2 */}
             <div className="ct-col">
               <h2 className="ct-col-h">Офис</h2>
-              <p className="ct-col-val">Atlanta, Georgia,<br />USA</p>
+              <p className="ct-col-val">1170 Temple Dr<br />Sugar Hill, GA 30518</p>
               <p className="ct-col-note" style={{ marginTop: '0.5rem' }}>
                 Работаем по всему миру:<br />
                 США · Европа · Кавказ · Центральная Азия

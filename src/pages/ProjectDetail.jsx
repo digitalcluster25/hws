@@ -13,7 +13,7 @@ const conceptContentStyle = { position: 'relative', zIndex: 1 }
 
 function GridLines() {
   return (
-    <ul aria-hidden="true" style={{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', listStyle: 'none', margin: 0, padding: 0, pointerEvents: 'none' }}>
+    <ul aria-hidden="true" className="grid-vlines" style={{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', listStyle: 'none', margin: 0, padding: 0, pointerEvents: 'none' }}>
       {[0,1,2,3].map(i => (
         <li key={i} style={{ borderLeft: i === 0 ? '1px solid rgba(136,135,137,0.14)' : 'none', borderRight: '1px solid rgba(136,135,137,0.14)' }} />
       ))}
