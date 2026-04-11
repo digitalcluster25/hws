@@ -360,6 +360,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   .nav-desktop-pill { display: none; }
   .nav-burger-mobile { display: flex; }
   .nav-lang { display: none; }
+  .nav-bar { padding-left: 16px; padding-right: 16px; }
 }
 
 /* «МЕНЮ» / «ЗАКРЫТЬ» текст */
@@ -1080,7 +1081,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   .proc-h2 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
 }
 @media (max-width: 640px) {
-  .proc-grid { grid-template-columns: 1fr; gap: 0; }
+  .proc-grid { grid-template-columns: 1fr; row-gap: 2rem; column-gap: 0; }
 }
 
 /* ─────────────────────────────────────────────
@@ -2562,8 +2563,8 @@ select.hws-field { appearance: none; cursor: pointer; }
   .sv-group-label { padding: 1.75rem 0; }
   .sv-group-entries { border-left: none; }
 }
-@media (max-width: 640px) {
-  .sv-pair { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+  .sv-pair { grid-template-columns: 1fr; row-gap: 2rem; }
 }
 
 /* ══════════════════════════════════════════
@@ -2799,6 +2800,15 @@ select.hws-field { appearance: none; cursor: pointer; }
 
 @media (max-width: 768px) {
   .grid-vlines { visibility: hidden; }
+
+  /* Под ключ — убрать отступы и ховер у карточек */
+  .proc-card { padding: 0; border-radius: 0; }
+  .proc-card:hover { background: transparent; }
+  .proc-card:hover .proc-icon { background: transparent; }
+
+  /* ГЕОГРАФИЯ — убрать отступы и ховер у карточек */
+  .clients-entry { padding: 0; border-radius: 0; }
+  .clients-entry:hover { background: transparent; }
 }
 
 /* ── Mobile border-top spacing ── */
@@ -2877,4 +2887,22 @@ select.hws-field { appearance: none; cursor: pointer; }
   .tsl-heading br {
     display: none;
   }
+}
+
+/* ── Services page — mobile heading typography ── */
+@media (max-width: 768px) {
+  .sv-statement {
+    font-size: 49px !important;
+    line-height: 51.7px !important;
+    letter-spacing: -2.2px !important;
+  }
+  .sv-statement-section { padding-bottom: 3rem !important; }
+  .sv-group-label { position: static; padding-top: 0 !important; padding-bottom: 0 !important; }
+  .sv-group-entries { padding-top: 1rem !important; }
+  .sv-entry { border-left: none; padding-left: 0; padding-right: 0; }
+  .sv-label-txt { font-size: 27.06px !important; font-weight: 500 !important; line-height: 1.15 !important; }
+  .sv-cta-h2 { font-size: 49px !important; line-height: 51.7px !important; letter-spacing: -2.2px !important; }
+  .sv-cta { padding-top: 60px !important; padding-bottom: 60px !important; }
+  .sv-group { padding-bottom: 60px !important; }
+  .sv-group-entries { padding-bottom: 0 !important; }
 }

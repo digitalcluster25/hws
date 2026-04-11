@@ -81,7 +81,6 @@ export default function Services() {
       {/* ── STATEMENT ── */}
       <section className="sv-statement-section hws-px">
         <div style={wrap}>
-          <p className="sv-eyebrow">Что мы строим</p>
           <h1 className="sv-statement">
             Wellness-объекты, которые повышают RevPAR, удерживают гостей и становятся якорной зоной курорта.
           </h1>
