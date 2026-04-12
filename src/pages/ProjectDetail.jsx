@@ -8,7 +8,7 @@ const C = { dark: '#323625', mid: '#A2AC89', light: '#B5BD9A', terra: '#CB8268',
 const px = { paddingLeft: 'max(1.5vw,16px)', paddingRight: 'max(1.5vw,16px)' }
 const wrap = { maxWidth: '1344px', margin: '0 auto' }
 
-const conceptSectionStyle = { background: '#B5BD9A', paddingLeft: '5.8rem', paddingRight: '5.8rem', paddingTop: '5rem', paddingBottom: '5rem', position: 'relative' }
+const conceptSectionStyle = { background: '#B5BD9A', ...px, paddingTop: '5rem', paddingBottom: '5rem', position: 'relative' }
 const conceptContentStyle = { position: 'relative', zIndex: 1 }
 
 function GridLines() {
@@ -126,7 +126,7 @@ export default function ProjectDetail() {
       {(prev || next) && (
         <div className={`proj-next-card${cardHidden ? ' proj-next-card--hidden' : ''}`}>
           <div className="proj-next-card-top">
-            <span className="proj-next-card-label">Следующий проект</span>
+            <span className="proj-next-card-label"><span className="proj-next-card-label--full">Следующий проект</span><span className="proj-next-card-label--short">след. проект</span></span>
             <div className="proj-next-card-arrows">
               {prev ? (
                 <Link to={`/portfolio/${prev.slug}`} className="proj-next-arr-btn" aria-label="Предыдущий проект">
@@ -208,7 +208,7 @@ export default function ProjectDetail() {
 
       {/* ── 03. АТРАКЦИИ ── */}
       {hasAttractions && (
-        <section style={{ background: '#fff', paddingLeft: '5.8rem', paddingRight: '5.8rem', paddingTop: '5rem', paddingBottom: '5rem', position: 'relative' }}>
+        <section style={{ background: '#fff', ...px, paddingTop: '5rem', paddingBottom: '5rem', position: 'relative' }}>
           <GridLines />
           <div style={{ position: 'relative', zIndex: 1 }}>
             <p className="proj-step-label-concept" style={{ marginBottom: '2rem' }}>03. Атракции</p>
@@ -235,7 +235,7 @@ export default function ProjectDetail() {
 
       {/* ── 05. ТЕХНОЛОГИИ ── */}
       {hasTech && (
-        <section style={{ background: '#fff', paddingLeft: '5.8rem', paddingRight: '5.8rem', paddingTop: '5rem', paddingBottom: '5rem' }}>
+        <section style={{ background: '#fff', ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
           <p className="proj-step-label-concept" style={{ color: C.muted, marginBottom: '2rem' }}>05. ТЕХНОЛОГИИ</p>
           <div className="proj-tech-cards-grid">
             {techCards.map((card, i) => {
@@ -259,7 +259,7 @@ export default function ProjectDetail() {
       )}
 
       {/* ── 05. РЕЗУЛЬТАТ ── */}
-      <section style={{ background: 'rgba(203,130,104,0.8)', paddingLeft: '5.8rem', paddingRight: '5.8rem', paddingTop: '6rem', paddingBottom: '6rem' }}>
+      <section style={{ background: 'rgba(203,130,104,0.8)', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
         <p className="proj-step-label-concept" style={{ marginBottom: '2rem' }}>05. РЕЗУЛЬТАТ</p>
         <div className="proj-concept-grid">
           {/* Левая колонка: заголовок */}
@@ -268,7 +268,7 @@ export default function ProjectDetail() {
           </div>
           <div aria-hidden="true" />
           {/* Правая часть: инфографика или spec list */}
-          <div style={{ gridColumn: '3 / -1', display: 'flex', alignItems: 'flex-start' }}>
+          <div className="proj-concept-right" style={{ gridColumn: '3 / -1', display: 'flex', alignItems: 'flex-start' }}>
             {p.stats ? (
               <div className="proj-stats-grid" style={{ width: '100%' }}>
                 {p.stats.map((s, i) => (

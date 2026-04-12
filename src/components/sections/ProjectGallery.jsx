@@ -3,6 +3,7 @@ import { motion, animate, useMotionValue } from 'framer-motion'
 
 const C = { dark: '#323625', mid: '#A2AC89', muted: '#6b7057' }
 const SIDE = '5.8rem'
+const SIDE_MOBILE = 'max(1.5vw, 16px)'
 
 function ArrowLeft() {
   return (
@@ -19,17 +20,27 @@ function ArrowRight() {
   )
 }
 
-const PER_SLIDE = 3
-
 export default function ProjectGallery({ photos = [], title = '' }) {
   const trackRef = useRef(null)
   const [trackW, setTrackW] = useState(0)
   const x = useMotionValue(0)
   const [slide, setSlide] = useState(0)
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768)
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  useEffect(() => { setSlide(0); x.set(0) }, [isMobile]) // eslint-disable-line
+
+  const perSlide = isMobile ? 1 : 3
+  const side = isMobile ? SIDE_MOBILE : SIDE
 
   const groups = []
-  for (let i = 0; i < photos.length; i += PER_SLIDE) {
-    groups.push(photos.slice(i, i + PER_SLIDE))
+  for (let i = 0; i < photos.length; i += perSlide) {
+    groups.push(photos.slice(i, i + perSlide))
   }
   const total = groups.length
 
@@ -61,7 +72,7 @@ export default function ProjectGallery({ photos = [], title = '' }) {
     <section style={{ background: '#fff' }}>
 
       {/* Лейбл — как в секции 03 */}
-      <div style={{ paddingLeft: SIDE, paddingRight: SIDE, paddingTop: '5rem', paddingBottom: '2rem' }}>
+      <div style={{ paddingLeft: side, paddingRight: side, paddingTop: '5rem', paddingBottom: '2rem' }}>
         <p className="proj-step-label-concept" style={{ color: C.muted }}>04. Галерея</p>
       </div>
 
@@ -77,8 +88,8 @@ export default function ProjectGallery({ photos = [], title = '' }) {
                 gap: '0.75rem',
                 flexShrink: 0,
                 width: trackW || '100vw',
-                paddingLeft: SIDE,
-                paddingRight: SIDE,
+                paddingLeft: side,
+                paddingRight: side,
                 boxSizing: 'border-box',
               }}
             >
@@ -89,7 +100,7 @@ export default function ProjectGallery({ photos = [], title = '' }) {
                 >
                   <img
                     src={src}
-                    alt={`${title} ${gi * PER_SLIDE + pi + 1}`}
+                    alt={`${title} ${gi * perSlide + pi + 1}`}
                     loading="lazy"
                     style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
@@ -105,8 +116,8 @@ export default function ProjectGallery({ photos = [], title = '' }) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingLeft: SIDE,
-        paddingRight: SIDE,
+        paddingLeft: side,
+        paddingRight: side,
         paddingTop: '1.2rem',
         paddingBottom: '3rem',
       }}>
