@@ -158,14 +158,17 @@ export default function ProjectDetail() {
       )}
 
       {/* ── 01. КОНЦЕПЦИЯ ── */}
-      <section style={conceptSectionStyle}>
+      <section className="proj-section" style={conceptSectionStyle}>
         <GridLines />
           <div className="proj-concept-grid" style={conceptContentStyle}>
             {/* Левая колонка: лейбл + большой заголовок */}
             <div className="proj-concept-left">
               <p className="proj-step-label-concept">01. КОНЦЕПЦИЯ</p>
               {p.positioning && (
-                <p className="proj-positioning-text">{p.positioning}</p>
+                <p className="proj-positioning-text proj-result-heading">{p.positioning}</p>
+              )}
+              {p.positioningSub && (
+                <p className="proj-description">{p.positioningSub}</p>
               )}
             </div>
             {/* Пустой разделитель (Ohio: 1/12) */}
@@ -186,13 +189,13 @@ export default function ProjectDetail() {
 
       {/* ── 02. ПОЗИЦИОНИРОВАНИЕ ── */}
       {(p.p2 || p.p3 || p.quote) && (
-        <section style={{ ...conceptSectionStyle, background: '#eef0e8' }}>
+        <section className="proj-section" style={{ ...conceptSectionStyle, background: '#eef0e8' }}>
           <GridLines />
           <div className="proj-concept-grid" style={conceptContentStyle}>
             <div className="proj-concept-left">
               <p className="proj-step-label-concept">02. ПОЗИЦИОНИРОВАНИЕ</p>
               {p.quote && (
-                <p className="proj-positioning-text">«{p.quote}»</p>
+                <p className="proj-positioning-text proj-result-heading">«{p.quote}»</p>
               )}
             </div>
             <div aria-hidden="true" />
@@ -208,7 +211,7 @@ export default function ProjectDetail() {
 
       {/* ── 03. АТРАКЦИИ ── */}
       {hasAttractions && (
-        <section style={{ background: '#fff', ...px, paddingTop: '5rem', paddingBottom: '5rem', position: 'relative' }}>
+        <section className="proj-section" style={{ background: '#fff', ...px, paddingTop: '5rem', paddingBottom: '5rem', position: 'relative' }}>
           <GridLines />
           <div style={{ position: 'relative', zIndex: 1 }}>
             <p className="proj-step-label-concept" style={{ marginBottom: '2rem' }}>03. Атракции</p>
@@ -235,7 +238,7 @@ export default function ProjectDetail() {
 
       {/* ── 05. ТЕХНОЛОГИИ ── */}
       {hasTech && (
-        <section style={{ background: '#fff', ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
+        <section className="proj-section" style={{ background: '#fff', ...px, paddingTop: '5rem', paddingBottom: '5rem' }}>
           <p className="proj-step-label-concept" style={{ color: C.muted, marginBottom: '2rem' }}>05. ТЕХНОЛОГИИ</p>
           <div className="proj-tech-cards-grid">
             {techCards.map((card, i) => {
@@ -259,12 +262,13 @@ export default function ProjectDetail() {
       )}
 
       {/* ── 05. РЕЗУЛЬТАТ ── */}
-      <section style={{ background: 'rgba(203,130,104,0.8)', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
+      <section className="proj-section" style={{ background: 'rgba(203,130,104,0.8)', ...px, paddingTop: '6rem', paddingBottom: '6rem' }}>
         <p className="proj-step-label-concept" style={{ marginBottom: '2rem' }}>05. РЕЗУЛЬТАТ</p>
         <div className="proj-concept-grid">
           {/* Левая колонка: заголовок */}
           <div className="proj-concept-left" style={{ padding: 0 }}>
-            {p.p3 && <p className="proj-positioning-text">{p.p3}</p>}
+            {p.p3 && <p className="proj-positioning-text proj-result-heading">{p.p3}</p>}
+            {p.p3Sub && <p className="proj-description">{p.p3Sub}</p>}
           </div>
           <div aria-hidden="true" />
           {/* Правая часть: инфографика или spec list */}

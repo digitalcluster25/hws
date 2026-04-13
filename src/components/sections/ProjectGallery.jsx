@@ -72,7 +72,7 @@ export default function ProjectGallery({ photos = [], title = '' }) {
     <section style={{ background: '#fff' }}>
 
       {/* Лейбл — как в секции 03 */}
-      <div style={{ paddingLeft: side, paddingRight: side, paddingTop: '5rem', paddingBottom: '2rem' }}>
+      <div className="proj-gallery-header" style={{ paddingLeft: side, paddingRight: side, paddingTop: '5rem', paddingBottom: '2rem' }}>
         <p className="proj-step-label-concept" style={{ color: C.muted }}>04. Галерея</p>
       </div>
 
@@ -96,7 +96,7 @@ export default function ProjectGallery({ photos = [], title = '' }) {
               {group.map((src, pi) => (
                 <div
                   key={pi}
-                  style={{ height: '56vh', minHeight: '320px', overflow: 'hidden', position: 'relative', borderRadius: '2px' }}
+                  style={{ height: '56vh', minHeight: '320px', overflow: 'hidden', position: 'relative', borderRadius: '16px' }}
                 >
                   <img
                     src={src}

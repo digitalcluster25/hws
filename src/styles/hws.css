@@ -2746,7 +2746,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   flex-direction: column;
   padding: 2.5rem 2rem;
   min-height: 420px;
-  border-radius: 0;
+  border-radius: 20px;
 }
 .proj-tech-card-top {
   flex: 1;
@@ -2780,18 +2780,26 @@ select.hws-field { appearance: none; cursor: pointer; }
 }
 @media (max-width: 768px) {
   .proj-concept-grid { grid-template-columns: 1fr; }
-  .proj-concept-left { grid-column: 1 / -1; padding: 2rem 0; }
+  .proj-concept-left { grid-column: 1 / -1; padding: 0 0 2rem 0; }
   .proj-concept-right { grid-column: 1 / -1 !important; }
   .proj-stats-grid { grid-template-columns: 1fr; gap: 0; }
+  .proj-stat-item { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0 0.5rem; margin-top: 10px; }
+  .proj-stat-value { font-size: clamp(1.5rem, 8vw, 2rem); margin: 0; flex-shrink: 0; }
+  .proj-stat-label { font-size: 16px; margin: 0; flex-shrink: 1; }
+  .proj-stat-desc { flex: 0 0 100%; margin-top: 0.25rem; }
   .proj-concept-grid > [aria-hidden="true"] { display: none; }
-  .proj-concept-col { padding: 2rem 0; }
+  .proj-concept-col { padding: 0; }
   .proj-concept-col + .proj-concept-col { padding-left: 0; padding-top: 0; }
   .proj-concept-block2 { grid-template-columns: 1fr; }
   .proj-concept-block2-left { grid-template-columns: 1fr; }
   .proj-concept-block2-right { padding: 2.5rem 0; }
   .proj-concept-block2-text + .proj-concept-block2-text { padding: 2rem 0; }
   .proj-concept-block2-text { padding: 2rem 0; }
-  .proj-concept-statement { font-size: clamp(1.6rem, 5vw, 2.8rem); }
+  .proj-concept-statement { font-size: 49px !important; line-height: 51.7px !important; letter-spacing: -2.2px !important; font-weight: 600 !important; }
+  .proj-positioning-text { font-size: 49px !important; line-height: 51.7px !important; letter-spacing: -2.2px !important; font-weight: 600 !important; }
+  .proj-result-heading { font-size: 36px !important; line-height: 32.4px !important; letter-spacing: -0.7px !important; text-transform: none !important; }
+  .proj-credits-heading { font-size: 49px !important; line-height: 51.7px !important; letter-spacing: -2.2px !important; font-weight: 600 !important; }
+  .proj-description { font-size: 18px !important; line-height: 23.8px !important; letter-spacing: 0px !important; font-weight: 500 !important; }
   .proj-tech-grid { grid-template-columns: 1fr; }
   .proj-tech-cards-grid { grid-template-columns: 1fr; }
   .proj-tech-card-new { min-height: 0; padding: 1.5rem 1.25rem; }
@@ -2912,7 +2920,11 @@ select.hws-field { appearance: none; cursor: pointer; }
   .ct-col { padding-left: 0 !important; padding-right: 0 !important; }
   .ct-info { padding-top: 60px !important; padding-bottom: 60px !important; }
   .ct-hero { padding-top: 9.33rem !important; padding-bottom: 4.67rem !important; }
-  .proj-hero-panel-inner { padding-left: max(1.5vw, 16px) !important; padding-right: max(1.5vw, 16px) !important; }
+  .proj-hero-full { height: auto; overflow: visible; }
+  .proj-hero-bg { position: relative; inset: auto; width: 100%; height: 400px; flex-shrink: 0; }
+  .proj-hero-overlay { height: 400px; bottom: auto; }
+  .proj-hero-panel { position: relative; bottom: auto; left: auto; width: 100%; }
+  .proj-hero-panel-inner { padding: 2rem max(1.5vw, 16px) !important; }
   .proj-next-card { right: max(1.5vw, 16px); transform: none; bottom: 10px; width: auto; height: 52px; padding: 0 18px; border-radius: 40px; display: flex; align-items: center; }
   .proj-next-card-sub { display: none; }
   .proj-next-card-top { margin-bottom: 0; }
@@ -2923,4 +2935,7 @@ select.hws-field { appearance: none; cursor: pointer; }
   .proj-next-card-label--short { display: none; }
   .sv-group { padding-bottom: 60px !important; }
   .sv-group-entries { padding-bottom: 0 !important; }
+  .proj-hero-tagline { font-size: 14px !important; line-height: 23.8px !important; letter-spacing: 0px !important; font-family: inherit !important; }
+  .proj-section { padding-top: 60px !important; padding-bottom: 60px !important; }
+  .proj-gallery-header { padding-top: 60px !important; }
 }
