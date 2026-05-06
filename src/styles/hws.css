@@ -11,6 +11,8 @@
   --c-border: #e5e7e0;
   --c-bg-off: #f8f8f5;
   --font: 'Inter', sans-serif;
+  /* Совпадает с .hws-wrap — края шапки на десктопе выровнены с сеткой */
+  --hws-grid-max: 1344px;
 }
 
 /* ─────────────────────────────────────────────
@@ -40,7 +42,7 @@ p, span, a, li, label, input, textarea, select, button, td, th {
 /* ─────────────────────────────────────────────
    Layout utilities
    ───────────────────────────────────────────── */
-.hws-wrap { max-width: 1344px; margin: 0 auto; }
+.hws-wrap { max-width: var(--hws-grid-max); margin: 0 auto; }
 .hws-px   { padding-left: max(1.5vw, 16px); padding-right: max(1.5vw, 16px); }
 
 /* ─────────────────────────────────────────────
@@ -202,7 +204,9 @@ p, span, a, li, label, input, textarea, select, button, td, th {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 20px max(1.5vw, 16px);
+  /* На узких экранах — как .hws-px; на широких — внешний край совпадает с .hws-wrap */
+  --nav-inline-pad: max(max(1.5vw, 16px), calc((100vw - var(--hws-grid-max)) / 2));
+  padding: 20px var(--nav-inline-pad);
   display: flex;
   align-items: center;
   justify-content: space-between;
