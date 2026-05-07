@@ -7,6 +7,7 @@ import Portfolio from './pages/Portfolio'
 import ProjectDetail from './pages/ProjectDetail'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
+import Admin from './pages/Admin'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -14,10 +15,12 @@ function ScrollToTop() {
   return null
 }
 
-export default function App() {
+function MainLayout() {
+  const { pathname } = useLocation()
+  const isAdmin = pathname === '/admin'
+  if (isAdmin) return <Routes><Route path="/admin" element={<Admin />} /></Routes>
   return (
-    <BrowserRouter>
-      <ScrollToTop />
+    <>
       <Nav />
       <Routes>
         <Route path="/"                   element={<Wireframe />} />
@@ -27,6 +30,15 @@ export default function App() {
         <Route path="/contact"            element={<Contact />} />
       </Routes>
       <Footer />
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <MainLayout />
     </BrowserRouter>
   )
 }

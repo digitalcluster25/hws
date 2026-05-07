@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "menu": "MENU",
+    "close": "CLOSE",
+    "company": "Company",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "why": {
+    "label": "How we work",
+    "h2bright": "European craftsmanship ",
+    "h2muted": "that creates world-class wellness destinations.",
+    "text1": "Every project starts with a challenge that has no ready answer. Location, audience, budget, the feeling guests should carry away — we work with all of it at once.",
+    "text2": "Emily Resort, Taze Bay, SOP Spa at Sadu Hotel — each of these could have been simply good. We made them the kind people talk about.",
+    "ctaBtn": "View all services"
+  },
+  "process": {
+    "badge": "Turnkey",
+    "h2light": "From concept ",
+    "h2dark": "to opening day",
+    "lead": "One team at every stage — from market research to launch. No contractor changes, no quality loss.",
+    "stepLabel": "Step"
+  },
+  "clients": {
+    "badge": "Clients",
+    "h2light": "Trusted by ",
+    "h2dark1": "leading ",
+    "h2dark2": "wellness brands"
+  },
+  "geography": {
+    "label": "GEOGRAPHY",
+    "h2line1": "Wellness facilities",
+    "h2line2": "worldwide.",
+    "sub": "International portfolio: Europe, Caucasus, Central Asia."
+  },
+  "testimonials": {
+    "label": "TESTIMONIALS",
+    "h2line1": "What our",
+    "h2line2": "clients say.",
+    "ariaBack": "Previous",
+    "ariaNext": "Next"
+  },
+  "cta": {
+    "label": "PROJECT INQUIRIES",
+    "h2": "We'll build your wellness facility from the ground up to opening day.",
+    "btn": "Book a meeting"
+  },
+  "footer": {
+    "copy": "© 2026 Home Wood Spa. All rights reserved.",
+    "offer": "Public offer"
+  },
+  "services": {
+    "statement": "Wellness facilities that raise RevPAR, retain guests and become the anchor zone of your resort.",
+    "mainLabel": "Core services",
+    "mgmtLabel": "Management & consulting",
+    "ctaLabel": "Start a project",
+    "ctaH2": "Shall we discuss your wellness facility?",
+    "ctaBtn": "Book a consultation"
+  },
+  "contact": {
+    "heroH1": "Get in touch",
+    "heroSub": "Leave a request — we'll respond within 24 hours and offer a preliminary concept free of charge.",
+    "col1H": "Inquiries",
+    "col1label1": "Phone / WhatsApp",
+    "col1note1": "Mon–Fri, 9:00–18:00 EST",
+    "col1label2": "Email",
+    "col1note2": "For project inquiries",
+    "col2H": "Office",
+    "col2note": "We work worldwide:\nUSA · Europe · Caucasus · Central Asia",
+    "col3H": "Messengers"
+  },
+  "project": {
+    "notFound": "Project not found.",
+    "backLink": "← All projects",
+    "clientLabel": "CLIENT",
+    "periodLabel": "PERIOD",
+    "areaLabel": "AREA",
+    "locationLabel": "LOCATION",
+    "statusLabel": "STATUS",
+    "durationLabel": "DURATION",
+    "typeLabel": "Object type",
+    "cityLabel": "City",
+    "countryLabel": "Country",
+    "termLabel": "Duration",
+    "step01": "01. CONCEPT",
+    "step02": "02. POSITIONING",
+    "step03": "03. Features",
+    "step05tech": "05. TECHNOLOGIES",
+    "step05result": "05. RESULT",
+    "thermalZones": "Thermal zones",
+    "techMaterials": "Materials",
+    "techBuildingTech": "Construction technologies",
+    "techEnergy": "Energy efficiency",
+    "techEcology": "Ecology",
+    "nextFull": "Next project",
+    "nextShort": "next proj.",
+    "ariaBack": "Previous project",
+    "ariaNext": "Next project",
+    "viewProject": "View project ——",
+    "allProjects": "← All projects",
+    "homeAriaLabel": "Back to home"
+  }
+}

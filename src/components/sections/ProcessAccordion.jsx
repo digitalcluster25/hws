@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function GridLines() {
   return (
@@ -19,33 +20,6 @@ function GridLines() {
   )
 }
 
-const STEPS = [
-  {
-    title: 'Исследование и позиционирование',
-    desc: 'Анализ рынка, конкурентов и целевой аудитории. Финансовое обоснование инвестиций ещё до проектирования.',
-  },
-  {
-    title: 'Дизайн-концепция и 3D',
-    desc: 'Термальный маршрут, подбор материалов и 3D-визуализация — согласованные с вашим брендом и бюджетом.',
-  },
-  {
-    title: 'Поставка материалов',
-    desc: 'Природный камень, термодерево, турецкая мозаика — от проверенных европейских поставщиков.',
-  },
-  {
-    title: 'Строительство и монтаж',
-    desc: 'Полное управление стройкой с нашими подрядчиками. Европейские стандарты, соблюдение сроков.',
-  },
-  {
-    title: 'Инженерные системы',
-    desc: 'Термальное оборудование, вентиляция, гидромассаж — интегрированы как единая wellness-система.',
-  },
-  {
-    title: 'Запуск и поддержка',
-    desc: 'Открытие объекта, обучение команды и послепродажное сопровождение. Остаёмся на связи после старта.',
-  },
-]
-
 const FADE = {
   hidden: { opacity: 0, y: 20 },
   show: (i) => ({
@@ -55,29 +29,28 @@ const FADE = {
 }
 
 export default function ProcessAccordion() {
+  const { t } = useTranslation('labels')
+  const { t: tc } = useTranslation('content')
+  const steps = tc('steps', { returnObjects: true }) || []
+
   return (
     <section id="process" className="proc-section" style={{ paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)', position: 'relative' }}>
       <GridLines />
       <div className="proc-wrap" style={{ position: 'relative', zIndex: 1 }}>
 
-        {/* ── LEFT ── */}
         <div className="proc-left">
-          <span className="proc-badge">Под ключ</span>
+          <span className="proc-badge">{t('process.badge')}</span>
           <div className="proc-h2">
-            <span className="proc-h2-light">От концепции </span>
-            <span className="proc-h2-dark">до открытия объекта<span className="proc-dot">.</span></span>
+            <span className="proc-h2-light">{t('process.h2light')}</span>
+            <span className="proc-h2-dark">{t('process.h2dark')}<span className="proc-dot">.</span></span>
           </div>
-          <p className="proc-lead">
-            Одна команда на каждом этапе — от маркетингового исследования до запуска.
-            Без смены подрядчиков и потери качества.
-          </p>
+          <p className="proc-lead">{t('process.lead')}</p>
         </div>
 
-        {/* ── RIGHT GRID ── */}
         <div className="proc-grid">
-          {STEPS.map((s, i) => (
+          {steps.map((s, i) => (
             <motion.div
-              key={s.title}
+              key={i}
               className="proc-card"
               custom={i}
               initial="hidden"
@@ -85,7 +58,7 @@ export default function ProcessAccordion() {
               viewport={{ once: true, amount: 0.15 }}
               variants={FADE}
             >
-              <p className="proc-step-num">Шаг {i + 1}.</p>
+              <p className="proc-step-num">{t('process.stepLabel')} {i + 1}.</p>
               <h3 className="proc-card-title">{s.title}</h3>
               <p className="proc-card-desc">{s.desc}</p>
             </motion.div>

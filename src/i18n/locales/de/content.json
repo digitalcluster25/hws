@@ -1,0 +1,219 @@
+{
+  "hero": {
+    "subtitle": "Europäische Handwerkskunst in Luxushotels und Resorts weltweit.",
+    "h1": "Vom authentischen Hammam bis zur skandinavischen Sauna."
+  },
+  "about": {
+    "bright": "Seit fast zwei Jahrzehnten planen und bauen wir Premium-Wellness-Räume — ",
+    "muted": "von großen Resort-Spas bis hin zu intimen privaten Anlagen, indem wir uralte Badetraditionen mit modernem Design und technischer Präzision verbinden."
+  },
+  "whyCards": [
+    { "cat": "HAMAMS", "title": "Türkische Bäder, authentische Hamams", "desc": "Traditionelles Badehandwerk mit historisch korrekten Materialien. Jeder Hamam — ein kulturelles und thermisches Erlebnis." },
+    { "cat": "SAUNEN", "title": "Finnische Saunen, Thermalbäder", "desc": "Skandinavische Saunen und Dampfräume als ganzheitliche Wellness-Ökosysteme für Hotels und Residenzen." },
+    { "cat": "SPA-KOMPLEXE", "title": "Thermalbereiche, Wellness-Reisen", "desc": "Vollwertige Thermalkomplexe: Eisbäder, Tauchbecken, Dampfräume — als eine einzige Reise." },
+    { "cat": "PRIVATE OBJEKTE", "title": "Residenzen, Unternehmens-Spas", "desc": "Private Hamams und Wellness-Räume nach individuellen Standards und der Ästhetik des Kunden." }
+  ],
+  "steps": [
+    { "title": "Forschung & Positionierung", "desc": "Markt-, Wettbewerbs- und Zielgruppenanalyse. Finanzielle Begründung der Investition vor Planungsbeginn." },
+    { "title": "Designkonzept & 3D", "desc": "Thermalroute, Materialauswahl und 3D-Visualisierung — abgestimmt auf Ihre Marke und Ihr Budget." },
+    { "title": "Materiallieferung", "desc": "Naturstein, Thermoholz, türkisches Mosaik — von bewährten europäischen Lieferanten." },
+    { "title": "Bau & Montage", "desc": "Vollständiges Baumanagement mit unseren Auftragnehmern. Europäische Standards, Termineinhaltung." },
+    { "title": "Ingenieursysteme", "desc": "Thermalausrüstung, Belüftung, Hydrotherapie — als einheitliches Wellness-System integriert." },
+    { "title": "Start & Support", "desc": "Objekteröffnung, Teamschulung und After-Sales-Begleitung. Wir bleiben nach dem Start erreichbar." }
+  ],
+  "segments": [
+    { "title": "Luxushotels & Resorts", "text": "Wir schaffen Wellness-Destinationen, die den RevPAR steigern und Ihr Objekt differenzieren." },
+    { "title": "Private Residenzen", "text": "Private Hamams, Saunen und Wellness-Räume nach Ihren Standards." },
+    { "title": "Wellness-Zentren", "text": "Gesundheitszentren für maximalen therapeutischen Nutzen." },
+    { "title": "Unternehmensobjekte", "text": "Wellness-Lösungen für Unternehmenskunden und Hospitality-Gruppen." }
+  ],
+  "geoclients": [
+    { "project": "Porvapør Nordic Spa & Tapas Bar", "city": "Barcelona", "country": "Spanien", "website": "porvapor.com" },
+    { "project": "Woloshin Banya", "city": "Chișinău", "country": "Moldau", "website": "banya.md" },
+    { "project": "Luxury House Veles", "city": "Hisarya", "country": "Bulgarien", "website": "luxuryhouseveles.com" },
+    { "project": "Taze Bay Historic Baths", "city": "Baku", "country": "Aserbaidschan", "website": "tazebay.az" },
+    { "project": "Hammam Bath", "city": "Schikhow", "country": "Aserbaidschan", "website": "hamambath.az" }
+  ],
+  "testimonials": [
+    {
+      "tag": "Öffentlicher Badekomplex",
+      "quote": "Die Aufgabe war anspruchsvoll — eine Anlage zu schaffen, die gleichzeitig 100 Gäste bedient und dennoch Privatsphäre wahrt. Home Wood Spa entwarf getrennte Zonen für Männer und Frauen, VIP-Cottages mit Einzelbädern und eine Infrastruktur, die als ein einziger Organismus funktioniert. Das Schneezimmer und das Salzzimmer wurden zu den Zonen, die Gäste besonders hervorheben.",
+      "name": "Hammam Bath",
+      "title": "Schikhow, Aserbaidschan"
+    },
+    {
+      "tag": "Hotel-SPA / Radisson Individuals",
+      "quote": "Die technischen Bedingungen waren anspruchsvoll — ein Kellerraum, niedrige Decken, viele Versorgungsleitungen. Home Wood Spa löste alle technischen Aufgaben und schuf einen authentischen kasachischen Raum mit Lehmbadestuben, der zu einer eigenständigen Attraktion des Hotels wurde. Radisson-Gäste bezeichnen SOP Spa als etwas, das sie in keinem anderen Hotel der Gruppe gesehen haben.",
+      "name": "Sadu SPA by Radisson Individuals",
+      "title": "Almaty, Kasachstan"
+    },
+    {
+      "tag": "Multifunktionaler Wellness-Komplex",
+      "quote": "Emily Resort war von Anfang an als Ort geplant, der den Gästen ein vollständiges Wellness-Erlebnis unter einem Dach bietet. Home Wood Spa realisierte 12 einzigartige Saunen und Dampfräume — jede mit eigenem Konzept, vom Floatarium bis zur Kino-Sauna. Der Spa-Bereich ist das, was uns vom Markt abhebt: Gäste buchen das Resort speziell wegen des Thermalerlebnisses.",
+      "name": "Emily Resort",
+      "title": "Lwiw, Ukraine"
+    },
+    {
+      "tag": "Rekonstruktion eines historischen Hamams",
+      "quote": "Taze Bay ist ein Kulturdenkmal, und die Hauptschwierigkeit bestand darin, Authentizität zu bewahren und gleichzeitig einen modernen Spa-Komplex zu schaffen. Home Wood Spa entwickelte eine Lösung, die die Geschichte des Gebäudes respektiert und eine russische Sauna, ein Salzzimmer, ein Schneezimmer und VIP-Badestuben hinzufügt. Die Aufmerksamkeit für Materialien und Details ist auf einem Niveau, das bei anderen Auftragnehmern schwer zu finden ist.",
+      "name": "Taze Bay Historic Baths",
+      "title": "Baku, Aserbaidschan"
+    }
+  ],
+  "mainServices": [
+    { "title": "Spa-Komplexe", "desc": "Die Zonenplanung beeinflusst Durchschnittsausgaben und Aufenthaltsdauer — dies wird vor Baubeginn festgelegt. Wenn der Raum einer einheitlichen Thermalrouten-Logik folgt, fragt der Gast nicht, wo er als nächstes hingeht — er bleibt einfach." },
+    { "title": "Aromatherapieräume", "desc": "Eine kontrollierte Umgebung mit präziser Feuchtigkeits-, Temperatur- und Ölkonzentrationskontrolle. Duft aktiviert das emotionale Gedächtnis zuverlässiger als jede visuelle Lösung." },
+    { "title": "Badehäuser & Saunen", "desc": "Wir bauen nach traditionellen Dampferzeugungsverfahren und aktuellen Sicherheitsstandards — eine gut gebaute Sauna wird zur Ankerzone, für die der nächste Besuch geplant wird." },
+    { "title": "Hamams & Römische Dampfbäder", "desc": "Ein Hamam erfordert präzise Arbeit mit Marmor, Fußbodenheizung und gleichmäßiger Dampfverteilung. Beide Formate dienen demselben Ziel: tiefe Entspannung durch Wärme, die einhüllt statt drückt." },
+    { "title": "Schwimmbecken & Tauchbäder", "desc": "Filtration, Wasserchemie, Ausbau und Technik werden in einem einzigen Lastenheft festgelegt. Die richtige Temperatur, Klarheit und Akustik des Wassers erzeugen Schwerelosigkeit." },
+    { "title": "Japanische Furo- & Ofuro-Bäder", "desc": "Furo ist eine Außen-Holzwanne mit Direktheizung, Ofuro ein kompaktes Innenbad. Beide erfordern präzise Holzauswahl, Fugendichtung und ein Temperatursystem ohne Überhitzung." },
+    { "title": "Schneekabinen", "desc": "Genaue Berechnung der Kühltechnik, Dämmung und Schneeverteilung bestimmt die Konsistenz des Erlebnisses. Der abrupte Wechsel von Hitze zu Kälte erzeugt einen intensiven Endorphinstoß." },
+    { "title": "Outdoor-Whirlpools", "desc": "Materialien und Technik werden für das jeweilige Regionalklima ausgewählt — vom feuchten Süden bis zum kalten Norden — und gewährleisten ganzjährigen Betrieb ohne saisonale Ausfälle." },
+    { "title": "Beheizter Infinity-Pool", "desc": "Hydraulische Berechnung des Überlaufs und sachgerechte Wärmedämmung bestimmen Betriebskosten und den Erhalt des visuellen Effekts. Die aufgelöste Horizontlinie schafft ein seltenes Raumgefühl ohne Grenzen." },
+    { "title": "Marokkanischer Hamam", "desc": "Das authentische Format erfordert handgelegte Zellige-Kacheln, Gipsstuck und ein korrektes Dampfsystem. Das Interiordetail versetzt den Gast in einen anderen kulturellen Kontext." },
+    { "title": "Sportbecken", "desc": "Wir planen für reale Auslastung: Bahnlänge, Tiefe, Akustik und Filtration für intensiven täglichen Betrieb. Ein vollwertiges Sportbecken erweitert das Publikum und begründet höhere Mitgliedsbeiträge." },
+    { "title": "Kaltbad", "desc": "Volumen, Temperatur und Position relativ zu den Heißzonen beeinflussen die Thermalroute und die Verweildauer. Das Eintauchen in kaltes Wasser nach Hitze ist der intensivste Moment des Besuchs." },
+    { "title": "Heuraum", "desc": "Luftdichtheit, Feuchtigkeitskontrolle und allergenfreie Pflanzenauswahl sind entscheidend — ein seltenes Format mit hoher Nachfrage im gehobenen Wellness-Segment." }
+  ],
+  "mgmtServices": [
+    { "title": "Vorprojektanalyse", "desc": "Markt-, Nachfrage- und Wettbewerbsanalyse vor Planungsbeginn reduziert kostspielige Spätänderungen und beeinflusst die Amortisation direkt." },
+    { "title": "Marktanalyse", "desc": "Wir bewerten die tatsächliche Nachfrage am Standort, Preiserwartungen und Marktsättigung — die Daten bilden die Grundlage für Konzept und Finanzmodell." },
+    { "title": "Nachfrageanalyse", "desc": "Wir bestimmen, welche Formate bei einer konkreten Zielgruppe in einer konkreten Stadt gefragt sind — die Zonenzusammensetzung beeinflusst den durchschnittlichen Umsatz pro Gast direkt." },
+    { "title": "Wettbewerbsanalyse", "desc": "Wir untersuchen, welche Bedürfnisse des Publikums am Standort unerfüllt bleiben — daraus entsteht die Positionierung des Objekts." },
+    { "title": "Einzigartige Konzeptentwicklung", "desc": "Das Konzept ist das Markenfundament: Es bestimmt Zonenzusammensetzung, Preisgestaltung und das Bild des Objekts im Kopf des Gastes noch vor dem Besuch." },
+    { "title": "Umfassendes Management", "desc": "Wir übernehmen operative Prozesse: Servicestandards, Finanzberichterstattung, Qualitätskontrolle. Der Eigentümer erhält ein geführtes Unternehmen." },
+    { "title": "Personalauswahl & Schulung", "desc": "Personal prägt den Eindruck eines Objekts nicht weniger als das Interieur — wir wählen nach Objektstandards aus und schulen vor der Eröffnung." },
+    { "title": "Baukontrollschema", "desc": "Wir überwachen die Plankonformität, Lieferfristen und Arbeitsqualität in jeder Phase. Was auf dem Papier geplant wurde, bleibt im Endergebnis dasselbe." }
+  ],
+  "projects": {
+    "4elements": {
+      "title": "4 Elemente",
+      "type": "Holz-Wellnesskomplex",
+      "status": "Abgeschlossen",
+      "tags": ["Holzbau", "Ökobau", "Sauna"],
+      "quote": "Eine organische Fusion aus traditionellem Holzbau und einem modernen Wellness-Konzept.",
+      "description": "Eine einzigartige Kombination traditioneller und moderner Holzbautechniken schafft hochwertige, umweltfreundliche Gebäude, die sich natürlich in die Umgebung einfügen.",
+      "positioning": "Das Projekt wurde für ein Publikum geschaffen, das Authentizität und Ökologie schätzt.",
+      "positioningSub": "Der Komplex wird als Ort positioniert, an dem natürliche Materialien und traditionelle Techniken eine Atmosphäre der Entspannung schaffen.",
+      "p1": "Das Projekt kombiniert traditionelle und moderne Holzbautechnologien. Zedernholzstämme und die Diamond-Notch-Technik schufen Gebäude mit außergewöhnlichen thermischen Eigenschaften.",
+      "p2": "Alle Gebäude fügen sich organisch in die Naturlandschaft ein. Die natürliche Materialpalette — Zeder, Stein, Thermoholz — schafft eine einheitliche Bildsprache.",
+      "p3": "Der Komplex ist zu einem Referenzprojekt im ökologischen Holz-Wellnessbau geworden.",
+      "p3Sub": "Diamond-Notch-Technik mit STEICO-Zell-Dämmung liefert unterdurchschnittliche Betriebskosten für die Klasse.",
+      "materials": "Zedernholzstämme als Hauptbaustoff — hohe Festigkeit und Phytoncidabgabe. STEICO-Zell-Holzfaserdämmung — zuverlässige Wärmedämmung ohne chemische Zusätze.",
+      "buildingTech": "Diamond-Notch-Technik — traditionelle Eckverbindung für maximale Fugendichte ohne zusätzliche Dichtmittel.",
+      "energy": "Das Projekt minimiert Wärmeverluste. STEICO Zell — ein natürliches Holzmaterial mit hoher Dampfdurchlässigkeit.",
+      "ecology": "Nur natürliche, gesundheitssichere Materialien. Zedernstämme geben gesundheitsfördernde Phytonzide ab.",
+      "stats": [
+        { "value": "18", "label": "Monate bis Fertigstellung", "desc": "Vom Konzept bis zum Abschluss termingerecht und im Budget" },
+        { "value": "4", "label": "Gebäude des Komplexes", "desc": "Alle verbunden durch eine Wellness-Route in der Naturlandschaft" },
+        { "value": "100%", "label": "Natürliche Materialien", "desc": "Zeder, Stein und STEICO Zell — ohne Synthetik und chemische Dichtmittel" }
+      ]
+    },
+    "gaisin": {
+      "title": "Gaisin Wellness",
+      "type": "Badekomplex",
+      "status": "In Entwicklung",
+      "tags": ["Ukrainische Banja", "Hamam", "Pool"],
+      "quote": "Ein privater Wellness-Komplex mit vollständiger Thermalroute im Herzen von Podolien.",
+      "description": "Ein privater Gesundheitskomplex in Haisyn — kompakt, aber funktional vollständig: finnische Sauna, Dampfraum, Kaltbad und Entspannungszone.",
+      "positioning": "Das Objekt wurde als privater Wellness-Raum der Spitzenklasse geschaffen.",
+      "positioningSub": "Positionierungsstrategie — Premium Private Spa ohne Auslandsreise.",
+      "p1": "Der Auftrag lautete, eine vollständige Thermalroute auf kompakter Fläche zu schaffen: finnische Sauna, Hamam, Tauchbad und Ruhebereich als ein System.",
+      "p2": "Die Planung basiert auf dem Prinzip des Thermalkreises — Gäste durchlaufen Hitze, Kühlung und zurück ohne sich zu kreuzen.",
+      "p3": "Das Projekt befindet sich in der Realisierungsphase mit geplantem Abschluss 2024.",
+      "materials": "Sibirische Zeder, Naturstein, Thermoholz — für Langlebigkeit und Ästhetik ausgewählt.",
+      "buildingTech": "Rahmen-Tafel-Technologie mit Holztragwerk. Integrierte Ingenieursysteme nach europäischen Standards.",
+      "energy": "Passives Energiesparen: gedämmte Hülle, Wärmerückgewinnung, automatische Klimatisierung.",
+      "ecology": "Natürliche Materialien ohne Schadstoffe. UV-Filtration-Wasseraufbereitung.",
+      "stats": [
+        { "value": "620", "label": "m² Wellnessfläche", "desc": "Kompakt, aber funktional vollständig mit vollständiger Thermalroute" },
+        { "value": "14", "label": "Monate bis Fertigstellung", "desc": "Vom ersten Entwurf bis zur schlüsselfertigen Übergabe" },
+        { "value": "4", "label": "Thermalbereiche", "desc": "Sauna, Hamam, Tauchbad und Entspannungszone in einem Raum" }
+      ]
+    },
+    "vosparenie": {
+      "title": "Vospareniye · Vdoh",
+      "type": "Hotel-Badekomplex",
+      "status": "Abgeschlossen",
+      "tags": ["Blockholzbau", "Post and Beam", "Sauna"],
+      "quote": "Die Sauna wurde zur Sehenswürdigkeit der Region — ihre Architektur und Authentizität ziehen Gäste von weither an.",
+      "description": "Der Vospareniye-Badekomplex befindet sich auf dem Gelände des Hotels Vdoh. Er besteht aus Holzsaunbauten in einzigartiger Blockholztechnik.",
+      "positioning": "Die Sauna wurde zur touristischen Attraktion der Region.",
+      "p1": "Dieses Projekt kombiniert traditionellen Blockholzbau mit zusätzlichen Konstruktionen aus dem Konzept. Ein kegelförmiges Gebäude beherbergt eine Gemeinschaftssauna und zwei separate Ruheräume.",
+      "p2": "Das Experiment mit halbierten Stämmen erwies sich als sehr erfolgreich — handbearbeitete Abschnitte und Fugendichtung verleihen jedem Gebäude unverwechselbare Züge.",
+      "p3": "Der Komplex ist zu einem Anziehungspunkt für Hotelgäste und Einheimische geworden.",
+      "materials": "Zedernholzstämme — Hauptbaustoff mit hoher Wärmekapazität und natürlicher antibakterieller Wirkung.",
+      "buildingTech": "Kombinierte Technik: Blockholzbau + Post and Beam. Kegelförmiges Gebäude mit Gemeinschaftssauna und zwei Ruheräumen.",
+      "energy": "Holzbau und spezielles Bauverfahren bewahren Wärme und minimieren Energieverbrauch.",
+      "ecology": "Nur natürliche Materialien. Zedernstämme geben gesundheitsfördernde Phytonzide ab.",
+      "stats": [
+        { "value": "18", "label": "Monate bis Fertigstellung", "desc": "Vom Entwurf der einzigartigen Blockkonstruktion bis zur Eröffnung" },
+        { "value": "3", "label": "Saunagebäude", "desc": "Kegelförmiges Gebäude mit Gemeinschaftssauna und zwei Ruheräumen" },
+        { "value": "100%", "label": "Handarbeit", "desc": "Bearbeitungsabschnitte und Fugendichtung — jede Verbindung von Hand" }
+      ]
+    },
+    "emily-resort": {
+      "title": "Emily Resort",
+      "type": "Wellness-Komplex",
+      "status": "Abgeschlossen",
+      "tags": ["Hamam", "Sauna", "Floatarium"],
+      "quote": "Die Thermalroute wurde zum wichtigsten Wettbewerbsvorteil des Resorts — Gäste kehren ihretwegen zurück.",
+      "description": "Emily Resort ist ein innovativer multifunktionaler Wellness-Komplex am Ufer eines natürlichen Sees mit 12 einzigartigen Saunen und Dampfräumen.",
+      "positioning": "Emily Resort — ein einzigartiger Wellness-Komplex, der traditionelle Badepraktiken mit moderner Technologie verbindet.",
+      "p1": "Das Projekt begann bei null: keine einzige Wellness-Zone im bestehenden Gebäude. Gemeinsam mit Architekten entwickelten wir eine Planung, die den Gast auf einer einheitlichen Thermalroute führt.",
+      "p2": "Der Hamam wurde nach traditioneller osmanischer Dampftechnik gebaut: Marmorbodenheizung, präzise Feuchtigkeitskontrolle, authentisches Mosaikhandwerk.",
+      "p3": "Das Hotel erhielt einen Wellness-Bereich, der heute bis zu 30% der Wiederbuchungen ausmacht.",
+      "energy": "Automatisierte Heizungs- und Lüftungssysteme regeln Temperatur und Feuchtigkeit.",
+      "ecology": "Natürliche Materialien (sibirische Zeder, Himalaya-Salz, Naturstein und Lehm) ohne Schadstoffe.",
+      "buildingTech": "Innovative Systeme — automatisierte Dampfzufuhr, beheizte Wände und Böden, fortschrittliche Wasseraufbereitung.",
+      "attractions": [
+        "Floatarium — Schwerelosigkeit durch salzangereichtertes Wasser und Chromotherapie",
+        "Türkischer Hamam — traditioneller Nassdampf zur Hautreinigung und Entspannung",
+        "Schwarze Dampfkabine — holzbefeuerte Sauna mit automatischer Dampfinfusion und Zedernverkleidung",
+        "Infrarotsauna — Tiefenerwärmung durch Kohlenstoffstrahler",
+        "Aroma-Grotte — Dampf, Aromatherapie und Halotherapie kombiniert",
+        "Meditationssauna — Panoramafenster, sanfte Trockenwärme und Aromatherapie",
+        "Marokkanischer Hamam — rituelles Reinigen mit schwarzer Beldi-Seife und Ghassoul-Ton",
+        "Lasynja — traditionelles Zederdampfbad mit aromatischer Bedampfung",
+        "Lavendelsauna — Aromatherapie mit natürlichen Lavendelölen",
+        "Salzsauna — therapeutische Wirkung des Himalaya-Salzes",
+        "Römisches Dampfbad — sanfter Dampf mit hoher Feuchtigkeit",
+        "Kino-Sauna — Thermotherapie kombiniert mit Videoentspannung auf einem Panoramabildschirm"
+      ],
+      "stats": [
+        { "value": "12", "label": "Thermalbereiche", "desc": "Einzigartige Räume vom Hamam und Floatarium bis zur Zeder-Lasynja und Aroma-Grotte" },
+        { "value": "18", "label": "Monate bis Fertigstellung", "desc": "Vom ersten Entwurf bis zur Eröffnung des vollständigen Wellness-Komplexes" },
+        { "value": "30%", "label": "Wiederbuchungen", "desc": "Ein Gast, der die Thermalroute einmal durchläuft, plant den nächsten Besuch vor der Abreise" }
+      ]
+    },
+    "sadu": {
+      "title": "Sadu SPA",
+      "type": "Hotel-Spa-Zone",
+      "status": "Abgeschlossen",
+      "tags": ["Ethnischer Stil", "Spa-Komplex", "Hamam", "Sauna", "Lehmbadestuben"],
+      "quote": "Der ethnische Charakter und natürliche Materialien verwandelten eine technische Einschränkung in einen eigenständigen Designcode.",
+      "description": "Sadu SPA ist eine Spa-Zone im Hotelkeller im authentischen kasachischen Stil. Die Hauptaufgabe war die Schaffung eines komfortablen Raumes trotz begrenzter Fläche und niedriger Decken.",
+      "positioning": "Sadu — ein einzigartiger Spa-Raum, der kasachische Kulturtraditionen mit moderner Technologie verbindet.",
+      "p1": "Die Arbeit im Hotelkeller stellte ungewöhnliche Aufgaben: niedrige Decken, dichte Versorgungsleitungen und begrenzte Fläche. Der kasachische Ethnostil wurde zum Planungsprinzip.",
+      "p2": "Die zwei Lehmbadestuben sind der Hauptakzent des Projekts. Lehm wirkt als natürlicher Wärmespeicher: Wände heizen langsam und geben Wärme lange ab.",
+      "p3": "Der Sadu-Spa ist zur eigenständigen Attraktion des Hotels geworden.",
+      "materials": "Lehm, Holz, Naturstein. Natürliche Materialien im kasachischen Stil.",
+      "buildingTech": "Der Behandlungsbereich ist mit Sangens-Öfen für gleichmäßige Wärmeverteilung ausgestattet.",
+      "energy": "Lehmbadestuben bieten hohe Energieeffizienz durch die natürlichen thermischen Eigenschaften von Lehm.",
+      "ecology": "Die Verwendung natürlicher Materialien — Lehm, Holz und Stein — macht das Projekt umweltfreundlich.",
+      "attractions": [
+        "Gemeinschaftssauna — gemeinsamer Raum für Männer und Frauen",
+        "Privatsaunen — individuelle Kabinen für private Nutzung",
+        "Lehmbadestuben — zwei einzigartige Badestuben mit Lehmverkleidung",
+        "Waschzone — Funktionsraum mit Tauchbad",
+        "Heißes Tauchbad — Eintauchen in heißes Wasser nach Thermalkuren",
+        "Haupthalle — Raum mit großem Kräuterpaneel, das den Hotelnamen 'Sop' symbolisiert"
+      ],
+      "stats": [
+        { "value": "6", "label": "Thermalbereiche", "desc": "Gemeinschafts- und Privatsaunen, Lehmbadestuben, Tauchbäder und Haupthalle" },
+        { "value": "2", "label": "Lehmbadestuben", "desc": "Natürlicher Wärmespeicher — Wände heizen langsam und geben sanften Dampf ab" },
+        { "value": "1", "label": "Ethnisches Konzept", "desc": "Kasachstans erstes Spa im authentischen kasachischen Stil in einem Luxushotel" }
+      ]
+    }
+  }
+}

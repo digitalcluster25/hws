@@ -1,51 +1,49 @@
+import { useTranslation } from 'react-i18next'
 import Button from '../components/ui/Button'
 
 const wrap = { maxWidth: '1344px', margin: '0 auto' }
-const px   = { paddingLeft: 'max(1.5vw, 16px)', paddingRight: 'max(1.5vw, 16px)' }
 
 export default function Contact() {
+  const { t } = useTranslation('labels')
+
   return (
     <main className="min-h-screen tc-dark">
 
-      {/* ── HERO ── */}
       <section className="ct-hero">
         <div className="ct-hero-bg" aria-hidden="true" style={{ backgroundImage: 'url(/contactus.jpg)' }} />
         <div className="ct-hero-overlay" aria-hidden="true" />
         <div className="ct-hero-inner hws-px" style={wrap}>
-          <h1 className="ct-hero-h1">Связаться с нами</h1>
-          <p className="ct-hero-sub">Оставьте заявку — свяжемся в течение 24 часов и предложим предварительную концепцию бесплатно.</p>
+          <h1 className="ct-hero-h1">{t('contact.heroH1')}</h1>
+          <p className="ct-hero-sub">{t('contact.heroSub')}</p>
         </div>
       </section>
 
-      {/* ── INFO ── */}
       <section className="ct-info hws-px">
         <div style={wrap}>
           <div className="ct-info-grid">
 
-            {/* Колонка 1 */}
             <div className="ct-col">
-              <h2 className="ct-col-h">Запросы</h2>
-              <p className="ct-col-label">Телефон / WhatsApp</p>
+              <h2 className="ct-col-h">{t('contact.col1H')}</h2>
+              <p className="ct-col-label">{t('contact.col1label1')}</p>
               <p className="ct-col-val"><a href="tel:+16785209556" className="ct-val-link">+1 (678) 520-9556</a></p>
-              <p className="ct-col-note">Пн–Пт, 9:00–18:00 EST</p>
-              <p className="ct-col-label" style={{ marginTop: '1.75rem' }}>Email</p>
+              <p className="ct-col-note">{t('contact.col1note1')}</p>
+              <p className="ct-col-label" style={{ marginTop: '1.75rem' }}>{t('contact.col1label2')}</p>
               <p className="ct-col-val"><a href="mailto:homewoodspa@gmail.com" className="ct-val-link">homewoodspa@gmail.com</a></p>
-              <p className="ct-col-note">Для проектных запросов</p>
+              <p className="ct-col-note">{t('contact.col1note2')}</p>
             </div>
 
-            {/* Колонка 2 */}
             <div className="ct-col">
-              <h2 className="ct-col-h">Офис</h2>
+              <h2 className="ct-col-h">{t('contact.col2H')}</h2>
               <p className="ct-col-val">1170 Temple Dr<br />Sugar Hill, GA 30518</p>
               <p className="ct-col-note" style={{ marginTop: '0.5rem' }}>
-                Работаем по всему миру:<br />
-                США · Европа · Кавказ · Центральная Азия
+                {t('contact.col2note').split('\n').map((line, i) => (
+                  <span key={i}>{line}{i === 0 && <br />}</span>
+                ))}
               </p>
             </div>
 
-            {/* Колонка 3 */}
             <div className="ct-col">
-              <h2 className="ct-col-h">Мессенджеры</h2>
+              <h2 className="ct-col-h">{t('contact.col3H')}</h2>
               <div className="ct-links">
                 <a href="https://wa.me/16785209556" target="_blank" rel="noopener noreferrer" className="ct-social-link">WhatsApp</a>
                 <a href="mailto:homewoodspa@gmail.com" className="ct-social-link">Email</a>

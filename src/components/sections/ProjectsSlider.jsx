@@ -1,21 +1,25 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { projects as allProjects } from '../../data/projects'
 
 const PROJECTS = allProjects.filter(p => p.featured)
 
-// Паттерн повторяется каждые 5 карточек:
-// [wide, normal] — ряд 1 (2+1 колонки)
-// [normal, normal, normal] — ряд 2 (по 1 колонке)
 function getSpan(i) {
   return (i % 5 === 0) ? 2 : 1
 }
 
 function Card({ p, span }) {
+  const { t } = useTranslation('labels')
+  const { t: tc } = useTranslation('content')
   const [hovered, setHovered] = useState(false)
 
+  const translated = tc(`projects.${p.slug}`, { returnObjects: true }) || {}
+  const title = translated.title || p.title
+  const tags  = translated.tags  || p.tags
+
   const meta = [
-    p.tags?.filter(Boolean).join(', '),
+    tags?.filter(Boolean).join(', '),
     p.loc && p.loc !== '—' ? p.loc : null,
   ].filter(Boolean).join(' · ')
 
@@ -28,14 +32,14 @@ function Card({ p, span }) {
       onMouseLeave={() => setHovered(false)}
     >
       {p.cover
-        ? <img src={p.cover} alt={p.title} className={`pg-img${hovered ? ' pg-img--zoom' : ''}`} draggable={false} />
+        ? <img src={p.cover} alt={title} className={`pg-img${hovered ? ' pg-img--zoom' : ''}`} draggable={false} />
         : <div className="pg-img pg-img--placeholder" aria-hidden="true" />
       }
       <div className="pg-overlay" />
       <div className="pg-meta">
-        <p className="pg-title">{p.title}</p>
+        <p className="pg-title">{title}</p>
         <p className="pg-sub">
-          {hovered ? 'Показать проект ——' : (meta || 'Показать проект ——')}
+          {hovered ? t('project.viewProject') : (meta || t('project.viewProject'))}
         </p>
       </div>
     </Link>

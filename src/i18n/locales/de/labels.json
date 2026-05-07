@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "menu": "MENÜ",
+    "close": "SCHLIESSEN",
+    "company": "Unternehmen",
+    "services": "Leistungen",
+    "contact": "Kontakt"
+  },
+  "why": {
+    "label": "Wie wir arbeiten",
+    "h2bright": "Europäische Handwerkskunst, ",
+    "h2muted": "die erstklassige Wellness-Destinationen schafft.",
+    "text1": "Jedes Projekt beginnt mit einer Aufgabe, die keine vorgefertigte Antwort hat. Lage, Zielgruppe, Budget, das Gefühl, das der Gast mitnehmen soll — wir arbeiten mit allem gleichzeitig.",
+    "text2": "Emily Resort, Taze Bay, SOP Spa im Sadu Hotel — jedes davon hätte einfach gut sein können. Wir haben sie zu Projekten gemacht, über die man spricht.",
+    "ctaBtn": "Alle Leistungen ansehen"
+  },
+  "process": {
+    "badge": "Schlüsselfertig",
+    "h2light": "Vom Konzept ",
+    "h2dark": "bis zur Eröffnung",
+    "lead": "Ein Team in jeder Phase — von der Marktforschung bis zur Eröffnung. Kein Anbieterwechsel, kein Qualitätsverlust.",
+    "stepLabel": "Schritt"
+  },
+  "clients": {
+    "badge": "Kunden",
+    "h2light": "Vertraut von ",
+    "h2dark1": "führenden ",
+    "h2dark2": "Wellness-Marken"
+  },
+  "geography": {
+    "label": "GEOGRAPHIE",
+    "h2line1": "Wellness-Objekte",
+    "h2line2": "weltweit.",
+    "sub": "Internationales Portfolio: Europa, Kaukasus, Zentralasien."
+  },
+  "testimonials": {
+    "label": "REFERENZEN",
+    "h2line1": "Was unsere",
+    "h2line2": "Kunden sagen.",
+    "ariaBack": "Zurück",
+    "ariaNext": "Weiter"
+  },
+  "cta": {
+    "label": "PROJEKTANFRAGEN",
+    "h2": "Wir bauen Ihre Wellness-Anlage von Grund auf bis zur Eröffnung.",
+    "btn": "Termin buchen"
+  },
+  "footer": {
+    "copy": "© 2026 Home Wood Spa. Alle Rechte vorbehalten.",
+    "offer": "Öffentliches Angebot"
+  },
+  "services": {
+    "statement": "Wellness-Anlagen, die den RevPAR steigern, Gäste binden und zur Ankerzone Ihres Resorts werden.",
+    "mainLabel": "Kernleistungen",
+    "mgmtLabel": "Management & Beratung",
+    "ctaLabel": "Projekt starten",
+    "ctaH2": "Sollen wir Ihre Wellness-Anlage besprechen?",
+    "ctaBtn": "Beratung buchen"
+  },
+  "contact": {
+    "heroH1": "Kontakt aufnehmen",
+    "heroSub": "Senden Sie eine Anfrage — wir melden uns innerhalb von 24 Stunden und bieten kostenlos ein Vorkonzept an.",
+    "col1H": "Anfragen",
+    "col1label1": "Telefon / WhatsApp",
+    "col1note1": "Mo–Fr, 9:00–18:00 EST",
+    "col1label2": "E-Mail",
+    "col1note2": "Für Projektanfragen",
+    "col2H": "Büro",
+    "col2note": "Wir arbeiten weltweit:\nUSA · Europa · Kaukasus · Zentralasien",
+    "col3H": "Messenger"
+  },
+  "project": {
+    "notFound": "Projekt nicht gefunden.",
+    "backLink": "← Alle Projekte",
+    "clientLabel": "KUNDE",
+    "periodLabel": "ZEITRAUM",
+    "areaLabel": "FLÄCHE",
+    "locationLabel": "STANDORT",
+    "statusLabel": "STATUS",
+    "durationLabel": "DAUER",
+    "typeLabel": "Objekttyp",
+    "cityLabel": "Stadt",
+    "countryLabel": "Land",
+    "termLabel": "Laufzeit",
+    "step01": "01. KONZEPT",
+    "step02": "02. POSITIONIERUNG",
+    "step03": "03. Ausstattung",
+    "step05tech": "05. TECHNOLOGIEN",
+    "step05result": "05. ERGEBNIS",
+    "thermalZones": "Thermalbereiche",
+    "techMaterials": "Materialien",
+    "techBuildingTech": "Bautechnologien",
+    "techEnergy": "Energieeffizienz",
+    "techEcology": "Ökologie",
+    "nextFull": "Nächstes Projekt",
+    "nextShort": "nächst. Proj.",
+    "ariaBack": "Vorheriges Projekt",
+    "ariaNext": "Nächstes Projekt",
+    "viewProject": "Projekt ansehen ——",
+    "allProjects": "← Alle Projekte",
+    "homeAriaLabel": "Zur Startseite"
+  }
+}

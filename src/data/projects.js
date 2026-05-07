@@ -17,7 +17,7 @@ const elementsPhotos = ph('4elements', Array.from({length:4}, (_,i) => [i+1, 'JP
 const saduPhotos = ph('sadu', Array.from({length:20}, (_,i) => [i+1, 'jpg']))
 
 // vosparenie: 1-16, 18-27 (17 отсутствует, 27 — новый)
-const vospaреniePhotos = ph('vosparenie', [
+const vospareniePhotos = ph('vosparenie', [
   [1,'WEBP'],[2,'JPG'],[3,'WEBP'],[4,'WEBP'],[5,'WEBP'],[6,'WEBP'],[7,'WEBP'],
   [8,'JPG'],[9,'WEBP'],[10,'JPG'],[11,'WEBP'],[12,'WEBP'],[13,'WEBP'],[14,'WEBP'],
   [15,'WEBP'],[16,'WEBP'],
@@ -108,7 +108,7 @@ export const projects = [
     tags: ['Бревенчатое строительство', 'Post and Beam', 'Сауна'],
     featured: true,
     cover: '/cases/vosparenie/cover.jpg',
-    photos: vospaреniePhotos,
+    photos: vospareniePhotos,
     client: 'Отель «Вдох»',
     period: '2021–2023',
     quote: 'Сауна стала достопримечательностью региона — её архитектура и аутентичность привлекают гостей издалека.',
